@@ -10,8 +10,6 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1>Wie sagt man auf Japanisch?</h1>
@@ -31,16 +29,8 @@
             <div class="buttons">
              <g:form>
                 <g:hiddenField name="vocableId" value="${questionInstance?.vocable?.id}" />
-                <span class="button"><g:actionSubmit class="solve" action="solve" value="Solve" /></span>
+                <span class="button"><g:actionSubmit class="edit" action="solve" value="Auflösen" /></span>
              </g:form>
          </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${questionInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
-            </div>
-        </div>
     </body>
 </html>
