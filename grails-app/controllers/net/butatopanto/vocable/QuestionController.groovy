@@ -2,8 +2,6 @@ package net.butatopanto.vocable
 
 class QuestionController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
     def index = {
         redirect(action: "show", params: params)
     }
