@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        <title>Butato Panto</title>
 		<meta name="layout" content="main" />
 		<style type="text/css" media="screen">
 
@@ -85,7 +85,7 @@
 
 		</div>
 		<div id="pageBody">
-	        <h1>Welcome to Grails</h1>
+	        <h1>よこそう!!!</h1>
 	        <p>Congratulations, you have successfully started your first Grails application! At the moment
 	        this is the default page, feel free to modify it to either redirect to a controller or display whatever
 	        content you may choose. Below is a list of controllers that are currently deployed in this application,
