@@ -31,18 +31,7 @@
     </table>
   </div>
   <div class="buttons">
-    <g:javascript>
-      function solveKana() {
-        document.getElementById('kana').style.visibility = 'visible';
-      }
-      function solveKanji() {
-        document.getElementById('kanji').style.visibility = 'visible';
-      }
-      function solve() {
-        solveKana();
-        solveKanji();
-      }
-    </g:javascript>
+    <g:javascript src="question.js"/>
     <g:form>
       <input class="solve" type="button" value="Zeige Kana" onclick='solveKana()'>
       <input class="solve" type="button" value="Zeige Kanji" onclick='solveKanji()'>
