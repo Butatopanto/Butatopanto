@@ -12,6 +12,7 @@ class VocableControllerTests extends ControllerUnitTestCase {
     }
 
     void testSomething() {
+      
 
     }
 }
