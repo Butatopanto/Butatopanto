@@ -9,7 +9,6 @@ class QuestionController {
   }
 
   def show = {
-    def randomVocable = vocableService.getRandomVocable();
-    [vocable: randomVocable]
+    [vocable: vocableService.getRandomVocable()]
   }
 }

@@ -14,6 +14,10 @@ class VocableServiceTests extends GrailsUnitTestCase {
     super.setUp()
   }
 
+  void testReturnsNullForRandomVocableWithoutGivenVocables() {
+     assertNull service.randomVocable
+  }
+
   void testReturnsVocableByRandomIndex() {
     service.vocables = [new Vocable(meaning: "first"), new Vocable(meaning: "second")]
     service.random = mock(Random)

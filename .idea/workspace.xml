@@ -5,8 +5,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devDb.properties" afterPath="$PROJECT_DIR$/devDb.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy" afterPath="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy" />
     </list>
     <ignored path="ButatoPanto.iws" />
     <ignored path="target/" />
@@ -66,7 +67,62 @@
   </component>
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="TestVocableService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/TestVocableService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="38" selection-start="71" selection-end="71" vertical-scroll-proportion="-1.3076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VocableService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="17" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionControllerTests.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/QuestionControllerTests.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="26" selection-start="230" selection-end="230" vertical-scroll-proportion="-4.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionController.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="25" selection-start="190" selection-end="190" vertical-scroll-proportion="-7.1923075">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataSource.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="6" selection-start="474" selection-end="474" vertical-scroll-proportion="0.26183844">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VocableServiceTests.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="24" selection-start="332" selection-end="332" vertical-scroll-proportion="-7.1923075">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -81,16 +137,16 @@
         <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
         <option value="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableTests.groovy" />
         <option value="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableControllerTests.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy" />
         <option value="$PROJECT_DIR$/web-app/js/question.js" />
         <option value="$PROJECT_DIR$/grails-app/views/question/show.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy" />
         <option value="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/TestVocableService.groovy" />
-        <option value="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy" />
         <option value="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/QuestionControllerTests.groovy" />
         <option value="$PROJECT_DIR$/test/unit/net/butatopanto/javascript/Question_Test.html" />
         <option value="$PROJECT_DIR$/test/unit/net/butatopanto/javascript/QuestionJsTest.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+        <option value="$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
       </list>
     </option>
@@ -296,7 +352,7 @@
       <recent name="net.butatopanto.vocable" />
     </key>
   </component>
-  <component name="RunManager" selected="Grails.Grails:ButatoPanto">
+  <component name="RunManager" selected="Grails.Grails:Unit Tests ButatoPanto">
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="" />
       <setting name="vmparams" value="" />
@@ -513,13 +569,14 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3771812" sideWeight="0.987106" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2738255" sideWeight="0.987106" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3189415" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26442954" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -532,7 +589,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32732317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.68238556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24982053" sideWeight="0.6134228" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -549,7 +605,7 @@
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Erster Versuch JavaScript zu testen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vergeigtes Refactoring net -&gt; javascript korrigiert" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -577,6 +633,7 @@
     <MESSAGE value="VocableService refactored" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Erster Versuch JavaScript zu testen" />
+    <MESSAGE value="Vergeigtes Refactoring net -&gt; javascript korrigiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -608,44 +665,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="32" selection-start="258" selection-end="258" vertical-scroll-proportion="-9.153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="322" selection-end="368" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/js/question.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="34" selection-start="148" selection-end="165" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/QuestionControllerTests.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="54" selection-start="130" selection-end="130" vertical-scroll-proportion="-2.6153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/TestVocableService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="19" selection-start="103" selection-end="103" vertical-scroll-proportion="-2.6153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="53" selection-start="182" selection-end="210" vertical-scroll-proportion="-2.6153846">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/javascript/Question_Test.html">
@@ -658,16 +680,51 @@
         <state line="5" column="13" selection-start="149" selection-end="149" vertical-scroll-proportion="0.15178572" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="47" selection-start="288" selection-end="288" vertical-scroll-proportion="0.4973404">
+        <state line="21" column="12" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.9494681">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+    <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/VocableServiceTests.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="12" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.9494681">
+        <state line="14" column="24" selection-start="332" selection-end="332" vertical-scroll-proportion="-7.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/TestVocableService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="38" selection-start="71" selection-end="71" vertical-scroll-proportion="-1.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/net/butatopanto/vocable/VocableService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="17" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/net/butatopanto/vocable/QuestionControllerTests.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="26" selection-start="230" selection-end="230" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/net/butatopanto/vocable/QuestionController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="25" selection-start="190" selection-end="190" vertical-scroll-proportion="-7.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="6" selection-start="474" selection-end="474" vertical-scroll-proportion="0.26183844">
           <folding />
         </state>
       </provider>
