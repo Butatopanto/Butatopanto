@@ -13,8 +13,8 @@ class QuestionControllerTests extends ControllerUnitTestCase {
 
   void testCreatesQuestionFromRandomVocable() {
     controller.vocableService = [getRandomVocable:{new Vocable(meaning: "Hasä")}]
-    def question = controller.show()["questionInstance"]
-    assertEquals "Hasä", question.vocable.meaning 
+    def vocable = controller.show()["vocable"]
+    assertEquals "Hasä", vocable.meaning 
   }
 
   protected void tearDown() {
