@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="nav">
-  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
+  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
   <span class="menuButton"><g:link class="show" action="show"><g:message code="question.next"/></g:link></span>
 </div>
 <h1><g:message code="question.title"/></h1>

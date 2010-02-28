@@ -1,5 +1,6 @@
 package net.butatopanto.vocable
 
 class VocableController {
-    def scaffold = Vocable
+  def description = "Vokabeln verwalten"
+  def scaffold = Vocable
 }

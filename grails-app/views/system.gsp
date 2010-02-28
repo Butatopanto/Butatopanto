@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Butato Panto</title>
+  <title>System Status</title>
   <meta name="layout" content="main"/>
   <style type="text/css" media="screen">
 
@@ -58,17 +58,34 @@
   </style>
 </head>
 <body>
+<div class="nav">
+  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+</div>
 <div id="nav">
   <div class="homePagePanel">
     <div class="panelTop">
+
     </div>
     <div class="panelBody">
+      <h1>Application Status</h1>
       <ul>
-        <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
-        <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
+        <li>App version: <g:meta name="app.version"></g:meta></li>
+        <li>Grails version: <g:meta name="app.grails.version"></g:meta></li>
+        <li>JVM version: ${System.getProperty('java.version')}</li>
+        <li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
+        <li>Domains: ${grailsApplication.domainClasses.size()}</li>
+        <li>Services: ${grailsApplication.serviceClasses.size()}</li>
+        <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
       </ul>
+      <h1>Installed Plugins</h1>
       <ul>
-        <li><a class="home" href="${createLink(uri: '/system.gsp')}"><g:message code="navigation.system"/></a></li>
+        <g:set var="pluginManager"
+          value="${applicationContext.getBean('pluginManager')}"></g:set>
+
+        <g:each var="plugin" in="${pluginManager.allPlugins}">
+          <li>${plugin.name} - ${plugin.version}</li>
+        </g:each>
+
       </ul>
     </div>
     <div class="panelBtm">
@@ -77,13 +94,15 @@
 
 </div>
 <div id="pageBody">
-  <h1>よこそう</h1>
-  
-  <p>Japanisch ist leicht. Japanisch macht Spaß. Sieh selbst!</p>
 
-  <p>Hier kannst Du Deine Vokabeln <g:link controller="vocable">verwalten</g:link> und <g:link controller="question">lernen</g:link>.</P>
-
-  <P>楽しんで&#x3002</p>
+  <div id="controllerList" class="dialog">
+    <h2>Available Controllers:</h2>
+    <ul>
+      <g:each var="c" in="${grailsApplication.controllerClasses}">
+        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+      </g:each>
+    </ul>
+  </div>
 </div>
 </body>
 </html>
