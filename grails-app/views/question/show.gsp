@@ -4,15 +4,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="layout" content="main"/>
   <link rel="stylesheet" href="/css/question.css"/>
-  <g:set var="entityName" value="${message(code: 'question.label', default: 'Question')}"/>
   <title>Wie heißt es auf Japanisch?</title>
 </head>
 <body>
 <div class="nav">
   <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
-  <span class="menuButton"><g:link class="show" action="show">Nächste Frage anzeigen</g:link></span>
+  <span class="menuButton"><g:link class="show" action="show"><g:message code="question.next"/></g:link></span>
 </div>
-<h1>Wie heißt auf Japanisch?</h1>
+<h1><g:message code="question.title"/></h1>
 <p>&nbsp</p>
 <div class="body">
   <div class="dialog">
@@ -33,9 +32,9 @@
   <div class="buttons">
     <g:javascript src="question.js"/>
     <g:form>
-      <input class="solve" type="button" value="Zeige Kana" onclick='solveKana()'>
-      <input class="solve" type="button" value="Zeige Kanji" onclick='solveKanji()'>
-      <input class="solve" type="button" value="Zeige alles" onclick='solve()'>
+      <input class="solve" type="button" value="${message(code: 'question.solveKana')}" onclick='solveKana()'>
+      <input class="solve" type="button" value="${message(code: 'question.solveKanji')}" onclick='solveKanji()'>
+      <input class="solve" type="button" value="${message(code: 'question.solveAll')}" onclick='solve()'>
     </g:form>
   </div>
 </div>
