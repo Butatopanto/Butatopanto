@@ -12,7 +12,7 @@ class QuestionControllerTests extends ControllerUnitTestCase {
   }
 
   void testReturnsRandomVocableForShownQuestion() {
-    def randomVocable = new Vocable(meaning: "Hasä");
+    def randomVocable = new Vocable();
     controller.vocableService = [getRandomVocable:{randomVocable}]
     def vocable = controller.show()["vocable"]
     assertSame vocable, randomVocable
