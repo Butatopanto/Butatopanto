@@ -7,7 +7,7 @@ dataSource {
 hibernate {
     cache.use_second_level_cache=true
     cache.use_query_cache=true
-    cache.provider_class='javascript.sf.ehcache.hibernate.EhCacheProvider'
+    cache.provider_class='net.sf.ehcache.hibernate.EhCacheProvider'
 }
 // environment specific settings
 environments {
@@ -15,8 +15,9 @@ environments {
 		dataSource {
 			//dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			//url = "jdbc:hsqldb:mem:devDB"
-            dbCreate = "update"
-			url = "jdbc:hsqldb:file:devDb;shutdown=true"		}
+      dbCreate = "update"
+      url = "jdbc:hsqldb:file:devDb;shutdown=true"
+		}
 	}
 	test {
 		dataSource {
