@@ -1,17 +1,29 @@
 package net.butatopanto.vocable
 
+import static org.mockito.Mockito.*
 import grails.test.*
+import groovy.mock.interceptor.StubFor
+import org.mockito.Mockito
 
 class VocableServiceTests extends GrailsUnitTestCase {
+
+  TestVocableService service
+
   protected void setUp() {
+    service  = new TestVocableService();
     super.setUp()
   }
 
-  void testSomething() {
-     def service = new VocableService();
+  void testReturnsVocableByRandomIndex() {
+    service.vocables = [new Vocable(meaning: "first"), new Vocable(meaning: "second")]
+    service.random = mock(Random)
+    when(service.random.nextInt(2)).thenReturn(1, 1, 0)
+    assertEquals "second", service.randomVocable.meaning
+    assertEquals "second", service.randomVocable.meaning
+    assertEquals "first", service.randomVocable.meaning
   }
 
-    protected void tearDown() {
-      super.tearDown()
-    }
+  protected void tearDown() {
+    super.tearDown()
+  }
 }
