@@ -80,7 +80,7 @@
       <h1>Installed Plugins</h1>
       <ul>
         <g:set var="pluginManager"
-          value="${applicationContext.getBean('pluginManager')}"></g:set>
+                value="${applicationContext.getBean('pluginManager')}"></g:set>
 
         <g:each var="plugin" in="${pluginManager.allPlugins}">
           <li>${plugin.name} - ${plugin.version}</li>

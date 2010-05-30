@@ -187,7 +187,7 @@ JsUnit.ClassicUiManager.prototype.showMessagesForAllProblemTests = function () {
     this._tryToCloseWindow(this._windowForAllProblemMessages);
 
     var body = '<p>Tests with problems (' + this.problemsListField.length + ' total) - JsUnit<\/p>'
-        + '<p>Running on ' + navigator.userAgent + '</p>';
+            + '<p>Running on ' + navigator.userAgent + '</p>';
 
     for (var i = 0; i < this.problemsListField.length; i++) {
         body += '<p class="jsUnitDefault">';

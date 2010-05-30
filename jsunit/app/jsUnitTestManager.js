@@ -255,7 +255,7 @@ JsUnitTestManager.prototype.doneLoadingPage = function(testPage) {
 JsUnitTestManager.prototype._handleNewSuite = function () {
     var allegedSuite = this.testFrame.suite();
     if (allegedSuite.isJsUnitTestSuite) {
- 		var newSuite = this._cloneTestSuite(allegedSuite);
+        var newSuite = this._cloneTestSuite(allegedSuite);
         if (newSuite.containsTestPages())
             this.addTestSuite(newSuite);
         this._nextPage();
@@ -267,12 +267,12 @@ JsUnitTestManager.prototype._handleNewSuite = function () {
 }
 
 /**
-* This function handles cloning of a jsUnitTestSuite object.  This was added to replace the clone method of the jsUnitTestSuite class due to an IE bug in cross frame scripting. (See also jsunit bug 1522271)
-**/
+ * This function handles cloning of a jsUnitTestSuite object.  This was added to replace the clone method of the jsUnitTestSuite class due to an IE bug in cross frame scripting. (See also jsunit bug 1522271)
+ **/
 JsUnitTestManager.prototype._cloneTestSuite = function(suite) {
-	var clone = new jsUnitTestSuite();
-	clone._testPages = suite._testPages.concat(new Array(0));
-	return clone;
+    var clone = new jsUnitTestSuite();
+    clone._testPages = suite._testPages.concat(new Array(0));
+    return clone;
 }
 
 JsUnitTestManager.prototype._runTest = function () {
@@ -373,7 +373,7 @@ JsUnitTestManager.prototype._done = function () {
     this.setStatus('Done (' + secondsSinceRunBegan + ' seconds)');
 
     // call the suite teardown function, if defined
-    if( typeof top.suiteTearDown === 'function' ) {
+    if (typeof top.suiteTearDown === 'function') {
         top.suiteTearDown();
     }
 
@@ -468,9 +468,9 @@ JsUnitTestManager.prototype.isTestFunction = function(propertyName, obj) {
 
 JsUnitTestManager.prototype.getTestFunctionNames = function () {
     return this.getTestFunctionNamesFromExposedTestFunctionNames(this.testFrame) ||
-        this.getTestFunctionNamesFromFrameProperties(this.testFrame) ||
-        this.getTestFunctionNamesFromRuntimeObject(this.testFrame) ||
-        this.getTestFunctionNamesUsingPlainTextSearch(this.testFrame);
+            this.getTestFunctionNamesFromFrameProperties(this.testFrame) ||
+            this.getTestFunctionNamesFromRuntimeObject(this.testFrame) ||
+            this.getTestFunctionNamesUsingPlainTextSearch(this.testFrame);
 }
 
 JsUnitTestManager.prototype.getTestFunctionNamesFromExposedTestFunctionNames = function (testFrame) {
@@ -516,9 +516,9 @@ JsUnitTestManager.prototype.getTestFunctionNamesUsingPlainTextSearch = function 
     var testFunctionNames = [];
 
     if (testFrame &&
-        testFrame.document &&
-        typeof(testFrame.document.scripts) != 'undefined' &&
-        testFrame.document.scripts.length > 0) { // IE5 and up
+            testFrame.document &&
+            typeof(testFrame.document.scripts) != 'undefined' &&
+            testFrame.document.scripts.length > 0) { // IE5 and up
         var scriptsInTestFrame = testFrame.document.scripts;
 
         for (i = 0; i < scriptsInTestFrame.length; i++) {

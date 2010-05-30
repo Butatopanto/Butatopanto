@@ -1,15 +1,8 @@
-package net.butatopanto.vocable
+package butatopanto.vocable
 
 import grails.test.GrailsUnitTestCase
 
 class VocableIntegrationTests extends GrailsUnitTestCase {
-  protected void setUp() {
-    super.setUp()
-  }
-
-  protected void tearDown() {
-    super.tearDown()
-  }
 
   void testIsValidWithMeaningAndKana() {
     def vocable = new Vocable(meaning: 'my meaning', kana: 'your kana')
@@ -22,9 +15,9 @@ class VocableIntegrationTests extends GrailsUnitTestCase {
     assertTrue vocable.errors.hasFieldErrors('meaning')
   }
 
-    void testKanaMustNotBeBlank() {
-      def vocable = new Vocable(kana: "")
-      vocable.validate()
-      assertTrue vocable.errors.hasFieldErrors('kana')
-    }
+  void testKanaMustNotBeBlank() {
+    def vocable = new Vocable(kana: "")
+    vocable.validate()
+    assertTrue vocable.errors.hasFieldErrors('kana')
+  }
 }

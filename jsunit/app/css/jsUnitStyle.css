@@ -68,23 +68,23 @@ h4 {
 }
 
 .rb0roundbox {
-    background: url( ../images/nt0.gif ) repeat;
+    background: url(../images/nt0.gif) repeat;
 }
 
 .rb0top div {
-    background: url( ../images/tl0.gif ) no-repeat top left;
+    background: url(../images/tl0.gif) no-repeat top left;
 }
 
 .rb0top {
-    background: url( ../images/tr0.gif ) no-repeat top right;
+    background: url(../images/tr0.gif) no-repeat top right;
 }
 
 .rb0bot div {
-    background: url( ../images/bl0.gif ) no-repeat bottom left;
+    background: url(../images/bl0.gif) no-repeat bottom left;
 }
 
 .rb0bot {
-    background: url( ../images/br0.gif ) no-repeat bottom right;
+    background: url(../images/br0.gif) no-repeat bottom right;
 }
 
 .rb0top div, .rb0top, .rb0bot div, .rb0bot {

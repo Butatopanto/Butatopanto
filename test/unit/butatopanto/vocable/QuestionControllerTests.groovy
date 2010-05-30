@@ -1,10 +1,10 @@
-package net.butatopanto.vocable
+package butatopanto.vocable
 
 import grails.test.ControllerUnitTestCase
 
 class QuestionControllerTests extends ControllerUnitTestCase {
 
-   def controller
+  def controller
 
   protected void setUp() {
     super.setUp()
@@ -13,7 +13,7 @@ class QuestionControllerTests extends ControllerUnitTestCase {
 
   void testReturnsRandomVocableForShownQuestion() {
     def randomVocable = new Vocable();
-    controller.vocableService = [getRandomVocable:{randomVocable}]
+    controller.vocableService = [getRandomVocable: {randomVocable}]
     def vocable = controller.show()["vocable"]
     assertSame vocable, randomVocable
   }
