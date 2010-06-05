@@ -14,7 +14,11 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="7411cef4-f4ac-4254-98a9-f2e1e86c6eb7" name="Default" comment="" />
+    <list default="true" readonly="true" id="7411cef4-f4ac-4254-98a9-f2e1e86c6eb7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\Dev\Butatopanto\.idea\libraries\Google_Code_Upload.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/MakeDistribution.groovy" afterPath="$PROJECT_DIR$/scripts/MakeDistribution.groovy" />
+    </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="ButatoPanto.iws" />
     <ignored path="$USER_HOME_GRIFFON$/" />
@@ -84,7 +88,7 @@
       <file leaf-file-name="MakeDistribution.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/MakeDistribution.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="12" selection-start="322" selection-end="322" vertical-scroll-proportion="0.29360968">
+            <state line="17" column="25" selection-start="622" selection-end="622" vertical-scroll-proportion="0.49913645">
               <folding />
             </state>
           </provider>
@@ -890,7 +894,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/MakeDistribution.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="322" selection-end="322" vertical-scroll-proportion="0.29360968">
+        <state line="17" column="25" selection-start="622" selection-end="622" vertical-scroll-proportion="0.49913645">
           <folding />
         </state>
       </provider>

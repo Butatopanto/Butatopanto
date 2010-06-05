@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Google Code Upload">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/ant-googlecode-0.0.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
