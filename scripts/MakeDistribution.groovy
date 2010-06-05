@@ -7,7 +7,7 @@ target(main: "Builds a war file and publishes it") {
   uploadToGoogleCode()
 }
 
-target(uploadToGoogleCode:"Takes the war file and publishes it on the Google page") {
+target(uploadToGoogleCode: "Takes the war file and publishes it on the Google page") {
   def console = System.console();
   def username = console.readLine("Username? ")
   def password = console.readLine("Password? ")

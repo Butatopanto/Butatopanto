@@ -14,10 +14,7 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="7411cef4-f4ac-4254-98a9-f2e1e86c6eb7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/MakeDistribution.groovy" afterPath="$PROJECT_DIR$/scripts/MakeDistribution.groovy" />
-    </list>
+    <list default="true" readonly="true" id="7411cef4-f4ac-4254-98a9-f2e1e86c6eb7" name="Default" comment="" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="ButatoPanto.iws" />
     <ignored path="$USER_HOME_GRIFFON$/" />
@@ -87,7 +84,7 @@
       <file leaf-file-name="MakeDistribution.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/MakeDistribution.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.23488773">
+            <state line="10" column="12" selection-start="322" selection-end="322" vertical-scroll-proportion="0.29360968">
               <folding />
             </state>
           </provider>
@@ -729,7 +726,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup im Script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sauberer Code im Skript" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -765,6 +762,7 @@
     <MESSAGE value="Studylists eingeführt, aber nicht verwendet" />
     <MESSAGE value="Upload-Script und Bibliotheken dafür" />
     <MESSAGE value="Cleanup im Script" />
+    <MESSAGE value="Sauberer Code im Skript" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -892,7 +890,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/MakeDistribution.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.23488773">
+        <state line="10" column="12" selection-start="322" selection-end="322" vertical-scroll-proportion="0.29360968">
           <folding />
         </state>
       </provider>
