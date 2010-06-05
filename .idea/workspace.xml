@@ -17,7 +17,6 @@
     <list default="true" readonly="true" id="7411cef4-f4ac-4254-98a9-f2e1e86c6eb7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/MakeDistribution.groovy" afterPath="$PROJECT_DIR$/scripts/MakeDistribution.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="ButatoPanto.iws" />
@@ -88,7 +87,7 @@
       <file leaf-file-name="MakeDistribution.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/MakeDistribution.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="1" selection-start="496" selection-end="496" vertical-scroll-proportion="0.38169256">
+            <state line="8" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.23488773">
               <folding />
             </state>
           </provider>
@@ -341,7 +340,7 @@
       <recent name="butatopanto.vocable" />
     </key>
   </component>
-  <component name="RunManager" selected="Grails.Distribution">
+  <component name="RunManager" selected="Grails.Integration Tests">
     <configuration default="false" name="All in ButatoPanto" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" />
       <extension name="snapshooter" />
@@ -617,24 +616,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="Distribution" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="ButatoPanto" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="make-distribution" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="launchBrowser" value="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <list size="7">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Grails.ButatoPanto" />
       <item index="1" class="java.lang.String" itemvalue="Grails.All Unit Tests" />
       <item index="2" class="java.lang.String" itemvalue="Grails.Integration Tests" />
-      <item index="3" class="java.lang.String" itemvalue="Grails.Distribution" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in ButatoPanto" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.StudylistIntegrationTests" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.StudylistTests" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in ButatoPanto" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.StudylistIntegrationTests" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.StudylistTests" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -741,7 +729,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload-Script und Bibliotheken dafür" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup im Script" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -776,6 +764,7 @@
     <MESSAGE value="Packages ohne &quot;net.&quot;&#10;Studylist-Controller angelegt." />
     <MESSAGE value="Studylists eingeführt, aber nicht verwendet" />
     <MESSAGE value="Upload-Script und Bibliotheken dafür" />
+    <MESSAGE value="Cleanup im Script" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -819,16 +808,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/butatopanto/vocable/VocableController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="35" selection-end="35" vertical-scroll-proportion="-1.3076923" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/system.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.4787097" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -897,9 +876,23 @@
         <state line="47" column="47" selection-start="1888" selection-end="1888" vertical-scroll-proportion="0.7927461" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="2" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/MakeDistribution.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="1" selection-start="496" selection-end="496" vertical-scroll-proportion="0.38169256">
+        <state line="8" column="31" selection-start="222" selection-end="222" vertical-scroll-proportion="0.23488773">
           <folding />
         </state>
       </provider>
