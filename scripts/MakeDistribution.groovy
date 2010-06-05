@@ -16,7 +16,13 @@ target(uploadToGoogleCode: "Takes the war file and publishes it on the Google pa
   def sourcefile = "target\\" + filename
   def targetfile = filename
   taskdef(name: "upload", classname: "net.bluecow.googlecode.ant.GoogleCodeUploadTask")
-  upload(username: username, password: password, projectname: "butatopanto", summary: summary, filename: sourcefile, targetfilename: targetfile, labels: "OpSys-All")
+  upload(username: username,
+          password: password,
+          projectname: "butatopanto",
+          summary: summary,
+          filename: sourcefile,
+          targetfilename: targetfile,
+          labels: "OpSys-All")
 }
 
 private def createFilename() {
