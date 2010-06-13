@@ -6,16 +6,22 @@ class VocableService {
   def random = new Random();
 
   def getRandomVocable() {
-    def allVocables = allVocables()
-    def vocableCount = allVocables.size()
+    def allVocables = Vocable.list()
+    getRandomVocableFromSelection(allVocables)
+  }
+
+  def getRandomVocable(def studylist) {
+    def vocablesFromList = studylist.vocables
+    getRandomVocableFromSelection(vocablesFromList)
+  }
+
+  private def getRandomVocableFromSelection(def vocableSelection) {
+    def vocableCount = vocableSelection.size()
     if (vocableCount == 0) {
       return null
     }
     def randomVocableIndex = random.nextInt(vocableCount)
-    allVocables[randomVocableIndex]
-  }
-
-  def allVocables() {
-    Vocable.list()
+    def vocableList = vocableSelection as List
+    vocableList[randomVocableIndex]
   }
 }

@@ -4,21 +4,20 @@ import grails.test.ControllerUnitTestCase
 
 class QuestionControllerTests extends ControllerUnitTestCase {
 
-  def controller
-
-  protected void setUp() {
-    super.setUp()
-    controller = new QuestionController()
-  }
-
   void testReturnsRandomVocableForShownQuestion() {
-    def randomVocable = new Vocable();
-    controller.vocableService = [getRandomVocable: {randomVocable}]
+    def randomVocable = new Vocable()
+    this.controller.vocableService = [getRandomVocable: {randomVocable}]
     def vocable = controller.show()["vocable"]
     assertSame vocable, randomVocable
   }
 
-  protected void tearDown() {
-    super.tearDown()
+  void testReturnsVocableFromListWhenShowingQuestion() {
+    def listVocable = new Vocable(meaning:'meaning', kana:"kana")
+    mockDomain Vocable, [listVocable, new Vocable(meaning:"inListe", kana:"listenKana")]
+    mockDomain Studylist, [new Studylist(name: 'Testliste', vocables:[listVocable])]
+    this.controller.params.id = 'Testliste'
+    controller.vocableService = [getRandomVocable: {list -> list.vocables.iterator().next() }]
+    def vocable = controller.showFromList()["vocable"]
+    assertSame vocable, listVocable
   }
 }

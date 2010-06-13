@@ -5,19 +5,20 @@ import grails.test.*
 
 class VocableServiceTests extends GrailsUnitTestCase {
 
-  TestVocableService service
+  VocableService service
 
   protected void setUp() {
-    service = new TestVocableService();
+    service = new VocableService();
     super.setUp()
   }
 
   void testReturnsNullForRandomVocableWithoutGivenVocables() {
+    mockDomain Vocable
     assertNull service.randomVocable
   }
 
   void testReturnsVocableByRandomIndex() {
-    service.vocables = [new Vocable(meaning: "first"), new Vocable(meaning: "second")]
+    mockDomain Vocable, [new Vocable(meaning: "first"), new Vocable(meaning: "second")]
     service.random = mock(Random)
     when(service.random.nextInt(2)).thenReturn(1, 1, 0)
     assertEquals "second", service.randomVocable.meaning
@@ -25,7 +26,11 @@ class VocableServiceTests extends GrailsUnitTestCase {
     assertEquals "first", service.randomVocable.meaning
   }
 
-  protected void tearDown() {
-    super.tearDown()
+  void testReturnsVocableFromList() {
+    def list = new Studylist(vocables: [new Vocable(meaning: "onList")])
+    mockDomain Studylist, [list]
+    service.random = mock(Random)
+    when(service.random.nextInt(1)).thenReturn(0)
+    assertEquals "onList", service.getRandomVocable(list).meaning
   }
 }
