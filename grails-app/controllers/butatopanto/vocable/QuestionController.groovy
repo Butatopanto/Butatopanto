@@ -9,12 +9,12 @@ class QuestionController {
   }
 
   def show = {
-    [vocable: vocableService.getRandomVocable()]
-  }
-
-  def showFromList = {
-    def studylist = Studylist.findByName(params.id)
-    def model = [vocable: vocableService.getRandomVocable(studylist)]
-    render(view: "show", model: model)
+    if (params.id) {
+      def studylist = Studylist.findByName(params.id)
+      [vocable: vocableService.getRandomVocable(studylist)]
+    }
+    else {
+      [vocable: vocableService.getRandomVocable()]
+    }
   }
 }

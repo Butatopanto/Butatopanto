@@ -11,13 +11,13 @@ class QuestionControllerTests extends ControllerUnitTestCase {
     assertSame vocable, randomVocable
   }
 
-  void testReturnsVocableFromListWhenShowingQuestion() {
+  void testReturnsRandomVocableForShownQuestionWithList() {
     def listVocable = new Vocable(meaning:'meaning', kana:"kana")
     mockDomain Vocable, [listVocable, new Vocable(meaning:"inListe", kana:"listenKana")]
     mockDomain Studylist, [new Studylist(name: 'Testliste', vocables:[listVocable])]
     this.controller.params.id = 'Testliste'
     controller.vocableService = [getRandomVocable: {list -> list.vocables.iterator().next() }]
-    def vocable = controller.showFromList()["vocable"]
+    def vocable = controller.show()["vocable"]
     assertSame vocable, listVocable
   }
 }
