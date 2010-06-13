@@ -9,4 +9,8 @@ class Studylist {
   }
   
   static hasMany = [vocables: Vocable]
+
+  String toString(){
+    name
+  }
 }

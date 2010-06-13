@@ -4,14 +4,18 @@ import grails.test.*
 
 class StudylistTests extends GrailsUnitTestCase {
 
-  public void testNameMustNotBeBlank() {
+  void testNameMustNotBeBlank() {
     mockForConstraintsTests(Studylist)
     def noNameList = new Studylist()
     noNameList.validate()
     assertEquals "nullable", noNameList.errors['name']
   }
 
-  public void testHasNoVocable() {
+  void testHasNoVocable() {
     assertNull new Studylist().vocables
+  }
+
+  void testHasNameAsStringRepresentation() {
+    assertEquals 'Liste', new Studylist(name: "Liste").toString()
   }
 }
