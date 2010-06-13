@@ -65,6 +65,7 @@
     <div class="panelBody">
       <ul>
         <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
+        <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
         <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
       </ul>
       <ul>
