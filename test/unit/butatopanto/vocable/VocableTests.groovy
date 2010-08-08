@@ -23,8 +23,4 @@ class VocableTests extends GrailsUnitTestCase {
   void testVocableWithKanaOnlyIsNotValid() {
     assertFalse new Vocable(kana: "??").validate();
   }
-
-  protected void tearDown() {
-    super.tearDown()
-  }
 }
