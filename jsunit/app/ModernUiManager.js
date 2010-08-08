@@ -1,7 +1,7 @@
 Function.prototype.bind = function() {
     var __method = this, args = Array.prototype.slice.call(arguments, 1), object = arguments[0];
     return function() {
-        return __method.apply(object, args.concat(Array.prototype.slice.call(arguments)));
+      return __method.apply(object, args.concat(Array.prototype.slice.call(arguments)));
     }
 }
 
@@ -153,7 +153,7 @@ Object.extend(JsUnit.ModernUiManager.prototype, {
     updateProgressIndicators: function (totalCount, errorCount, failureCount, progressBarProportion) {
         this._setTextNode(this._runCountTextNode, totalCount);
         this._setTextNode(this._errorCountTextNode, errorCount);
-        this._setTextNode(this._failureCountTextNode, failureCount);
+        this._setTextNode(this._failureCountTextNode,  failureCount);
         this._setProgressBarWidth(300 * progressBarProportion);
 
         if (errorCount > 0 || failureCount > 0)
@@ -161,7 +161,7 @@ Object.extend(JsUnit.ModernUiManager.prototype, {
         else
             this._setProgressBarImage('../images/green.gif');
 
-        //        this._setTextNode(this._elapsedTimeTextNode, this.elapsedTime());
+//        this._setTextNode(this._elapsedTimeTextNode, this.elapsedTime());
     },
 
     learnedOfTestPage: function(testPage) {
@@ -258,7 +258,7 @@ Object.extend(JsUnit.ModernUiManager.prototype, {
             div.attachEvent('on' + "click", onClick);
         }
 
-        //        div.addNode(document.createTextNode(theTest.getFunctionName()));
+//        div.addNode(document.createTextNode(theTest.getFunctionName()));
         div.innerHTML = name;
         return div;
     },

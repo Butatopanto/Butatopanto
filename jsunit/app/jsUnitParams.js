@@ -89,12 +89,12 @@ JsUnit.Params.prototype.constructTestParams = function() {
         var value = this.hash[p];
 
         if (!value ||
-                p == 'testpage' ||
-                p == 'autorun' ||
-                p == 'submitresults' ||
-                p == 'showtestframe' ||
-                p == 'browserid' ||
-                p == 'resultid') {
+            p == 'testpage' ||
+            p == 'autorun' ||
+            p == 'submitresults' ||
+            p == 'showtestframe' ||
+            p == 'browserid' ||
+            p == 'resultid') {
             continue;
         }
 

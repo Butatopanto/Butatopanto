@@ -30,23 +30,17 @@ var isTestPageLoaded = false;
 /**
  * Predicate used for testing JavaScript == (i.e. equality excluding type)
  */
-JsUnit.DOUBLE_EQUALITY_PREDICATE = function(var1, var2) {
-    return var1 == var2;
-};
+JsUnit.DOUBLE_EQUALITY_PREDICATE = function(var1, var2) {return var1 == var2;};
 
 /**
  * Predicate used for testing JavaScript === (i.e. equality including type)
  */
-JsUnit.TRIPLE_EQUALITY_PREDICATE = function(var1, var2) {
-    return var1 === var2;
-};
+JsUnit.TRIPLE_EQUALITY_PREDICATE = function(var1, var2) {return var1 === var2;};
 
 /**
  * Predicate used for testing whether two obects' toStrings are equal
  */
-JsUnit.TO_STRING_EQUALITY_PREDICATE = function(var1, var2) {
-    return var1.toString() === var2.toString();
-};
+JsUnit.TO_STRING_EQUALITY_PREDICATE = function(var1, var2) {return var1.toString() === var2.toString();};
 
 /**
  * Hash of predicates for testing equality by primitive type
@@ -170,8 +164,8 @@ JsUnit._commentArg = function(expectedNumberOfNonCommentArgs, args) {
  */
 JsUnit._nonCommentArg = function(desiredNonCommentArgIndex, expectedNumberOfNonCommentArgs, args) {
     return JsUnit._argumentsIncludeComments(expectedNumberOfNonCommentArgs, args) ?
-            args[desiredNonCommentArgIndex] :
-            args[desiredNonCommentArgIndex - 1];
+           args[desiredNonCommentArgIndex] :
+           args[desiredNonCommentArgIndex - 1];
 }
 
 /**
@@ -179,7 +173,7 @@ JsUnit._nonCommentArg = function(desiredNonCommentArgIndex, expectedNumberOfNonC
  */
 JsUnit._validateArguments = function(expectedNumberOfNonCommentArgs, args) {
     if (!( args.length == expectedNumberOfNonCommentArgs ||
-            (args.length == expectedNumberOfNonCommentArgs + 1 && (typeof(args[0]) == 'string') || args[0] == null)))
+           (args.length == expectedNumberOfNonCommentArgs + 1 && (typeof(args[0]) == 'string') || args[0] == null)))
         throw new JsUnit.AssertionArgumentError('Incorrect arguments passed to assert function');
 }
 
@@ -488,9 +482,9 @@ function assertHashEquals() {
     for (var key in var1) {
         assertNotUndefined("Expected hash had key " + key + " that was not found", var2[key]);
         assertEquals(
-                "Value for key " + key + " mismatch - expected = " + var1[key] + ", actual = " + var2[key],
-                var1[key], var2[key]
-                );
+            "Value for key " + key + " mismatch - expected = " + var1[key] + ", actual = " + var2[key],
+            var1[key], var2[key]
+        );
     }
     for (var key in var2) {
         assertNotUndefined("Actual hash had key " + key + " that was not expected", var1[key]);
@@ -512,9 +506,9 @@ function assertRoughlyEquals() {
     var actual = JsUnit._nonCommentArg(2, 3, arguments);
     var tolerance = JsUnit._nonCommentArg(3, 3, arguments);
     assertTrue(
-            "Expected " + expected + ", but got " + actual + " which was more than " + tolerance + " away",
-            Math.abs(expected - actual) < tolerance
-            );
+        "Expected " + expected + ", but got " + actual + " which was more than " + tolerance + " away",
+        Math.abs(expected - actual) < tolerance
+    );
 }
 
 /**
@@ -530,9 +524,9 @@ function assertContains() {
     var value = JsUnit._nonCommentArg(1, 2, arguments);
     var collection = JsUnit._nonCommentArg(2, 2, arguments);
     assertTrue(
-            "Expected '" + collection + "' to contain '" + value + "'",
-            collection.indexOf(value) != -1
-            );
+        "Expected '" + collection + "' to contain '" + value + "'",
+        collection.indexOf(value) != -1
+    );
 }
 
 /**
@@ -871,7 +865,7 @@ JsUnit.Util.pop = function pop(anArray) {
 JsUnit.Util.getFunctionName = function(aFunction) {
     var regexpResult = aFunction.toString().match(/function(\s*)(\w*)/);
     if (regexpResult && regexpResult.length >= 2 && regexpResult[2]) {
-        return regexpResult[2];
+            return regexpResult[2];
     }
     return 'anonymous';
 }
@@ -975,8 +969,7 @@ JsUnit.Util.getKeys = function(obj) {
 }
 
 JsUnit.Util.inherit = function(superclass, subclass) {
-    var x = function() {
-    };
+    var x = function() {};
     x.prototype = superclass.prototype;
     subclass.prototype = new x();
 }

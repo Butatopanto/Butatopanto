@@ -23,9 +23,9 @@ JsUnit.BaseUiManager.prototype.problemDetailMessageFor = function (excep) {
     else {
         var result = 'Error message is:\n"';
         result +=
-                (typeof(excep.description) == 'undefined') ?
-                        excep :
-                        excep.description;
+            (typeof(excep.description) == 'undefined') ?
+                excep :
+                excep.description;
         result += '"';
 
         if (typeof(excep.stack) != 'undefined') // Mozilla only
