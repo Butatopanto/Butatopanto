@@ -2,5 +2,13 @@ package butatopanto.kanji
 
 class HeisigTrainingController {
 
-    def index = { }
+  def kanjiService
+
+  def index = {
+    redirect(action: "show", params: params)
+  }
+
+  def show = {
+    [kanji: kanjiService.getRandomKanji()]
+  }
 }

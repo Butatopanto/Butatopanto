@@ -3,15 +3,15 @@ package butatopanto.kanji
 import grails.test.*
 
 class HeisigTrainingControllerTests extends ControllerUnitTestCase {
-    protected void setUp() {
-        super.setUp()
-    }
+   void testReturnsRandomKanjiForShownQuestion() {
+    def randomKanji = new Kanji()
+    controller.kanjiService = [getRandomKanji: {randomKanji}]
+    def kanji = controller.show()["kanji"]
+    assertSame randomKanji, kanji
+  }
 
-    protected void tearDown() {
-        super.tearDown()
-    }
-
-    void testSomething() {
-
-    }
+  void testRedirectsIndexToShow(){
+    controller.index()
+    assertEquals 'show', controller.redirectArgs.action
+  }
 }

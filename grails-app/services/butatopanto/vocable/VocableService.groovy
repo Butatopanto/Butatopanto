@@ -16,10 +16,10 @@ class VocableService {
   }
 
   private def getRandomVocableFromSelection(def vocableSelection) {
-    def vocableCount = vocableSelection.size()
-    if (vocableCount == 0) {
+    if (!vocableSelection) {
       return null
     }
+    def vocableCount = vocableSelection.size()
     def randomVocableIndex = random.nextInt(vocableCount)
     def vocableList = vocableSelection as List
     vocableList[randomVocableIndex]
