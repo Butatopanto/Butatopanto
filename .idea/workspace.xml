@@ -87,7 +87,16 @@
       <file leaf-file-name="show.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/heisigTraining/show.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="2" selection-start="223" selection-end="223" vertical-scroll-proportion="1.9411764">
+            <state line="24" column="97" selection-start="993" selection-end="993" vertical-scroll-proportion="-8.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="question.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/js/question.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="92" selection-end="184" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -96,7 +105,7 @@
       <file leaf-file-name="heisigTraining.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-app/js/heisigTraining.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="6" column="23" selection-start="219" selection-end="219" vertical-scroll-proportion="0.124542125">
               <folding />
             </state>
           </provider>
@@ -130,8 +139,8 @@
         <option value="$PROJECT_DIR$/grails-app/views/question/show.gsp" />
         <option value="$PROJECT_DIR$/jsunit/app/testContainer.html" />
         <option value="$PROJECT_DIR$/grails-app/i18n/messages_de.properties" />
-        <option value="$PROJECT_DIR$/web-app/js/heisigTraining.js" />
         <option value="$PROJECT_DIR$/grails-app/views/heisigTraining/show.gsp" />
+        <option value="$PROJECT_DIR$/web-app/js/heisigTraining.js" />
       </list>
     </option>
   </component>
@@ -782,7 +791,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="1" y="1" width="1278" height="982" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46766743" sideWeight="0.987106" order="7" side_tool="false" content_ui="tabs" x="34" y="376" width="1212" height="231" />
@@ -791,9 +800,9 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3189415" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32678983" sideWeight="0.0" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32678983" sideWeight="0.0" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24634147" sideWeight="0.66512704" order="2" side_tool="false" content_ui="tabs" x="439" y="187" width="402" height="610" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.66512704" order="2" side_tool="false" content_ui="tabs" x="439" y="187" width="402" height="610" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26212472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -928,37 +937,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/js/question.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="92" selection-end="184" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/butatopanto/javascript/Question_Test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jsunit/app/testContainer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jsunit/testRunner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jsunit/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="54" selection-start="485" selection-end="488" vertical-scroll-proportion="0.20310633">
           <folding />
         </state>
       </provider>
@@ -1011,16 +992,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/js/question.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="92" selection-end="184" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/heisigTraining/show.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="2" selection-start="223" selection-end="223" vertical-scroll-proportion="1.9411764">
+        <state line="24" column="97" selection-start="993" selection-end="993" vertical-scroll-proportion="-8.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/js/heisigTraining.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="6" column="23" selection-start="219" selection-end="219" vertical-scroll-proportion="0.124542125">
           <folding />
         </state>
       </provider>
