@@ -64,10 +64,14 @@
     </div>
     <div class="panelBody">
       <ul>
-        <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
-        <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
         <li class="controller"><g:link controller="frame" action="train"><g:message code="navigation.frameTraining"/></g:link></li>
         <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
+      </ul>
+      <ul>
+        <li class="controller"><g:link controller="kanji"><g:message code="navigation.kanjiManagement"/></g:link></li>
+        <li class="controller"><g:link controller="frame"><g:message code="navigation.frameManagement"/></g:link></li>
+        <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
+        <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
       </ul>
       <ul>
         <li><a class="home" href="${createLink(uri: '/system.gsp')}"><g:message code="navigation.system"/></a></li>
