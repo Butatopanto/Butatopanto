@@ -300,3 +300,9 @@ th.desc a {
 .buttons input.solve {
     background: transparent;
 }
+
+.menuButton a.learn {
+    background: url(../images/skin/questionmark.gif) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}

@@ -11,7 +11,7 @@
 <body>
 <div class="nav">
   <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-  <span class="menuButton"><g:link class="show" action="train" id="${params.id}"><g:message code="question.next"/></g:link></span>
+  <span class="menuButton"><g:link class="learn" action="train" id="${params.id}"><g:message code="question.next"/></g:link></span>
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
