@@ -2,9 +2,6 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$USER_HOME_GRAILS$/1.3.4/projects/ButatoPanto/plugins/dojo-1.3.0">
-      <sourceFolder url="file://$USER_HOME_GRAILS$/1.3.4/projects/ButatoPanto/plugins/dojo-1.3.0/src/groovy" isTestSource="false" />
-    </content>
     <content url="file://$USER_HOME_GRAILS$/1.3.4/projects/ButatoPanto/plugins/hibernate-1.3.4" />
     <content url="file://$USER_HOME_GRAILS$/1.3.4/projects/ButatoPanto/plugins/tomcat-1.3.4">
       <sourceFolder url="file://$USER_HOME_GRAILS$/1.3.4/projects/ButatoPanto/plugins/tomcat-1.3.4/src/groovy" isTestSource="false" />
