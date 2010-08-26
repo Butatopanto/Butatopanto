@@ -16,11 +16,7 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7411cef4-f4ac-4254-98a9-f2e1e86c6eb7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devDb.properties" afterPath="$PROJECT_DIR$/devDb.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devDb.log" afterPath="$PROJECT_DIR$/devDb.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/frame/train.gsp" afterPath="$PROJECT_DIR$/grails-app/views/frame/train.gsp" />
-      <change type="DELETED" beforePath="C:\Dev\ButatoPanto\web-app\css\main.css.orig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/css/main.css" afterPath="$PROJECT_DIR$/web-app/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/question/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/question/show.gsp" />
     </list>
     <ignored path="$USER_HOME_GRAILS$/" />
     <ignored path="$USER_HOME_GRIFFON$/" />
@@ -91,19 +87,28 @@
       <file leaf-file-name="train.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/frame/train.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="47" selection-start="534" selection-end="534" vertical-scroll-proportion="-2.3333333">
+            <state line="17" column="47" selection-start="698" selection-end="698" vertical-scroll-proportion="-3.6666667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages_de.properties" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.gsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/question/show.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="47" selection-start="474" selection-end="474" vertical-scroll-proportion="0.41648108">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages_de.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages_de.properties">
           <provider editor-type-id="ResourceBundle">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="27" selection-start="4005" selection-end="4005" vertical-scroll-proportion="0.5168739">
+            <state line="65" column="27" selection-start="4005" selection-end="4005" vertical-scroll-proportion="-14.75">
               <folding />
             </state>
           </provider>
@@ -116,15 +121,6 @@
           </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state line="2" column="6" selection-start="33" selection-end="33" vertical-scroll-proportion="-0.73913044">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/kanji/create.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="58" selection-start="594" selection-end="608" vertical-scroll-proportion="-4.3333335">
               <folding />
             </state>
           </provider>
@@ -153,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application.properties" />
         <option value="$PROJECT_DIR$/grails-app/domain/butatopanto/kanji/Frame.groovy" />
         <option value="$PROJECT_DIR$/test/unit/butatopanto/kanji/FrameTests.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/butatopanto/kanji/Kanji.groovy" />
@@ -169,6 +164,7 @@
         <option value="$PROJECT_DIR$/web-app/css/main.css" />
         <option value="$PROJECT_DIR$/grails-app/views/frame/train.gsp" />
         <option value="$PROJECT_DIR$/grails-app/i18n/messages_de.properties" />
+        <option value="$PROJECT_DIR$/grails-app/views/question/show.gsp" />
       </list>
     </option>
   </component>
@@ -764,14 +760,14 @@
     <frame x="1" y="1" width="1438" height="858" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14779006" sideWeight="0.987106" order="7" side_tool="false" content_ui="tabs" x="34" y="376" width="1212" height="231" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26243094" sideWeight="0.987106" order="7" side_tool="false" content_ui="tabs" x="34" y="376" width="1212" height="231" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3189415" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22237569" sideWeight="0.0" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24727273" sideWeight="0.84254146" order="4" side_tool="false" content_ui="tabs" x="439" y="187" width="402" height="610" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24727273" sideWeight="0.72790056" order="4" side_tool="false" content_ui="tabs" x="439" y="187" width="402" height="610" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26212472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32794458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -805,7 +801,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Indexseite um vorhandene Funktionen ergänzt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Icon für die nächste Frage" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -818,7 +814,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="queston.qs herausgezogen" />
     <MESSAGE value="VocableService refactored" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Erster Versuch JavaScript zu testen" />
@@ -843,6 +838,7 @@
     <MESSAGE value="Umstellung von Kanji auf Frame (mit number)" />
     <MESSAGE value="Number des Frames jetzt auch im View" />
     <MESSAGE value="Indexseite um vorhandene Funktionen ergänzt" />
+    <MESSAGE value="Icon für die nächste Frage" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -965,23 +961,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/kanji/create.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="58" selection-start="594" selection-end="608" vertical-scroll-proportion="-4.3333335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="303" column="19" selection-start="5036" selection-end="5041" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/frame/train.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="47" selection-start="534" selection-end="534" vertical-scroll-proportion="-2.3333333">
           <folding />
         </state>
       </provider>
@@ -991,7 +973,21 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="27" selection-start="4005" selection-end="4005" vertical-scroll-proportion="0.5168739">
+        <state line="65" column="27" selection-start="4005" selection-end="4005" vertical-scroll-proportion="-14.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/frame/train.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="47" selection-start="698" selection-end="698" vertical-scroll-proportion="-3.6666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/question/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="47" selection-start="474" selection-end="474" vertical-scroll-proportion="0.41648108">
           <folding />
         </state>
       </provider>
