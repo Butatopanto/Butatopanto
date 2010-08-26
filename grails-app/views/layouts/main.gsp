@@ -10,10 +10,12 @@
 <div id="spinner" class="spinner" style="display:none;">
   <img src="${resource(dir: 'images', file: 'spinner.gif')}" alt="Spinner"/>
 </div>
-<table style="border:none"><tr>
-  <td width="160px"><a href="http://code.google.com/p/butatopanto/"><img src="${resource(dir: 'images', file: 'buta_icon_large.png')}" alt="ButatoPanto" border="0"/></a></td>
-  <td style="vertical-align: middle; font-size:40px">豚と パンと</td>
-</tr></table>
+<table style="border:none">
+  <tr>
+    <td width="60px"><a href="http://code.google.com/p/butatopanto/"><img src="${resource(dir: 'images', file: 'logoSmall.png')}" alt="ButatoPanto" border="0"/></a></td>
+    <td style="vertical-align: middle; font-size:30px">豚とパンと</td>
+  </tr>
+</table>
 <g:layoutBody/>
 </body>
 </html>

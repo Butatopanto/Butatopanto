@@ -16,18 +16,21 @@
 <p>&nbsp</p>
 <div class="body">
   <div class="dialog">
-    <table>
-      <tbody>
-      <tr class="prop">
-        <td valign="top" class="name" style="text-align:center; font-size:20"><h3>${kanji?.meaning}</h3></td>
-      </tr>
-      <tr class="prop">
-        <td valign="top" class="value" style="padding-top:20px; text-align:center; font-size:70">
-          <button type="button" class="solve" id='character' style="width:100px; height:100px; font-size:70px" onclick='reveal("${kanji.character}")'>?</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+    <p><div style='width:600px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
+      <div style='width:270px; height:390px ;position:relative; top:50px; background-color:white;valign:middle' align="center" onclick='reveal("${kanji.character}")'>
+        <table height="100%">
+          <tr height="10%">
+            <td style="text-align: left; font-size:20px">${kanji?.meaning}</td>
+          </tr>
+          <tr>
+            <td id="character" height="100%" style="text-align: center; vertical-align:middle; font-size:100px">?</td>
+          </tr>
+        </table>
+      </div>
+      <div style='width:270px; height:50px; font-size: 11px; position:relative; top:50px; top-padding: 10px; background-color:white; valign:middle' align="center">
+        <p style="valign:middle; top-padding: 10px; position:relative; top:5px"><g:message code="heisigTraining.revealMessage"/></p>
+      </div>
+    </div></p>
   </div>
 </div>
 </body>
