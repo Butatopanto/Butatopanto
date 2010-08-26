@@ -9,4 +9,8 @@ class Kanji {
     character(blank: false, unique: true, maxSize: 1)
     meaning(blank: false, unique: true)
   }
+
+  String toString() {
+      character
+  }
 }
