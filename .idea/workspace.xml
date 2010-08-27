@@ -87,21 +87,16 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="train.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/frame/train.gsp">
+      <file leaf-file-name="VocableIntegrationTests.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/integration/butatopanto/vocable/VocableIntegrationTests.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="37" selection-start="291" selection-end="291" vertical-scroll-proportion="-2.3333333">
               <folding>
                 <marker date="1282939473036" expanded="true" signature="338:437" placeholder="&lt;xml/&gt;" />
                 <marker date="1282939473036" expanded="true" signature="345:437" placeholder="&lt;xml/&gt;" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="HeisigTagLib.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/taglib/butatopanto/HeisigTagLib.groovy">
-          <provider selected="true" editor-type-id="text-editor">
             <state line="16" column="3" selection-start="471" selection-end="471" vertical-scroll-proportion="0.47971782">
               <folding />
             </state>
@@ -249,7 +244,7 @@
       <recent name="butatopanto.vocable" />
     </key>
   </component>
-  <component name="RunManager" selected="Grails.ButatoPanto">
+  <component name="RunManager" selected="Grails.Integration Tests">
     <configuration default="false" name="FrameServiceTests" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false">
         <pattern>
@@ -816,12 +811,9 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="33" selection-start="1675" selection-end="1675" vertical-scroll-proportion="-1.1313993">
           <folding />
         </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ButatoPanto-grailsPlugins.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -926,12 +918,17 @@
             <marker date="1282939473036" expanded="true" signature="338:437" placeholder="&lt;xml/&gt;" />
             <marker date="1282939473036" expanded="true" signature="345:437" placeholder="&lt;xml/&gt;" />
           </folding>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/question/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="47" selection-start="474" selection-end="474" vertical-scroll-proportion="0.41648108">
+    <entry file="file://$PROJECT_DIR$/grails-app/taglib/butatopanto/HeisigTagLib.groovy">
+        <state line="16" column="3" selection-start="471" selection-end="471" vertical-scroll-proportion="0.47971782">
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/taglib/butatopanto/HeisigTagLib.groovy">
+    <entry file="file://$PROJECT_DIR$/test/integration/butatopanto/vocable/VocableIntegrationTests.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="3" selection-start="471" selection-end="471" vertical-scroll-proportion="0.47971782">
+        <state line="22" column="52" selection-start="628" selection-end="628" vertical-scroll-proportion="0.93820226">
           <folding />
         </state>
       </provider>
