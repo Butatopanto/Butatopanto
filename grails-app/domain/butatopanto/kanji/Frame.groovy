@@ -6,8 +6,8 @@ class Frame {
   Kanji kanji
 
   static constraints = {
-    meaning(blank: false, unique: true)
     number(min: 1, unique: true)
     kanji(unique: true)
+    meaning(blank: false, unique: true)
   }
 }
