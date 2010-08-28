@@ -1,7 +1,9 @@
 class BootStrap {
 
+  def heisigContentService;
+
   def init = { servletContext ->
-    new butatopanto.kanji.bootstrapping.HeisigContent().initializeDatabase()
+    heisigContentService.initializeDatabase()
   }
 
   def destroy = {

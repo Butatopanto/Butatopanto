@@ -5,7 +5,7 @@ import grails.test.GrailsUnitTestCase
 class StudylistIntegrationTests extends GrailsUnitTestCase {
 
   def studylist = new Studylist(name: "Tiere")
-  def vocable = new Vocable(meaning: "Bär", kana: "kuma")
+  def vocable = new Vocable(meaning: "BÃ¤r", kana: "kuma")
   def doneInSetup = true
 
   protected void setUp() {
@@ -20,6 +20,6 @@ class StudylistIntegrationTests extends GrailsUnitTestCase {
   public void testSavesAndRemembersReceivedVocables() {
     studylist.save()
     def foundList = Studylist.findByName("Tiere");
-    assertEquals "Bär", foundList.vocables.asList()[0].meaning
+    assertEquals "BÃ¤r", foundList.vocables.asList()[0].meaning
   }
 }
