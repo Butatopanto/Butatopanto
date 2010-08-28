@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Butatopanto" type="GrailsRunConfigurationType" factoryName="Grails">
+    <module name="ButatoPanto" />
+    <setting name="vmparams" value="" />
+    <setting name="cmdLine" value="run-app" />
+    <setting name="depsClasspath" value="true" />
+    <setting name="passParentEnv" value="true" />
+    <setting name="launchBrowser" value="true" />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method>
+      <option name="Make" enabled="false" />
+    </method>
+  </configuration>
+</component>
