@@ -124,7 +124,7 @@ class HeisigContentService {
   }
 
   private Frame insertSixthLesson() {
-    insertFrame(95, "子", "Kitze")
+    insertFrame(95, "子", "Kind")
     insertFrame(96, "孔", "Ritze")
     insertFrame(97, "了", "fertig")
     insertFrame(98, "女", "Frau")
