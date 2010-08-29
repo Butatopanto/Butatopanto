@@ -3,9 +3,6 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="layout" content="main"/>
-  <link rel="stylesheet" href="/css/question.css"/>
-  <g:javascript src="frame.js"/>
-  <g:javascript src="visibility.js"/>
   <g:javascript library="prototype"/>
   <title>Kennst Du das Kanji?</title>
 </head>
@@ -20,12 +17,12 @@
   <div class="dialog">
     <p><div style='width:600px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
     <div id="container">
-      <heisig:frameCard frame="${frame}"/>
+      <heisig:frameCard frame="${frame}" hidden="true"/>
     </div>
-    <div style='width:270px; height:50px; font-size: 11px; position:relative; top:50px; top-padding: 10px; background-color:white; valign:middle' align="center">
-      <p style="valign:middle; top-padding: 10px; position:relative; top:5px"><g:message code="frame.revealMessage"/></p>
+    <div style='width:270px; height:50px; font-size: 11px; position:relative; top:50px; background-color:white;' align="center">
+      <p style='position:relative; top:5px'><g:message code="frame.revealMessage"/></p>
     </div>
-  </div></p>
+  </div>
   </div>
 </div>
 </body>

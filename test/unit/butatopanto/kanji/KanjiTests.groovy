@@ -1,12 +1,12 @@
 package butatopanto.kanji
 
-import grails.test.*
+import grails.test.GrailsUnitTestCase
 
 class KanjiTests extends GrailsUnitTestCase {
 
   protected void setUp() {
     super.setUp()
-    def existingKanji = new Kanji(character: 'X', meaning: 'Schatz')
+    def existingKanji = new Kanji(character: 'X')
     mockForConstraintsTests(Kanji, [existingKanji])
   }
 
@@ -16,35 +16,21 @@ class KanjiTests extends GrailsUnitTestCase {
   }
 
   void testKanjiWithMeaningAndCharacterIsValid() {
-    assertTrue new Kanji(character: '?', meaning: 'Nichts').validate()
-  }
-
-  void testKanjiWithBlankMeaningIsInvalid() {
-    assertFalse new Kanji(character: '?', meaning: '').validate()
-  }
-
-  void testKanjiWithoutCharacterIsInvalid() {
-    assertFalse new Kanji(meaning: 'Nichts').validate()
+    assertTrue new Kanji(character: '?').validate()
   }
 
   void testKanjiWithEmptyCharacterIsInvalid() {
-    assertFalse new Kanji(character: '', meaning: 'Nichts').validate()
+    assertFalse new Kanji(character: '').validate()
   }
 
   void testKanjisCharacterIsUnique() {
-    def kanji = new Kanji(character: 'X', meaning: 'Nichts')
+    def kanji = new Kanji(character: 'X')
     kanji.validate()
     assertEquals "unique", kanji.errors["character"]
   }
 
-  void testKanjisMeaningIsUnique() {
-    def kanji = new Kanji(character: 'Y', meaning: 'Schatz')
-    kanji.validate()
-    assertEquals "unique", kanji.errors["meaning"]
-  }
-
   void testKanjisCharacterIsSingleCharacter() {
-    def kanji = new Kanji(character: 'XY', meaning: 'Schatz')
+    def kanji = new Kanji(character: 'XY')
     kanji.validate()
     assertEquals "maxSize", kanji.errors["character"]
   }
