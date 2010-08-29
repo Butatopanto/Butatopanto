@@ -8,4 +8,8 @@ class FrameController {
   def train = {
     [frame: frameService.getRandomFrame()]
   }
+
+  def next = {
+    render heisig.frameCard([frame: frameService.getRandomFrame()])
+  }
 }

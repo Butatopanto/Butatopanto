@@ -5,7 +5,7 @@ class HeisigTagLib {
   static namespace = "heisig"
 
   def frameCard = { attributes ->
-    def frame = attributes.frame;
+    def frame = attributes.frame
     out << renderCard(frame)
   }
 
