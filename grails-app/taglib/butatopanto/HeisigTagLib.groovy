@@ -11,7 +11,7 @@ class HeisigTagLib {
 
   def renderCard(frame) {
     def function = 'reveal("' + frame?.kanji + '")'
-    "<div style='width:270px; height:390px ;position:relative; top:50px; background-color:white;valign:middle' align='center' onclick='" + function + "'> " +
+    "<div style='width:270px; height:390px ;position:relative; top:50px; background-color:white;valign:middle' align='center' onclick='${function}'> " +
             renderContent(frame) +
             "</div>"
   }
