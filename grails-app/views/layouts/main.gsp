@@ -15,13 +15,7 @@
     <td width="60px"><a href="http://code.google.com/p/butatopanto/"><img src="${resource(dir: 'images', file: 'logoSmall.png')}" alt="ButatoPanto" border="0"/></a></td>
     <td style="vertical-align: middle; font-size:30px">豚とパンと</td>
     <td style="horizontal-align: right">
-      <sec:ifNotLoggedIn>
-        <g:link controller="login" action="auth">Login</g:link>
-      </sec:ifNotLoggedIn>
-      <sec:ifLoggedIn>
-        <sec:username/>:
-        <g:link controller='logout'>Logout</g:link>
-      </sec:ifLoggedIn>
+      <sec:securityLink/>
     </td>
   </tr>
 </table>
