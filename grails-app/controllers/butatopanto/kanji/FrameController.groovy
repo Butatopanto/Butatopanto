@@ -1,10 +1,13 @@
 package butatopanto.kanji
 
+import grails.plugins.springsecurity.Secured
+
 class FrameController {
 
   def frameService
   def scaffold = Frame
 
+  @Secured('ROLE_USER')      
   def train = {
     [frame: frameService.getRandomFrame()]
   }
