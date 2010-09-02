@@ -166,6 +166,6 @@ class HeisigContentService {
     if (frame != null) {
       return;
     }
-    new Frame(number: number, character: character, meaning: meaning).save();
+    new Frame(number: number, kanji: character, meaning: meaning).save();
   }
 }
