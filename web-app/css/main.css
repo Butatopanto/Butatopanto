@@ -306,3 +306,18 @@ th.desc a {
     color: #333;
     padding-left: 25px;
 }
+
+textArea.story {
+    border-width: 0px;
+    resize: none;
+}
+
+textArea.story:hover {
+    border-width: 1px;
+    resize: none;
+}
+
+textArea.story:focus {
+    border-width: 1px;
+    resize: both;
+}
