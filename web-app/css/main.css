@@ -310,6 +310,7 @@ th.desc a {
 textArea.story {
     border-width: 0px;
     resize: none;
+    color: gray;
 }
 
 textArea.story:hover {
@@ -320,4 +321,5 @@ textArea.story:hover {
 textArea.story:focus {
     border-width: 1px;
     resize: both;
+    color: black;
 }

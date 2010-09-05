@@ -24,6 +24,13 @@
     </div>
   </div>
   </div>
+  //<div style='position:relative; top:5px'>
+  //  <g:javascript src="frame.js"/>
+  //  <g:form controller="story" action="save">
+  //    <g:textArea id="story" name="text" value="${message(code: 'frame.enterStory')}" class="story" onfocus="prepareForEntry('${message(code: 'frame.enterStory')}')" onblur="finishEntry('${message(code: 'frame.enterStory')}')"/>
+  //    <g:submitButton name="what" value="${message(code: 'frame.saveStory')}" style="display:none" id="save"/>
+  //  </g:form>
+  //</div>
 </div>
 </body>
 </html>
