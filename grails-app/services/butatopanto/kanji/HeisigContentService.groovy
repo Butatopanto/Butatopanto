@@ -166,16 +166,6 @@ class HeisigContentService {
     if (frame != null) {
       return;
     }
-    Kanji kanji = getKanji(character)
-    new Frame(number: number, kanji: kanji, meaning: meaning).save();
-  }
-
-  def getKanji(character) {
-    Kanji kanji = Kanji.findByCharacter(character)
-    if (kanji == null) {
-      kanji = new Kanji(character: character)
-      kanji.save()
-    }
-    kanji
+    new Frame(number: number, kanji: character, meaning: meaning).save();
   }
 }
