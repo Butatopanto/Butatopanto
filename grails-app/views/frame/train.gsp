@@ -15,19 +15,19 @@
 <p>&nbsp</p>
 <div class="body">
   <div class="dialog">
-    <p><div style='width:600px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
-    <div id="container">
-      <heisig:frameCard frame="${frame}" hidden="true"/>
+    <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
+      <div id="container">
+        <heisig:frameCard frame="${frame}" hidden="true"/>
+      </div>
+      <div style='position:absolute; right:5px; bottom:108px'>
+        <g:javascript src="frame.js"/>
+        <g:formRemote name="saveStory" url="[ controller: 'story', action: 'save', params: [ ]]" after="finishEntry('${message(code: 'frame.enterStory')}')">
+          <g:textArea id="story" name="text" value="${message(code: 'frame.enterStory')}" class="story" onfocus="prepareForEntry('${message(code: 'frame.enterStory')}')"/>
+          <input type="submit" name="what" value="${message(code: 'frame.saveStory')}" style="display:none" id="save"/>
+        </g:formRemote>
+      </div>
     </div>
   </div>
-  </div>
-  <!--div style='position:relative; top:5px'>
-    <g:javascript src="frame.js"/>
-    <g:form controller="story" action="save">
-      <g:textArea id="story" name="text" value="${message(code: 'frame.enterStory')}" class="story" onfocus="prepareForEntry('${message(code: 'frame.enterStory')}')" onblur="finishEntry('${message(code: 'frame.enterStory')}')"/>
-      <g:submitButton name="what" value="${message(code: 'frame.saveStory')}" style="display:none" id="save"/>
-    </g:form>
-  </div-->
 </div>
 </body>
 </html>
