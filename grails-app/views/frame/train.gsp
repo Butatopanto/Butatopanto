@@ -19,9 +19,6 @@
     <div id="container">
       <heisig:frameCard frame="${frame}" hidden="true"/>
     </div>
-    <div style='width:270px; height:50px; font-size: 11px; position:relative; top:50px; background-color:white;' align="center">
-      <p style='position:relative; top:5px'><g:message code="frame.revealMessage"/></p>
-    </div>
   </div>
   </div>
   <!--div style='position:relative; top:5px'>
