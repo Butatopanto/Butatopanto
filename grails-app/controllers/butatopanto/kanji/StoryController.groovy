@@ -6,6 +6,8 @@ class StoryController {
 
  @Secured('ROLE_USER')
   def save = {
-      println "Hallo Save Story."
+      print "Story: "
+      println params.story
+      println params.kanji
   }
 }
