@@ -5,14 +5,13 @@ import butatopanto.security.User
 
 class StoryController {
 
-  def springSecurityService
+  def userService
 
  @Secured('ROLE_USER')
   def save = {
-      def authentication = springSecurityService.authentication
-      String username = authentication.username
-      User user = User.findByUsername(username)
-      Story story = new Story(user: user, text:params.story, kanji:params.kanji)
-      story.save()
+      User user = userService.getCurrentUser()
+      def story = params.story
+      def kanji = params.kanji
+      new Story(user: user, text: story, kanji: kanji).save()
   }
 }
