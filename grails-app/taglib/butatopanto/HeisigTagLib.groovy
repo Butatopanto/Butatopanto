@@ -32,8 +32,7 @@ class HeisigTagLib {
       renderCharacter(kanji) +
       renderNumber(number) +
       "</table>" +
-      "<p style='position:relative; top:5px'>${g.message(code: 'frame.revealMessage')}" +
-      "</p>" + "</div>"
+      "</div>"
   }
 
   def renderNumber(number) {
