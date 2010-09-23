@@ -33,11 +33,10 @@ class HeisigTagLib {
   def renderReviewButtons(frame) {
     "<div style='position:relative; top:50px'>" +
       "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
-      g.formRemote(name: 'reviewKanji', update: 'container', url: [controller: 'frame', action: 'reviewedCorrect', params: [kanji: frame.kanji]]) {
-        "      <input class=\"reviewButton\" type=\"submit\" name=\"yes\" value=\"${g.message(code: 'frame.reviewResult.Yes')}\" id=\"reviewButton.yes\"/>"
-      } +
-      g.formRemote(name: 'reviewKanji', update: 'container', url: [controller: 'frame', action: 'reviewedIncorrect', params: [kanji: frame.kanji]]) {
-        "      <input class=\"reviewButton\" type=\"submit\" name=\"no\" value=\"${g.message(code: 'frame.reviewResult.No')}\" id=\"reviewButton.no\"/>"
+      g.form(name: 'reviewKanji') {
+        g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.Yes'), url: [controller: 'frame', action: 'review', params: [kanji: frame.kanji, reviewCorrect: true]]) +
+          " " +
+          g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.No'), url: [controller: 'frame', action: 'review', params: [kanji: frame.kanji, reviewCorrect: false]])
       } +
       "</div>"
   }

@@ -22,12 +22,13 @@ class FrameController {
     render heisig.frameCard([frame: frame, hidden: false]) + heisig.interaction([frame: frame, hidden: false])
   }
 
-  def reviewedCorrect = {
-    println "Reviewed correct"
-    next()
-  }
-  def reviewedIncorrect = {
-    println "Reviewed incorrect"
+  def review = {
+    if (params.reviewCorrect == "true") {
+      println "Reviewed correct"
+    }
+    else {
+      println "Reviewed incorrect"
+    }
     next()
   }
 }
