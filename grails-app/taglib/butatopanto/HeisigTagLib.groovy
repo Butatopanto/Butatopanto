@@ -4,6 +4,17 @@ class HeisigTagLib {
 
   static namespace = "heisig"
 
+  def interaction = { attributes ->
+    def frame = attributes.frame
+    def hidden = attributes.hidden
+    if (hidden) {
+      out << "<p style='position:relative; top:50px'>${g.message(code: 'frame.revealMessage')}</p>"
+    }
+    else {
+      out << "<p style='position:relative; top:50px'>${g.message(code: 'frame.nextKanjiMessage')}</p>"
+    }
+  }
+
   def frameCard = { attributes ->
     def frame = attributes.frame
     def hidden = attributes.hidden

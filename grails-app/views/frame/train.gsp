@@ -18,8 +18,8 @@
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
       <div id="container">
         <heisig:frameCard frame="${frame}" hidden="true"/>
+        <heisig:interaction frame="${frame}" hidden="true"/>
       </div>
-      <p style='position:relative; top:50px'>${g.message(code: 'frame.revealMessage')}</p>
       <div style='position:absolute; right:5px; bottom:108px'>
         <g:javascript src="frame.js"/>
         <g:formRemote name="saveStory" url="[ controller: 'story', action: 'save', params: [ kanji:frame.kanji ]]" after="finishEntry('${message(code: 'frame.enterStory')}')">
