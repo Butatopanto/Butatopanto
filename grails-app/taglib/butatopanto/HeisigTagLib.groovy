@@ -8,10 +8,10 @@ class HeisigTagLib {
     def frame = attributes.frame
     def hidden = attributes.hidden
     if (hidden) {
-      out << "<p style='position:relative; top:50px'>${g.message(code: 'frame.revealMessage')}</p>"
+      out << renderRevealMessage()
     }
     else {
-      out << "<p style='position:relative; top:50px'>${g.message(code: 'frame.nextKanjiMessage')}</p>"
+      out << renderReviewButtons(frame)
     }
   }
 
@@ -26,13 +26,29 @@ class HeisigTagLib {
     }
   }
 
+  def renderRevealMessage() {
+    "<p style='position:relative; top:50px'>${g.message(code: 'frame.revealMessage')}</p>"
+  }
+
+  def renderReviewButtons(frame) {
+    "<div style='position:relative; top:50px'>" +
+      "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
+      g.formRemote(name: 'reviewKanji', update: 'container', url: [controller: 'frame', action: 'reviewedCorrect', params: [kanji: frame.kanji]]) {
+        "      <input class=\"reviewButton\" type=\"submit\" name=\"yes\" value=\"${g.message(code: 'frame.reviewResult.Yes')}\" id=\"reviewButton.yes\"/>"
+      } +
+      g.formRemote(name: 'reviewKanji', update: 'container', url: [controller: 'frame', action: 'reviewedIncorrect', params: [kanji: frame.kanji]]) {
+        "      <input class=\"reviewButton\" type=\"submit\" name=\"no\" value=\"${g.message(code: 'frame.reviewResult.No')}\" id=\"reviewButton.no\"/>"
+      } +
+      "</div>"
+  }
+
   def renderHiddenCard(frame) {
     def function = g.remoteFunction(action: 'reveal', update: 'container', id: frame.id)
     renderCard(function, frame.meaning, '?', '');
   }
 
   def renderRevealedCard(frame) {
-    def function = g.remoteFunction(action: 'next', update: 'container')
+    def function = ""
     renderCard(function, frame.meaning, frame.kanji, frame.number)
   }
 
