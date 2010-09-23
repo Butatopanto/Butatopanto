@@ -1,8 +1,9 @@
 package butatopanto.kanji
 
-import grails.test.*
+import grails.test.GrailsUnitTestCase
 
 class FrameTests extends GrailsUnitTestCase {
+
   def existingNumber = 12
   def existingMeaning = 'Schatz'
   def existingKanji = 'X'
@@ -55,8 +56,8 @@ class FrameTests extends GrailsUnitTestCase {
     assertFalse frame.validate()
   }
 
-    void testIsInvalidWithEmptyKanji() {
-      def frame = new Frame(number: validNumber, meaning: validMeaning, kanji: '')
-      assertFalse frame.validate()
-    }
+  void testIsInvalidWithEmptyKanji() {
+    def frame = new Frame(number: validNumber, meaning: validMeaning, kanji: '')
+    assertFalse frame.validate()
+  }
 }
