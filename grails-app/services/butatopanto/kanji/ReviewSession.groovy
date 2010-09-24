@@ -4,9 +4,11 @@ class ReviewSession {
   def random = new Random()
   def remainingIds
   def currentId
+  def totalFrameCount
 
   def start() {
     remainingIds = Frame.list()*.id
+    totalFrameCount = remainingIds.size()
     nextFrame()
   }
 
@@ -16,6 +18,14 @@ class ReviewSession {
 
   def resolve(def correct) {
     nextFrame()
+  }
+
+  def getTotalFrameCount() {
+    totalFrameCount
+  }
+
+  def getRemainingFrameCount() {
+    remainingIds.size()
   }
 
   private def nextFrame() {

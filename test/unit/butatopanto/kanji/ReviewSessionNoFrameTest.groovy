@@ -2,7 +2,6 @@ package butatopanto.kanji
 
 import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
-import static org.mockito.Mockito.when
 
 class ReviewSessionNoFrameTest extends GrailsUnitTestCase {
 
@@ -24,5 +23,13 @@ class ReviewSessionNoFrameTest extends GrailsUnitTestCase {
   void testHasNoCurrentFrameAfterResolve() {
     reviewSession.resolve(true)
     assertNull reviewSession.getCurrentFrame()
+  }
+
+  void testHasNoTotalFrame() {
+    assertEquals 0, reviewSession.getTotalFrameCount()
+  }
+
+  void testStartsWithTotalFrameCountForRemainingCount() {
+    assertEquals 0, reviewSession.getRemainingFrameCount()
   }
 }

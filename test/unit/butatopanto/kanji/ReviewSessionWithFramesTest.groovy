@@ -28,4 +28,22 @@ class ReviewSessionWithFramesTest extends GrailsUnitTestCase {
     reviewSession.resolve(true)
     assertEquals frame1, reviewSession.getCurrentFrame()
   }
+
+  void testHas2TotalFrames() {
+    assertEquals 2, reviewSession.getTotalFrameCount()
+  }
+
+  void testResolvingFrameLeavesTotalFrameCountUnchanged() {
+    reviewSession.resolve(true)
+    assertEquals 2, reviewSession.getTotalFrameCount()
+  }
+
+  void testStartsWithTotalFrameCountForRemainingCount() {
+    assertEquals 2, reviewSession.getRemainingFrameCount()
+  }
+
+  void testReducesRemainingFrameCountOnResolve() {
+    reviewSession.resolve(true)
+    assertEquals 1, reviewSession.getRemainingFrameCount()
+  }
 }
