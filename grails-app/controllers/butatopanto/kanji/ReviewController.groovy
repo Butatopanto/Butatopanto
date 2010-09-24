@@ -2,33 +2,33 @@ package butatopanto.kanji
 
 import grails.plugins.springsecurity.Secured
 
-class FrameController {
+class ReviewController {
 
   def frameService
   def scaffold = Frame
 
   @Secured('ROLE_USER')
-  def train = {
+  def frame = {
     [frame: frameService.getRandomFrame()]
   }
 
-  def next = {
-    def frame = frameService.getRandomFrame()
-    render heisig.frameCard([frame: frame, hidden: true]) + heisig.interaction([frame: frame, hidden: true])
-  }
-
-  def reveal = {
+  def ajaxReveal = {
     def frame = Frame.findById(params.id)
     render heisig.frameCard([frame: frame, hidden: false]) + heisig.interaction([frame: frame, hidden: false])
   }
 
-  def review = {
+  def ajaxResolve = {
     if (params.reviewCorrect == "true") {
       println "Reviewed correct"
     }
     else {
       println "Reviewed incorrect"
     }
-    next()
+    ajaxNext()
+  }
+
+  def ajaxNext = {
+    def frame = frameService.getRandomFrame()
+    render heisig.frameCard([frame: frame, hidden: true]) + heisig.interaction([frame: frame, hidden: true])
   }
 }

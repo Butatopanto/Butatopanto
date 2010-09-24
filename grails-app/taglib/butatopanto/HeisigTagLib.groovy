@@ -34,15 +34,15 @@ class HeisigTagLib {
     "<div style='position:relative; top:50px'>" +
       "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
       g.form(name: 'reviewKanji') {
-        g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.Yes'), url: [controller: 'frame', action: 'review', params: [kanji: frame.kanji, reviewCorrect: true]]) +
+        g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.Yes'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
           " " +
-          g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.No'), url: [controller: 'frame', action: 'review', params: [kanji: frame.kanji, reviewCorrect: false]])
+          g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.No'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false]])
       } +
       "</div>"
   }
 
   def renderHiddenCard(frame) {
-    def function = g.remoteFunction(action: 'reveal', update: 'container', id: frame.id)
+    def function = g.remoteFunction(action: 'ajaxReveal', update: 'container', id: frame.id)
     renderCard(function, frame.meaning, '?', '');
   }
 
