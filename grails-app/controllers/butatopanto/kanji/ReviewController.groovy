@@ -9,26 +9,33 @@ class ReviewController {
 
   @Secured('ROLE_USER')
   def frame = {
-    [frame: frameService.getRandomFrame()]
+    ReviewSession reviewSession = getReviewSession()
+    [frame: reviewSession.getCurrentFrame()]
+  }
+
+  private ReviewSession getReviewSession() {
+    if (session.reviewSession) {
+      return session.reviewSession
+    }
+    ReviewSession reviewSession = new ReviewSession()
+    reviewSession.start()
+    session.reviewSession = reviewSession
+    reviewSession
   }
 
   def ajaxReveal = {
     def frame = Frame.findById(params.id)
-    render heisig.frameCard([frame: frame, hidden: false]) + heisig.interaction([frame: frame, hidden: false])
+    ajaxRenderFrame(frame, false)
   }
 
   def ajaxResolve = {
-    if (params.reviewCorrect == "true") {
-      println "Reviewed correct"
-    }
-    else {
-      println "Reviewed incorrect"
-    }
-    ajaxNext()
+    boolean reviewCorrect =  params.reviewCorrect == "true"
+    getReviewSession().resolve(reviewCorrect)
+    def frame = getReviewSession().getCurrentFrame()
+    ajaxRenderFrame(frame, true)
   }
 
-  def ajaxNext = {
-    def frame = frameService.getRandomFrame()
-    render heisig.frameCard([frame: frame, hidden: true]) + heisig.interaction([frame: frame, hidden: true])
+  private def ajaxRenderFrame(frame, boolean hidden) {
+    render heisig.frameCard([frame: frame, hidden: hidden]) + heisig.interaction([frame: frame, hidden: hidden])
   }
 }

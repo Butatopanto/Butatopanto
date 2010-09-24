@@ -9,7 +9,6 @@
 <body>
 <div class="nav">
   <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-  <span class="menuButton"><g:remoteLink class="learn" action="next" update="container"><g:message code="question.next"/></g:remoteLink></span>
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
