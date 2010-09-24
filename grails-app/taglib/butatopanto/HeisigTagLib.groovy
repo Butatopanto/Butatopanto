@@ -7,6 +7,7 @@ class HeisigTagLib {
   def interaction = { attributes ->
     def frame = attributes.frame
     def hidden = attributes.hidden
+    out << renderProgressBar()
     if (hidden) {
       out << renderRevealMessage()
     }
@@ -26,11 +27,18 @@ class HeisigTagLib {
     }
   }
 
-  def renderRevealMessage() {
+  private def renderProgressBar() {
+    "<div style='position:absolute; top: 5 px; right:5 px'>" +
+      "<p>Gelernt: ${session.reviewSession.reviewedFrameCount} von ${session.reviewSession.totalFrameCount}</p>" +
+      "<p>Richtig: ${session.reviewSession.correctReviewCount} Falsch: ${session.reviewSession.incorrectReviewCount}</p>" +
+      "</div>"
+  }
+
+  private def renderRevealMessage() {
     "<p style='position:relative; top:50px'>${g.message(code: 'frame.revealMessage')}</p>"
   }
 
-  def renderReviewButtons(frame) {
+  private def renderReviewButtons(frame) {
     "<div style='position:relative; top:50px'>" +
       "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
       g.form(name: 'reviewKanji') {
@@ -41,12 +49,12 @@ class HeisigTagLib {
       "</div>"
   }
 
-  def renderHiddenCard(frame) {
+  private def renderHiddenCard(frame) {
     def function = g.remoteFunction(action: 'ajaxReveal', update: 'container', id: frame.id)
     renderCard(function, frame.meaning, '?', '');
   }
 
-  def renderRevealedCard(frame) {
+  private def renderRevealedCard(frame) {
     def function = ""
     renderCard(function, frame.meaning, frame.kanji, frame.number)
   }
@@ -61,19 +69,19 @@ class HeisigTagLib {
       "</div>"
   }
 
-  def renderNumber(number) {
+  private def renderNumber(number) {
     "<tr height = '10%' >" +
       "<td style = 'text-align: right; font-size:12px'>${number}</td>" +
       "</tr>"
   }
 
-  def renderMeaning(meaning) {
+  private def renderMeaning(meaning) {
     "<tr height = '10%'> " +
       "<td style = 'text-align: left; font-size:20px'>${meaning}</td>" +
       "</tr>"
   }
 
-  def renderCharacter(character) {
+  private def renderCharacter(character) {
     "<tr>" +
       "<td height = '100%' style = 'text-align: center; vertical-align:middle; font-size:100px' >${character}</td>" +
       "</tr>"

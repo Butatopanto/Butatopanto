@@ -46,4 +46,32 @@ class ReviewSessionWithFramesTest extends GrailsUnitTestCase {
     reviewSession.resolve(true)
     assertEquals 1, reviewSession.getRemainingFrameCount()
   }
+
+  void testStartsWithNoCorrectReviews() {
+    assertEquals 0, reviewSession.correctReviewCount
+  }
+
+  void testStartsWithNoIncorrectReview() {
+    assertEquals 0, reviewSession.incorrectReviewCount
+  }
+
+  void testRetainsIncorrectReviewsOnPositiveResolve() {
+    reviewSession.resolve(true)
+    assertEquals 0, reviewSession.incorrectReviewCount
+  }
+
+  void testIncreasesCorrectReviewsOnPositiveResolve() {
+    reviewSession.resolve(true)
+    assertEquals 1, reviewSession.correctReviewCount
+  }
+
+  void testRetainsCorrectReviewsOnNegativeResolve() {
+    reviewSession.resolve(false)
+    assertEquals 0, reviewSession.correctReviewCount
+  }
+
+  void testIncreasesIncorrectReviewsOnNegativeResolve() {
+    reviewSession.resolve(false)
+    assertEquals 1, reviewSession.incorrectReviewCount
+  }
 }

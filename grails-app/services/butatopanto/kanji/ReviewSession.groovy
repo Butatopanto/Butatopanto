@@ -5,6 +5,8 @@ class ReviewSession {
   def remainingIds
   def currentId
   def totalFrameCount
+  def correctReviews = []
+  def incorrectReviews = []
 
   def start() {
     remainingIds = Frame.list()*.id
@@ -17,15 +19,25 @@ class ReviewSession {
   }
 
   def resolve(def correct) {
+    def reviewList = correct ? correctReviews : incorrectReviews
+    reviewList.add(currentId)
     nextFrame()
-  }
-
-  def getTotalFrameCount() {
-    totalFrameCount
   }
 
   def getRemainingFrameCount() {
     remainingIds.size()
+  }
+
+  def getCorrectReviewCount() {
+    correctReviews.size()
+  }
+
+  def getIncorrectReviewCount() {
+    incorrectReviews.size()
+  }
+
+  def getReviewedFrameCount() {
+    getTotalFrameCount() - getRemainingFrameCount()
   }
 
   private def nextFrame() {
