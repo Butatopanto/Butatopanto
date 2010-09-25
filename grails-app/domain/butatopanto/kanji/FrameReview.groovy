@@ -3,8 +3,7 @@ package butatopanto.kanji
 import butatopanto.security.User
 
 class FrameReview {
-  static belongsTo = [ user : User ]
-  Frame frame
+  static belongsTo = [userData: UserData]
   int box = 1
   int passed = 0
   int failed = 0

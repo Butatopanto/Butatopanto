@@ -1,46 +1,57 @@
 package butatopanto.kanji
 
-import butatopanto.security.User
 import butatopanto.test.GrailsJUnit4TestCase
-import org.junit.*
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
 
 class FrameReviewIntegrationTest extends GrailsJUnit4TestCase {
-  User user
-  FrameReview review
+  UserData userData
 
   @Before
-  public void setUp() {
-    def initialUser = new User(username: "test", password: "test")
-    initialUser.save()
-    user = User.findByUsername("test")
-    review = new FrameReview(user: user, frame: Frame.get(1)).save()
-  }
-
-  @After
-  public void cleanupDatabase() {
-    if (FrameReview.exists(review.id)) {
-      FrameReview.get(review.id).delete()
-    }
-    if (User.exists(user.id)) {
-      User.get(user.id).delete()
-    }
+  public void saveFrameReview() {
+    userData = new UserData(userName: "the user")
+    userData.addToFrameReviews(new FrameReview()).save()
   }
 
   @Test
-  void doesExist() {
-    assertTrue FrameReview.exists(review.id)
+  void userDataHasOneReview() {
+    assertEquals 1, FrameReview.list().size()
   }
 
   @Test
-  void doesNoLongerExistAfterDelete() {
+  void doesNoLongerExistAfterRemoval() {
+    FrameReview review = deleteReview()
+    assertFalse FrameReview.exists(review.id)
+  }
+
+  @Test
+  void noLongerBelongsToUserDataAfterRemoval() {
+    deleteReview()
+    assertEquals 0, findUserData().frameReviews.size()
+  }
+
+  @Test
+  void cascadesDeleteFromUserData() {
+    FrameReview review = findFirstFrameReviewFromUserData()
+    findUserData().delete()
+    assertFalse FrameReview.exists(review.id)
+  }
+
+  private FrameReview deleteReview() {
+    FrameReview review = findFirstFrameReviewFromUserData()
+    findUserData().removeFromFrameReviews(review)
     review.delete()
-    assertFalse FrameReview.exists(review.id)
+    return review
   }
 
-  @Test
-  @Ignore
-  void cascadesDeleteFromUser() {
-    user.delete()
-    assertFalse FrameReview.exists(review.id)
+  private FrameReview findFirstFrameReviewFromUserData() {
+    def reviewList = findUserData().frameReviews as List
+    reviewList[0]
+  }
+
+  private UserData findUserData() {
+    def id = userData.id
+    return UserData.get(id)
   }
 }
