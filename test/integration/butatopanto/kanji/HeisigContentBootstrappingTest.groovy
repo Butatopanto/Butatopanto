@@ -6,13 +6,21 @@ class HeisigContentBootstrappingTest extends GrailsUnitTestCase {
 
   def heisigContentService;
 
-  public void testHasAllFramesAfterInitialization() {
+  void testHasAllFramesAfterInitialization() {
     assertKnowsAllDefaultFrames()
   }
 
-  public void testRepeatedInitializationOfHeisigContentDoesNotAddDuplicates() {
+  void testRepeatedInitializationOfHeisigContentDoesNotAddDuplicates() {
     heisigContentService.initializeDatabase()
     assertKnowsAllDefaultFrames()
+  }
+
+  void testKnows15FramesInLesson1() {
+    assertEquals 15, Frame.countByLesson(1)
+  }
+
+  void testKnows19FramesInLesson2() {
+    assertEquals 19, Frame.countByLesson(2)
   }
 
   private def assertKnowsAllDefaultFrames() {

@@ -3,10 +3,10 @@ package butatopanto.bootstrap.kanji
 import butatopanto.kanji.Frame
 
 class Lesson {
-  private def number
+  private def lessonNumber
 
   Lesson(def number) {
-    this.number = number
+    this.lessonNumber = number
   }
 
   def insertFrame(number, character, meaning) {
@@ -14,6 +14,6 @@ class Lesson {
     if (frame != null) {
       return;
     }
-    new Frame(number: number, kanji: character, meaning: meaning, lesson: number).save();
+    new Frame(number: number, kanji: character, meaning: meaning, lesson: lessonNumber).save();
   }
 }
