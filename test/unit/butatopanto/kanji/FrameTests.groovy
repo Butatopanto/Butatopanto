@@ -74,4 +74,16 @@ class FrameTests extends GrailsJUnit4TestCase {
     def frame = new Frame(kanji: '')
     assertNotNull getValidationFieldError(frame, "kanji")
   }
+
+  @Test
+  void isValidWithLessonOf1() {
+    def frame = new Frame(lesson: 1)
+    assertNull getValidationFieldError(frame, "lesson")
+  }
+
+  @Test
+  void isInvalidWithLessonBelow1() {
+    def frame = new Frame(lesson: 0)
+    assertNotNull getValidationFieldError(frame, "lesson")
+  }
 }
