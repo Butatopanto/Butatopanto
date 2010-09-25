@@ -1,5 +1,7 @@
 package butatopanto
 
+import butatopanto.kanji.Review
+
 class HeisigTagLib {
 
   static namespace = "heisig"
@@ -29,26 +31,26 @@ class HeisigTagLib {
 
   private def renderProgressBar() {
     "<div style='position:absolute; top: 50 px; right:7 px'>" +
-    renderChartProgress() +
+    renderChartProgress(session.review) +
     "</div>"
   }
 
-  private def renderTextualProgress() {
-    "<p>Gelernt: ${session.review.getReviewedCount} von ${session.review.totalCount}</p>" +
-    "<p>Richtig: ${session.review.getRightCount} Falsch: ${session.review.getWrongCount}</p>"
+  private def renderTextualProgress(Review review) {
+    "<p>Gelernt: ${review.reviewedCount} von ${review.totalCount}</p>" +
+    "<p>Richtig: ${review.rightCount} Falsch: ${review.wrongCount}</p>"
   }
 
-  private def renderChartProgress() {
-    def total = session.review.totalCount
-    def right = session.review.rightCount
-    def wrong = session.review.wrongCount
-    def remaining = session.review.remainingCount
-    def reviewed = session.review.reviewedCount
+  private def renderChartProgress(Review review) {
+    def width = "250"
+    def total = review.totalCount
+    def right = review.rightCount
+    def wrong = review.wrongCount
+    def remaining = review.remainingCount
+    def reviewed = review.reviewedCount
     def alt = g.message(code: 'review.progress.alt', args: [reviewed, total, right, wrong])
     def rightLegend = g.message(code: 'review.progress.legend.right', args: [right])
     def wrongLegend = g.message(code: 'review.progress.legend.wrong', args: [wrong])
     def remainingLegend = g.message(code: 'review.progress.legend.remaining', args: [remaining, total])
-    def width = "250"
     String title =  g.message(code: 'review.progress.title')
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
     "?chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
