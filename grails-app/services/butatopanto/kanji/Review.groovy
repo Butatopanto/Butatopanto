@@ -1,9 +1,9 @@
 package butatopanto.kanji
 
 class Review {
-  def remainingIds
-  def currentId
-  def totalFrameCount
+  def currentId = 0
+  def totalFrameCount = 0
+  def remainingIds = []
   def correctReviews = []
   def incorrectReviews = []
 

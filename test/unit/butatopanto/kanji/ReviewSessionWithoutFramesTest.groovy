@@ -3,7 +3,7 @@ package butatopanto.kanji
 import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
 
-class ReviewSessionNoFrameTest extends GrailsUnitTestCase {
+class ReviewSessionWithoutFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Random random = mock(Random)

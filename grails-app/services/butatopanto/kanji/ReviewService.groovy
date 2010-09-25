@@ -6,23 +6,22 @@ class ReviewService {
   def start(Review review) {
     review.remainingIds = Frame.list()*.id
     review.totalFrameCount = review.remainingIds.size()
-    nextFrame(review)
+    toNext(review)
+  }
+
+  void resolve(Review review, def correct) {
+    def reviewList = correct ? review.correctReviews : review.incorrectReviews
+    reviewList.add(review.currentId)
+    toNext(review)
   }
 
   Frame getCurrentFrame(Review review) {
     review.currentId == null ? null : Frame.findById(review.currentId)
   }
 
-  def resolve(Review review, def correct) {
-    def reviewList = correct ? review.correctReviews : review.incorrectReviews
-    reviewList.add(review.currentId)
-    nextFrame(review)
-  }
-
-  private def nextFrame(Review review) {
-    review.remainingIds.remove(review.currentId)
+  private void toNext(Review review) {
+    review.remainingIds.remove((Object) review.currentId)
     review.currentId = getRandomId(review)
-    return getCurrentFrame(review)
   }
 
   private def getRandomId(Review review) {

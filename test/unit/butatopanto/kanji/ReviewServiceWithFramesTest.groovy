@@ -4,7 +4,7 @@ import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
-class ReviewSessionWithFramesTest extends GrailsUnitTestCase {
+class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Review review = new Review()
