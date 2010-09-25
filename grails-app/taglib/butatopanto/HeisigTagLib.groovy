@@ -45,6 +45,9 @@ class HeisigTagLib {
     def remaining = session.review.remainingCount
     def reviewed = session.review.reviewedCount
     def alt = g.message(code: 'review.progress.alt', args: [reviewed, total, right, wrong])
+    def rightLegend = g.message(code: 'review.progress.legend.right', args: [right])
+    def wrongLegend = g.message(code: 'review.progress.legend.wrong', args: [wrong])
+    def remainingLegend = g.message(code: 'review.progress.legend.remaining', args: [remaining, total])
     def width = "250"
     String title =  g.message(code: 'review.progress.title')
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
@@ -59,7 +62,7 @@ class HeisigTagLib {
     "&chtt=${title}" +
     "&chma=5,5|${width},30" +
     "&chdlp=b" +
-    "&chdl=${right} richtig|${wrong} falsch|${remaining} von ${total}" +
+    "&chdl=${rightLegend}|${wrongLegend}|${remainingLegend}" +
     "\"/>"
   }
 
