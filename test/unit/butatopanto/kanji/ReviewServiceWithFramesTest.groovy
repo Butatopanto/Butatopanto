@@ -30,48 +30,48 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
   }
 
   void testHas2TotalFrames() {
-    assertEquals 2, review.getTotalFrameCount()
+    assertEquals 2, review.totalCount
   }
 
   void testResolvingFrameLeavesTotalFrameCountUnchanged() {
     reviewService.resolve(review, true)
-    assertEquals 2, review.getTotalFrameCount()
+    assertEquals 2, review.totalCount
   }
 
   void testStartsWithTotalFrameCountForRemainingCount() {
-    assertEquals 2, review.getRemainingFrameCount()
+    assertEquals 2, review.getRemainingCount()
   }
 
   void testReducesRemainingFrameCountOnResolve() {
     reviewService.resolve(review, true)
-    assertEquals 1, review.getRemainingFrameCount()
+    assertEquals 1, review.getRemainingCount()
   }
 
   void testStartsWithNoCorrectReviews() {
-    assertEquals 0, review.correctReviewCount
+    assertEquals 0, review.rightCount
   }
 
   void testStartsWithNoIncorrectReview() {
-    assertEquals 0, review.incorrectReviewCount
+    assertEquals 0, review.wrongCount
   }
 
   void testRetainsIncorrectReviewsOnPositiveResolve() {
     reviewService.resolve(review, true)
-    assertEquals 0, review.incorrectReviewCount
+    assertEquals 0, review.wrongCount
   }
 
   void testIncreasesCorrectReviewsOnPositiveResolve() {
     reviewService.resolve(review, true)
-    assertEquals 1, review.correctReviewCount
+    assertEquals 1, review.rightCount
   }
 
   void testRetainsCorrectReviewsOnNegativeResolve() {
     reviewService.resolve(review, false)
-    assertEquals 0, review.correctReviewCount
+    assertEquals 0, review.rightCount
   }
 
   void testIncreasesIncorrectReviewsOnNegativeResolve() {
     reviewService.resolve(review, false)
-    assertEquals 1, review.incorrectReviewCount
+    assertEquals 1, review.wrongCount
   }
 }

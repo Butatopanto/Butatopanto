@@ -26,10 +26,10 @@ class ReviewSessionWithoutFramesTest extends GrailsUnitTestCase {
   }
 
   void testHasNoTotalFrame() {
-    assertEquals 0, review.getTotalFrameCount()
+    assertEquals 0, review.totalCount
   }
 
   void testStartsWithTotalFrameCountForRemainingCount() {
-    assertEquals 0, review.getRemainingFrameCount()
+    assertEquals 0, review.remainingCount
   }
 }

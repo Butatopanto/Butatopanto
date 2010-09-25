@@ -34,31 +34,32 @@ class HeisigTagLib {
   }
 
   private def renderTextualProgress() {
-    "<p>Gelernt: ${session.review.reviewedFrameCount} von ${session.review.totalFrameCount}</p>" +
-    "<p>Richtig: ${session.review.correctReviewCount} Falsch: ${session.review.incorrectReviewCount}</p>"
+    "<p>Gelernt: ${session.review.getReviewedCount} von ${session.review.totalCount}</p>" +
+    "<p>Richtig: ${session.review.getRightCount} Falsch: ${session.review.getWrongCount}</p>"
   }
 
   private def renderChartProgress() {
-    def alt = "Gelernt: ${session.review.reviewedFrameCount} von ${session.review.totalFrameCount}; Richtig: ${session.review.correctReviewCount} Falsch: ${session.review.incorrectReviewCount}"
-    def bar = session.review.totalFrameCount
-    def right = session.review.correctReviewCount
-    def wrong = session.review.incorrectReviewCount
-    def remaining = session.review.remainingFrameCount
+    def total = session.review.totalCount
+    def right = session.review.rightCount
+    def wrong = session.review.wrongCount
+    def remaining = session.review.remainingCount
+    def reviewed = session.review.reviewedCount
+    def alt = "Gelernt: ${reviewed} von ${total}; Richtig: ${right} Falsch: ${wrong}"
     def width = "250"
     String title = "Fortschritt"
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
     "?chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
     "&cht=bhs" +
     "&chco=00FF00,FF0000,FFFFFF" +
-    "&chxr=0,0,${bar}" +
+    "&chxr=0,0,${total}" +
     "&chxt=x" +
     "&chs=${width}x100" +
-    "&chds=0,${bar},0,${bar},0,${bar}" +
+    "&chds=0,${total},0,${total},0,${total}" +
     "&chd=t:${right}|${wrong}|${remaining}" +
     "&chtt=${title}" +
     "&chma=5,5|${width},30" +
     "&chdlp=b" +
-    "&chdl=${right} richtig|${wrong} falsch|${remaining} von ${bar}" +
+    "&chdl=${right} richtig|${wrong} falsch|${remaining} von ${total}" +
     "\"/>"
   }
 
