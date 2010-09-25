@@ -44,9 +44,9 @@ class HeisigTagLib {
     def wrong = session.review.wrongCount
     def remaining = session.review.remainingCount
     def reviewed = session.review.reviewedCount
-    def alt = "Gelernt: ${reviewed} von ${total}; Richtig: ${right} Falsch: ${wrong}"
+    def alt = g.message(code: 'review.progress.alt', args: [reviewed, total, right, wrong])
     def width = "250"
-    String title = "Fortschritt"
+    String title =  g.message(code: 'review.progress.title')
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
     "?chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
     "&cht=bhs" +
