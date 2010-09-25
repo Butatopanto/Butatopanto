@@ -1,63 +1,77 @@
 package butatopanto.kanji
 
-import grails.test.GrailsUnitTestCase
+import butatopanto.test.GrailsJUnit4TestCase
+import org.junit.Before
+import org.junit.Test
 
-class FrameTests extends GrailsUnitTestCase {
+class FrameTests extends GrailsJUnit4TestCase {
 
   def existingNumber = 12
   def existingMeaning = 'Schatz'
   def existingKanji = 'X'
-  def validNumber = existingNumber + 1
-  def validMeaning = 'Indiana'
-  def validKanji = 'Y'
 
-  protected void setUp() {
-    super.setUp()
+  @Before
+  public void mockFrameForConstraints() {
     def existingFrame = new Frame(number: 12, meaning: existingMeaning, kanji: existingKanji)
     mockForConstraintsTests(Frame, [existingFrame])
   }
 
-  protected void tearDown() {
-    super.tearDown()
+  void isValidWithStringMeaning() {
+    def frame = new Frame(meaning: 'other meaning')
+    assertNull getValidationFieldError(frame, "meaning")
   }
 
-  void testIsInvalidIfEmpty() {
-    def frame = new Frame()
-    assertFalse frame.validate()
+  @Test
+  void isInvalidWithBlankMeaning() {
+    def frame = new Frame(meaning: '')
+    assertNotNull getValidationFieldError(frame, "meaning")
   }
 
-  void testIsInvalidWithBlankMeaning() {
-    def frame = new Frame(number: validNumber, meaning: '', kanji: validKanji)
-    assertFalse frame.validate()
+  @Test
+  void isInvalidWithDuplicatedMeaning() {
+    def frame = new Frame(meaning: existingMeaning)
+    assertNotNull getValidationFieldError(frame, "meaning")
   }
 
-  void testIsInvalidWithDuplicatedMeaning() {
-    def frame = new Frame(number: validNumber, meaning: existingMeaning, kanji: validKanji)
-    assertFalse frame.validate()
+  @Test
+  void isValidWithNewHighNumber() {
+    def frame = new Frame(number: existingNumber + 1)
+    assertNull getValidationFieldError(frame, "number")
   }
 
-  void testIsInvalidWithNumberBelowOne() {
-    def frame = new Frame(number: 0, meaning: validMeaning, kanji: validKanji)
-    assertFalse frame.validate()
+  @Test
+  void isInvalidWithNumberBelowOne() {
+    def frame = new Frame(number: 0)
+    assertNotNull getValidationFieldError(frame, "number")
   }
 
-  void testIsInvalidWithDuplicatedNumber() {
-    def frame = new Frame(number: existingNumber, meaning: validMeaning, kanji: validKanji)
-    assertFalse frame.validate()
+  @Test
+  void isInvalidWithDuplicatedNumber() {
+    def frame = new Frame(number: existingNumber)
+    assertNotNull getValidationFieldError(frame, "number")
   }
 
-  void testIsInvalidWithDuplicatedKanji() {
-    def frame = new Frame(number: validNumber, meaning: validMeaning, kanji: existingKanji)
-    assertFalse frame.validate()
+  @Test
+  void isValidWithUniqueSingleCharacterKanji() {
+    def frame = new Frame(kanji: 'Y')
+    assertNull getValidationFieldError(frame, "kanji")
   }
 
-  void testIsInvalidWithLongKanjiString() {
-    def frame = new Frame(number: validNumber, meaning: validMeaning, kanji: 'XY')
-    assertFalse frame.validate()
+  @Test
+  void isInvalidWithDuplicatedKanji() {
+    def frame = new Frame(kanji: existingKanji)
+    assertNotNull getValidationFieldError(frame, "kanji")
   }
 
-  void testIsInvalidWithEmptyKanji() {
-    def frame = new Frame(number: validNumber, meaning: validMeaning, kanji: '')
-    assertFalse frame.validate()
+  @Test
+  void isInvalidWithLongKanjiString() {
+    def frame = new Frame(kanji: 'XY')
+    assertNotNull getValidationFieldError(frame, "kanji")
+  }
+
+  @Test
+  void isInvalidWithEmptyKanji() {
+    def frame = new Frame(kanji: '')
+    assertNotNull getValidationFieldError(frame, "kanji")
   }
 }
