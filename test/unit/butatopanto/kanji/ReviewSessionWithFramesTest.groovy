@@ -6,72 +6,72 @@ import static org.mockito.Mockito.when
 
 class ReviewSessionWithFramesTest extends GrailsUnitTestCase {
 
-  private ReviewSession reviewSession
+  private ReviewService reviewService = new ReviewService()
+  private Review review = new Review()
   private def frame1 = new Frame(meaning: 'Schatz')
   private def frame2 = new Frame(meaning: 'Nichts')
 
   protected void setUp() {
     super.setUp()
     mockDomain Frame, [frame1, frame2]
-    reviewSession = new ReviewSession()
-    reviewSession.random = mock(Random)
-    when(reviewSession.random.nextInt(2)).thenReturn(1)
-    when(reviewSession.random.nextInt(1)).thenReturn(0)
-    reviewSession.start()
+    reviewService.random = mock(Random)
+    when(reviewService.random.nextInt(2)).thenReturn(1)
+    when(reviewService.random.nextInt(1)).thenReturn(0)
+    reviewService.start(review)
   }
 
   void testHasCurrentFrameAccordingToRandomIdAfterStart() {
-    assertEquals frame2, reviewSession.getCurrentFrame()
+    assertEquals frame2, reviewService.getCurrentFrame(review)
   }
 
   void testHasRemainingFrameAfterResolve() {
-    reviewSession.resolve(true)
-    assertEquals frame1, reviewSession.getCurrentFrame()
+    reviewService.resolve(review, true)
+    assertEquals frame1, reviewService.getCurrentFrame(review)
   }
 
   void testHas2TotalFrames() {
-    assertEquals 2, reviewSession.getTotalFrameCount()
+    assertEquals 2, review.getTotalFrameCount()
   }
 
   void testResolvingFrameLeavesTotalFrameCountUnchanged() {
-    reviewSession.resolve(true)
-    assertEquals 2, reviewSession.getTotalFrameCount()
+    reviewService.resolve(review, true)
+    assertEquals 2, review.getTotalFrameCount()
   }
 
   void testStartsWithTotalFrameCountForRemainingCount() {
-    assertEquals 2, reviewSession.getRemainingFrameCount()
+    assertEquals 2, review.getRemainingFrameCount()
   }
 
   void testReducesRemainingFrameCountOnResolve() {
-    reviewSession.resolve(true)
-    assertEquals 1, reviewSession.getRemainingFrameCount()
+    reviewService.resolve(review, true)
+    assertEquals 1, review.getRemainingFrameCount()
   }
 
   void testStartsWithNoCorrectReviews() {
-    assertEquals 0, reviewSession.correctReviewCount
+    assertEquals 0, review.correctReviewCount
   }
 
   void testStartsWithNoIncorrectReview() {
-    assertEquals 0, reviewSession.incorrectReviewCount
+    assertEquals 0, review.incorrectReviewCount
   }
 
   void testRetainsIncorrectReviewsOnPositiveResolve() {
-    reviewSession.resolve(true)
-    assertEquals 0, reviewSession.incorrectReviewCount
+    reviewService.resolve(review, true)
+    assertEquals 0, review.incorrectReviewCount
   }
 
   void testIncreasesCorrectReviewsOnPositiveResolve() {
-    reviewSession.resolve(true)
-    assertEquals 1, reviewSession.correctReviewCount
+    reviewService.resolve(review, true)
+    assertEquals 1, review.correctReviewCount
   }
 
   void testRetainsCorrectReviewsOnNegativeResolve() {
-    reviewSession.resolve(false)
-    assertEquals 0, reviewSession.correctReviewCount
+    reviewService.resolve(review, false)
+    assertEquals 0, review.correctReviewCount
   }
 
   void testIncreasesIncorrectReviewsOnNegativeResolve() {
-    reviewSession.resolve(false)
-    assertEquals 1, reviewSession.incorrectReviewCount
+    reviewService.resolve(review, false)
+    assertEquals 1, review.incorrectReviewCount
   }
 }

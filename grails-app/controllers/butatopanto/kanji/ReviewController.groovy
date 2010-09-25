@@ -4,23 +4,23 @@ import grails.plugins.springsecurity.Secured
 
 class ReviewController {
 
-  def frameService
+  ReviewService reviewService
   def scaffold = Frame
 
   @Secured('ROLE_USER')
   def frame = {
-    ReviewSession reviewSession = getReviewSession()
-    [frame: reviewSession.getCurrentFrame()]
+    Review review = getReview()
+    [frame: reviewService.getCurrentFrame(review)]
   }
 
-  private ReviewSession getReviewSession() {
-    if (session.reviewSession) {
-      return session.reviewSession
+  private Review getReview() {
+    if (session.review) {
+      return session.review
     }
-    ReviewSession reviewSession = new ReviewSession()
-    reviewSession.start()
-    session.reviewSession = reviewSession
-    reviewSession
+    Review review = new Review()
+    reviewService.start(review)
+    session.review = review
+    review
   }
 
   def ajaxReveal = {
@@ -30,8 +30,9 @@ class ReviewController {
 
   def ajaxResolve = {
     boolean reviewCorrect =  params.reviewCorrect == "true"
-    getReviewSession().resolve(reviewCorrect)
-    def frame = getReviewSession().getCurrentFrame()
+    Review review = getReview()
+    reviewService.resolve(review, reviewCorrect)
+    def frame = reviewService.getCurrentFrame(review)
     ajaxRenderFrame(frame, true)
   }
 

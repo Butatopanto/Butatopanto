@@ -5,31 +5,31 @@ import static org.mockito.Mockito.mock
 
 class ReviewSessionNoFrameTest extends GrailsUnitTestCase {
 
-  private ReviewSession reviewSession
+  private ReviewService reviewService = new ReviewService()
   private Random random = mock(Random)
+  private Review review = new Review()
 
   protected void setUp() {
     super.setUp()
     mockDomain Frame
-    reviewSession = new ReviewSession()
-    reviewSession.random = random
-    reviewSession.start()
+    reviewService.random = random
+    reviewService.start(review)
   }
 
   void testHasNoCurrentFrame() {
-    assertNull reviewSession.getCurrentFrame()
+    assertNull reviewService.getCurrentFrame(review)
   }
 
   void testHasNoCurrentFrameAfterResolve() {
-    reviewSession.resolve(true)
-    assertNull reviewSession.getCurrentFrame()
+    reviewService.resolve(review, true)
+    assertNull reviewService.getCurrentFrame(review)
   }
 
   void testHasNoTotalFrame() {
-    assertEquals 0, reviewSession.getTotalFrameCount()
+    assertEquals 0, review.getTotalFrameCount()
   }
 
   void testStartsWithTotalFrameCountForRemainingCount() {
-    assertEquals 0, reviewSession.getRemainingFrameCount()
+    assertEquals 0, review.getRemainingFrameCount()
   }
 }

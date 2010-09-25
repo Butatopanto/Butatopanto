@@ -29,8 +29,8 @@ class HeisigTagLib {
 
   private def renderProgressBar() {
     "<div style='position:absolute; top: 5 px; right:5 px'>" +
-      "<p>Gelernt: ${session.reviewSession.reviewedFrameCount} von ${session.reviewSession.totalFrameCount}</p>" +
-      "<p>Richtig: ${session.reviewSession.correctReviewCount} Falsch: ${session.reviewSession.incorrectReviewCount}</p>" +
+      "<p>Gelernt: ${session.review.reviewedFrameCount} von ${session.review.totalFrameCount}</p>" +
+      "<p>Richtig: ${session.review.correctReviewCount} Falsch: ${session.review.incorrectReviewCount}</p>" +
       "</div>"
   }
 
