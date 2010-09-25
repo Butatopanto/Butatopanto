@@ -19,7 +19,7 @@
         <heisig:frameCard frame="${frame}" hidden="true"/>
         <heisig:interaction frame="${frame}" hidden="true"/>
       </div>
-      <div style='position:absolute; right:5px; bottom:108px'>
+      <div style='position:absolute; right:7px; bottom:108px'>
         <g:javascript src="frame.js"/>
         <g:formRemote name="saveStory" url="[ controller: 'story', action: 'save', params: [ kanji:frame.kanji ]]" after="finishEntry('${message(code: 'frame.enterStory')}')">
           <g:textArea id="story" name="story" value="${message(code: 'frame.enterStory')}" class="story" onfocus="prepareForEntry('${message(code: 'frame.enterStory')}')"/>

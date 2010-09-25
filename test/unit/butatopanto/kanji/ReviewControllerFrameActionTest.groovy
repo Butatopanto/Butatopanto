@@ -26,7 +26,7 @@ class ReviewControllerFrameActionTest extends ControllerUnitTestCase {
   }
 
   def testDoesNotRestartExistingReview() {
-    def originalReview = new Review(currentId: "second")
+    def originalReview = new Review(currentReview: "second")
     controller.session.review = originalReview
     controller.frame()
     assertSame originalReview, controller.session.review
@@ -34,7 +34,7 @@ class ReviewControllerFrameActionTest extends ControllerUnitTestCase {
   }
 
   def testPassesCurrentFrameAsParameterForExistingReview() {
-    controller.session.review = new Review(currentId: "second")
+    controller.session.review = new Review(currentReview: "second")
     assertPassesFrameWithMeaning("second")
   }
 

@@ -6,10 +6,10 @@ class TestReviewService {
 
   void start(Review review) {
     lastStartedReview = review
-    review.currentId = initialId
+    review.currentReview = initialId
   }
 
   def getCurrentFrame(Review review) {
-    new Frame(meaning: review.currentId)
+    new Frame(meaning: review.currentReview)
   }
 }

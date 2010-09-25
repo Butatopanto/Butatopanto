@@ -1,5 +1,7 @@
 package butatopanto
 
+import butatopanto.kanji.Review
+
 class HeisigTagLib {
 
   static namespace = "heisig"
@@ -28,10 +30,42 @@ class HeisigTagLib {
   }
 
   private def renderProgressBar() {
-    "<div style='position:absolute; top: 5 px; right:5 px'>" +
-      "<p>Gelernt: ${session.review.reviewedFrameCount} von ${session.review.totalFrameCount}</p>" +
-      "<p>Richtig: ${session.review.correctReviewCount} Falsch: ${session.review.incorrectReviewCount}</p>" +
-      "</div>"
+    "<div style='position:absolute; top: 50 px; right:7 px'>" +
+    renderChartProgress(session.review) +
+    "</div>"
+  }
+
+  private def renderTextualProgress(Review review) {
+    "<p>Gelernt: ${review.reviewedCount} von ${review.totalCount}</p>" +
+    "<p>Richtig: ${review.rightCount} Falsch: ${review.wrongCount}</p>"
+  }
+
+  private def renderChartProgress(Review review) {
+    def width = "250"
+    def total = review.totalCount
+    def right = review.rightCount
+    def wrong = review.wrongCount
+    def remaining = review.remainingCount
+    def reviewed = review.reviewedCount
+    def alt = g.message(code: 'review.progress.alt', args: [reviewed, total, right, wrong])
+    def rightLegend = g.message(code: 'review.progress.legend.right', args: [right])
+    def wrongLegend = g.message(code: 'review.progress.legend.wrong', args: [wrong])
+    def remainingLegend = g.message(code: 'review.progress.legend.remaining', args: [remaining, total])
+    String title =  g.message(code: 'review.progress.title')
+    "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
+    "?chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
+    "&cht=bhs" +
+    "&chco=00FF00,FF0000,FFFFFF" +
+    "&chxr=0,0,${total}" +
+    "&chxt=x" +
+    "&chs=${width}x100" +
+    "&chds=0,${total},0,${total},0,${total}" +
+    "&chd=t:${right}|${wrong}|${remaining}" +
+    "&chtt=${title}" +
+    "&chma=5,5|${width},30" +
+    "&chdlp=b" +
+    "&chdl=${rightLegend}|${wrongLegend}|${remainingLegend}" +
+    "\"/>"
   }
 
   private def renderRevealMessage() {
@@ -40,13 +74,13 @@ class HeisigTagLib {
 
   private def renderReviewButtons(frame) {
     "<div style='position:relative; top:50px'>" +
-      "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
-      g.form(name: 'reviewKanji') {
-        g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.Yes'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
-          " " +
-          g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.No'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false]])
-      } +
-      "</div>"
+    "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
+    g.form(name: 'reviewKanji') {
+      g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.Yes'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
+      " " +
+      g.submitToRemote(update: 'container', value: g.message(code: 'frame.reviewResult.No'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false]])
+    } +
+    "</div>"
   }
 
   private def renderHiddenCard(frame) {
@@ -61,29 +95,29 @@ class HeisigTagLib {
 
   private def renderCard(function, meaning, kanji, number) {
     return "<div style='width:270px; height:390px; position:relative; top:50px; background-color:white' align='center' onclick=\"${function}\"> " +
-      "<table height = '100%'>" +
-      renderMeaning(meaning) +
-      renderCharacter(kanji) +
-      renderNumber(number) +
-      "</table>" +
-      "</div>"
+           "<table height = '100%'>" +
+           renderMeaning(meaning) +
+           renderCharacter(kanji) +
+           renderNumber(number) +
+           "</table>" +
+           "</div>"
   }
 
   private def renderNumber(number) {
     "<tr height = '10%' >" +
-      "<td style = 'text-align: right; font-size:12px'>${number}</td>" +
-      "</tr>"
+    "<td style = 'text-align: right; font-size:12px'>${number}</td>" +
+    "</tr>"
   }
 
   private def renderMeaning(meaning) {
     "<tr height = '10%'> " +
-      "<td style = 'text-align: left; font-size:20px'>${meaning}</td>" +
-      "</tr>"
+    "<td style = 'text-align: left; font-size:20px'>${meaning}</td>" +
+    "</tr>"
   }
 
   private def renderCharacter(character) {
     "<tr>" +
-      "<td height = '100%' style = 'text-align: center; vertical-align:middle; font-size:100px' >${character}</td>" +
-      "</tr>"
+    "<td height = '100%' style = 'text-align: center; vertical-align:middle; font-size:100px' >${character}</td>" +
+    "</tr>"
   }
 }

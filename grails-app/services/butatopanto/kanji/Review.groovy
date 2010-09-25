@@ -1,26 +1,26 @@
 package butatopanto.kanji
 
 class Review {
-  def currentId = 0
-  def totalFrameCount = 0
-  def remainingIds = []
-  def correctReviews = []
-  def incorrectReviews = []
+  def currentReview = 0
+  def totalCount = 0
+  def remainingReviews = []
+  def rightReviews = []
+  def wrongReviews = []
 
-  def getRemainingFrameCount() {
-    remainingIds.size()
+  def getRemainingCount() {
+    remainingReviews.size()
   }
 
-  def getCorrectReviewCount() {
-    correctReviews.size()
+  def getRightCount() {
+    rightReviews.size()
   }
 
-  def getIncorrectReviewCount() {
-    incorrectReviews.size()
+  def getWrongCount() {
+    wrongReviews.size()
   }
 
-  def getReviewedFrameCount() {
-    getTotalFrameCount() - getRemainingFrameCount()
+  def getReviewedCount() {
+    getTotalCount() - getRemainingCount()
   }
 }
 
