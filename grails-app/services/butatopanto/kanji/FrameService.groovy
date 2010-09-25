@@ -6,9 +6,16 @@ class FrameService {
   def random = new Random()
 
   def getRandomFrame() {
-    if (Frame.list()) {
-      def index = random.nextInt(Frame.count())
-      return Frame.list()[index]
+    def frames = Frame.list()
+    def ids = frames*.id
+    long id = getRandomId(ids)
+    return id == null ? null : Frame.findById(id)
+  }
+
+  def getRandomId(List<Long> ids) {
+    if (ids) {
+      def index = random.nextInt(ids.size())
+      return ids[index]
     }
     null
   }

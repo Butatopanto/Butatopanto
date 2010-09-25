@@ -1,8 +1,8 @@
-package butatopanto.kanji
+package butatopanto.security
 
 import grails.test.*
 
-class StoryControllerTests extends ControllerUnitTestCase {
+class UserServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
