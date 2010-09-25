@@ -16,10 +16,4 @@ abstract class GrailsJUnit4TestCase extends GrailsUnitTestCase {
   public void tearDown() {
     super.tearDown()
   }
-
-  protected FieldError getValidationFieldError(def domainObject, String field) {
-    domainObject.validate()
-    Errors errors = domainObject.errors
-    errors?.getFieldError(field)
-  }
 }

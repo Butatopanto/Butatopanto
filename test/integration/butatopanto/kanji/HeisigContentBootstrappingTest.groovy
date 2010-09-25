@@ -1,25 +1,31 @@
 package butatopanto.kanji
 
 import grails.test.GrailsUnitTestCase
+import butatopanto.test.GrailsJUnit4TestCase
+import org.junit.Test
 
-class HeisigContentBootstrappingTest extends GrailsUnitTestCase {
+class HeisigContentBootstrappingTest extends GrailsJUnit4TestCase {
 
   def heisigContentService;
 
-  void testHasAllFramesAfterInitialization() {
+  @Test
+  void hasAllFramesAfterInitialization() {
     assertKnowsAllDefaultFrames()
   }
 
-  void testRepeatedInitializationOfHeisigContentDoesNotAddDuplicates() {
+  @Test
+  void doesNotAddDuplicatesOnRepeatedInitialization() {
     heisigContentService.initializeDatabase()
     assertKnowsAllDefaultFrames()
   }
 
-  void testKnows15FramesInLesson1() {
+  @Test
+  void knows15FramesInLesson1() {
     assertEquals 15, Frame.countByLesson(1)
   }
 
-  void testKnows19FramesInLesson2() {
+  @Test
+  void knows19FramesInLesson2() {
     assertEquals 19, Frame.countByLesson(2)
   }
 
