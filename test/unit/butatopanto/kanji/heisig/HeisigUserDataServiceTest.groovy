@@ -1,10 +1,13 @@
 package butatopanto.kanji.heisig;
 
-import butatopanto.test.*
+
+import butatopanto.kanji.Frame
+import butatopanto.kanji.FrameReview
+import butatopanto.kanji.UserData
+import butatopanto.security.User
+import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
-import butatopanto.kanji.*
-import butatopanto.security.User
 
 class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
@@ -52,6 +55,16 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
   void knowsExistingCurrentUserData() {
     UserData userData = createUserDataWithUserName()
     assertEquals userData.id, service.currentUserData.id
+  }
+
+  @Test
+  void retainsFrameReviewsOnRepeatedAddition() {
+    service.addFrameReviewsForCurrentUserAndLesson(1)
+    FrameReview review = (service.currentUserData.frameReviews as List)[0]
+    review.passed = 10
+    review.save()
+    service.addFrameReviewsForCurrentUserAndLesson(1)
+    assertEquals 10, (service.currentUserData.frameReviews as List)[0].passed
   }
 
   private UserData createUserDataWithUserName() {
