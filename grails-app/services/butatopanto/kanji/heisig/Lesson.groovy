@@ -1,4 +1,4 @@
-package butatopanto.bootstrap.kanji
+package butatopanto.kanji.heisig
 
 import butatopanto.kanji.Frame
 

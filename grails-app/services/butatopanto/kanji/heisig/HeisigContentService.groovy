@@ -1,6 +1,4 @@
-package butatopanto.kanji
-
-import butatopanto.bootstrap.kanji.*
+package butatopanto.kanji.heisig
 
 class HeisigContentService {
 
