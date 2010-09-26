@@ -6,12 +6,24 @@ import butatopanto.kanji.bean.Review
 class ReviewController {
 
   def reviewService
+  def lessonProgressService
+  def heisigUserDataService
   def scaffold = Frame
+
+  @Secured('ROLE_USER')
+  def start = {
+    [lessonProgress: lessonProgressService.findAll()]
+  }
 
   @Secured('ROLE_USER')
   def frame = {
     Review review = getInitializedReview()
     [frame: reviewService.getCurrentFrame(review)]
+  }
+
+  def addLesson = {
+    heisigUserDataService.addFrameReviewsForLesson(params.id)
+    redirect(action: "start")
   }
 
   private Review getInitializedReview() {
@@ -30,7 +42,7 @@ class ReviewController {
   }
 
   def ajaxResolve = {
-    boolean reviewCorrect =  params.reviewCorrect == "true"
+    boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
     reviewService.resolve(review, reviewCorrect)
     def frame = reviewService.getCurrentFrame(review)
