@@ -1,6 +1,7 @@
 package butatopanto.kanji
 
 import grails.plugins.springsecurity.Secured
+import butatopanto.kanji.bean.Review
 
 class ReviewController {
 
@@ -37,6 +38,6 @@ class ReviewController {
   }
 
   private def ajaxRenderFrame(frame, boolean hidden) {
-    render heisig.frameCard([frame: frame, hidden: hidden]) + heisig.interaction([frame: frame, hidden: hidden])
+    render bootstrap.frameCard([frame: frame, hidden: hidden]) + bootstrap.interaction([frame: frame, hidden: hidden])
   }
 }

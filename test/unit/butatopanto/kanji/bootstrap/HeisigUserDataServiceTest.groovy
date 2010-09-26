@@ -1,4 +1,4 @@
-package butatopanto.kanji.heisig;
+package butatopanto.kanji.bootstrap;
 
 
 import butatopanto.kanji.Frame
@@ -8,6 +8,7 @@ import butatopanto.security.User
 import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
+import butatopanto.kanji.HeisigUserDataService
 
 class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 

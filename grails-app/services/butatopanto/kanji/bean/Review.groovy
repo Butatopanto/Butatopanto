@@ -1,4 +1,4 @@
-package butatopanto.kanji
+package butatopanto.kanji.bean
 
 class Review {
   def currentReview = 0

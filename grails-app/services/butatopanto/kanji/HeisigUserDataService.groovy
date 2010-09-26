@@ -1,4 +1,4 @@
-package butatopanto.kanji.heisig
+package butatopanto.kanji
 
 import butatopanto.kanji.Frame
 import butatopanto.kanji.FrameReview

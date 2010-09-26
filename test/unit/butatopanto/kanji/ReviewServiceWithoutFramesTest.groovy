@@ -2,6 +2,7 @@ package butatopanto.kanji
 
 import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
+import butatopanto.kanji.bean.Review
 
 class ReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
 

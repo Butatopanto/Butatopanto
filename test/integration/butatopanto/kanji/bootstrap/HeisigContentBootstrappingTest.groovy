@@ -1,4 +1,4 @@
-package butatopanto.kanji.heisig
+package butatopanto.kanji.bootstrap
 
 import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Test
