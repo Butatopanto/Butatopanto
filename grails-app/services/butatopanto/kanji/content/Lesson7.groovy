@@ -1,4 +1,4 @@
-package butatopanto.kanji.heisig
+package butatopanto.kanji.content
 
 class Lesson7 extends Lesson {
 
