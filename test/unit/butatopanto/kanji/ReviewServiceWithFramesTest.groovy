@@ -9,15 +9,16 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Review review = new Review()
-  private def frame1 = new Frame(meaning: 'Schatz')
-  private def frame2 = new Frame(meaning: 'Nichts')
+  private def frame1 = new Frame(id: 1, meaning: 'Schatz')
+  private def frame2 = new Frame(id: 2, meaning: 'Nichts')
 
   protected void setUp() {
     super.setUp()
-    mockDomain Frame, [frame1, frame2]
+    mockDomain Frame, [frame1, frame2, new Frame(id: 3, meaning: 'inactive')]
     reviewService.random = mock(Random)
     when(reviewService.random.nextInt(2)).thenReturn(1)
     when(reviewService.random.nextInt(1)).thenReturn(0)
+    reviewService.heisigUserDataService = new TestUserDataService(allActiveFrameIds: [1, 2])
     reviewService.start(review)
   }
 
@@ -30,7 +31,7 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
     assertEquals frame1, reviewService.getCurrentFrame(review)
   }
 
-  void testHas2TotalFrames() {
+  void testNumberOfActiveFramesAsTotalCount() {
     assertEquals 2, review.totalCount
   }
 

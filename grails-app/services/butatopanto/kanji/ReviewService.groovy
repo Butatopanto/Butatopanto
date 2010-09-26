@@ -4,9 +4,10 @@ import butatopanto.kanji.bean.Review
 
 class ReviewService {
   def random = new Random()
+  def heisigUserDataService
 
   def start(Review review) {
-    review.remainingReviews = Frame.list()*.id
+    review.remainingReviews = heisigUserDataService.getAllActiveFrameIds()
     review.totalCount = review.remainingReviews.size()
     toNext(review)
   }
