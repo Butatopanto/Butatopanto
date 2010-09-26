@@ -9,6 +9,9 @@
 <body>
 <div class="nav">
   <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+  <g:if test="${session.review}">
+    <span class="menuButton"><g:link class="return" action="practice"><g:message code="menu.returnToPractice"/></g:link></span>
+  </g:if>
 </div>
 <h1>Welche Kanji willst Du lernen?</h1>
 <p>&nbsp</p>

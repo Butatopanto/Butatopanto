@@ -16,7 +16,7 @@ class ReviewController {
   }
 
   @Secured('ROLE_USER')
-  def define = {
+  def manage = {
     [lessonProgress: lessonProgressService.findAll()]
   }
 

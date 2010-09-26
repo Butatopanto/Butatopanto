@@ -64,7 +64,7 @@
     </div>
     <div class="panelBody">
       <ul>
-        <li class="controller"><g:link controller="review" action="define"><g:message code="navigation.frameTraining"/></g:link></li>
+        <li class="controller"><g:link controller="review" action="manage"><g:message code="navigation.frameTraining"/></g:link></li>
         <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
       </ul>
       <ul>

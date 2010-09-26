@@ -1,0 +1,17 @@
+.menuButton a.learn {
+  background: url(../images/skin/questionmark.gif) center left no-repeat;
+  color: #333;
+  padding-left: 25px;
+}
+
+.menuButton a.manage {
+  background: url(../images/skin/wizard-icon-16.png) center left no-repeat;
+  color: #333;
+  padding-left: 25px;
+}
+
+.menuButton a.restart {
+  background: url(../images/skin/rewind-icon-16.png) center left no-repeat;
+  color: #333;
+  padding-left: 25px;
+}
