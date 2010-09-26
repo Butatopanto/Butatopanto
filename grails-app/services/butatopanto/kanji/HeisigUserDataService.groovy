@@ -4,13 +4,22 @@ class HeisigUserDataService {
 
   def userService
 
-  def addFrameReviewsForCurrentUserAndLesson(def lessonNumber) {
+  def addFrameReviewsForLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
       if (!FrameReview.findByFrame(it)) {
         userData.addToFrameReviews(new FrameReview(frame: it))
       }
     }
+  }
+
+  def getActiveFrameIdsForLesson(def lessonNumber) {
+    if (!currentUserData?.frameReviews) {
+      return []
+    }
+    def allReviews = currentUserData.frameReviews as List
+    def relevantReviews = allReviews.findAll {it.frame.lesson == lessonNumber}
+    relevantReviews.collect {it.frame.id}
   }
 
   private def findOrCreateUserData() {

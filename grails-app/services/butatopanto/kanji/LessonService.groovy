@@ -11,7 +11,7 @@ class LessonService {
     Set<Integer> lessonNumbers = ((frameList.collect {it.lesson} as Set) as List).sort()
     lessonNumbers.collect {
       def frameIds = Frame.findAllByLesson(it).collect {it.id}.sort()
-      new Lesson(lessonNumber: it, frameIds: frameIds)
+      new Lesson(number: it, frameIds: frameIds)
     }
   }
 }
