@@ -23,7 +23,7 @@
       <div id="container" style="padding: 5px">
         <div><g:each in="${lessonProgress}" status="i" var="${progress}">
           <g:set var="activeFrameCount" value="${activeFrameCount + progress.activeFrameIds.size()}"/>
-          <P>Lesson ${progress.lesson.number}: ${progress.activeFrameIds.size()} von ${progress.lesson.frameIds.size()}
+          <P>Kapitel ${progress.lesson.number}: ${progress.activeFrameIds.size()} von ${progress.lesson.frameIds.size()}
           <g:if test="${progress.activeFrameIds.size() != progress.lesson.frameIds.size()}">
             <g:link action="addLesson" id="${progress.lesson.number}">Hinzufügen</g:link>
           </g:if>
