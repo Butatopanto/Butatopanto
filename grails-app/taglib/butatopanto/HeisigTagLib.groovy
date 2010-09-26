@@ -1,6 +1,6 @@
 package butatopanto
 
-import butatopanto.kanji.Review
+import butatopanto.kanji.bean.Review
 
 class HeisigTagLib {
 
