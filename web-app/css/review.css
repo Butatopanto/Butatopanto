@@ -5,13 +5,13 @@
 }
 
 .menuButton a.manage {
-  background: url(../images/skin/wizard-icon-16.png) center left no-repeat;
+  background: url(../images/skin/manage-16.jpg) center left no-repeat;
   color: #333;
   padding-left: 25px;
 }
 
-.menuButton a.restart {
-  background: url(../images/skin/rewind-icon-16.png) center left no-repeat;
+.menuButton a.practice {
+  background: url(../images/skin/practice-16.jpg) center left no-repeat;
   color: #333;
   padding-left: 25px;
 }

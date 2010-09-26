@@ -12,7 +12,7 @@ class ReviewController {
 
   def addLesson = {
     heisigUserDataService.addFrameReviewsForLesson(params.id)
-    redirect(action: "define")
+    redirect(action: "manage")
   }
 
   @Secured('ROLE_USER')
