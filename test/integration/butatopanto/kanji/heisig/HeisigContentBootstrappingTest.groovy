@@ -1,8 +1,8 @@
-package butatopanto.kanji
+package butatopanto.kanji.heisig
 
-import grails.test.GrailsUnitTestCase
 import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Test
+import butatopanto.kanji.Frame
 
 class HeisigContentBootstrappingTest extends GrailsJUnit4TestCase {
 
@@ -21,7 +21,7 @@ class HeisigContentBootstrappingTest extends GrailsJUnit4TestCase {
 
   @Test
   void knows15FramesInLesson1() {
-    assertEquals 15, Frame.countByLesson(1)
+    junit.framework.Assert.assertEquals 15, Frame.countByLesson(1)
   }
 
   @Test
