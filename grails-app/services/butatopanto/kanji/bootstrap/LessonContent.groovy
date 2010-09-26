@@ -2,10 +2,10 @@ package butatopanto.kanji.bootstrap
 
 import butatopanto.kanji.Frame
 
-class Lesson {
+class LessonContent {
   private def lessonNumber
 
-  Lesson(def number) {
+  LessonContent(def number) {
     this.lessonNumber = number
   }
 

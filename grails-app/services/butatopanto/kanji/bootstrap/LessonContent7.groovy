@@ -1,8 +1,8 @@
 package butatopanto.kanji.bootstrap
 
-class Lesson7 extends Lesson {
+class LessonContent7 extends LessonContent {
 
-  Lesson7() {
+  LessonContent7() {
     super(7)
   }
 
