@@ -22,6 +22,14 @@ class HeisigUserDataService {
     relevantReviews.collect {it.frame.id}
   }
 
+  def getAllActiveFrameIds() {
+    if (!currentUserData?.frameReviews) {
+      return []
+    }
+    def allReviews = currentUserData.frameReviews as List
+    allReviews.collect {it.frame.id}
+  }
+
   private def findOrCreateUserData() {
     if (!currentUserData) {
       new UserData(userName: currentUserName).save()

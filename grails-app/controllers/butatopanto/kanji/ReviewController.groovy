@@ -10,26 +10,37 @@ class ReviewController {
   def heisigUserDataService
   def scaffold = Frame
 
+  def addLesson = {
+    heisigUserDataService.addFrameReviewsForLesson(params.id)
+    redirect(action: "define")
+  }
+
   @Secured('ROLE_USER')
-  def start = {
+  def define = {
     [lessonProgress: lessonProgressService.findAll()]
   }
 
   @Secured('ROLE_USER')
-  def frame = {
-    Review review = getInitializedReview()
-    [frame: reviewService.getCurrentFrame(review)]
+  def start = {
+    createNewReview()
+    redirect(action: "practice")
   }
 
-  def addLesson = {
-    heisigUserDataService.addFrameReviewsForLesson(params.id)
-    redirect(action: "start")
-  }
-
-  private Review getInitializedReview() {
-    if (session.review) {
-      return session.review
+  @Secured('ROLE_USER')
+  def practice = {
+    if (!session.review) {
+      redirect(action: "start")
     }
+    else {
+      showCurrentFrame()
+    }
+  }
+
+  def showCurrentFrame() {
+    return [frame: reviewService.getCurrentFrame(session.review)]
+  }
+
+  private Review createNewReview() {
     Review review = new Review()
     reviewService.start(review)
     session.review = review
@@ -50,6 +61,6 @@ class ReviewController {
   }
 
   private def ajaxRenderFrame(frame, boolean hidden) {
-    render bootstrap.frameCard([frame: frame, hidden: hidden]) + bootstrap.interaction([frame: frame, hidden: hidden])
+    render heisig.frameCard([frame: frame, hidden: hidden]) + heisig.interaction([frame: frame, hidden: hidden])
   }
 }

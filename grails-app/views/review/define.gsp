@@ -20,7 +20,7 @@
           <P>Lesson ${progress.lesson.number}: ${progress.activeFrameIds.size()} von ${progress.lesson.frameIds.size()}
           <g:link action="addLesson" id="${progress.lesson.number}">Hinzufügen</g:link></P>
         </g:each></div>
-       <P><g:link action="frame">Lernen starten</g:link></P> 
+       <P><g:link action="start">Lernen starten</g:link></P> 
       </div>
     </div>
   </div>
