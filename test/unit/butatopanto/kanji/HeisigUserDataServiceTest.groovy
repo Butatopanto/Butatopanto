@@ -63,7 +63,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
     service.addFrameReviewsForCurrentUserAndLesson(1)
     FrameReview review = (service.currentUserData.frameReviews as List)[0]
     review.passed = 10
-    review.save(flush: true)
+    review.save()
     service.addFrameReviewsForCurrentUserAndLesson(1)
     assertEquals 10, (service.currentUserData.frameReviews as List)[0].passed
   }

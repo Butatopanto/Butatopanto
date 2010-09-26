@@ -1,17 +1,15 @@
 package butatopanto.kanji
 
-import butatopanto.kanji.Frame
-import butatopanto.kanji.FrameReview
-import butatopanto.kanji.UserData
-
 class HeisigUserDataService {
 
   def userService
 
-  def addFrameReviewsForCurrentUserAndLesson(def lesson) {
+  def addFrameReviewsForCurrentUserAndLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
-    Frame.findAllByLesson(lesson).each {
-      userData.addToFrameReviews(new FrameReview(frame: it))
+    Frame.findAllByLesson(lessonNumber).each {
+      if (!FrameReview.findByFrame(it)) {
+        userData.addToFrameReviews(new FrameReview(frame: it))
+      }
     }
   }
 
