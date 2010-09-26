@@ -1,7 +1,6 @@
 package butatopanto.kanji
 
 import butatopanto.test.GrailsJUnit4TestCase
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -11,7 +10,8 @@ class FrameReviewIntegrationTest extends GrailsJUnit4TestCase {
   @Before
   public void saveFrameReview() {
     userData = new UserData(userName: "the user")
-    userData.addToFrameReviews(new FrameReview()).save()
+    def review = new FrameReview(frame: Frame.get(1))
+    userData.addToFrameReviews(review).save(failOnError: true)
   }
 
   @Test

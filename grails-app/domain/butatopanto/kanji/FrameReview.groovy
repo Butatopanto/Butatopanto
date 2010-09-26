@@ -4,6 +4,7 @@ import butatopanto.security.User
 
 class FrameReview {
   static belongsTo = [userData: UserData]
+  Frame frame
   int box = 1
   int passed = 0
   int failed = 0
