@@ -15,22 +15,22 @@ class LessonServiceWithFramesTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void hasNumberOfLessonsAccordingToNumberOfDifferentLessonNumbers() {
+  void findsNumberOfLessonsAccordingToNumberOfDifferentLessonNumbers() {
     assertEquals 2, service.findAllLessons().size()
   }
 
   @Test
   void sortsLessonsByNumber() {
-    assertEquals([1, 3], service.findAllLessons().collect { it.lessonNumber })
+    assertEquals([1, 3], service.findAll().collect { it.lessonNumber })
   }
 
   @Test
-  void hasLessonWithFramesForNumberOne() {
-    assertEquals([1, 2], service.findAllLessons()[0].frameIds)
+  void findsLessonWithFramesForNumberOne() {
+    assertEquals([1, 2], service.findAll()[0].frameIds)
   }
 
   @Test
-  void hasLessonWithFrameForNumberTwo() {
-    assertEquals([3], service.findAllLessons()[1].frameIds)
+  void findsLessonWithFrameForNumberTwo() {
+    assertEquals([3], service.findAll()[1].frameIds)
   }
 }

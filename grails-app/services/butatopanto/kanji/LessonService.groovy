@@ -6,7 +6,7 @@ class LessonService {
 
   static transactional = true
 
-  def findAllLessons() {
+  def findAll() {
     List<Frame> frameList = Frame.list()
     Set<Integer> lessonNumbers = ((frameList.collect {it.lesson} as Set) as List).sort()
     lessonNumbers.collect {

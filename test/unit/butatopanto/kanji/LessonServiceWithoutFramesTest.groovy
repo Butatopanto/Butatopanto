@@ -13,13 +13,7 @@ class LessonServiceWithoutFramesTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void hasNoLessonsWithoutFrames() {
-    assertEquals 0, service.findAllLessons().size()
-  }
-
-  @Test
-  void hasOneLessonsOfSizeOneWithSingleFrame() {
-    new Frame(lesson: 1).save()
-    assertEquals 0, service.findAllLessons().size()
+  void findsNoLessonsWithoutFrames() {
+    assertEquals 0, service.findAll().size()
   }
 }
