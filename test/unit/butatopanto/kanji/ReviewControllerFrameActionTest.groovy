@@ -1,6 +1,7 @@
 package butatopanto.kanji;
 
 import grails.test.ControllerUnitTestCase
+import butatopanto.kanji.bean.Review
 
 class ReviewControllerFrameActionTest extends ControllerUnitTestCase {
 

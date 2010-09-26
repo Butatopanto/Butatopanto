@@ -1,5 +1,7 @@
 package butatopanto.kanji
 
+import butatopanto.kanji.bean.Review
+
 class ReviewService {
   def random = new Random()
 
