@@ -1,8 +1,8 @@
 package butatopanto.kanji.heisig
 
-import butatopanto.kanji.UserData
 import butatopanto.kanji.Frame
 import butatopanto.kanji.FrameReview
+import butatopanto.kanji.UserData
 
 class HeisigUserDataService {
 
@@ -16,11 +16,17 @@ class HeisigUserDataService {
   }
 
   private def findOrCreateUserData() {
-    def userName = userService.currentUser.username
-    if (!UserData.findByUserName(userName)) {
-      def userData = new UserData(userName: userName)
-      userData.save()
+    if (!currentUserData) {
+      new UserData(userName: currentUserName).save()
     }
-    UserData.findByUserName(userName)
+    currentUserData
+  }
+
+  def getCurrentUserData() {
+    return UserData.findByUserName(currentUserName)
+  }
+
+  private String getCurrentUserName() {
+    userService.currentUser.username
   }
 }

@@ -8,24 +8,25 @@ import butatopanto.security.User
 
 class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
-  HeisigUserDataService service = new HeisigUserDataService()
+  private HeisigUserDataService service = new HeisigUserDataService()
+  private def userName = "the user"
 
   @Before
   void mockUserService() {
-    service.userService = [currentUser: new User(username: "the user")]
+    service.userService = [currentUser: new User(username: userName)]
   }
 
   @Before
   void mockDomain() {
     mockDomain FrameReview
-    mockDomain Frame, [new Frame(meaning: 'first', lesson: 1), new Frame(meaning: 'second', lesson: 2), new Frame(meaning: 'third', lesson: 2)]
+    mockDomain Frame, [new Frame(id: 1, meaning: 'first', lesson: 1), new Frame(id: 2, meaning: 'second', lesson: 2), new Frame(id: 3, meaning: 'third', lesson: 2)]
     mockDomain UserData
   }
 
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
     service.addFrameReviewsForCurrentUserAndLesson(1)
-    assertNotNull "No UserData found for user", UserData.findByUserName("the user")
+    assertNotNull "No UserData found for user", UserData.findByUserName(userName)
   }
 
   @Test
@@ -41,14 +42,24 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void addsFrameToExistingUserData() {
-    new UserData(userName: "the user").save()
+  void addsFrameToExistingCurrentUserData() {
+    createUserDataWithUserName()
     service.addFrameReviewsForCurrentUserAndLesson(1)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
+  @Test
+  void knowsExistingCurrentUserData() {
+    UserData userData = createUserDataWithUserName()
+    assertEquals userData.id, service.currentUserData.id
+  }
+
+  private UserData createUserDataWithUserName() {
+    new UserData(userName: userName).save()
+  }
+
   private def assertHasFrameReviewsSortedByMeaning(expected) {
-    def userData = UserData.findByUserName("the user")
+    def userData = UserData.findByUserName(userName)
     assertEquals(expected, userData.frameReviews.collect({ it.frame.meaning }).sort())
   }
 }
