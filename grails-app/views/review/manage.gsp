@@ -5,7 +5,7 @@
   <meta name="layout" content="main"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <g:javascript library="prototype"/>
-  <title>Welche Kapitel willst Du lernen?</title>
+  <title><g:message code="review.manage.title"/></title>
 </head>
 <body>
 <div class="nav">
@@ -14,7 +14,7 @@
     <span class="menuButton"><g:link class="practice" action="practice"><g:message code="menu.returnToPractice"/></g:link></span>
   </g:if>
 </div>
-<h1>Welche Kanji willst Du lernen?</h1>
+<h1><g:message code="review.manage.chapterselection"/></h1>
 <p>&nbsp</p>
 <div class="body">
   <div class="dialog">
