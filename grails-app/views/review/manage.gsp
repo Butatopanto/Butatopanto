@@ -25,12 +25,12 @@
           <div class="lessonselector">
             <g:set var="activeFrameCount" value="${activeFrameCount + progress.activeFrameIds.size()}"/>
             <g:if test="${progress.activeFrameIds.size() != progress.lesson.frameIds.size()}">
-              <g:link action="addLesson" id="${progress.lesson.number}">
+              <g:link class="selectable" action="addLesson" id="${progress.lesson.number}">
                 <heisig:chapter number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
               </g:link>
             </g:if>
             <g:else>
-              <div class="chosendisplay">
+              <div class="chosen">
                 <heisig:chapter number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
               </div>
             </g:else>

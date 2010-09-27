@@ -19,27 +19,25 @@
 div.lessonselector {
     width: 60px;
     height: 60px;
-    margin: 7px;
+    margin: 6px;
     text-align: center;
     float: left;
 }
 
-.lessonselector a {
-    border-radius: 15px;
+.chosen, .selectable {
     display: block;
     height: 100%;
     width: 100%;
-    background-color: #f08080;
-    font-weight: normal;
-    color: black;
+    border-radius: 15px;
     border: 2px black solid;
 }
 
-.chosendisplay {
-    display: block;
-    height: 100%;
-    width: 100%;
-    border-radius: 15px;
+.selectable {
+    background-color: #f08080;
+    font-weight: normal;
+    color: black;
+}
+
+.chosen {
     background-color: #90ee90;
-    border: 2px black solid;
 }
