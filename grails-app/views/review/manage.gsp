@@ -5,7 +5,7 @@
   <meta name="layout" content="main"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <g:javascript library="prototype"/>
-  <title>Welche Kanji willst Du lernen?</title>
+  <title>Welche Kapitel willst Du lernen?</title>
 </head>
 <body>
 <div class="nav">
@@ -22,21 +22,30 @@
       <g:set var="activeFrameCount" value="${0}"/>
       <div id="container" style="padding: 5px">
         <div><g:each in="${lessonProgress}" status="i" var="${progress}">
-          <g:set var="activeFrameCount" value="${activeFrameCount + progress.activeFrameIds.size()}"/>
-          <P>Kapitel ${progress.lesson.number}: ${progress.activeFrameIds.size()} von ${progress.lesson.frameIds.size()}
-          <g:if test="${progress.activeFrameIds.size() != progress.lesson.frameIds.size()}">
-            <g:link action="addLesson" id="${progress.lesson.number}">Hinzufügen</g:link>
+          <div class="lessonselector">
+            <g:set var="activeFrameCount" value="${activeFrameCount + progress.activeFrameIds.size()}"/>
+            <g:if test="${progress.activeFrameIds.size() != progress.lesson.frameIds.size()}">
+              <g:link action="addLesson" id="${progress.lesson.number}">
+                <p style="font-size: 20px">${progress.lesson.number}
+                <p>${progress.activeFrameIds.size()} von ${progress.lesson.frameIds.size()}</p>
+              </g:link>
+            </g:if>
+            <g:else>
+              <div class="chosendisplay">
+                <p style="font-size:20px">${progress.lesson.number}</p>
+                <p>${progress.activeFrameIds.size()} von ${progress.lesson.frameIds.size()}</p>
+              </div>
+            </g:else>
+          </div>
+        </g:each>
+
+          <g:if test="${activeFrameCount > 0}">
+            <div class="nav" style='position:absolute; width:775px; top:517px'>
+              <span class="menuButton"><g:link class="practice" action="start">Alle</g:link></span>
+            </div>
           </g:if>
-          </P>
-        </g:each></div>
-      </div>
-      <g:if test="${activeFrameCount > 0}">
-        <div class="nav" style='position:absolute; width:775px; top:517px'>
-          <span class="menuButton"><g:link class="practice" action="start">Alle</g:link></span>
         </div>
-      </g:if>
+      </div>
     </div>
-  </div>
-</div>
 </body>
 </html>

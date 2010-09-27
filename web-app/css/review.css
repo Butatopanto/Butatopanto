@@ -1,17 +1,42 @@
 .menuButton a.learn {
-  background: url(../images/skin/questionmark.gif) center left no-repeat;
-  color: #333;
-  padding-left: 25px;
+    background: url(../images/skin/questionmark.gif) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
 }
 
 .menuButton a.manage {
-  background: url(../images/skin/manage-16.jpg) center left no-repeat;
-  color: #333;
-  padding-left: 25px;
+    background: url(../images/skin/manage-16.jpg) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
 }
 
 .menuButton a.practice {
-  background: url(../images/skin/practice-16.jpg) center left no-repeat;
-  color: #333;
-  padding-left: 25px;
+    background: url(../images/skin/practice-16.jpg) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+
+div.lessonselector {
+    width: 60px;
+    height: 60px;
+    margin: 3px;
+    text-align: center;
+}
+
+.lessonselector a {
+    border-radius: 15px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #ff4500;
+    font-weight: normal;
+    color: black;
+}
+
+.chosendisplay {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #adff2f;
 }
