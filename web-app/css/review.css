@@ -19,7 +19,7 @@
 div.lessonselector {
     width: 60px;
     height: 60px;
-    margin: 3px;
+    margin: 7px;
     text-align: center;
 }
 
@@ -28,10 +28,10 @@ div.lessonselector {
     display: block;
     height: 100%;
     width: 100%;
-    background-color: #ff4500;
+    background-color: #f08080;
     font-weight: normal;
     color: black;
-    border: 1px black;
+    border: 2px black solid;
 }
 
 .chosendisplay {
@@ -39,6 +39,6 @@ div.lessonselector {
     height: 100%;
     width: 100%;
     border-radius: 15px;
-    background-color: #adff2f;
-    border: 1px black;
+    background-color: #90ee90;
+    border: 2px black solid;
 }
