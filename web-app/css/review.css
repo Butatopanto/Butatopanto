@@ -31,6 +31,7 @@ div.lessonselector {
     background-color: #ff4500;
     font-weight: normal;
     color: black;
+    border: 1px black;
 }
 
 .chosendisplay {
@@ -39,4 +40,5 @@ div.lessonselector {
     width: 100%;
     border-radius: 15px;
     background-color: #adff2f;
+    border: 1px black;
 }
