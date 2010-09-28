@@ -1,11 +1,18 @@
 package butatopanto
 
+import butatopanto.kanji.bean.ChapterSelection
 import grails.test.TagLibUnitTestCase
 
 class ReviewTagLibTests extends TagLibUnitTestCase {
 
+  def html
+
   protected void setUp() {
     super.setUp()
+    ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 1)
+    def tag = tagLib.chapter(chapter: chapter)
+    def text = tag.getBuffer().toString()
+    html = new XmlSlurper().parseText(text)
   }
 
   protected void tearDown() {
@@ -13,23 +20,14 @@ class ReviewTagLibTests extends TagLibUnitTestCase {
   }
 
   void testCreatesChapterNumber() {
-    def tag = tagLib.chapter(number: 1, totalFrames: 1)
-    def text = tag.getBuffer().toString()
-    def html = new XmlSlurper().parseText(text)
     assertEquals("1", html.p[0].text())
   }
 
   void testWritesChapterLarger() {
-    def tag = tagLib.chapter(number: 1, totalFrames: 1)
-    def text = tag.getBuffer().toString()
-    def html = new XmlSlurper().parseText(text)
     assertEquals("font-size: 20px", html.p[0].@style.text())
   }
 
   void testCreatesKanjiCounter() {
-    def tag = tagLib.chapter(number: 1, totalFrames: 1)
-    def text = tag.getBuffer().toString()
-    def html = new XmlSlurper().parseText(text)
     assertEquals("1 Kanji", html.p[1].text())
   }
 }

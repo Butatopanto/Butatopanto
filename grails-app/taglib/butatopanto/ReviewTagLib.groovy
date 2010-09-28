@@ -5,20 +5,22 @@ class ReviewTagLib {
   static namespace = "heisig"
 
   def chapterSelector = {attributes ->
-    boolean selected = attributes.selected
+    def chapterSelection = attributes.chapter
+    boolean selected = chapterSelection.selected
     def cssClass = selected ? "chosen" : "selectable"
     def clickAction = selected ? "removeLesson" : "addLesson"
-    def chapterNumber = attributes.number
+    def chapterNumber = chapterSelection.chapterNumber
     out << g.link("class": cssClass, action: clickAction, id: chapterNumber) {
       chapter(attributes)
     }
   }
 
   def chapter = { attributes ->
-    def chapter = attributes.number
-    def totalFrames = attributes.totalFrames
+    def chapterSelection = attributes.chapter
+    def chapterNumber = chapterSelection.chapterNumber
+    def totalFrames = chapterSelection.totalFrames
     out << "<div>"
-    out << "<p style='font-size: 20px'>$chapter</p>"
+    out << "<p style='font-size: 20px'>$chapterNumber</p>"
     out << "<p>$totalFrames Kanji</p>"
     out << "</div>"
   }

@@ -24,7 +24,7 @@
         <div>
           <g:each in="${chapters}" status="i" var="${chapter}">
             <div class="lessonselector">
-              <heisig:chapterSelector selected="${chapter.selected}" number="${chapter.chapterNumber}" totalFrames="${chapter.totalFrames}"/>
+              <heisig:chapterSelector chapter="${chapter}"/>
             </div>
           </g:each>
           <g:if test="${canContinue}">
