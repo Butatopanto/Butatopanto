@@ -1,7 +1,8 @@
 package butatopanto.kanji;
 
-import grails.test.ControllerUnitTestCase
+
 import butatopanto.kanji.bean.Review
+import grails.test.ControllerUnitTestCase
 
 class ReviewControllerTest extends ControllerUnitTestCase {
 
@@ -50,5 +51,33 @@ class ReviewControllerTest extends ControllerUnitTestCase {
     controller.session.review = new Review(currentReview: "second")
     Frame passedFrame = controller.practice()."frame"
     assertEquals "second", passedFrame.meaning
+  }
+
+  def testRedirectsToManageAfterAddingLesson() {
+    controller.heisigUserDataService = [addFrameReviewsForLesson: { }]
+    controller.addLesson()
+    assertEquals "manage", controller.redirectArgs.action
+  }
+
+  def testAddsLessonReviewsViaService() {
+    int addedLesson
+    controller.heisigUserDataService = [addFrameReviewsForLesson: {addedLesson= it}]
+    controller.params.id = 4
+    controller.addLesson()
+    assertEquals 4, addedLesson
+  }
+
+  def testRedirectsToManageAfterRemovingLesson() {
+    controller.heisigUserDataService = [removeFrameReviewsForLesson: { }]
+    controller.removeLesson()
+    assertEquals "manage", controller.redirectArgs.action
+  }
+
+  def testRemovesLessonReviewsViaService() {
+    int removedLesson
+    controller.heisigUserDataService = [removeFrameReviewsForLesson: {removedLesson = it}]
+    controller.params.id = 5
+    controller.removeLesson()
+    assertEquals 5, removedLesson
   }
 }
