@@ -8,7 +8,7 @@ class HeisigUserDataService {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
       if (!FrameReview.findByFrame(it)) {
-        userData.addToFrameReviews(new FrameReview(frame: it))
+        userData.addToFrameReviews new FrameReview(frame: it)
       }
     }
   }
@@ -19,7 +19,6 @@ class HeisigUserDataService {
       def review = FrameReview.findByFrame(it)
       if (review) {
         userData.removeFromFrameReviews review
-        review.delete()
       }
     }
   }

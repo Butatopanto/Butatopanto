@@ -5,7 +5,6 @@ import butatopanto.security.User
 import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
-import org.junit.Ignore
 
 class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
@@ -36,13 +35,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
-  @Ignore
-  @Test
-  void removesFrameReviewForSingleFrameFromUserData() {
-    service.addFrameReviewsForLesson(1)
-    service.removeFrameReviewsForLesson(1)
-    assertHasNoReviews()
-  }
+
 
   @Test
   void addsFrameReviewsForMultipleFramesToUserData() {
@@ -50,22 +43,6 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
     assertHasFrameReviewsSortedByMeaning(['second', 'third'])
   }
 
-  @Ignore
-  @Test
-  void removesFrameReviewsForMultipleFramesFromUserData() {
-    service.addFrameReviewsForLesson(2)
-    service.removeFrameReviewsForLesson(2)
-    assertHasNoReviews()
-  }
-
-  @Ignore
-  @Test
-  void removesFrameReviewsOnlyForGivenLesson() {
-    service.addFrameReviewsForLesson(1)
-    service.addFrameReviewsForLesson(2)
-    service.removeFrameReviewsForLesson(2)
-    assertHasFrameReviewsSortedByMeaning(['first'])
-  }
 
   @Test
   void addsFrameToExistingCurrentUserData() {
@@ -116,11 +93,5 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
   private def assertHasFrameReviewsSortedByMeaning(expected) {
     def userData = UserData.findByUserName(userName)
     assertEquals(expected, userData.frameReviews.collect({ it.frame.meaning }).sort())
-  }
-
-
-  private def assertHasNoReviews() {
-    def userData = UserData.findByUserName(userName)
-    assertTrue userData.frameReviews.isEmpty()
   }
 }
