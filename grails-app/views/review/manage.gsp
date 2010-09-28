@@ -24,16 +24,18 @@
         <div><g:each in="${lessonProgress}" status="i" var="${progress}">
           <div class="lessonselector">
             <g:set var="activeFrameCount" value="${activeFrameCount + progress.activeFrameIds.size()}"/>
-            <g:if test="${progress.activeFrameIds.size() != progress.lesson.frameIds.size()}">
-              <g:link class="selectable" action="addLesson" id="${progress.lesson.number}">
-                <heisig:chapter number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
-              </g:link>
+            <g:set var="selected" value="${progress.activeFrameIds.size() == progress.lesson.frameIds.size()}"/>
+            <g:if test="${selected}">
+              <g:set var="cssClass" value="chosen"/>
+              <g:set var="clickAction" value="removeLesson"/>
             </g:if>
             <g:else>
-              <g:link class="chosen" action="removeLesson" id="${progress.lesson.number}">
-                <heisig:chapter number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
-              </g:link>
+              <g:set var="cssClass" value="selectable"/>
+              <g:set var="clickAction" value="addLesson"/>
             </g:else>
+            <g:link class="${cssClass}" action="${clickAction}" id="${progress.lesson.number}">
+              <heisig:chapter number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
+            </g:link>
           </div>
         </g:each>
 
