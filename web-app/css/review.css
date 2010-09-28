@@ -24,20 +24,20 @@ div.lessonselector {
     float: left;
 }
 
-.chosen, .selectable {
+a.chosen, a.selectable {
     display: block;
     height: 100%;
     width: 100%;
     border-radius: 15px;
     border: 2px black solid;
-}
-
-.selectable {
-    background-color: #f08080;
     font-weight: normal;
     color: black;
 }
 
-.chosen {
+a.selectable {
+    background-color: #f08080;
+}
+
+a.chosen {
     background-color: #90ee90;
 }

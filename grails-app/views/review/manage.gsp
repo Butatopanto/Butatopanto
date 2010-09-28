@@ -30,9 +30,9 @@
               </g:link>
             </g:if>
             <g:else>
-              <div class="chosen">
+              <g:link class="chosen" action="removeLesson" id="${progress.lesson.number}">
                 <heisig:chapter number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
-              </div>
+              </g:link>
             </g:else>
           </div>
         </g:each>
