@@ -16,9 +16,10 @@ class HeisigUserDataService {
   def removeFrameReviewsForLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
-      def review = FrameReview.findByFrameAndUserData(it, userData)
+      def review = FrameReview.findByFrame(it)
       if (review) {
         userData.removeFromFrameReviews review
+        review.delete()
       }
     }
   }

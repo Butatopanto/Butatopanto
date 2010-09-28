@@ -5,7 +5,7 @@ import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
 
-class HeisigUserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
+class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   def heisigUserDataService
   def springSecurityService
