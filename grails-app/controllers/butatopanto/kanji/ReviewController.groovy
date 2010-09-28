@@ -1,7 +1,7 @@
 package butatopanto.kanji
 
+import butatopanto.kanji.bean.*
 import grails.plugins.springsecurity.Secured
-import butatopanto.kanji.bean.Review
 
 class ReviewController {
 
@@ -15,14 +15,18 @@ class ReviewController {
     redirect(action: "manage")
   }
 
-   def removeLesson = {
+  def removeLesson = {
     heisigUserDataService.removeFrameReviewsForLesson(params.id)
     redirect(action: "manage")
   }
 
   @Secured('ROLE_USER')
   def manage = {
-    [lessonProgress: lessonProgressService.findAll()]
+    def progressList = lessonProgressService.findAll()
+    def chapters = progressList.collect {
+      new ChapterSelection(chapterNumber: it.lesson.number, selected: it.activeFrameIds, totalFrames: it.lesson.frameIds.size())
+    }
+    [chapters: chapters, canContinue: chapters.find {it.selected} != null]
   }
 
   @Secured('ROLE_USER')

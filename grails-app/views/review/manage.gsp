@@ -21,15 +21,13 @@
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <g:set var="activeFrameCount" value="${0}"/>
       <div id="container" style="padding: 5px">
-        <div><g:each in="${lessonProgress}" status="i" var="${progress}">
-          <div class="lessonselector">
-            <g:set var="activeFrameCount" value="${activeFrameCount + progress.activeFrameIds.size()}"/>
-            <g:set var="selected" value="${progress.activeFrameIds.size() == progress.lesson.frameIds.size()}"/>
-            <heisig:chapterSelector selected="${selected}" number="${progress.lesson.number}" activeFrames="${progress.activeFrameIds.size()}" totalFrames="${progress.lesson.frameIds.size()}"/>
-          </div>
-        </g:each>
-
-          <g:if test="${activeFrameCount > 0}">
+        <div>
+          <g:each in="${chapters}" status="i" var="${chapter}">
+            <div class="lessonselector">
+              <heisig:chapterSelector selected="${chapter.selected}" number="${chapter.chapterNumber}" totalFrames="${chapter.totalFrames}"/>
+            </div>
+          </g:each>
+          <g:if test="${canContinue}">
             <div class="nav" style='position:absolute; width:775px; top:517px'>
               <span class="menuButton"><g:link class="practice" action="start">Alle</g:link></span>
             </div>
