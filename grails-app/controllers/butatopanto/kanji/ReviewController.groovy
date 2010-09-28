@@ -15,6 +15,11 @@ class ReviewController {
     redirect(action: "manage")
   }
 
+   def removeLesson = {
+    heisigUserDataService.removeFrameReviewsForLesson(params.id)
+    redirect(action: "manage")
+  }
+
   @Secured('ROLE_USER')
   def manage = {
     [lessonProgress: lessonProgressService.findAll()]
