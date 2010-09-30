@@ -3,7 +3,7 @@ package butatopanto
 import butatopanto.kanji.bean.ChapterSelection
 import grails.test.TagLibUnitTestCase
 
-class ReviewTagLibTests extends TagLibUnitTestCase {
+class ReviewTagLibTest extends TagLibUnitTestCase {
 
   def html
 

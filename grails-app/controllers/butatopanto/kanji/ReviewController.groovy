@@ -1,32 +1,53 @@
 package butatopanto.kanji
 
-import butatopanto.kanji.bean.*
+import butatopanto.kanji.bean.ChapterSelection
+import butatopanto.kanji.bean.Review
 import grails.plugins.springsecurity.Secured
 
 class ReviewController {
 
   def reviewService
+  def lessonService
   def lessonProgressService
   def heisigUserDataService
-  def scaffold = Frame
+
+  @Secured('ROLE_USER')
+  def manage = {
+    createChapterSelectionIfNecessary()
+    [canContinue: evaluateChapters().hasSelectedChapter()]
+  }
 
   def addLesson = {
-    heisigUserDataService.addFrameReviewsForLesson(params.id)
+    int chapterNumber = params.id.toInteger()
+    heisigUserDataService.addFrameReviewsForLesson(chapterNumber)
+    evaluateChapters().getChapterForNumber(chapterNumber).selected = true
+    evaluateChapters().getChapterForNumber(chapterNumber).active = true
     redirect(action: "manage")
   }
 
   def removeLesson = {
-    heisigUserDataService.removeFrameReviewsForLesson(params.id)
+    int chapterNumber = params.id.toInteger()
+    evaluateChapters().getChapterForNumber(chapterNumber).selected = false
     redirect(action: "manage")
   }
 
-  @Secured('ROLE_USER')
-  def manage = {
-    def progressList = lessonProgressService.findAll()
-    def chapters = progressList.collect {
-      new ChapterSelection(chapterNumber: it.lesson.number, selected: it.activeFrameIds, totalFrames: it.lesson.frameIds.size())
+  private void createChapterSelectionIfNecessary() {
+    if (session.chapters) {
+      return
     }
-    [chapters: chapters, canContinue: chapters.find {it.selected} != null]
+    def progressList = lessonProgressService.findAll()
+    session.chapters = progressList.collect {
+      def frameCount = it.lesson.frameIds.size()
+      new ChapterSelection(chapterNumber: it.lesson.number, selected: it.activeFrameIds, totalFrames: frameCount)
+    }
+  }
+
+  private def getChapters() {
+    session.chapters
+  }
+
+  private ChapterSelectionEvaluation evaluateChapters() {
+    new butatopanto.kanji.ChapterSelectionEvaluation(chapters: getChapters())
   }
 
   @Secured('ROLE_USER')
@@ -51,7 +72,8 @@ class ReviewController {
 
   private Review createNewReview() {
     Review review = new Review()
-    reviewService.start(review)
+    List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
+    reviewService.start(review, selectedChapterNumbers)
     session.review = review
     review
   }

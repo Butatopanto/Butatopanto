@@ -59,13 +59,13 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasNoActiveFramesWithoutCurrentUserData() {
-    assertEquals([], service.getActiveFrameIdsForLesson(1))
+    assertEquals([], service.getActiveFrameIdsForChapter(1))
   }
 
   @Test
   void hasNoActiveFramesForUserDataWithoutFrameReviews() {
     createUserDataWithUserName()
-    assertEquals([], service.getActiveFrameIdsForLesson(1))
+    assertEquals([], service.getActiveFrameIdsForChapter(1))
   }
 
   @Test
@@ -73,7 +73,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
     UserData userData = createUserDataWithUserName();
     def reviewedFrame = Frame.get(2)
     userData.addToFrameReviews(new FrameReview(frame: reviewedFrame))
-    assertEquals([2], service.getActiveFrameIdsForLesson(reviewedFrame.lesson))
+    assertEquals([2], service.getActiveFrameIdsForChapter(reviewedFrame.lesson))
   }
 
   @Test

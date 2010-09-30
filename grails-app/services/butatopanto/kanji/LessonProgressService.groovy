@@ -11,7 +11,7 @@ class LessonProgressService {
   def findAll() {
     def lessons = lessonService.findAll()
     lessons.collect {
-      def activeFrameIds = heisigUserDataService.getActiveFrameIdsForLesson(it.number)
+      def activeFrameIds = heisigUserDataService.getActiveFrameIdsForChapter(it.number)
       new LessonProgress(lesson: it, activeFrameIds: activeFrameIds)
     }
   }

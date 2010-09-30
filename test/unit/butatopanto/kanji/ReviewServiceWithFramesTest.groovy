@@ -1,9 +1,9 @@
 package butatopanto.kanji
 
+import butatopanto.kanji.bean.Review
 import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
-import butatopanto.kanji.bean.Review
 
 class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
 
@@ -18,8 +18,8 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
     reviewService.random = mock(Random)
     when(reviewService.random.nextInt(2)).thenReturn(1)
     when(reviewService.random.nextInt(1)).thenReturn(0)
-    reviewService.heisigUserDataService = new TestUserDataService(allActiveFrameIds: [1, 2])
-    reviewService.start(review)
+    reviewService.heisigUserDataService = new TestUserDataService(activeFramesIdsByLesson: [1: [1, 2]])
+    reviewService.start(review, [1])
   }
 
   void testHasCurrentFrameAccordingToRandomIdAfterStart() {

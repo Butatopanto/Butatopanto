@@ -1,4 +1,3 @@
-<%@ page import="butatopanto.kanji.Frame" %>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -19,10 +18,9 @@
 <div class="body">
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
-      <g:set var="activeFrameCount" value="${0}"/>
       <div id="container" style="padding: 5px">
         <div>
-          <g:each in="${chapters}" status="i" var="${chapter}">
+          <g:each in="${session.chapters}" status="i" var="${chapter}">
             <div class="lessonselector">
               <heisig:chapterSelector chapter="${chapter}"/>
             </div>

@@ -6,8 +6,8 @@ class ReviewService {
   def random = new Random()
   def heisigUserDataService
 
-  def start(Review review) {
-    review.remainingReviews = heisigUserDataService.getAllActiveFrameIds()
+  def start(Review review, List chapterNumbers) {
+    review.remainingReviews = heisigUserDataService.getActiveFrameIdsForChapterList(chapterNumbers)
     review.totalCount = review.remainingReviews.size()
     toNext(review)
   }

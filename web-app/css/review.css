@@ -24,20 +24,27 @@ div.lessonselector {
     float: left;
 }
 
-a.chosen, a.selectable {
+a.active_selected, a.active_unselected, a.inactive_selected, a.inactive_unselected {
     display: block;
     height: 100%;
     width: 100%;
     border-radius: 15px;
-    border: 2px black solid;
     font-weight: normal;
     color: black;
 }
 
-a.selectable {
-    background-color: #f08080;
+a.active_selected, a.active_unselected {
+    background-color: #6699ff;
 }
 
-a.chosen {
-    background-color: #90ee90;
+a.inactive_selected, a.inactive_unselected {
+    background-color: #ffffff;
+}
+
+a.active_selected, a.inactive_selected {
+  border: 2px #006600 solid;
+}
+
+a.active_unselected, a.inactive_unselected {
+  border: 2px #ff0000 solid;
 }

@@ -16,7 +16,7 @@ class LessonProgressServiceWithLessonTest extends GrailsJUnit4TestCase {
   
   @Before
   void mockHeisigUserDataService() {
-    service.heisigUserDataService = new TestUserDataService(activeFramesByLesson: activeFramesByLesson)
+    service.heisigUserDataService = new TestUserDataService(activeFramesIdsByLesson: activeFramesByLesson)
   }
 
   @Before

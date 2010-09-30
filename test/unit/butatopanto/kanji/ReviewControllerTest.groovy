@@ -3,6 +3,7 @@ package butatopanto.kanji;
 
 import butatopanto.kanji.bean.Review
 import grails.test.ControllerUnitTestCase
+import butatopanto.kanji.bean.ChapterSelection
 
 class ReviewControllerTest extends ControllerUnitTestCase {
 
@@ -15,6 +16,10 @@ class ReviewControllerTest extends ControllerUnitTestCase {
   protected void setUp() {
     super.setUp()
     controller.reviewService = reviewService
+    controller.session.chapters = [new ChapterSelection(chapterNumber: 1),
+      new ChapterSelection(chapterNumber: 2),
+      new ChapterSelection(chapterNumber: 3),
+      new ChapterSelection(chapterNumber: 4)]
   }
 
   def testStoresNewStartedReviewInSessionOnStart() {
@@ -55,29 +60,31 @@ class ReviewControllerTest extends ControllerUnitTestCase {
 
   def testRedirectsToManageAfterAddingLesson() {
     controller.heisigUserDataService = [addFrameReviewsForLesson: { }]
+    controller.params.id = "1"
     controller.addLesson()
     assertEquals "manage", controller.redirectArgs.action
   }
 
   def testAddsLessonReviewsViaService() {
     int addedLesson
-    controller.heisigUserDataService = [addFrameReviewsForLesson: {addedLesson= it}]
-    controller.params.id = 4
+    controller.heisigUserDataService = [addFrameReviewsForLesson: {addedLesson = it}]
+    controller.params.id = "4"
     controller.addLesson()
     assertEquals 4, addedLesson
   }
 
   def testRedirectsToManageAfterRemovingLesson() {
     controller.heisigUserDataService = [removeFrameReviewsForLesson: { }]
+    controller.params.id = "3"
     controller.removeLesson()
     assertEquals "manage", controller.redirectArgs.action
   }
 
-  def testRemovesLessonReviewsViaService() {
+  def testDoesNotRemoveLessonReviewsViaService() {
     int removedLesson
     controller.heisigUserDataService = [removeFrameReviewsForLesson: {removedLesson = it}]
-    controller.params.id = 5
+    controller.params.id = "3"
     controller.removeLesson()
-    assertEquals 5, removedLesson
+    assertNull removedLesson
   }
 }

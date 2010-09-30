@@ -24,12 +24,16 @@ class HeisigUserDataService {
     }
   }
 
-  def getActiveFrameIdsForLesson(def lessonNumber) {
+  def getActiveFrameIdsForChapter(int chapterNumber) {
+    getActiveFrameIdsForChapterList([chapterNumber])
+  }
+
+  def getActiveFrameIdsForChapterList(List chapterNumbers) {
     if (!currentUserData?.frameReviews) {
       return []
     }
     def allReviews = currentUserData.frameReviews as List
-    def relevantReviews = allReviews.findAll {it.frame.lesson == lessonNumber}
+    def relevantReviews = allReviews.findAll {chapterNumbers.contains(it.frame.lesson)}
     relevantReviews.collect {it.frame.id}
   }
 
