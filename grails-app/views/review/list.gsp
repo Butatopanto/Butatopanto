@@ -19,7 +19,9 @@
     <table>
       <thead>
       <tr>
-        <th><g:message code="frameReview.frame.label" default="Frame"/></th>
+        <g:sortableColumn property="frame.id" title="${message(code: 'frameReview.frame.label', default: 'Frame')}"/>
+        <g:sortableColumn property="frame.kanji" title="${message(code: 'frameReview.frame.kanji', default: 'Kanji')}"/>
+        <g:sortableColumn property="frame.meaning" title="${message(code: 'frameReview.frame.meaning', default: 'Meaning')}"/>
         <g:sortableColumn property="passed" title="${message(code: 'frameReview.passed.label', default: 'Passed')}"/>
         <g:sortableColumn property="failed" title="${message(code: 'frameReview.failed.label', default: 'Failed')}"/>
         <g:sortableColumn property="box" title="${message(code: 'frameReview.box.label', default: 'Box')}"/>
@@ -30,7 +32,9 @@
       <tbody>
       <g:each in="${frameReviewInstanceList}" status="i" var="frameReviewInstance">
         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-          <td>${fieldValue(bean: frameReviewInstance, field: "frame")}</td>
+          <td>${fieldValue(bean: frameReviewInstance.frame, field: "id")}</td>
+          <td>${fieldValue(bean: frameReviewInstance.frame, field: "kanji")}</td>
+          <td>${fieldValue(bean: frameReviewInstance.frame, field: "meaning")}</td>
           <td>${fieldValue(bean: frameReviewInstance, field: "passed")}</td>
           <td>${fieldValue(bean: frameReviewInstance, field: "failed")}</td>
           <td>${fieldValue(bean: frameReviewInstance, field: "box")}</td>
