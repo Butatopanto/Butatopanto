@@ -3,6 +3,8 @@ package butatopanto.kanji
 class TestUserDataService {
   def currentUserData
   def activeFramesIdsByLesson = [:]
+  def rightAnswers = []
+  def wrongAnswers = []
 
   def getActiveFrameIdsForChapter(def lessonNumber) {
     if (activeFramesIdsByLesson[lessonNumber]) {
@@ -19,5 +21,13 @@ class TestUserDataService {
       }
     }
     return activeFrames
+  }
+
+  def answerRight(def frameId) {
+    rightAnswers.add(frameId)
+  }
+
+  def answerWrong(def frameId) {
+    wrongAnswers.add(frameId)
   }
 }

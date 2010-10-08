@@ -40,6 +40,18 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
     assertEquals 2, review.totalCount
   }
 
+  void testNotifiesUserDataServiceOfRightAnswer() {
+    review.currentReview = 2
+    reviewService.resolve(review, true)
+    assertEquals([2], reviewService.heisigUserDataService.rightAnswers)
+  }
+
+  void testNotifiesUserDataServiceOfWrongAnswer() {
+    review.currentReview = 3
+    reviewService.resolve(review, false)
+    assertEquals([3], reviewService.heisigUserDataService.wrongAnswers)
+  }
+
   void testStartsWithTotalFrameCountForRemainingCount() {
     assertEquals 2, review.getRemainingCount()
   }

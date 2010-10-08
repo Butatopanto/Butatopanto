@@ -45,6 +45,26 @@ class HeisigUserDataService {
     allReviews.collect {it.frame.id}
   }
 
+  def answerRight(def frameId) {
+    def review = findFrameReviewByFrameId(frameId)
+    review.passed += 1
+    review.box += 1
+    review.save()
+  }
+
+  def answerWrong(def frameId) {
+    def review = findFrameReviewByFrameId(frameId)
+    review.failed += 1
+    review.box = FrameReview.FIRST_BOX
+    review.save()
+  }
+
+  def findFrameReviewByFrameId(def frameId) {
+    def currentUserData = getCurrentUserData();
+    def allReviews = currentUserData.frameReviews as List
+    allReviews.find {it.frame.id == frameId}
+  }
+
   private def findOrCreateUserData() {
     if (!currentUserData) {
       new UserData(userName: currentUserName).save()

@@ -12,9 +12,14 @@ class ReviewService {
     toNext(review)
   }
 
-  void resolve(Review review, def correct) {
+  void resolve(Review review, boolean correct) {
     def reviewList = correct ? review.rightReviews : review.wrongReviews
     reviewList.add(review.currentReview)
+    if (correct) {
+      heisigUserDataService.answerRight(review.currentReview)
+    } else {
+      heisigUserDataService.answerWrong(review.currentReview)
+    }
     toNext(review)
   }
 
