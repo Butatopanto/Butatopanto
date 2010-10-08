@@ -19,23 +19,23 @@
     <table>
       <thead>
       <tr>
-        <g:sortableColumn property="id" title="${message(code: 'frameReview.id.label', default: 'Id')}"/>
         <th><g:message code="frameReview.frame.label" default="Frame"/></th>
         <g:sortableColumn property="passed" title="${message(code: 'frameReview.passed.label', default: 'Passed')}"/>
         <g:sortableColumn property="failed" title="${message(code: 'frameReview.failed.label', default: 'Failed')}"/>
         <g:sortableColumn property="box" title="${message(code: 'frameReview.box.label', default: 'Box')}"/>
-        <g:sortableColumn property="lastUpdated" title="${message(code: 'frameReview.lastUpdated.label', default: 'Last Updated')}"/>
+        <g:sortableColumn property="lastUpdated" title="${message(code: 'frameReview.lastUpdated.label', default: 'Last Review')}"/>
+        <g:sortableColumn property="dateCreated" title="${message(code: 'frameReview.dateCreated.label', default: 'Added')}"/>
       </tr>
       </thead>
       <tbody>
       <g:each in="${frameReviewInstanceList}" status="i" var="frameReviewInstance">
         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-          <td><g:link action="show" id="${frameReviewInstance.id}">${fieldValue(bean: frameReviewInstance, field: "id")}</g:link></td>
           <td>${fieldValue(bean: frameReviewInstance, field: "frame")}</td>
           <td>${fieldValue(bean: frameReviewInstance, field: "passed")}</td>
           <td>${fieldValue(bean: frameReviewInstance, field: "failed")}</td>
           <td>${fieldValue(bean: frameReviewInstance, field: "box")}</td>
-          <td><g:formatDate date="${frameReviewInstance.lastUpdated}"/></td>
+          <td><g:formatDate date="${frameReviewInstance.lastUpdated}" format="dd-MM-yyyy HH:mm"/></td>
+          <td><g:formatDate date="${frameReviewInstance.dateCreated}" format="dd-MM-yyyy HH:mm"/></td>
         </tr>
       </g:each>
       </tbody>

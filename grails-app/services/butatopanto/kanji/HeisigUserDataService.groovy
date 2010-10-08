@@ -29,7 +29,7 @@ class HeisigUserDataService {
   }
 
   def getActiveFrameIdsForChapterList(List chapterNumbers) {
-     def allReviews = getAllActiveFrameIds()
+    def allReviews = getAllActiveFrameReviews()
     def relevantReviews = allReviews.findAll {chapterNumbers.contains(it.frame.lesson)}
     relevantReviews.collect {it.frame.id}
   }
