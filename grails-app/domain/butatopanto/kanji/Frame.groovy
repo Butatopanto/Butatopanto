@@ -12,4 +12,8 @@ class Frame {
     meaning(blank: false, unique: true)
     lesson(min: 1)
   }
+
+  String toString() {
+    number + ": " + kanji + " (" + meaning + ")"
+  }
 }

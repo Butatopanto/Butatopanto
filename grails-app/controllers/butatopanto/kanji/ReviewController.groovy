@@ -6,10 +6,25 @@ import grails.plugins.springsecurity.Secured
 
 class ReviewController {
 
+  def scaffold = FrameReview
   def reviewService
   def lessonService
   def lessonProgressService
   def heisigUserDataService
+
+  def index = {
+    redirect(action: "list", params: params)
+  }
+
+  def list = {
+    int max = Math.min(params.max ? params.int('max') : 20, 100)
+    int offset = params.offset ? params.int('offset') : 0
+    def allFrameReviews = heisigUserDataService.getAllActiveFrameReviews()
+    def sortedFrameReviews = allFrameReviews.sort {FrameReview a, FrameReview b -> a.frame.id - b.frame.id}
+    int lastIndexOfSubset = Math.min(offset + max - 1, sortedFrameReviews.size() - 1)
+    List shownFrameReviews = sortedFrameReviews[offset..lastIndexOfSubset]
+    [frameReviewInstanceList: shownFrameReviews, frameReviewInstanceTotal: sortedFrameReviews.size()]
+  }
 
   @Secured('ROLE_USER')
   def manage = {

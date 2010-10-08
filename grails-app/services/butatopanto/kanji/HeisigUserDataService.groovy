@@ -29,20 +29,21 @@ class HeisigUserDataService {
   }
 
   def getActiveFrameIdsForChapterList(List chapterNumbers) {
-    if (!currentUserData?.frameReviews) {
-      return []
-    }
-    def allReviews = currentUserData.frameReviews as List
+     def allReviews = getAllActiveFrameIds()
     def relevantReviews = allReviews.findAll {chapterNumbers.contains(it.frame.lesson)}
     relevantReviews.collect {it.frame.id}
   }
 
   def getAllActiveFrameIds() {
+    def allReviews = getAllActiveFrameReviews()
+    allReviews.collect {it.frame.id}
+  }
+
+  def getAllActiveFrameReviews() {
     if (!currentUserData?.frameReviews) {
       return []
     }
-    def allReviews = currentUserData.frameReviews as List
-    allReviews.collect {it.frame.id}
+    currentUserData.frameReviews as List
   }
 
   def answerRight(def frameId) {

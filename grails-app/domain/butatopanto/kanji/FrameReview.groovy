@@ -13,5 +13,11 @@ class FrameReview {
   Date lastUpdated
 
   static constraints = {
+    frame()
+    passed(min: 0)
+    failed(min: 0)
+    box(min: FIRST_BOX)
+    lastUpdated()
+    dateCreated()
   }
 }
