@@ -1,32 +1,30 @@
-package butatopanto.kanji
+package butatopanto.request
 
-import butatopanto.kanji.bean.BeanRequester
+class ListRequester {
 
-class ReviewRequest {
-
-  static From(List all) {
-     new ReviewRequest(all: all)
+  static ListRequester From(List all) {
+     new ListRequester(all: all)
   }
 
   private List all = [];
   private def sortClosure = {def a, def b -> 0}
   int offset = 0
 
-  ReviewRequest sortedAscendingBy(String propertyPath) {
+  ListRequester sortedAscendingBy(String propertyPath) {
     sortClosure = {def a, def b ->
       getProperty(a, propertyPath) <=> getProperty(b, propertyPath)
     }
     return this
   }
 
-  ReviewRequest sortedDescendingBy(String propertyPath) {
+  ListRequester sortedDescendingBy(String propertyPath) {
     sortClosure = ({def a, def b ->
       getProperty(b, propertyPath) <=> getProperty(a, propertyPath)
     })
     return this
   }
 
-  ReviewRequest startingFromIndex(int offset) {
+  ListRequester startingFromIndex(int offset) {
     this.offset = offset;
     return this
   }
@@ -51,6 +49,6 @@ class ReviewRequest {
   }
 
   private def getProperty(def bean, def propertyPath) {
-    new BeanRequester(bean).getProperty(propertyPath)
+    new BeanRequester(bean).findProperty(propertyPath)
   }
 }

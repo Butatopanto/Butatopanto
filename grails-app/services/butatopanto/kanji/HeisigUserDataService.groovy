@@ -1,5 +1,7 @@
 package butatopanto.kanji
 
+import butatopanto.request.ListRequester
+
 class HeisigUserDataService {
 
   def userService
@@ -40,8 +42,8 @@ class HeisigUserDataService {
   }
 
   List listActiveReviews(String sortAttribute, String order, int offset, int max) {
-    List allFrameReviews = listAllActiveReviews()
-    ReviewRequest.From(allFrameReviews)."sorted${order}By"(sortAttribute).startingFromIndex(offset).getAtMostElements(max)
+    List allActiveReviews = listAllActiveReviews()
+    ListRequester.From(allActiveReviews)."sorted${order}By"(sortAttribute).startingFromIndex(offset).getAtMostElements(max)
   }
 
   def listAllActiveReviews() {

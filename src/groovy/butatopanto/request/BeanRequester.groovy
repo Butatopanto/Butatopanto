@@ -1,4 +1,4 @@
-package butatopanto.kanji.bean
+package butatopanto.request
 
 class BeanRequester {
   def bean
@@ -7,7 +7,7 @@ class BeanRequester {
     this.bean = bean
   }
 
-  def getProperty(String propertyPath) {
+  def findProperty(String propertyPath) {
     def propertyValue = bean
     for (String propertyName: propertyPath.split("\\.")) {
       propertyValue = propertyValue."${propertyName}"
