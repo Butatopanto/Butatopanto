@@ -59,7 +59,7 @@ class ReviewControllerTest extends ControllerUnitTestCase {
   }
 
   def testRedirectsToManageAfterAddingLesson() {
-    controller.heisigUserDataService = [addFrameReviewsForLesson: { }]
+    controller.heisigUserDataService = [activateReviewsForLesson: { }]
     controller.params.id = "1"
     controller.addLesson()
     assertEquals "manage", controller.redirectArgs.action
@@ -67,14 +67,14 @@ class ReviewControllerTest extends ControllerUnitTestCase {
 
   def testAddsLessonReviewsViaService() {
     int addedLesson
-    controller.heisigUserDataService = [addFrameReviewsForLesson: {addedLesson = it}]
+    controller.heisigUserDataService = [activateReviewsForLesson: {addedLesson = it}]
     controller.params.id = "4"
     controller.addLesson()
     assertEquals 4, addedLesson
   }
 
   def testRedirectsToManageAfterRemovingLesson() {
-    controller.heisigUserDataService = [removeFrameReviewsForLesson: { }]
+    controller.heisigUserDataService = [deactivateReviewsForLesson: { }]
     controller.params.id = "3"
     controller.removeLesson()
     assertEquals "manage", controller.redirectArgs.action

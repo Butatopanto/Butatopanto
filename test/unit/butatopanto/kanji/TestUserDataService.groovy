@@ -6,14 +6,14 @@ class TestUserDataService {
   def rightAnswers = []
   def wrongAnswers = []
 
-  def getActiveFrameIdsForChapter(def lessonNumber) {
+  def listActiveFrameIdsForChapter(def lessonNumber) {
     if (activeFramesIdsByLesson[lessonNumber]) {
       return activeFramesIdsByLesson[lessonNumber]
     }
     []
   }
 
-  def getActiveFrameIdsForChapterList(List chapterNumbers) {
+  def listActiveFrameIdsForChapterList(List chapterNumbers) {
     List activeFrames = []
     chapterNumbers.each {
       if (activeFramesIdsByLesson[it]) {
