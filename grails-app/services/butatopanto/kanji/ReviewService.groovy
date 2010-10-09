@@ -7,7 +7,7 @@ class ReviewService {
   def heisigUserDataService
 
   def start(Review review, List chapterNumbers) {
-    review.remainingReviews = heisigUserDataService.getActiveFrameIdsForChapterList(chapterNumbers)
+    review.remainingReviews = heisigUserDataService.listActiveFrameIdsForChapterList(chapterNumbers)
     review.totalCount = review.remainingReviews.size()
     toNext(review)
   }

@@ -18,22 +18,22 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void addsReviewsToUserData() {
-    heisigUserDataService.addFrameReviewsForLesson(1)
+    heisigUserDataService.activateReviewsForLesson(1)
     UserData userData = UserData.findByUserName("Test")
     assertFalse userData.frameReviews.isEmpty()
   }
 
   @Test
   void removesReviewsFromUserData() {
-    heisigUserDataService.addFrameReviewsForLesson(1)
-    heisigUserDataService.removeFrameReviewsForLesson(1)
+    heisigUserDataService.activateReviewsForLesson(1)
+    heisigUserDataService.deactivateReviewsForLesson(1)
     UserData userData = UserData.findByUserName("Test")
     assertTrue userData.frameReviews.isEmpty()
   }
 
   @Test
   void increasesPassedCountOnRightAnswer() {
-    heisigUserDataService.addFrameReviewsForLesson(1)
+    heisigUserDataService.activateReviewsForLesson(1)
     def frameReview = findFrameReviewForFrameIdOne()
     frameReview.passed = 4
     frameReview.save(failOnError: true)
@@ -43,7 +43,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void increasesBoxOnRightAnswer() {
-    heisigUserDataService.addFrameReviewsForLesson(1)
+    heisigUserDataService.activateReviewsForLesson(1)
     def frameReview = findFrameReviewForFrameIdOne()
     frameReview.box = 7
     frameReview.save(failOnError: true)
@@ -53,7 +53,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void increasesFailedCountOnWrongAnswer() {
-    heisigUserDataService.addFrameReviewsForLesson(1)
+    heisigUserDataService.activateReviewsForLesson(1)
     def frameReview = findFrameReviewForFrameIdOne()
     frameReview.failed = 4
     frameReview.save(failOnError: true)
@@ -63,7 +63,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void resetsBoxOnWrongAnswer() {
-    heisigUserDataService.addFrameReviewsForLesson(1)
+    heisigUserDataService.activateReviewsForLesson(1)
     def frameReview = findFrameReviewForFrameIdOne()
     frameReview.box = 7
     frameReview.save(failOnError: true)
@@ -72,6 +72,6 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
   }
 
   private def findFrameReviewForFrameIdOne() {
-    return heisigUserDataService.findFrameReviewByFrameId(1)
+    return heisigUserDataService.findActiveReviewByFrameId(1)
   }
 }

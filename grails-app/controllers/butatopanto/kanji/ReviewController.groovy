@@ -19,14 +19,10 @@ class ReviewController {
   def list = {
     int max = Math.min(params.max ? params.int('max') : 20, 100)
     int offset = params.offset ? params.int('offset') : 0
-    def allFrameReviews = heisigUserDataService.getAllActiveFrameReviews()
-    if (allFrameReviews.size() >= 0) {
-      return [frameReviewInstanceList: [], frameReviewInstanceTotal: 0]
-    }
-    def sortedFrameReviews = allFrameReviews.sort {FrameReview a, FrameReview b -> a.frame.id - b.frame.id}
-    int lastIndexOfSubset = Math.min(offset + max - 1, sortedFrameReviews.size() - 1)
-    List shownFrameReviews = sortedFrameReviews[offset..lastIndexOfSubset]
-    [frameReviewInstanceList: shownFrameReviews, frameReviewInstanceTotal: sortedFrameReviews.size()]
+    String sort = params.sort ? params.sort : 'frame.number'
+    String order = params.order != 'desc' ? "Descending" : "Ascending"
+    List shownFrameReviews = heisigUserDataService.listActiveReviews(sort, order, offset, max)
+    [frameReviewInstanceList: shownFrameReviews, frameReviewInstanceTotal: heisigUserDataService.getReviewCount()]
   }
 
   @Secured('ROLE_USER')
@@ -37,7 +33,7 @@ class ReviewController {
 
   def addLesson = {
     int chapterNumber = params.id.toInteger()
-    heisigUserDataService.addFrameReviewsForLesson(chapterNumber)
+    heisigUserDataService.activateReviewsForLesson(chapterNumber)
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
     redirect(action: "manage")

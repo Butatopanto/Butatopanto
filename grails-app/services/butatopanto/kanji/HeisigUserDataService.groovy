@@ -4,7 +4,7 @@ class HeisigUserDataService {
 
   def userService
 
-  def addFrameReviewsForLesson(def lessonNumber) {
+  def activateReviewsForLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
       if (!FrameReview.findByFrame(it)) {
@@ -13,7 +13,7 @@ class HeisigUserDataService {
     }
   }
 
-  def removeFrameReviewsForLesson(def lessonNumber) {
+  def deactivateReviewsForLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
       def review = FrameReview.findByFrame(it)
@@ -24,22 +24,27 @@ class HeisigUserDataService {
     }
   }
 
-  def getActiveFrameIdsForChapter(int chapterNumber) {
-    getActiveFrameIdsForChapterList([chapterNumber])
+  def listActiveFrameIdsForChapter(int chapterNumber) {
+    listActiveFrameIdsForChapterList([chapterNumber])
   }
 
-  def getActiveFrameIdsForChapterList(List chapterNumbers) {
-    def allReviews = getAllActiveFrameReviews()
+  def listActiveFrameIdsForChapterList(List chapterNumbers) {
+    def allReviews = listAllActiveReviews()
     def relevantReviews = allReviews.findAll {chapterNumbers.contains(it.frame.lesson)}
     relevantReviews.collect {it.frame.id}
   }
 
-  def getAllActiveFrameIds() {
-    def allReviews = getAllActiveFrameReviews()
+  def listAllActiveFrameIds() {
+    def allReviews = listAllActiveReviews()
     allReviews.collect {it.frame.id}
   }
 
-  def getAllActiveFrameReviews() {
+  List listActiveReviews(String sortAttribute, String order, int offset, int max) {
+    List allFrameReviews = listAllActiveReviews()
+    ReviewRequest.From(allFrameReviews)."sorted${order}By"(sortAttribute).startingFromIndex(offset).getAtMostElements(max)
+  }
+
+  def listAllActiveReviews() {
     if (!currentUserData?.frameReviews) {
       return []
     }
@@ -47,23 +52,34 @@ class HeisigUserDataService {
   }
 
   def answerRight(def frameId) {
-    def review = findFrameReviewByFrameId(frameId)
+    def review = findActiveReviewByFrameId(frameId)
     review.passed += 1
     review.box += 1
     review.save()
   }
 
   def answerWrong(def frameId) {
-    def review = findFrameReviewByFrameId(frameId)
+    def review = findActiveReviewByFrameId(frameId)
     review.failed += 1
     review.box = FrameReview.FIRST_BOX
     review.save()
   }
 
-  def findFrameReviewByFrameId(def frameId) {
+  def findActiveReviewByFrameId(def frameId) {
     def currentUserData = getCurrentUserData();
     def allReviews = currentUserData.frameReviews as List
     allReviews.find {it.frame.id == frameId}
+  }
+
+  UserData getCurrentUserData() {
+    return UserData.findByUserName(currentUserName)
+  }
+
+  int getReviewCount() {
+    if (!currentUserData?.frameReviews) {
+      return 0
+    }
+    return findOrCreateUserData().frameReviews.size()
   }
 
   private def findOrCreateUserData() {
@@ -71,10 +87,6 @@ class HeisigUserDataService {
       new UserData(userName: currentUserName).save()
     }
     currentUserData
-  }
-
-  def getCurrentUserData() {
-    return UserData.findByUserName(currentUserName)
   }
 
   private String getCurrentUserName() {

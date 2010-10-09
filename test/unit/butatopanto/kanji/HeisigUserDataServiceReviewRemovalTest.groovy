@@ -27,21 +27,21 @@ class HeisigUserDataServiceReviewRemovalTest extends GrailsJUnit4TestCase {
   @Test
   void removesFrameReviewForSingleFrameFromUserData() {
     createReviews([Frame.findByLesson(1)])
-    service.removeFrameReviewsForLesson(1)
+    service.deactivateReviewsForLesson(1)
     assertHasNoReviews()
   }
 
   @Test
   void removesFrameReviewsForMultipleFramesFromUserData() {
     createReviews(Frame.findAllByLesson(2))
-    service.removeFrameReviewsForLesson(2)
+    service.deactivateReviewsForLesson(2)
     assertHasNoReviews()
   }
 
   @Test
   void removesFrameReviewsOnlyForGivenLesson() {
     createReviews(Frame.list())
-    service.removeFrameReviewsForLesson(2)
+    service.deactivateReviewsForLesson(2)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 

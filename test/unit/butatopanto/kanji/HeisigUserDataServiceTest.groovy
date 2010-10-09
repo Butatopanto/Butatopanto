@@ -25,13 +25,13 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
-    service.addFrameReviewsForLesson(1)
+    service.activateReviewsForLesson(1)
     assertNotNull "No UserData found for user", UserData.findByUserName(userName)
   }
 
   @Test
   void addsFrameReviewForSingleFrameToUserData() {
-    service.addFrameReviewsForLesson(1)
+    service.activateReviewsForLesson(1)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
@@ -39,7 +39,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void addsFrameReviewsForMultipleFramesToUserData() {
-    service.addFrameReviewsForLesson(2)
+    service.activateReviewsForLesson(2)
     assertHasFrameReviewsSortedByMeaning(['second', 'third'])
   }
 
@@ -47,7 +47,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
   @Test
   void addsFrameToExistingCurrentUserData() {
     createUserDataWithUserName()
-    service.addFrameReviewsForLesson(1)
+    service.activateReviewsForLesson(1)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
@@ -59,13 +59,13 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasNoActiveFramesWithoutCurrentUserData() {
-    assertEquals([], service.getActiveFrameIdsForChapter(1))
+    assertEquals([], service.listActiveFrameIdsForChapter(1))
   }
 
   @Test
   void hasNoActiveFramesForUserDataWithoutFrameReviews() {
     createUserDataWithUserName()
-    assertEquals([], service.getActiveFrameIdsForChapter(1))
+    assertEquals([], service.listActiveFrameIdsForChapter(1))
   }
 
   @Test
@@ -73,16 +73,16 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
     UserData userData = createUserDataWithUserName();
     def reviewedFrame = Frame.get(2)
     userData.addToFrameReviews(new FrameReview(frame: reviewedFrame))
-    assertEquals([2], service.getActiveFrameIdsForChapter(reviewedFrame.lesson))
+    assertEquals([2], service.listActiveFrameIdsForChapter(reviewedFrame.lesson))
   }
 
   @Test
   void retainsFrameReviewsOnRepeatedAddition() {
-    service.addFrameReviewsForLesson(1)
+    service.activateReviewsForLesson(1)
     FrameReview review = (service.currentUserData.frameReviews as List)[0]
     review.passed = 10
     review.save()
-    service.addFrameReviewsForLesson(1)
+    service.activateReviewsForLesson(1)
     assertEquals 10, (service.currentUserData.frameReviews as List)[0].passed
   }
 
