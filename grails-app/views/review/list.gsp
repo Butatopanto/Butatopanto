@@ -30,23 +30,23 @@
       </tr>
       </thead>
       <tbody>
-      <g:each in="${frameReviewInstanceList}" status="i" var="frameReviewInstance">
+      <g:each in="${activeFrameReviewList}" status="i" var="frameReview">
         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-          <td>${fieldValue(bean: frameReviewInstance.frame, field: "id")}</td>
-          <td>${fieldValue(bean: frameReviewInstance.frame, field: "kanji")}</td>
-          <td>${fieldValue(bean: frameReviewInstance.frame, field: "meaning")}</td>
-          <td>${fieldValue(bean: frameReviewInstance, field: "passed")}</td>
-          <td>${fieldValue(bean: frameReviewInstance, field: "failed")}</td>
-          <td>${fieldValue(bean: frameReviewInstance, field: "box")}</td>
-          <td><g:formatDate date="${frameReviewInstance.lastUpdated}" format="dd-MM-yyyy HH:mm"/></td>
-          <td><g:formatDate date="${frameReviewInstance.dateCreated}" format="dd-MM-yyyy HH:mm"/></td>
+          <td>${fieldValue(bean: frameReview.frame, field: "id")}</td>
+          <td>${fieldValue(bean: frameReview.frame, field: "kanji")}</td>
+          <td>${fieldValue(bean: frameReview.frame, field: "meaning")}</td>
+          <td>${fieldValue(bean: frameReview, field: "passed")}</td>
+          <td>${fieldValue(bean: frameReview, field: "failed")}</td>
+          <td>${fieldValue(bean: frameReview, field: "box")}</td>
+          <td><g:formatDate date="${frameReview.lastUpdated}" format="dd-MM-yyyy HH:mm"/></td>
+          <td><g:formatDate date="${frameReview.dateCreated}" format="dd-MM-yyyy HH:mm"/></td>
         </tr>
       </g:each>
       </tbody>
     </table>
   </div>
   <div class="paginateButtons">
-    <g:paginate max="20" total="${frameReviewInstanceTotal}"/>
+    <g:paginate max="20" total="${numberOfActiveFrameReviews}"/>
   </div>
 </div>
 </body>

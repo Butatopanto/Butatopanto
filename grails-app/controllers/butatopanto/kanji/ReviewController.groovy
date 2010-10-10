@@ -20,9 +20,9 @@ class ReviewController {
     int max = Math.min(params.max ? params.int('max') : 20, 100)
     int offset = params.offset ? params.int('offset') : 0
     String sort = params.sort ? params.sort : 'frame.number'
-    String order = params.order != 'desc' ? "Descending" : "Ascending"
+    String order = params.order != 'desc' ? "Ascending" : "Descending"
     List shownFrameReviews = heisigUserDataService.listActiveReviews(sort, order, offset, max)
-    [frameReviewInstanceList: shownFrameReviews, frameReviewInstanceTotal: heisigUserDataService.getReviewCount()]
+    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: heisigUserDataService.getReviewCount()]
   }
 
   @Secured('ROLE_USER')
