@@ -27,5 +27,7 @@ grails.project.dependency.resolution = {
 
     // runtime 'mysql:mysql-connector-java:5.1.5'
   }
-
+  coverage {
+    enabledByDefault = true
+  }
 }
