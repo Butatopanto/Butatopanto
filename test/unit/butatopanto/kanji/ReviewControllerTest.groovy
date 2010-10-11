@@ -1,11 +1,13 @@
 package butatopanto.kanji;
 
 
-import butatopanto.kanji.bean.Review
-import grails.test.ControllerUnitTestCase
 import butatopanto.kanji.bean.ChapterSelection
+import butatopanto.kanji.bean.Review
+import butatopanto.test.GrailsJUnit4ControllerTestCase
+import org.junit.Before
+import org.junit.Test
 
-class ReviewControllerTest extends ControllerUnitTestCase {
+class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   ReviewControllerTest() {
     super(ReviewController)
@@ -13,8 +15,8 @@ class ReviewControllerTest extends ControllerUnitTestCase {
 
   private TestReviewService reviewService = new TestReviewService()
 
-  protected void setUp() {
-    super.setUp()
+  @Before
+  void configureReviewService() {
     controller.reviewService = reviewService
     controller.session.chapters = [new ChapterSelection(chapterNumber: 1),
       new ChapterSelection(chapterNumber: 2),
@@ -22,29 +24,40 @@ class ReviewControllerTest extends ControllerUnitTestCase {
       new ChapterSelection(chapterNumber: 4)]
   }
 
-  def testStoresNewStartedReviewInSessionOnStart() {
+  @Test
+  void redirectsIndexToList() {
+    controller.index()
+    assertEquals(controller.redirectArgs.action, "list")
+  }
+
+ @Test
+  void testStoresNewStartedReviewInSessionOnStart() {
     controller.start()
     assertNotNull controller.session.review
     assertSame reviewService.lastStartedReview, controller.session.review
   }
 
-  def testStoresStartedInSessionOnStart() {
+  @Test
+  void testStoresStartedInSessionOnStart() {
     controller.start()
     assertNotNull controller.session.review
     assertSame reviewService.lastStartedReview, controller.session.review
   }
 
-  def testRedirectsToPracticeOnStart() {
+  @Test
+  void testRedirectsToPracticeOnStart() {
     controller.start()
     assertEquals "practice", controller.redirectArgs.action
   }
 
-  def testRedirectsToStartOnPracticeWithoutActiveReview() {
+  @Test
+  void testRedirectsToStartOnPracticeWithoutActiveReview() {
     controller.practice()
     assertEquals "start", controller.redirectArgs.action
   }
 
-  def testDoesNotStartReviewOnPractice() {
+  @Test
+  void testDoesNotStartReviewOnPractice() {
     def originalReview = new Review(currentReview: "second")
     controller.session.review = originalReview
     controller.practice()
@@ -52,20 +65,23 @@ class ReviewControllerTest extends ControllerUnitTestCase {
     assertNull reviewService.lastStartedReview
   }
 
-  def testPassesCurrentFrameAsParameterForPractice() {
+  @Test
+  void testPassesCurrentFrameAsParameterForPractice() {
     controller.session.review = new Review(currentReview: "second")
     Frame passedFrame = controller.practice()."frame"
     assertEquals "second", passedFrame.meaning
   }
 
-  def testRedirectsToManageAfterAddingLesson() {
+  @Test
+  void testRedirectsToManageAfterAddingLesson() {
     controller.heisigUserDataService = [activateReviewsForLesson: { }]
     controller.params.id = "1"
     controller.addLesson()
     assertEquals "manage", controller.redirectArgs.action
   }
 
-  def testAddsLessonReviewsViaService() {
+  @Test
+  void testAddsLessonReviewsViaService() {
     int addedLesson
     controller.heisigUserDataService = [activateReviewsForLesson: {addedLesson = it}]
     controller.params.id = "4"
@@ -73,14 +89,16 @@ class ReviewControllerTest extends ControllerUnitTestCase {
     assertEquals 4, addedLesson
   }
 
-  def testRedirectsToManageAfterRemovingLesson() {
+ @Test
+  void testRedirectsToManageAfterRemovingLesson() {
     controller.heisigUserDataService = [deactivateReviewsForLesson: { }]
     controller.params.id = "3"
     controller.removeLesson()
     assertEquals "manage", controller.redirectArgs.action
   }
 
-  def testDoesNotRemoveLessonReviewsViaService() {
+  @Test
+  void testDoesNotRemoveLessonReviewsViaService() {
     int removedLesson
     controller.heisigUserDataService = [removeFrameReviewsForLesson: {removedLesson = it}]
     controller.params.id = "3"
