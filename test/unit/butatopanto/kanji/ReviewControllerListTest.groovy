@@ -20,7 +20,7 @@ class ReviewControllerListTest extends GrailsJUnit4ControllerTestCase {
 
   @Before
   void configureHeisigUserDataService() {
-    controller.heisigUserDataService = [
+    controller.masteryService = [
       listMastery: {String sortAttribute, String order, int offset, int max ->
         masteryListMax = max
         masteryListOffset = offset

@@ -10,7 +10,7 @@ class ReviewController {
   def reviewService
   def lessonService
   def lessonProgressService
-  def heisigUserDataService
+  def masteryService
 
   def index = {
     redirect(action: "list", params: params)
@@ -21,8 +21,8 @@ class ReviewController {
     int offset = params.offset ? params.int('offset') : 0
     String sort = params.sort ? params.sort : 'frame.number'
     String order = params.order != 'desc' ? "Ascending" : "Descending"
-    List shownFrameReviews = heisigUserDataService.listMastery(sort, order, offset, max)
-    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: heisigUserDataService.getMasteryCount()]
+    List shownFrameReviews = masteryService.listMastery(sort, order, offset, max)
+    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: masteryService.getMasteryCount()]
   }
 
   @Secured('ROLE_USER')
@@ -33,7 +33,7 @@ class ReviewController {
 
   def addLesson = {
     int chapterNumber = params.id.toInteger()
-    heisigUserDataService.activateLesson(chapterNumber)
+    masteryService.activateLesson(chapterNumber)
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
     redirect(action: "manage")

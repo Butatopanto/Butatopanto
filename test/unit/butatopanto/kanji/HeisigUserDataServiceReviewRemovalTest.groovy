@@ -8,7 +8,7 @@ import org.junit.Test
 
 class HeisigUserDataServiceReviewRemovalTest extends GrailsJUnit4TestCase {
 
-  private HeisigUserDataService service = new HeisigUserDataService()
+  private MasteryService service = new MasteryService()
   private def userName = "the user"
   butatopanto.kanji.UserData userData
 

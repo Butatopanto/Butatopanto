@@ -18,7 +18,7 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
     reviewService.random = mock(Random)
     when(reviewService.random.nextInt(2)).thenReturn(1)
     when(reviewService.random.nextInt(1)).thenReturn(0)
-    reviewService.heisigUserDataService = new TestUserDataService(activeFramesIdsByLesson: [1: [1, 2]])
+    reviewService.masteryService = new TestMasteryService(activeFramesIdsByLesson: [1: [1, 2]])
     reviewService.start(review, [1])
   }
 
@@ -43,13 +43,13 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
   void testNotifiesUserDataServiceOfRightAnswer() {
     review.currentReview = 2
     reviewService.resolve(review, true)
-    assertEquals([2], reviewService.heisigUserDataService.rightAnswers)
+    assertEquals([2], reviewService.masteryService.rightAnswers)
   }
 
   void testNotifiesUserDataServiceOfWrongAnswer() {
     review.currentReview = 3
     reviewService.resolve(review, false)
-    assertEquals([3], reviewService.heisigUserDataService.wrongAnswers)
+    assertEquals([3], reviewService.masteryService.wrongAnswers)
   }
 
   void testStartsWithTotalFrameCountForRemainingCount() {

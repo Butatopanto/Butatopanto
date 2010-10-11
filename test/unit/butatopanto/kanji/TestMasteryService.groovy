@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-class TestUserDataService {
+class TestMasteryService {
   def currentUserData
   def activeFramesIdsByLesson = [:]
   def rightAnswers = []

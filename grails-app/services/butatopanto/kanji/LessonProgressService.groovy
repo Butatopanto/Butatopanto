@@ -5,13 +5,13 @@ import butatopanto.kanji.bean.LessonProgress
 class LessonProgressService {
 
   static transactional = true
-  def heisigUserDataService
+  def masteryService
   def lessonService
 
   def findAll() {
     def lessons = lessonService.findAll()
     lessons.collect {
-      def activeFrameIds = heisigUserDataService.listActiveFrameIdsForChapter(it.number)
+      def activeFrameIds = masteryService.listActiveFrameIdsForChapter(it.number)
       new LessonProgress(lesson: it, activeFrameIds: activeFrameIds)
     }
   }

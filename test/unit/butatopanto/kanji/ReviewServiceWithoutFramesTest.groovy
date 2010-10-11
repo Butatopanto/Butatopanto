@@ -14,7 +14,7 @@ class ReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
     super.setUp()
     mockDomain Frame
     reviewService.random = random
-    reviewService.heisigUserDataService = new TestUserDataService()
+    reviewService.masteryService = new TestMasteryService()
     reviewService.start(review, [])
   }
 

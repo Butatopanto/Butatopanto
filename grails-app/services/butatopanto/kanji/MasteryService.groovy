@@ -2,8 +2,9 @@ package butatopanto.kanji
 
 import butatopanto.request.ListRequester
 
-class HeisigUserDataService {
+class MasteryService {
 
+  static transactional = true
   def userService
 
   def activateLesson(def lessonNumber) {

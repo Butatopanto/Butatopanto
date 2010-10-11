@@ -3,11 +3,12 @@ package butatopanto.kanji
 import butatopanto.kanji.bean.Review
 
 class ReviewService {
+  static transactional = true
   def random = new Random()
-  def heisigUserDataService
+  def masteryService
 
   def start(Review review, List chapterNumbers) {
-    review.remainingReviews = heisigUserDataService.listActiveFrameIdsForChapterList(chapterNumbers)
+    review.remainingReviews = masteryService.listActiveFrameIdsForChapterList(chapterNumbers)
     review.totalCount = review.remainingReviews.size()
     toNext(review)
   }
@@ -16,9 +17,9 @@ class ReviewService {
     def reviewList = correct ? review.rightReviews : review.wrongReviews
     reviewList.add(review.currentReview)
     if (correct) {
-      heisigUserDataService.answerRight(review.currentReview)
+      masteryService.answerRight(review.currentReview)
     } else {
-      heisigUserDataService.answerWrong(review.currentReview)
+      masteryService.answerWrong(review.currentReview)
     }
     toNext(review)
   }
