@@ -1,10 +1,8 @@
 package butatopanto.kanji
 
-import butatopanto.security.User
-
 class UserData {
   
-  static hasMany = [frameReviews: FrameReview]
+  static hasMany = [masteryList: MasteryOfFrame]
   String userName
   
   static constraints = {

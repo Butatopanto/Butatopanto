@@ -27,31 +27,31 @@ class HeisigUserDataServiceReviewRemovalTest extends GrailsJUnit4TestCase {
   @Test
   void removesFrameReviewForSingleFrameFromUserData() {
     createReviews([Frame.findByLesson(1)])
-    service.deactivateReviewsForLesson(1)
+    service.deactivateLesson(1)
     assertHasNoReviews()
   }
 
   @Test
   void removesFrameReviewsForMultipleFramesFromUserData() {
     createReviews(Frame.findAllByLesson(2))
-    service.deactivateReviewsForLesson(2)
+    service.deactivateLesson(2)
     assertHasNoReviews()
   }
 
   @Test
   void removesFrameReviewsOnlyForGivenLesson() {
     createReviews(Frame.list())
-    service.deactivateReviewsForLesson(2)
+    service.deactivateLesson(2)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
   private def createReviews(def frames) {
     def reviews = frames.collect {
-      new FrameReview(frame: it)
+      new MasteryOfFrame(frame: it)
     }
-    mockDomain FrameReview, reviews
+    mockDomain MasteryOfFrame, reviews
     reviews.each {
-      userData.addToFrameReviews(it)
+      userData.addToMasteryList(it)
     }
   }
 
@@ -61,10 +61,10 @@ class HeisigUserDataServiceReviewRemovalTest extends GrailsJUnit4TestCase {
 
   private def assertHasFrameReviewsSortedByMeaning(expected) {
     def userData = UserData.findByUserName(userName)
-    assertEquals(expected, userData.frameReviews.collect({ it.frame.meaning }).sort())
+    assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
   }
 
   private def assertHasNoReviews() {
-    assertTrue userData.frameReviews.isEmpty()
+    assertTrue userData.masteryList.isEmpty()
   }
 }

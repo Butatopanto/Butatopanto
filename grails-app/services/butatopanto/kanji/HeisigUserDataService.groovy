@@ -6,21 +6,21 @@ class HeisigUserDataService {
 
   def userService
 
-  def activateReviewsForLesson(def lessonNumber) {
+  def activateLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
-      if (!FrameReview.findByFrame(it)) {
-        userData.addToFrameReviews new FrameReview(frame: it)
+      if (!MasteryOfFrame.findByFrame(it)) {
+        userData.addToMasteryList new MasteryOfFrame(frame: it)
       }
     }
   }
 
-  def deactivateReviewsForLesson(def lessonNumber) {
+  def deactivateLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
     Frame.findAllByLesson(lessonNumber).each {
-      def review = FrameReview.findByFrame(it)
+      def review = MasteryOfFrame.findByFrame(it)
       if (review) {
-        userData.removeFromFrameReviews review
+        userData.removeFromMasteryList review
         review.delete()
       }
     }
@@ -31,45 +31,45 @@ class HeisigUserDataService {
   }
 
   def listActiveFrameIdsForChapterList(List chapterNumbers) {
-    def allReviews = listAllActiveReviews()
+    def allReviews = listMastery()
     def relevantReviews = allReviews.findAll {chapterNumbers.contains(it.frame.lesson)}
     relevantReviews.collect {it.frame.id}
   }
 
-  def listAllActiveFrameIds() {
-    def allReviews = listAllActiveReviews()
+  def listActiveFrameIds() {
+    def allReviews = listMastery()
     allReviews.collect {it.frame.id}
   }
 
-  List listActiveReviews(String sortAttribute, String order, int offset, int max) {
-    List allActiveReviews = listAllActiveReviews()
+  List listMastery(String sortAttribute, String order, int offset, int max) {
+    List allActiveReviews = listMastery()
     ListRequester.From(allActiveReviews)."sorted${order}By"(sortAttribute).startingFromIndex(offset).getAtMostElements(max)
   }
 
-  def listAllActiveReviews() {
-    if (!currentUserData?.frameReviews) {
+  def listMastery() {
+    if (!currentUserData?.masteryList) {
       return []
     }
-    currentUserData.frameReviews as List
+    currentUserData.masteryList as List
   }
 
   def answerRight(def frameId) {
-    def review = findActiveReviewByFrameId(frameId)
+    def review = findMasteryByFrameId(frameId)
     review.passed += 1
     review.box += 1
     review.save()
   }
 
   def answerWrong(def frameId) {
-    def review = findActiveReviewByFrameId(frameId)
+    def review = findMasteryByFrameId(frameId)
     review.failed += 1
-    review.box = FrameReview.FIRST_BOX
+    review.box = MasteryOfFrame.FIRST_BOX
     review.save()
   }
 
-  def findActiveReviewByFrameId(def frameId) {
+  def findMasteryByFrameId(def frameId) {
     def currentUserData = getCurrentUserData();
-    def allReviews = currentUserData.frameReviews as List
+    def allReviews = currentUserData.masteryList as List
     allReviews.find {it.frame.id == frameId}
   }
 
@@ -77,11 +77,11 @@ class HeisigUserDataService {
     return UserData.findByUserName(currentUserName)
   }
 
-  int getReviewCount() {
-    if (!currentUserData?.frameReviews) {
+  int getMasteryCount() {
+    if (!currentUserData?.masteryList) {
       return 0
     }
-    return findOrCreateUserData().frameReviews.size()
+    return findOrCreateUserData().masteryList.size()
   }
 
   private def findOrCreateUserData() {

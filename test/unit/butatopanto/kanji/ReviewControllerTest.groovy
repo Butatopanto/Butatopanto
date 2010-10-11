@@ -30,7 +30,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     assertEquals(controller.redirectArgs.action, "list")
   }
 
- @Test
+  @Test
   void testStoresNewStartedReviewInSessionOnStart() {
     controller.start()
     assertNotNull controller.session.review
@@ -74,7 +74,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void testRedirectsToManageAfterAddingLesson() {
-    controller.heisigUserDataService = [activateReviewsForLesson: { }]
+    controller.heisigUserDataService = [activateLesson: { }]
     controller.params.id = "1"
     controller.addLesson()
     assertEquals "manage", controller.redirectArgs.action
@@ -83,15 +83,15 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void testAddsLessonReviewsViaService() {
     int addedLesson
-    controller.heisigUserDataService = [activateReviewsForLesson: {addedLesson = it}]
+    controller.heisigUserDataService = [activateLesson: {addedLesson = it}]
     controller.params.id = "4"
     controller.addLesson()
     assertEquals 4, addedLesson
   }
 
- @Test
+  @Test
   void testRedirectsToManageAfterRemovingLesson() {
-    controller.heisigUserDataService = [deactivateReviewsForLesson: { }]
+    controller.heisigUserDataService = [deactivateLesson: { }]
     controller.params.id = "3"
     controller.removeLesson()
     assertEquals "manage", controller.redirectArgs.action
@@ -100,7 +100,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void testDoesNotRemoveLessonReviewsViaService() {
     int removedLesson
-    controller.heisigUserDataService = [removeFrameReviewsForLesson: {removedLesson = it}]
+    controller.heisigUserDataService = [deactivateLesson: {removedLesson = it}]
     controller.params.id = "3"
     controller.removeLesson()
     assertNull removedLesson

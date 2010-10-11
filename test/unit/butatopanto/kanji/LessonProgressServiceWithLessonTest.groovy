@@ -30,7 +30,7 @@ class LessonProgressServiceWithLessonTest extends GrailsJUnit4TestCase {
 
   @Before
   void mockDomain() {
-    mockDomain FrameReview
+    mockDomain MasteryOfFrame
     mockDomain Frame, allFrames
   }
 

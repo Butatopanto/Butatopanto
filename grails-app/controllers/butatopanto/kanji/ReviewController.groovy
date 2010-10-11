@@ -6,7 +6,7 @@ import grails.plugins.springsecurity.Secured
 
 class ReviewController {
 
-  def scaffold = FrameReview
+  def scaffold = MasteryOfFrame
   def reviewService
   def lessonService
   def lessonProgressService
@@ -21,8 +21,8 @@ class ReviewController {
     int offset = params.offset ? params.int('offset') : 0
     String sort = params.sort ? params.sort : 'frame.number'
     String order = params.order != 'desc' ? "Ascending" : "Descending"
-    List shownFrameReviews = heisigUserDataService.listActiveReviews(sort, order, offset, max)
-    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: heisigUserDataService.getReviewCount()]
+    List shownFrameReviews = heisigUserDataService.listMastery(sort, order, offset, max)
+    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: heisigUserDataService.getMasteryCount()]
   }
 
   @Secured('ROLE_USER')
@@ -33,7 +33,7 @@ class ReviewController {
 
   def addLesson = {
     int chapterNumber = params.id.toInteger()
-    heisigUserDataService.activateReviewsForLesson(chapterNumber)
+    heisigUserDataService.activateLesson(chapterNumber)
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
     redirect(action: "manage")

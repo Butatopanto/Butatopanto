@@ -18,20 +18,20 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   @Before
   void mockDomain() {
-    mockDomain FrameReview
+    mockDomain MasteryOfFrame
     mockDomain Frame, [new Frame(id: 1, meaning: 'first', lesson: 1), new Frame(id: 2, meaning: 'second', lesson: 2), new Frame(id: 3, meaning: 'third', lesson: 2)]
     mockDomain UserData
   }
 
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
-    service.activateReviewsForLesson(1)
+    service.activateLesson(1)
     assertNotNull "No UserData found for user", UserData.findByUserName(userName)
   }
 
   @Test
   void addsFrameReviewForSingleFrameToUserData() {
-    service.activateReviewsForLesson(1)
+    service.activateLesson(1)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
@@ -39,7 +39,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void addsFrameReviewsForMultipleFramesToUserData() {
-    service.activateReviewsForLesson(2)
+    service.activateLesson(2)
     assertHasFrameReviewsSortedByMeaning(['second', 'third'])
   }
 
@@ -47,7 +47,7 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
   @Test
   void addsFrameToExistingCurrentUserData() {
     createUserDataWithUserName()
-    service.activateReviewsForLesson(1)
+    service.activateLesson(1)
     assertHasFrameReviewsSortedByMeaning(['first'])
   }
 
@@ -72,18 +72,18 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
   void hasActiveFramesForExistingFrameReview() {
     UserData userData = createUserDataWithUserName();
     def reviewedFrame = Frame.get(2)
-    userData.addToFrameReviews(new FrameReview(frame: reviewedFrame))
+    userData.addToMasteryList(new MasteryOfFrame(frame: reviewedFrame))
     assertEquals([2], service.listActiveFrameIdsForChapter(reviewedFrame.lesson))
   }
 
   @Test
   void retainsFrameReviewsOnRepeatedAddition() {
-    service.activateReviewsForLesson(1)
-    FrameReview review = (service.currentUserData.frameReviews as List)[0]
+    service.activateLesson(1)
+    MasteryOfFrame review = (service.currentUserData.masteryList as List)[0]
     review.passed = 10
     review.save()
-    service.activateReviewsForLesson(1)
-    assertEquals 10, (service.currentUserData.frameReviews as List)[0].passed
+    service.activateLesson(1)
+    assertEquals 10, (service.currentUserData.masteryList as List)[0].passed
   }
 
   private UserData createUserDataWithUserName() {
@@ -92,6 +92,6 @@ class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
 
   private def assertHasFrameReviewsSortedByMeaning(expected) {
     def userData = UserData.findByUserName(userName)
-    assertEquals(expected, userData.frameReviews.collect({ it.frame.meaning }).sort())
+    assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
   }
 }

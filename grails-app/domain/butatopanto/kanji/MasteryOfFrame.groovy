@@ -2,7 +2,7 @@ package butatopanto.kanji
 
 import butatopanto.security.User
 
-class FrameReview {
+class MasteryOfFrame {
   def static FIRST_BOX = 1
   static belongsTo = [userData: UserData]
   Frame frame
