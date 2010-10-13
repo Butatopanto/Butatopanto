@@ -11,7 +11,7 @@ class LeitnerServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void putsMasteryInFirstBoxOnFailure() {
-    service.failed(mastery)
+    service.answeredWrong(mastery)
     assertEquals(1, mastery.box)
   }
 
@@ -19,7 +19,7 @@ class LeitnerServiceTest extends GrailsJUnit4TestCase {
   void putsMasteryInFollowupBoxWhenPassingDueMastery() {
     mastery.box = 1
     mastery.lastUpdated = new Date()
-    service.successful(mastery)
+    service.answeredRight(mastery)
     assertEquals(2, mastery.box)
   }
 
@@ -27,7 +27,7 @@ class LeitnerServiceTest extends GrailsJUnit4TestCase {
   void retainsBoxForUndueMastery() {
     mastery.box = 3
     mastery.lastUpdated = new Date()
-    service.successful(mastery)
+    service.answeredRight(mastery)
     assertEquals(3, mastery.box)
   }
 
@@ -108,7 +108,7 @@ class LeitnerServiceTest extends GrailsJUnit4TestCase {
   void retainsBoxForDueMasteryOfHighestBox() {
     mastery.box = 8
     setLastReviewDateANumberOfDaysAgo(240)
-    service.successful(mastery)
+    service.answeredRight(mastery)
     assertEquals(8, mastery.box)
   }
 

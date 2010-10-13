@@ -8,11 +8,11 @@ class LeitnerService {
   private def expirationIntervalByBox = [1: 0, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 240]
   def calendar = new Calendar()
 
-  void failed(mastery) {
+  void answeredWrong(mastery) {
     mastery.box = FIRST_BOX
   }
 
-  void successful(mastery) {
+  void answeredRight(mastery) {
     if (isDue(mastery)) {
       moveCardToNextBox(mastery)
     }

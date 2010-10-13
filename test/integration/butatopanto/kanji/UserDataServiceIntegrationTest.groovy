@@ -9,7 +9,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   MasteryService masteryService
   def springSecurityService
-
+  
   @Before
   void createUserAndLogIn() {
     new User(username: "Test", password: "Toast").save(failOnError: true)
@@ -34,44 +34,44 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
   @Test
   void increasesPassedCountOnRightAnswer() {
     masteryService.activateLesson(1)
-    def frameReview = findFrameReviewForFrameIdOne()
-    frameReview.passed = 4
-    frameReview.save(failOnError: true)
+    def mastery = findMasteryForFrameOne()
+    mastery.passed = 4
+    mastery.save(failOnError: true)
     masteryService.answerRight(1)
-    assertEquals(findFrameReviewForFrameIdOne().successful, 5)
+    assertEquals(findMasteryForFrameOne().passed, 5)
   }
 
   @Test
   void increasesBoxOnRightAnswer() {
     masteryService.activateLesson(1)
-    def frameReview = findFrameReviewForFrameIdOne()
-    frameReview.box = 7
-    frameReview.save(failOnError: true)
+    def mastery = findMasteryForFrameOne()
+    mastery.box = 1
+    mastery.save(failOnError: true)
     masteryService.answerRight(1)
-    assertEquals(findFrameReviewForFrameIdOne().box, 8)
+    assertEquals(findMasteryForFrameOne().box, 2)
   }
 
   @Test
   void increasesFailedCountOnWrongAnswer() {
     masteryService.activateLesson(1)
-    def frameReview = findFrameReviewForFrameIdOne()
-    frameReview.failed = 4
-    frameReview.save(failOnError: true)
+    def mastery = findMasteryForFrameOne()
+    mastery.failed = 4
+    mastery.save(failOnError: true)
     masteryService.answerWrong(1)
-    assertEquals(findFrameReviewForFrameIdOne().failed, 5)
+    assertEquals(findMasteryForFrameOne().failed, 5)
   }
 
   @Test
   void resetsBoxOnWrongAnswer() {
     masteryService.activateLesson(1)
-    def frameReview = findFrameReviewForFrameIdOne()
-    frameReview.box = 7
-    frameReview.save(failOnError: true)
+    def mastery = findMasteryForFrameOne()
+    mastery.box = 7
+    mastery.save(failOnError: true)
     masteryService.answerWrong(1)
-    assertEquals(findFrameReviewForFrameIdOne().box, 1)
+    assertEquals(findMasteryForFrameOne().box, 1)
   }
 
-  private def findFrameReviewForFrameIdOne() {
+  private MasteryOfFrame findMasteryForFrameOne() {
     return masteryService.findMasteryByFrameId(1)
   }
 }

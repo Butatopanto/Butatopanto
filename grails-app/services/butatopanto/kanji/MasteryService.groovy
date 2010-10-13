@@ -1,12 +1,12 @@
 package butatopanto.kanji
 
 import butatopanto.request.ListRequester
-import butatopanto.learning.LeitnerService
 
 class MasteryService {
 
   static transactional = true
   def userService
+  def leitnerService
 
   def activateLesson(def lessonNumber) {
     def userData = findOrCreateUserData()
@@ -33,19 +33,19 @@ class MasteryService {
   }
 
   def listActiveFrameIdsForChapterList(List chapterNumbers) {
-    def allReviews = listMastery()
-    def relevantReviews = allReviews.findAll {chapterNumbers.contains(it.frame.lesson)}
-    relevantReviews.collect {it.frame.id}
+    def masteryList = listMastery()
+    def relevantMastery = masteryList.findAll {chapterNumbers.contains(it.frame.lesson)}
+    relevantMastery.collect {it.frame.id}
   }
 
   def listActiveFrameIds() {
-    def allReviews = listMastery()
-    allReviews.collect {it.frame.id}
+    def masteryList = listMastery()
+    masteryList.collect {it.frame.id}
   }
 
   List listMastery(String sortAttribute, String order, int offset, int max) {
-    List allActiveReviews = listMastery()
-    ListRequester.From(allActiveReviews)."sorted${order}By"(sortAttribute).startingFromIndex(offset).getAtMostElements(max)
+    List masteryList = listMastery()
+    ListRequester.From(masteryList)."sorted${order}By"(sortAttribute).startingFromIndex(offset).getAtMostElements(max)
   }
 
   def listMastery() {
@@ -56,23 +56,23 @@ class MasteryService {
   }
 
   def answerRight(def frameId) {
-    def review = findMasteryByFrameId(frameId)
-    review.passed += 1
-    review.box += 1
-    review.save()
+    def mastery = findMasteryByFrameId(frameId)
+    mastery.passed += 1
+    leitnerService.answeredRight(mastery)
+    mastery.save()
   }
 
   def answerWrong(def frameId) {
-    def review = findMasteryByFrameId(frameId)
-    review.failed += 1
-    review.box = LeitnerService.FIRST_BOX
-    review.save()
+    def mastery = findMasteryByFrameId(frameId)
+    mastery.failed += 1
+    leitnerService.answeredWrong(mastery)
+    mastery.save()
   }
 
   def findMasteryByFrameId(def frameId) {
     def currentUserData = getCurrentUserData();
-    def allReviews = currentUserData.masteryList as List
-    allReviews.find {it.frame.id == frameId}
+    def masteryList = currentUserData.masteryList as List
+    masteryList.find {it.frame.id == frameId}
   }
 
   UserData getCurrentUserData() {
