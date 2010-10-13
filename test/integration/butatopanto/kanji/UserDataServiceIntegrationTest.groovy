@@ -38,7 +38,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
     frameReview.passed = 4
     frameReview.save(failOnError: true)
     masteryService.answerRight(1)
-    assertEquals(findFrameReviewForFrameIdOne().passed, 5)
+    assertEquals(findFrameReviewForFrameIdOne().successful, 5)
   }
 
   @Test

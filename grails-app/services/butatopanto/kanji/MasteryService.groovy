@@ -1,6 +1,7 @@
 package butatopanto.kanji
 
 import butatopanto.request.ListRequester
+import butatopanto.learning.LeitnerService
 
 class MasteryService {
 
@@ -64,7 +65,7 @@ class MasteryService {
   def answerWrong(def frameId) {
     def review = findMasteryByFrameId(frameId)
     review.failed += 1
-    review.box = MasteryOfFrame.FIRST_BOX
+    review.box = LeitnerService.FIRST_BOX
     review.save()
   }
 
