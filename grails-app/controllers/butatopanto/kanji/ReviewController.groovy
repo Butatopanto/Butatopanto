@@ -12,19 +12,6 @@ class ReviewController {
   def lessonProgressService
   def masteryService
 
-  def index = {
-    redirect(action: "list", params: params)
-  }
-
-  def list = {
-    int max = Math.min(params.max ? params.int('max') : 20, 100)
-    int offset = params.offset ? params.int('offset') : 0
-    String sort = params.sort ? params.sort : 'frame.number'
-    String order = params.order != 'desc' ? "Ascending" : "Descending"
-    List shownFrameReviews = masteryService.listMastery(sort, order, offset, max)
-    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: masteryService.getMasteryCount()]
-  }
-
   @Secured('ROLE_USER')
   def manage = {
     createChapterSelectionIfNecessary()

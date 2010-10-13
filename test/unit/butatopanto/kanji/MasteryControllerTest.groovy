@@ -6,7 +6,7 @@ import butatopanto.test.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
 
-class ReviewControllerListTest extends GrailsJUnit4ControllerTestCase {
+class MasteryControllerTest extends GrailsJUnit4ControllerTestCase {
   int masteryCount = 0
   List masteryList = []
   int masteryListMax
@@ -14,8 +14,8 @@ class ReviewControllerListTest extends GrailsJUnit4ControllerTestCase {
   String masteryListSortAttribute
   String masteryListOrder
 
-  ReviewControllerListTest() {
-    super(ReviewController)
+  MasteryControllerTest() {
+    super(MasteryController)
   }
 
   @Before
@@ -30,6 +30,12 @@ class ReviewControllerListTest extends GrailsJUnit4ControllerTestCase {
       },
       getMasteryCount: { masteryCount }
     ]
+  }
+
+  @Test
+  void redirectsIndexToList() {
+    controller.index()
+    assertEquals(controller.redirectArgs.action, "list")
   }
 
   @Test

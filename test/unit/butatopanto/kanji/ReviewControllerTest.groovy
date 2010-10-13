@@ -29,12 +29,6 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void redirectsIndexToList() {
-    controller.index()
-    assertEquals(controller.redirectArgs.action, "list")
-  }
-
-  @Test
   void testStoresNewStartedReviewInSessionOnStart() {
     controller.start()
     assertNotNull controller.session.review
