@@ -6,7 +6,7 @@ import butatopanto.test.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
 
-class HeisigUserDataServiceTest extends GrailsJUnit4TestCase {
+class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   private MasteryService service = new MasteryService()
   private def userName = "the user"
