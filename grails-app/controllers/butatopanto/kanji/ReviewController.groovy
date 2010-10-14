@@ -3,6 +3,7 @@ package butatopanto.kanji
 import butatopanto.kanji.bean.ChapterSelection
 import butatopanto.kanji.bean.Review
 import grails.plugins.springsecurity.Secured
+import butatopanto.kanji.bean.LessonProgress
 
 class ReviewController {
 
@@ -36,11 +37,23 @@ class ReviewController {
     if (session.chapters) {
       return
     }
+    session.chapters = createChapterSelections()
+  }
+
+  private List createChapterSelections() {
     def progressList = lessonProgressService.findAll()
-    session.chapters = progressList.collect {
-      def frameCount = it.lesson.frameIds.size()
-      new ChapterSelection(chapterNumber: it.lesson.number, selected: it.activeFrameIds, totalFrames: frameCount)
+    def chapterSelection = progressList.collect {
+      transformToChapterSelection(it)
     }
+    return chapterSelection
+  }
+
+  private ChapterSelection transformToChapterSelection(LessonProgress progress) {
+    def frameCount = progress.lesson.frameIds.size()
+    def dueCount = progress.dueFrameIds.size()
+    boolean active = progress.activeFrameIds
+    def chapterNumber = progress.lesson.number
+    new ChapterSelection(chapterNumber: chapterNumber, selected: active, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
   }
 
   private def getChapters() {

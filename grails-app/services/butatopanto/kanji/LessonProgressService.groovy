@@ -12,7 +12,8 @@ class LessonProgressService {
     def lessons = lessonService.findAll()
     lessons.collect {
       def activeFrameIds = masteryService.listActiveFrameIdsForChapter(it.number)
-      new LessonProgress(lesson: it, activeFrameIds: activeFrameIds)
+      def dueFrameIds = masteryService.listDueFrameIdsForChapter(it.number)
+      new LessonProgress(lesson: it, activeFrameIds: activeFrameIds, dueFrameIds: dueFrameIds)
     }
   }
 }

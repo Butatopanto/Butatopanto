@@ -32,6 +32,13 @@ class MasteryService {
     listActiveFrameIdsForChapterList([chapterNumber])
   }
 
+  def listDueFrameIdsForChapter(int chapterNumber) {
+    listActiveFrameIdsForChapterList([chapterNumber]).findAll {
+      def mastery = findMasteryByFrameId(it)
+      leitnerService.isDue(mastery)
+    }
+  }
+
   def listActiveFrameIdsForChapterList(List chapterNumbers) {
     def masteryList = listMastery()
     def relevantMastery = masteryList.findAll {chapterNumbers.contains(it.frame.lesson)}
