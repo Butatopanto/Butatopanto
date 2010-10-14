@@ -23,6 +23,10 @@ class TestMasteryService {
     return activeFrames
   }
 
+  def listDueFrameIdsForChapter(int chapter) {
+    []
+  }
+
   def answerRight(def frameId) {
     rightAnswers.add(frameId)
   }
