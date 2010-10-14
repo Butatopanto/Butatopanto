@@ -15,7 +15,7 @@ class ReviewController {
 
   @Secured('ROLE_USER')
   def manage = {
-    createChapterSelectionIfNecessary()
+     createChapterSelectionIfNecessary()
     [canContinue: evaluateChapters().hasSelectedChapter()]
   }
 
@@ -24,6 +24,7 @@ class ReviewController {
     masteryService.activateLesson(chapterNumber)
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
+    updateDueCountIfNecessary()
     redirect(action: "manage")
   }
 
@@ -34,10 +35,18 @@ class ReviewController {
   }
 
   private void createChapterSelectionIfNecessary() {
-    if (session.chapters) {
-      return
+    if (!session.chapters) {
+      session.chapters = createChapterSelections()
     }
-    session.chapters = createChapterSelections()
+  }
+
+  private void updateDueCountIfNecessary() {
+    if (session.chapters) {
+      session.chapters.each {
+        def dueCount = masteryService.listDueFrameIdsForChapter(it.chapterNumber)
+        it.dueFrameCount = dueCount.size()
+      }
+    }
   }
 
   private List createChapterSelections() {
