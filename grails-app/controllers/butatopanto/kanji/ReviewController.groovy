@@ -111,6 +111,7 @@ class ReviewController {
     boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
     reviewService.resolve(review, reviewCorrect)
+    updateDueCountIfNecessary()
     def frame = reviewService.getCurrentFrame(review)
     ajaxRenderFrame(frame, true)
   }

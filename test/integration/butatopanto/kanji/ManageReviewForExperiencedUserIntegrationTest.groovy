@@ -1,8 +1,10 @@
 package butatopanto.kanji;
 
 
+import butatopanto.HeisigTagLib
 import butatopanto.security.User
 import butatopanto.test.GrailsJUnit4ControllerTestCase
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -23,6 +25,16 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
     controller.manage()
   }
 
+  @Before
+  void addMetaDataToHeisigTagLib() {
+    HeisigTagLib.metaClass.g = [message: { Map map -> return "error message" }, remoteFunction: {}]
+  }
+
+  void removeMetaDataFromHeisigTagLib() {
+    def remove = GroovySystem.metaClassRegistry.&removeMetaClass
+    remove HeisigTagLib
+  }
+
   @Test
   void hasNumberOfFramesForChapter() {
     assertEquals(15, controller.session.chapters[0].totalFrames)
@@ -41,5 +53,13 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
   @Test
   void marksActiveChapter() {
     assertTrue(controller.session.chapters[0].active)
+  }
+
+  @Test
+  void reducesDueCountAfterCorrectResolve() {
+    controller.start()
+    controller.params.reviewCorrect = "true"
+    controller.ajaxResolve()
+    assertEquals(14, controller.session.chapters[0].dueFrameCount)
   }
 }
