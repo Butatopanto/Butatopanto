@@ -72,7 +72,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void testRedirectsToManageAfterAddingLesson() {
-    controller.masteryService = [activateLesson: { }]
+    controller.masteryService = [activateLesson: { }, listDueFrameIdsForChapter: {[]}]
     controller.params.id = "1"
     controller.addLesson()
     assertEquals "manage", controller.redirectArgs.action
@@ -81,7 +81,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void testAddsLessonReviewsViaService() {
     int addedLesson
-    controller.masteryService = [activateLesson: {addedLesson = it}]
+    controller.masteryService = [activateLesson: {addedLesson = it}, listDueFrameIdsForChapter: {[]}]
     controller.params.id = "4"
     controller.addLesson()
     assertEquals 4, addedLesson

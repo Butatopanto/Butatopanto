@@ -15,7 +15,7 @@ class ReviewController {
 
   @Secured('ROLE_USER')
   def manage = {
-     createChapterSelectionIfNecessary()
+    createChapterSelectionIfNecessary()
     [canContinue: evaluateChapters().hasSelectedChapter()]
   }
 
@@ -43,8 +43,9 @@ class ReviewController {
   private void updateDueCountIfNecessary() {
     if (session.chapters) {
       session.chapters.each {
-        def dueCount = masteryService.listDueFrameIdsForChapter(it.chapterNumber)
-        it.dueFrameCount = dueCount.size()
+        def chapterNumber = it.chapterNumber
+        def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
+        it.dueFrameCount = dueFrames.size()
       }
     }
   }
