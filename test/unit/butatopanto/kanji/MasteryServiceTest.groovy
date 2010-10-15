@@ -30,25 +30,22 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void addsFrameReviewForSingleFrameToUserData() {
+  void addsMasteryForSingleFrameToUserData() {
     service.activateLesson(1)
-    assertHasFrameReviewsSortedByMeaning(['first'])
+    assertHasMasterySortedByMeaning(['first'])
   }
-
-
 
   @Test
-  void addsFrameReviewsForMultipleFramesToUserData() {
+  void addsMasteryForMultipleFramesToUserData() {
     service.activateLesson(2)
-    assertHasFrameReviewsSortedByMeaning(['second', 'third'])
+    assertHasMasterySortedByMeaning(['second', 'third'])
   }
-
 
   @Test
   void addsFrameToExistingCurrentUserData() {
     createUserDataWithUserName()
     service.activateLesson(1)
-    assertHasFrameReviewsSortedByMeaning(['first'])
+    assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
@@ -63,7 +60,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void hasNoActiveFramesForUserDataWithoutFrameReviews() {
+  void hasNoActiveFramesForUserDataWithoutMastery() {
     createUserDataWithUserName()
     assertEquals([], service.listActiveFrameIdsForChapter(1))
   }
@@ -77,20 +74,28 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void retainsFrameReviewsOnRepeatedAddition() {
+  void retainsMasteryOnRepeatedAddition() {
     service.activateLesson(1)
-    MasteryOfFrame review = (service.currentUserData.masteryList as List)[0]
-    review.passed = 10
-    review.save()
+    MasteryOfFrame mastery = (service.currentUserData.masteryList as List)[0]
+    mastery.passed = 10
+    mastery.save()
     service.activateLesson(1)
     assertEquals 10, (service.currentUserData.masteryList as List)[0].passed
+  }
+
+  @Test
+  void listsAllFrameIdAsDueForMasteryRecognizedByLeitnerService() {
+    service.activateLesson(2)
+    MasteryOfFrame dueMastery = (service.currentUserData.masteryList as List)[0]
+    service.leitnerService = [isDue: {it == dueMastery}]
+    assertEquals([dueMastery.frame.id], service.listDueFrameIds())
   }
 
   private UserData createUserDataWithUserName() {
     new UserData(userName: userName).save()
   }
 
-  private def assertHasFrameReviewsSortedByMeaning(expected) {
+  private def assertHasMasterySortedByMeaning(expected) {
     def userData = UserData.findByUserName(userName)
     assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
   }

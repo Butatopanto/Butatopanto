@@ -7,7 +7,7 @@ class TestReviewService {
   def lastStartedReview
   java.util.List reviewedChapters
 
-  void start(Review review, List chapterNumbers) {
+  void startChapters(Review review, List chapterNumbers) {
     this.reviewedChapters = chapterNumbers
     this.lastStartedReview = review
     review.currentReview = initialId

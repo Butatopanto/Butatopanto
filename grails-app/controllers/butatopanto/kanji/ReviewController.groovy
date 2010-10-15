@@ -16,7 +16,7 @@ class ReviewController {
   @Secured('ROLE_USER')
   def manage = {
     createChapterSelectionIfNecessary()
-    [canContinue: evaluateChapters().hasSelectedChapter()]
+    [chaptersSelected: evaluateChapters().hasSelectedChapter()]
   }
 
   def addLesson = {
@@ -75,15 +75,24 @@ class ReviewController {
   }
 
   @Secured('ROLE_USER')
-  def start = {
-    createNewReview()
+  def startSelectedChapters = {
+    session.review = new Review()
+    List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
+    reviewService.startChapters(session.review, selectedChapterNumbers)
+    redirect(action: "practice")
+  }
+
+  @Secured('ROLE_USER')
+  def startDue = {
+    session.review = new Review()
+    reviewService.startDue(session.review)
     redirect(action: "practice")
   }
 
   @Secured('ROLE_USER')
   def practice = {
     if (!session.review) {
-      redirect(action: "start")
+      redirect(action: "startDue")
     }
     else {
       showCurrentFrame()
@@ -92,14 +101,6 @@ class ReviewController {
 
   def showCurrentFrame() {
     return [frame: reviewService.getCurrentFrame(session.review)]
-  }
-
-  private Review createNewReview() {
-    Review review = new Review()
-    List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
-    reviewService.start(review, selectedChapterNumbers)
-    session.review = review
-    review
   }
 
   def ajaxReveal = {

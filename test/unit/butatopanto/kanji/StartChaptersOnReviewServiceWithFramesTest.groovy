@@ -5,7 +5,7 @@ import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
-class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
+class StartChaptersOnReviewServiceWithFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Review review = new Review()
@@ -19,7 +19,7 @@ class ReviewServiceWithFramesTest extends GrailsUnitTestCase {
     when(reviewService.random.nextInt(2)).thenReturn(1)
     when(reviewService.random.nextInt(1)).thenReturn(0)
     reviewService.masteryService = new TestMasteryService(activeFramesIdsByLesson: [1: [1, 2]])
-    reviewService.start(review, [1])
+    reviewService.startChapters(review, [1])
   }
 
   void testHasCurrentFrameAccordingToRandomIdAfterStart() {

@@ -25,27 +25,27 @@ class MasteryServiceMasteryRemovalTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void removesFrameReviewForSingleFrameFromUserData() {
-    createReviews([Frame.findByLesson(1)])
+  void removesMasteryForSingleFrameFromUserData() {
+    createMastery([Frame.findByLesson(1)])
     service.deactivateLesson(1)
     assertHasNoReviews()
   }
 
   @Test
-  void removesFrameReviewsForMultipleFramesFromUserData() {
-    createReviews(Frame.findAllByLesson(2))
+  void removesMasteryForMultipleFramesFromUserData() {
+    createMastery(Frame.findAllByLesson(2))
     service.deactivateLesson(2)
     assertHasNoReviews()
   }
 
   @Test
-  void removesFrameReviewsOnlyForGivenLesson() {
-    createReviews(Frame.list())
+  void removesMasteryOnlyForGivenLesson() {
+    createMastery(Frame.list())
     service.deactivateLesson(2)
-    assertHasFrameReviewsSortedByMeaning(['first'])
+    assertHasMasterySortedByMeaning(['first'])
   }
 
-  private def createReviews(def frames) {
+  private def createMastery(def frames) {
     def reviews = frames.collect {
       new MasteryOfFrame(frame: it)
     }
@@ -59,7 +59,7 @@ class MasteryServiceMasteryRemovalTest extends GrailsJUnit4TestCase {
     new UserData(userName: userName).save()
   }
 
-  private def assertHasFrameReviewsSortedByMeaning(expected) {
+  private def assertHasMasterySortedByMeaning(expected) {
     def userData = UserData.findByUserName(userName)
     assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
   }

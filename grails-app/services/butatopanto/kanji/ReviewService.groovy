@@ -7,9 +7,19 @@ class ReviewService {
   def random = new Random()
   def masteryService
 
-  def start(Review review, List chapterNumbers) {
-    review.remainingReviews = masteryService.listActiveFrameIdsForChapterList(chapterNumbers)
-    review.totalCount = review.remainingReviews.size()
+  def startChapters(Review review, List chapterNumbers) {
+    def frameIds = masteryService.listActiveFrameIdsForChapterList(chapterNumbers)
+    start(review, frameIds)
+  }
+
+  def startDue(Review review) {
+    def dueFrameIds = masteryService.listDueFrameIds()
+    start (review, dueFrameIds)
+  }
+
+  private def start(Review review, List frameIds) {
+    review.remainingFrames = frameIds
+    review.totalCount = frameIds.size()
     toNext(review)
   }
 
@@ -29,14 +39,14 @@ class ReviewService {
   }
 
   private void toNext(Review review) {
-    review.remainingReviews.remove((Object) review.currentReview)
+    review.remainingFrames.remove((Object) review.currentReview)
     review.currentReview = getRandomId(review)
   }
 
   private def getRandomId(Review review) {
-    if (review.remainingReviews) {
-      def index = random.nextInt(review.remainingReviews.size())
-      return review.remainingReviews[index]
+    if (review.remainingFrames) {
+      def index = random.nextInt(review.remainingFrames.size())
+      return review.remainingFrames[index]
     }
     null
   }

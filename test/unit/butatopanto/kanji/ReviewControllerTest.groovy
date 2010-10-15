@@ -30,28 +30,28 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void testStoresNewStartedReviewInSessionOnStart() {
-    controller.start()
+    controller.startSelectedChapters()
     assertNotNull controller.session.review
     assertSame reviewService.lastStartedReview, controller.session.review
   }
 
   @Test
   void testStoresStartedInSessionOnStart() {
-    controller.start()
+    controller.startSelectedChapters()
     assertNotNull controller.session.review
     assertSame reviewService.lastStartedReview, controller.session.review
   }
 
   @Test
   void testRedirectsToPracticeOnStart() {
-    controller.start()
+    controller.startSelectedChapters()
     assertEquals "practice", controller.redirectArgs.action
   }
 
   @Test
-  void testRedirectsToStartOnPracticeWithoutActiveReview() {
+  void redirectsToStartDueOnPracticeWithoutActiveReview() {
     controller.practice()
-    assertEquals "start", controller.redirectArgs.action
+    assertEquals "startDue", controller.redirectArgs.action
   }
 
   @Test

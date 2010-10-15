@@ -3,12 +3,12 @@ package butatopanto.kanji.bean
 class Review {
   def currentReview = 0
   def totalCount = 0
-  def remainingReviews = []
+  def remainingFrames = []
   def rightReviews = []
   def wrongReviews = []
 
   def getRemainingCount() {
-    remainingReviews.size()
+    remainingFrames.size()
   }
 
   def getRightCount() {

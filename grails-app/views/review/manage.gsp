@@ -25,11 +25,12 @@
               <heisig:chapterSelector chapter="${chapter}"/>
             </div>
           </g:each>
-          <g:if test="${canContinue}">
-            <div class="nav" style='position:absolute; width:775px; top:517px'>
-              <span class="menuButton"><g:link class="practice" action="start">Alle</g:link></span>
-            </div>
-          </g:if>
+          <div class="nav" style='position:absolute; left:0px; bottom: 0px; width:775px'>
+            <span class="menuButton"><g:link class="practice" action="startDue">Fällige</g:link></span>
+            <g:if test="${chaptersSelected}">
+              <span class="menuButton"><g:link class="practice" action="startSelectedChapters">Ausgewählte</g:link></span>
+            </g:if>
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
 import butatopanto.kanji.bean.Review
 
-class ReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
+class StartChaptersOnReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Random random = mock(Random)
@@ -15,7 +15,7 @@ class ReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
     mockDomain Frame
     reviewService.random = random
     reviewService.masteryService = new TestMasteryService()
-    reviewService.start(review, [])
+    reviewService.startChapters(review, [])
   }
 
   void testHasNoCurrentFrame() {
