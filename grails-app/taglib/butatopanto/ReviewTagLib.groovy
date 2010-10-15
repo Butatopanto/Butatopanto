@@ -24,7 +24,7 @@ class ReviewTagLib {
     out << "<div>"
     out << "<p style='font-size: 20px'>$chapterNumber</p>"
     out << "<p>$totalFrames Kanji</p>"
-    out << "<P>$chapterSelection.dueFrameCount fällig</P>"
+    out << "<p>$chapterSelection.dueFrameCount fällig</p>"
     out << "</div>"
   }
 }

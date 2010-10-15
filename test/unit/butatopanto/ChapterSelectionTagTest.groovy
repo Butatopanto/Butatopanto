@@ -1,8 +1,9 @@
 package butatopanto;
 
-import butatopanto.test.*
-import org.junit.*
+
 import butatopanto.kanji.bean.ChapterSelection
+import butatopanto.test.TagLibJUnit4TestCase
+import org.junit.Test
 
 class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
 
@@ -10,22 +11,73 @@ class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
     super(ReviewTagLib)
   }
 
-  @Before
-  void mockLink() {
-    ReviewTagLib.class.metaClass.link { arguments, body ->
-      def theOut = out
-      out << "<a href='/link/to/${arguments.action}/${arguments.id}'>"
-      body()
-      out << "</a>"
-    }
+  private ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 15, dueFrameCount: 6)
+
+  @Test
+  void rendersChapterNumberInFirstParagraph() {
+    def html = createLinkHtml()
+    assertEquals("1", html.div[0].p[0].text())
   }
 
   @Test
-  void something() {
-    ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 1)
+  void rendersTotalFramesInSecondParagraph() {
+    def html = createLinkHtml()
+    assertEquals("15 Kanji", html.div[0].p[1].text())
+  }
+
+  @Test
+  void rendersDueFramesInThirdParagraph() {
+    def html = createLinkHtml()
+    assertEquals("6 fällig", html.div[0].p[2].text())
+  }
+
+  @Test
+  void rendersLinkForActiveChapterWithActiveCssClass() {
+    chapter.active = true
+    assertContainsCssClass(createLinkHtml(), "active")
+  }
+
+  @Test
+  void rendersLinkForInactiveChapterWithInactiveCssClass() {
+    chapter.active = false
+    assertContainsCssClass(createLinkHtml(), "inactive")
+  }
+
+  @Test
+  void rendersLinkForSelectedChapterWithSelectedCssClass() {
+    chapter.selected = true
+    assertContainsCssClass(createLinkHtml(), "selected")
+  }
+
+  @Test
+  void rendersLinkForDeselectedChapterWithDeselectedCssClass() {
+    chapter.selected = false
+    assertContainsCssClass(createLinkHtml(), "deselected")
+  }
+
+  @Test
+  void rendersLinkToRemoveLessonForSelectedLesson() {
+    chapter.selected = true
+    def html = createLinkHtml()
+    assertEquals("/link/to/removeLesson/1", html.@href.text())
+  }
+
+  @Test
+  void rendersLinkToAddLessonForDeselectedLesson() {
+    chapter.selected = false
+    def html = createLinkHtml()
+    assertEquals("/link/to/addLesson/1", html.@href.text())
+  }
+
+  private def createLinkHtml() {
     def tag = tagLib.chapterSelector(chapter: chapter)
-    def theOut = tagLib.out
-    def text = "<root>" + tag.getBuffer().toString() + "</root>"
-    def html = new XmlSlurper().parseText(text)
+    def text = tag.getBuffer().toString()
+    new XmlSlurper().parseText(text)
+  }
+
+  def assertContainsCssClass(def element, def expectedClass) {
+    String classAttribute = element.@"class".text()
+    List allClasses = classAttribute.split(" ")
+    assertTrue("Found css-class " + classAttribute, allClasses.contains(expectedClass))
   }
 }
