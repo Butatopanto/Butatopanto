@@ -51,12 +51,14 @@ class HeisigTagLib {
     def rightLegend = g.message(code: 'review.progress.legend.right', args: [right])
     def wrongLegend = g.message(code: 'review.progress.legend.wrong', args: [wrong])
     def remainingLegend = g.message(code: 'review.progress.legend.remaining', args: [remaining, total])
-    String title =  g.message(code: 'review.progress.title')
+    String title = g.message(code: 'review.progress.title')
+    int step = total / 3
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
     "?chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
     "&cht=bhs" +
     "&chco=00FF00,FF0000,FFFFFF" +
     "&chxr=0,0,${total}" +
+    "&chxl=0:|0|${step}|${step * 2}|${total}" +
     "&chxt=x" +
     "&chs=${width}x100" +
     "&chds=0,${total},0,${total},0,${total}" +
