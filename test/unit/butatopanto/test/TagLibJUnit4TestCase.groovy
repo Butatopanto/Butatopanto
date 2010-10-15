@@ -25,18 +25,14 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
     tagLib.class.metaClass.link { arguments, body ->
       def theOut = out
       out << "<a "
-      printCssClass()
+      def cssClass = arguments."class"
+      if (cssClass) {
+        out << "class='${cssClass}'"
+      }
       out << " href = '/link/to/${arguments.action}/${arguments.id}' > "
       body()
       out << "</a>"
       return ""
-    }
-  }
-
-  private def printCssClass() {
-    def cssClass = arguments."class"
-    if (cssClass) {
-      out << "class='${cssClass}'"
     }
   }
 
