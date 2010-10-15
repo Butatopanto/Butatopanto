@@ -6,6 +6,11 @@ class GoogleChartBuilder {
 
   private int width = 250
   private def alternativeText = "";
+  private def additionalParameters = ""
+
+  void setAlternativeText(def text) {
+    this.alternativeText = text
+  }
 
   def buildHtml() {
     def writer = new StringWriter()
@@ -19,10 +24,14 @@ class GoogleChartBuilder {
   }
 
   private String buildUrl() {
-    "http://chart.apis.google.com/chart?chs=250x100&cht=bhs"
+    "http://chart.apis.google.com/chart?chs=250x100&cht=bhs" + additionalParameters
   }
 
-  void setAlternativeText(def text) {
-    this.alternativeText = text
+  void setTitle(def title) {
+    this.additionalParameters += "&chtt=${title}"
+  }
+
+  void addLegendAtBottom() {
+    this.additionalParameters += "&chdlp=b"
   }
 }

@@ -54,8 +54,8 @@ class HeisigTagLib {
     String title = g.message(code: 'review.progress.title')
     int step = total / 3
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
-    "?chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
-    "&cht=bhs" +
+    "?cht=bhs" +
+    "&chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
     "&chco=00FF00,FF0000,FFFFFF" +
     "&chxr=0,0,${total}" +
     "&chxl=0:|0|${step}|${step * 2}|${total}" +
