@@ -26,7 +26,7 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
       def theOut = out
       out << "<a "
       printCssClass()
-      out << " href = '/link/to/${arguments.action}/${arguments.id}' > " ""
+      out << " href = '/link/to/${arguments.action}/${arguments.id}' > "
       body()
       out << "</a>"
       return ""
