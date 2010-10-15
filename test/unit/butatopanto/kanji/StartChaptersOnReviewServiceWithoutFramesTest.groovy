@@ -8,14 +8,14 @@ class StartChaptersOnReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Random random = mock(Random)
-  private Review review = new Review()
+  private Review review
 
   protected void setUp() {
     super.setUp()
     mockDomain Frame
     reviewService.random = random
     reviewService.masteryService = new TestMasteryService()
-    reviewService.startChapters(review, [])
+    review = reviewService.startChapters([])
   }
 
   void testHasNoCurrentFrame() {

@@ -76,16 +76,14 @@ class ReviewController {
 
   @Secured('ROLE_USER')
   def startSelectedChapters = {
-    session.review = new Review()
     List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
-    reviewService.startChapters(session.review, selectedChapterNumbers)
+    session.review = reviewService.startChapters(selectedChapterNumbers)
     redirect(action: "practice")
   }
 
   @Secured('ROLE_USER')
   def startDue = {
-    session.review = new Review()
-    reviewService.startDue(session.review)
+    session.review = reviewService.startDue()
     redirect(action: "practice")
   }
 

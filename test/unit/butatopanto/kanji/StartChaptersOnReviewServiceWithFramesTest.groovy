@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when
 class StartChaptersOnReviewServiceWithFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
-  private Review review = new Review()
+  private Review review
   private def frame1 = new Frame(id: 1, meaning: 'Schatz')
   private def frame2 = new Frame(id: 2, meaning: 'Nichts')
 
@@ -19,7 +19,7 @@ class StartChaptersOnReviewServiceWithFramesTest extends GrailsUnitTestCase {
     when(reviewService.random.nextInt(2)).thenReturn(1)
     when(reviewService.random.nextInt(1)).thenReturn(0)
     reviewService.masteryService = new TestMasteryService(activeFramesIdsByLesson: [1: [1, 2]])
-    reviewService.startChapters(review, [1])
+    review = reviewService.startChapters([1])
   }
 
   void testHasCurrentFrameAccordingToRandomIdAfterStart() {

@@ -7,10 +7,11 @@ class TestReviewService {
   def lastStartedReview
   java.util.List reviewedChapters
 
-  void startChapters(Review review, List chapterNumbers) {
+  def startChapters(List chapterNumbers) {
+    lastStartedReview = new Review()
     this.reviewedChapters = chapterNumbers
-    this.lastStartedReview = review
-    review.currentReview = initialId
+    lastStartedReview.currentReview = initialId
+    return lastStartedReview
   }
 
   def getCurrentFrame(Review review) {

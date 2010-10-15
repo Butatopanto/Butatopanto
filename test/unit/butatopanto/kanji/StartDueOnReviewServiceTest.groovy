@@ -9,12 +9,12 @@ import org.junit.Before
 class StartDueOnReviewServiceTest extends GrailsJUnit4TestCase {
 
   private ReviewService service = new ReviewService()
-  private Review review = new Review()
+  private Review review
 
   @Before
   void configureMasteryServiceAndStartDue() {
     service.masteryService = [listDueFrameIds: {[4, 7]}]
-    service.startDue(review)
+    review = service.startDue()
   }
 
   @Test
