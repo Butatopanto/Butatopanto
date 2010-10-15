@@ -2,12 +2,20 @@ package butatopanto
 
 import butatopanto.kanji.bean.ChapterSelection
 import grails.test.TagLibUnitTestCase
+import butatopanto.test.TagLibJUnit4TestCase
+import org.junit.Before
+import org.junit.Test
 
-class ReviewTagLibTest extends TagLibUnitTestCase {
+class ChapterTagTest extends TagLibJUnit4TestCase {
 
   def html
 
-  protected void setUp() {
+  ChapterTagTest() {
+    super(ReviewTagLib)
+  }
+
+  @Before
+  public void readHtml() {
     super.setUp()
     ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 1)
     def tag = tagLib.chapter(chapter: chapter)
@@ -15,19 +23,18 @@ class ReviewTagLibTest extends TagLibUnitTestCase {
     html = new XmlSlurper().parseText(text)
   }
 
-  protected void tearDown() {
-    super.tearDown()
-  }
-
-  void testCreatesChapterNumber() {
+  @Test
+  void createsChapterNumber() {
     assertEquals("1", html.p[0].text())
   }
 
-  void testWritesChapterLarger() {
+  @Test
+  void writesChapterLarger() {
     assertEquals("font-size: 20px", html.p[0].@style.text())
   }
 
-  void testCreatesKanjiCounter() {
+  @Test
+  void createsKanjiCounter() {
     assertEquals("1 Kanji", html.p[1].text())
   }
 }

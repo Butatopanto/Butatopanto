@@ -24,7 +24,7 @@ div.lessonselector {
     float: left;
 }
 
-a.active_selected, a.active_unselected, a.inactive_selected, a.inactive_unselected {
+a.active, a.selected, a.inactive, a.deselected {
     display: block;
     height: 100%;
     width: 100%;
@@ -33,18 +33,18 @@ a.active_selected, a.active_unselected, a.inactive_selected, a.inactive_unselect
     color: black;
 }
 
-a.active_selected, a.active_unselected {
-    background-color: #6699ff;
+a.active {
+    background-color: #ccccff;
 }
 
-a.inactive_selected, a.inactive_unselected {
+a.inactive {
     background-color: #ffffff;
 }
 
-a.active_selected, a.inactive_selected {
+a.selected {
   border: 2px #006600 solid;
 }
 
-a.active_unselected, a.inactive_unselected {
-  border: 2px #ff0000 solid;
+a.deselected {
+  border: 2px #dedede solid;
 }
