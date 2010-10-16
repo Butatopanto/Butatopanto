@@ -54,13 +54,9 @@ class ReviewController {
     }
   }
 
-  def test =  {
-    
-  }
-
   def currentStory = {
     def storyText = reviewService.getCurrentStory(session.review)
-    render heisig.story(text: storyText)
+    [storyText: storyText]
   }
 
   def showCurrentFrame() {

@@ -15,15 +15,6 @@ class CurrentStoryFromReviewControllerTest extends GrailsJUnit4ControllerTestCas
   }
 
   @Before
-  void mockHeisigTagLib() {
-    controller.class.metaClass.heisig = [
-      story: {arguments ->
-        "Heisig: " + arguments.text
-      }
-    ]
-  }
-
-  @Before
   void setReviewInSession() {
     controller.session.review = sessionReview
   }
@@ -44,7 +35,7 @@ class CurrentStoryFromReviewControllerTest extends GrailsJUnit4ControllerTestCas
 
   @Test
   void rendersStoryTextFromReviewServiceViaHeisigTagLib() {
-    controller.currentStory()
-    assertEquals "Heisig: The Story", controller.response.contentAsString
+    def parameters = controller.currentStory()
+    assertEquals "The Story", parameters.storyText
   }
 }
