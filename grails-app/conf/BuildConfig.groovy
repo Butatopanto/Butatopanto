@@ -6,8 +6,9 @@ grails.project.test.reports.dir = "target/test-reports"
 
 coverage {
   exclusions = [
-    '**/butatopanto/sharedtest/**'
-    ]
+    '**/butatopanto/sharedtest/**',
+    'BuildConfig.groovy'
+  ]
 }
 
 grails.project.dependency.resolution = {
