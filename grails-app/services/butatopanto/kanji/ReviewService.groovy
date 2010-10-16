@@ -6,6 +6,7 @@ class ReviewService {
   static transactional = true
   def random = new Random()
   def masteryService
+  def storyService
 
   def startChapters(List chapterNumbers) {
     def frameIds = masteryService.listActiveFrameIdsForChapterList(chapterNumbers)
@@ -37,7 +38,13 @@ class ReviewService {
   }
 
   Frame getCurrentFrame(Review review) {
-    review.currentReview == null ? null : Frame.findById(review.currentReview)
+    def currentReview = review.currentReview
+    Frame.findById(currentReview)
+  }
+
+  String getCurrentStory(Review review) {
+    def currentReview = review.currentReview
+    storyService.findStoryByFrameId(currentReview) ?: ""
   }
 
   private void toNext(Review review) {

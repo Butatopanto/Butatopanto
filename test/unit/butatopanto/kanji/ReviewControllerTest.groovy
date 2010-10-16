@@ -1,10 +1,10 @@
 package butatopanto.kanji;
 
 
+import butatopanto.learning.Review
 import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
-import butatopanto.learning.Review
 
 class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
@@ -22,9 +22,9 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Before
   void configureChapters() {
     controller.session.chapters = [new ChapterSelection(chapterNumber: 1),
-            new ChapterSelection(chapterNumber: 2),
-            new ChapterSelection(chapterNumber: 3),
-            new ChapterSelection(chapterNumber: 4)]
+      new ChapterSelection(chapterNumber: 2),
+      new ChapterSelection(chapterNumber: 3),
+      new ChapterSelection(chapterNumber: 4)]
   }
 
   @Test

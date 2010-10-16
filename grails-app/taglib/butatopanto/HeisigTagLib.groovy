@@ -4,6 +4,10 @@ class HeisigTagLib {
 
   static namespace = "heisig"
 
+  def story = { attributes ->
+   out << "<p>${attributes.text}</p>"
+  }
+
   def interaction = { attributes ->
     def frame = attributes.frame
     def hidden = attributes.hidden

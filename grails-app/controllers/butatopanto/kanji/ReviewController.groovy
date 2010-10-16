@@ -5,12 +5,10 @@ import grails.plugins.springsecurity.Secured
 
 class ReviewController {
 
-  def scaffold = MasteryOfFrame
   def reviewService
   def lessonService
   def lessonProgressService
   def masteryService
-  def userService
 
   @Secured('ROLE_USER')
   def manage = {
@@ -57,10 +55,8 @@ class ReviewController {
   }
 
   def currentStory = {
-    def currentFrame = reviewService.getCurrentFrame(session.review)
-    def userName = userService.currentUser.username
-    def userData = UserData.findByUserName(userName)
-    render(userData.storyList.find {it.frame.id == currentFrame.id}.text)
+    def storyText = reviewService.getCurrentStory(session.review)
+    render heisig.story(text: storyText)
   }
 
   def showCurrentFrame() {
