@@ -5,10 +5,10 @@ import java.text.MessageFormat
 import org.junit.Before
 import org.junit.Test
 import butatopanto.kanji.bean.Review
+import static butatopanto.test.TagLibUtilities.*
 
 class ProgressTagLibTest extends TagLibJUnit4TestCase {
 
-  private def messagesByCode = [:]
   private ChartBuilderDummy chartBuilder = new ChartBuilderDummy()
   private Review review = new Review()
 
@@ -28,21 +28,18 @@ class ProgressTagLibTest extends TagLibJUnit4TestCase {
     }
   }
 
-  @Before
-  void mockMessage() {
-    tagLib.class.metaClass.message { arguments ->
-      String message = messagesByCode[arguments.code]
-      if (arguments.args) {
-        message = MessageFormat.format(message, arguments.args)
-      }
-      return message
-    }
+  @Test
+  void hasInternationalizedTitle() {
+    messageCodes['review.progress.title'] = "ChartTitle"
+    tagLib.renderProgressBar()
+    assertEquals "ChartTitle", chartBuilder.title
   }
 
   @Test
-  void hasInternationalizedTitle() {
-//    messagesByCode['review.progress.title'] = "ChartTitle"
-//    tagLib.renderProgressBar()
-//    assertEquals "ChartTitle", chartBuilder.title
+  void hasChartBuilderContentInDiv() {
+    chartBuilder.setBuildResult "my nice result"
+    tagLib.renderProgressBar()
+    def xml = getContentAsXml(tagLib)
+    assertEquals "my nice result", xml.div[0].text()
   }
 }

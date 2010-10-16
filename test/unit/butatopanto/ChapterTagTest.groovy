@@ -4,6 +4,7 @@ import butatopanto.kanji.bean.ChapterSelection
 import butatopanto.test.TagLibJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
+import static butatopanto.test.TagLibUtilities.*
 
 class ChapterTagTest extends TagLibJUnit4TestCase {
 
@@ -16,9 +17,8 @@ class ChapterTagTest extends TagLibJUnit4TestCase {
   @Before
   public void readHtml() {
     ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 1)
-    def tag = tagLib.chapter(chapter: chapter)
-    def text = tag.getBuffer().toString()
-    html = new XmlSlurper().parseText(text)
+    tagLib.chapter(chapter: chapter)
+    html = getContentAsXml(tagLib)
   }
 
   @Test

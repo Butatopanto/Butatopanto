@@ -16,7 +16,7 @@ class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
 
   @Before
   void setDuePattern() {
-    setMessageCode "review.manage.dueCount", "{0} fällig"
+    messageCodes["review.manage.dueCount"] = "{0} fällig"
   }
 
 

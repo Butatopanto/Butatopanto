@@ -3,6 +3,7 @@ grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 grails.project.dependency.resolution = {
+  defaultDependenciesProvided true 
   // inherit Grails' default dependencies
   inherits("global") {
     // uncomment to disable ehcache
@@ -24,7 +25,7 @@ grails.project.dependency.resolution = {
   }
   dependencies {
     // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-
+    test new File("${basedir}/test/testSupport")
     // runtime 'mysql:mysql-connector-java:5.1.5'
   }
 }

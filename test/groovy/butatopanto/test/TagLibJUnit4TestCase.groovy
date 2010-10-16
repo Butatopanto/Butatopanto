@@ -39,15 +39,11 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
   void mockMessage() {
     tagLib.class.metaClass.message { arguments ->
       def pattern = messageCodes[arguments.code]
-      if (!pattern){
-        return
+      if (!pattern) {
+        return "unconfigured message code: ${arguments.code}"
       }
-      return MessageFormat.format(pattern, arguments.args[0])
+      return MessageFormat.format(pattern, arguments.args as Object[])
     }
-  }
-
-  void setMessageCode(code, pattern) {
-    messageCodes[code] = pattern;
   }
 
   @After
