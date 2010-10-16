@@ -16,7 +16,7 @@ class ReviewController {
   @Secured('ROLE_USER')
   def manage = {
     createChapterSelectionIfNecessary()
-    [chaptersSelected: evaluateChapters().hasSelectedChapter()]
+    [chaptersSelected: evaluateChapters().hasSelectedChapter(), kanjiDue: masteryService.listDueFrameIds() as boolean]
   }
 
   def addLesson = {

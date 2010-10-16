@@ -121,6 +121,20 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     controller.session.review = new Review(currentReview: "second")
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
-    assertNull controller.session.review 
+    assertNull controller.session.review
+  }
+
+  @Test
+  void informsManageViewWhetherNoKanjiAreDue() {
+    controller.masteryService = [listDueFrameIds: {[]}]
+    def result = controller.manage()
+    assertFalse result["kanjiDue"]
+  }
+
+  @Test
+  void informsManageViewsWhetherAnyKanjiAreDue() {
+    controller.masteryService = [listDueFrameIds: {[1]}]
+    def result = controller.manage()
+    assertTrue result["kanjiDue"]
   }
 }
