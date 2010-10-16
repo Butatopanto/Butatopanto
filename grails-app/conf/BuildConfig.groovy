@@ -4,7 +4,7 @@ grails.project.test.reports.dir = "target/test-reports"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 //grailsSettings.testDependencies.add new java.io.File(basedir + '/test/groovy')
 
-coverage = {
+coverage {
   exclusions = [
     '**/butatopanto/sharedtest/**'
     ]
