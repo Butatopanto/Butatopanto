@@ -26,9 +26,9 @@
             </div>
           </g:each>
           <div class="nav" style='position:absolute; left:0px; bottom: 0px; width:775px'>
-            <span class="menuButton"><g:link class="practice" action="startDue">Fällige</g:link></span>
+            <span class="menuButton"><g:link class="practice" action="startDue"><g:message code="review.manage.due"/></g:link></span>
             <g:if test="${chaptersSelected}">
-              <span class="menuButton"><g:link class="practice" action="startSelectedChapters">Ausgewählte</g:link></span>
+              <span class="menuButton"><g:link class="practice" action="startSelectedChapters"><g:message code="review.manage.selected"/></g:link></span>
             </g:if>
           </div>
         </div>
