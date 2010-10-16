@@ -1,8 +1,9 @@
 package butatopanto.request;
 
-import butatopanto.test.*
+
 import org.junit.*
-import static butatopanto.request.ListRequester.*;
+import static butatopanto.request.ListRequester.*
+import butatopanto.sharedtest.GrailsJUnit4TestCase;
 
 class ListRequesterTest extends GrailsJUnit4TestCase {
 

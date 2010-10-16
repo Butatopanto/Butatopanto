@@ -1,8 +1,9 @@
 package butatopanto.kanji;
 
-import butatopanto.test.*
+
 import org.junit.*
 import butatopanto.security.User
+import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 
 class ManageReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCase {
 

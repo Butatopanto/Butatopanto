@@ -4,7 +4,7 @@ package butatopanto.kanji;
 import butatopanto.HeisigTagLib
 import butatopanto.ProgressTagLib
 import butatopanto.security.User
-import butatopanto.test.GrailsJUnit4ControllerTestCase
+import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
 

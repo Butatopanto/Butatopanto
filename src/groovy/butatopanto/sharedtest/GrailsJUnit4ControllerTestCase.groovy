@@ -1,4 +1,4 @@
-package butatopanto.test
+package butatopanto.sharedtest
 
 import grails.test.ControllerUnitTestCase
 import org.junit.After

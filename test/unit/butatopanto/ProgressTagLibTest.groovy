@@ -1,11 +1,11 @@
 package butatopanto
 
-import butatopanto.test.TagLibJUnit4TestCase
-import java.text.MessageFormat
+import butatopanto.sharedtest.TagLibJUnit4TestCase
+
 import org.junit.Before
 import org.junit.Test
 import butatopanto.kanji.bean.Review
-import static butatopanto.test.TagLibUtilities.*
+import static butatopanto.sharedtest.TagLibUtilities.*
 
 class ProgressTagLibTest extends TagLibJUnit4TestCase {
 

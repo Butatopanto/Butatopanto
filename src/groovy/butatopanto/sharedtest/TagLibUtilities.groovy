@@ -1,4 +1,4 @@
-package butatopanto.test
+package butatopanto.sharedtest
 
 import groovy.util.slurpersupport.GPathResult
 

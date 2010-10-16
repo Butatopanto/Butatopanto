@@ -3,7 +3,7 @@ package butatopanto.kanji;
 
 import butatopanto.kanji.bean.Lesson
 
-import butatopanto.test.GrailsJUnit4TestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
 

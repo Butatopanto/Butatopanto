@@ -1,6 +1,6 @@
 package butatopanto.kanji.bootstrap
 
-import butatopanto.test.GrailsJUnit4TestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
 import butatopanto.kanji.Frame
 

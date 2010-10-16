@@ -1,4 +1,4 @@
-package butatopanto.test
+package butatopanto.sharedtest
 
 import org.springframework.validation.Errors
 import org.springframework.validation.FieldError

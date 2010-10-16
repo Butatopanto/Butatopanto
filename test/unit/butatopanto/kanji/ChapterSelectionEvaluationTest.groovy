@@ -1,7 +1,7 @@
 package butatopanto.kanji;
 
 import butatopanto.kanji.bean.ChapterSelection
-import butatopanto.test.GrailsJUnit4TestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
 
 class ChapterSelectionEvaluationTest extends GrailsJUnit4TestCase {

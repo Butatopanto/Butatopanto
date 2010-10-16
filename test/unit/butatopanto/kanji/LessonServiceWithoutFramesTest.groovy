@@ -1,7 +1,8 @@
 package butatopanto.kanji;
 
-import butatopanto.test.*
+
 import org.junit.*
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 
 class LessonServiceWithoutFramesTest extends GrailsJUnit4TestCase {
 

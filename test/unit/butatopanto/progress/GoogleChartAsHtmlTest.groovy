@@ -1,7 +1,7 @@
 package butatopanto.progress;
 
 
-import butatopanto.test.GrailsJUnit4TestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 import groovy.util.slurpersupport.GPathResult
 import org.junit.Test
 

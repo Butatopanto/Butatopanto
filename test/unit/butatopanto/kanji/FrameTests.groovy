@@ -1,7 +1,7 @@
 package butatopanto.kanji
 
-import butatopanto.test.GrailsJUnit4TestCase
-import static butatopanto.test.ValidationUtilities.getValidationFieldError
+import butatopanto.sharedtest.GrailsJUnit4TestCase
+import static butatopanto.sharedtest.ValidationUtilities.getValidationFieldError
 import org.junit.Before
 import org.junit.Test
 

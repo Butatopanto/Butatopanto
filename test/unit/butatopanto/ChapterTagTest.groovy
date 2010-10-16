@@ -1,10 +1,10 @@
 package butatopanto
 
 import butatopanto.kanji.bean.ChapterSelection
-import butatopanto.test.TagLibJUnit4TestCase
+import butatopanto.sharedtest.TagLibJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
-import static butatopanto.test.TagLibUtilities.*
+import static butatopanto.sharedtest.TagLibUtilities.*
 
 class ChapterTagTest extends TagLibJUnit4TestCase {
 

@@ -1,7 +1,7 @@
 package butatopanto.learning;
 
 
-import butatopanto.test.GrailsJUnit4TestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
 
 class LeitnerServiceTest extends GrailsJUnit4TestCase {

@@ -1,7 +1,7 @@
 package butatopanto.kanji;
 
 
-import butatopanto.test.GrailsJUnit4TestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
 import butatopanto.kanji.bean.Review
 import org.junit.Before

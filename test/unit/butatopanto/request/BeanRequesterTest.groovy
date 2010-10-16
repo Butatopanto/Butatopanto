@@ -1,7 +1,8 @@
 package butatopanto.request;
 
-import butatopanto.test.*
+
 import org.junit.*
+import butatopanto.sharedtest.GrailsJUnit4TestCase
 
 class BeanRequesterTest extends GrailsJUnit4TestCase {
 
