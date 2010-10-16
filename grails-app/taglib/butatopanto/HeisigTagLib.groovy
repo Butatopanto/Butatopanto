@@ -55,16 +55,16 @@ class HeisigTagLib {
     int step = total / 3
     "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
     "?cht=bhs" +
-    "&chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
-    "&chco=00FF00,FF0000,FFFFFF" +
+    "&chds=0,${total},0,${total},0,${total}" +
     "&chxr=0,0,${total}" +
     "&chxl=0:|0|${step}|${step * 2}|${total}" +
+    "&chtt=${title}" +
+    "&chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
+    "&chco=00FF00,FF0000,FFFFFF" +
     "&chxt=x" +
     "&chs=${width}x100" +
-    "&chds=0,${total},0,${total},0,${total}" +
-    "&chd=t:${right}|${wrong}|${remaining}" +
-    "&chtt=${title}" +
     "&chma=5,5|${width},30" +
+    "&chd=t:${right}|${wrong}|${remaining}" +
     "&chdlp=b" +
     "&chdl=${rightLegend}|${wrongLegend}|${remainingLegend}" +
     "\"/>"
