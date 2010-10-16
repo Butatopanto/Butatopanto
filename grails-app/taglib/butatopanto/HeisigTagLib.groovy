@@ -10,7 +10,7 @@ class HeisigTagLib {
   def interaction = { attributes ->
     def frame = attributes.frame
     def hidden = attributes.hidden
-    out << renderProgressBar()
+    out << progress.renderProgressBar()
     if (hidden) {
       out << renderRevealMessage()
     }
@@ -28,38 +28,6 @@ class HeisigTagLib {
     else {
       out << renderRevealedCard(frame)
     }
-  }
-
-  private def renderProgressBar() {
-    "<div style='position:absolute; top: 50 px; right:7 px'>" +
-    renderChartProgress(session.review) +
-    "</div>"
-  }
-
-  private def renderTextualProgress(Review review) {
-    "<p>Gelernt: ${review.reviewedCount} von ${review.totalCount}</p>" +
-    "<p>Richtig: ${review.rightCount} Falsch: ${review.wrongCount}</p>"
-  }
-
-  private def renderChartProgress(Review review) {
-    def width = "250"
-    def total = review.totalCount
-    def right = review.rightCount
-    def wrong = review.wrongCount
-    def remaining = review.remainingCount
-    def reviewed = review.reviewedCount
-    def alt = g.message(code: 'review.progress.alt', args: [reviewed, total, right, wrong])
-    def rightLegend = g.message(code: 'review.progress.legend.right', args: [right])
-    def wrongLegend = g.message(code: 'review.progress.legend.wrong', args: [wrong])
-    def remainingLegend = g.message(code: 'review.progress.legend.remaining', args: [remaining, total])
-    String title = g.message(code: 'review.progress.title')
-    GoogleChartBuilder chartBuilder = new GoogleChartBuilder()
-    chartBuilder.setTitle title
-    chartBuilder.setTotal total
-    chartBuilder.setAlternativeText alt
-    chartBuilder.setLegendForRightWrongAndRemaining rightLegend, wrongLegend, remainingLegend
-    chartBuilder.setDataSeriesValuesForRightWrongAndRemaining right, wrong, remaining
-    chartBuilder.buildHtml()
   }
 
   private def renderRevealMessage() {
