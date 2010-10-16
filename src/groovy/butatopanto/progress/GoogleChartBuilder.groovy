@@ -13,18 +13,8 @@ class GoogleChartBuilder {
     this.alternativeText = text
   }
 
-  def buildHtml() {
-    def writer = new StringWriter()
-    buildMarkup(writer)
-    writer.toString()
-  }
-
   void setTitle(def title) {
     addParameter "chtt=${title}"
-  }
-
-  void addLegendAtBottom() {
-    addParameter "chdlp=b"
   }
 
   void setTotal(def total) {
@@ -38,8 +28,18 @@ class GoogleChartBuilder {
   }
 
   void setLegendForRightWrongAndRemaining(def right, def wrong, def remaining) {
-    addParameter "chdlp=b"
+    addLegendAtBottom()
     addParameter "chdl=${right}|${wrong}|${remaining}"
+  }
+
+  def buildHtml() {
+    def writer = new StringWriter()
+    buildMarkup(writer)
+    writer.toString()
+  }
+
+  private void addLegendAtBottom() {
+    addParameter "chdlp=b"
   }
 
   private void setDataSeriesColorsGreenRedAndWhite() {

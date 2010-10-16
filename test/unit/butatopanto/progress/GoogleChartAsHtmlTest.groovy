@@ -68,19 +68,6 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void addsLegendAtBottom() {
-    builder.addLegendAtBottom()
-    assertUrlContains "&chdlp=b"
-  }
-
-  @Test
-  void addsMultipleQualitiesToUrl() {
-    builder.setTitle "Super-Chart"
-    builder.addLegendAtBottom()
-    assertUrlContains "&chtt=Super-Chart&chdlp=b"
-  }
-
-  @Test
   void setsThreeDataSeriesEntriesForTotal() {
     builder.setTotal 12
     assertUrlContains "&chds=0,12,0,12,0,12"
@@ -96,6 +83,13 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
   void setsFourAxisLabelsForTotal() {
     builder.setTotal 15
     assertUrlContains "&chxl=0:|0|5|10|15"
+  }
+
+  @Test
+  void addsMultipleQualitiesToUrl() {
+    builder.setTitle "Super-Chart"
+    builder.setDataSeriesValuesForRightWrongAndRemaining 11, 1, 14
+    assertUrlContains "&chtt=Super-Chart&chd=t:11|1|14"
   }
 
   @Test

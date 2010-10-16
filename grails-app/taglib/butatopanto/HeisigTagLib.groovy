@@ -1,6 +1,7 @@
 package butatopanto
 
 import butatopanto.kanji.bean.Review
+import butatopanto.progress.GoogleChartBuilder
 
 class HeisigTagLib {
 
@@ -52,22 +53,13 @@ class HeisigTagLib {
     def wrongLegend = g.message(code: 'review.progress.legend.wrong', args: [wrong])
     def remainingLegend = g.message(code: 'review.progress.legend.remaining', args: [remaining, total])
     String title = g.message(code: 'review.progress.title')
-    int step = total / 3
-    "<img width=\"${width}\" height=\"100\" alt=\"${alt}\" src=\"http://chart.apis.google.com/chart" +
-    "?cht=bhs" +
-    "&chds=0,${total},0,${total},0,${total}" +
-    "&chxr=0,0,${total}" +
-    "&chxl=0:|0|${step}|${step * 2}|${total}" +
-    "&chtt=${title}" +
-    "&chf=bg,lg,0,EFEFEF,0,D1D1D1,1" +
-    "&chco=00FF00,FF0000,FFFFFF" +
-    "&chxt=x" +
-    "&chs=${width}x100" +
-    "&chma=5,5|${width},30" +
-    "&chd=t:${right}|${wrong}|${remaining}" +
-    "&chdlp=b" +
-    "&chdl=${rightLegend}|${wrongLegend}|${remainingLegend}" +
-    "\"/>"
+    GoogleChartBuilder chartBuilder = new GoogleChartBuilder()
+    chartBuilder.setTitle title
+    chartBuilder.setTotal total
+    chartBuilder.setAlternativeText alt
+    chartBuilder.setLegendForRightWrongAndRemaining rightLegend, wrongLegend, remainingLegend
+    chartBuilder.setDataSeriesValuesForRightWrongAndRemaining right, wrong, remaining
+    chartBuilder.buildHtml()
   }
 
   private def renderRevealMessage() {
