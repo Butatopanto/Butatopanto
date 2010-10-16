@@ -34,7 +34,7 @@
     </div>
     <div style='position: relative; top: 50px; left: 50px'>
       <form>
-        <input type="submit" name="what" value="Geschichte anzeigen" id="save" onClick="Modalbox.show('currentStory', {title: 'Title', width: 600});
+        <input type="button" value="Geschichte anzeigen" onClick="Modalbox.show('currentStory', {title: 'Geschichte', width: 600});
         return false;"/>
       </form>
     </div>

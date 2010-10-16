@@ -5,7 +5,8 @@ class HeisigTagLib {
   static namespace = "heisig"
 
   def story = { attributes ->
-   out << "<p>${attributes.text}</p>"
+    def text = attributes.text ?: g.message(code: 'review.story.unknown')
+    out << "<p>${text}</p>"
   }
 
   def interaction = { attributes ->
