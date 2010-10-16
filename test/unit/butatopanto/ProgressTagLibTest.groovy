@@ -4,7 +4,7 @@ import butatopanto.sharedtest.TagLibJUnit4TestCase
 
 import org.junit.Before
 import org.junit.Test
-import butatopanto.kanji.bean.Review
+import butatopanto.learning.Review
 import static butatopanto.sharedtest.TagLibUtilities.*
 import org.junit.Ignore
 

@@ -2,8 +2,9 @@ package butatopanto.kanji;
 
 
 import org.junit.*
-import butatopanto.kanji.bean.Review
+
 import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
+import butatopanto.learning.Review
 
 class StartDueOnReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 

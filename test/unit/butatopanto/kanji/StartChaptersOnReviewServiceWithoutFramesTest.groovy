@@ -2,7 +2,7 @@ package butatopanto.kanji
 
 import grails.test.GrailsUnitTestCase
 import static org.mockito.Mockito.mock
-import butatopanto.kanji.bean.Review
+import butatopanto.learning.Review
 
 class StartChaptersOnReviewServiceWithoutFramesTest extends GrailsUnitTestCase {
 

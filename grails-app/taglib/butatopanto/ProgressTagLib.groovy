@@ -1,6 +1,6 @@
 package butatopanto
 
-import butatopanto.kanji.bean.Review
+import butatopanto.learning.Review
 import butatopanto.progress.GoogleChartBuilder
 
 class ProgressTagLib {

@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-import butatopanto.kanji.bean.Review
+import butatopanto.learning.Review
 
 class TestReviewService {
   final def initialId = "first"

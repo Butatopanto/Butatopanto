@@ -1,8 +1,5 @@
 package butatopanto
 
-import butatopanto.kanji.bean.Review
-import butatopanto.progress.GoogleChartBuilder
-
 class HeisigTagLib {
 
   static namespace = "heisig"
