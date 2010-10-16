@@ -4,16 +4,13 @@ import butatopanto.security.User
 
 class Story {
 
+  static belongsTo = [userData: UserData]
+  Frame frame
   String text
-  String kanji
-  User user
 
   static constraints = {
+    userData(nullable: false)
     text(nullable: true, blank: true)
-    user(nullable: false)
-    kanji(nullable: false, blank: false, maxSize: 1, validator: {kanji, story ->
-      def existingStory = Story.findByUserAndKanji(story.user, kanji)
-      return existingStory == null
-    })
+    frame(nullable: false)
   }
 }

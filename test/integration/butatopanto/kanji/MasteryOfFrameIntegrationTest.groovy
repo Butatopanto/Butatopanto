@@ -15,7 +15,7 @@ class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void userDataHasOneMastery() {
+  void addedMasteryExists() {
     assertEquals 1, MasteryOfFrame.list().size()
   }
 
@@ -33,7 +33,7 @@ class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void cascadesDeleteFromUserData() {
-    MasteryOfFrame mastery = findFirstFrameReviewFromUserData()
+    MasteryOfFrame mastery = findFirstMasteryFromUserData()
     findUserData().delete()
     assertFalse MasteryOfFrame.exists(mastery.id)
   }
@@ -45,15 +45,14 @@ class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
   }
 
   private MasteryOfFrame deleteMastery() {
-    MasteryOfFrame mastery = findFirstFrameReviewFromUserData()
+    MasteryOfFrame mastery = findFirstMasteryFromUserData()
     findUserData().removeFromMasteryList(mastery)
     mastery.delete()
     return mastery
   }
 
-  private MasteryOfFrame findFirstFrameReviewFromUserData() {
-    def reviewList = findUserData().masteryList as List
-    reviewList[0]
+  private MasteryOfFrame findFirstMasteryFromUserData() {
+    (findUserData().masteryList as List)[0]
   }
 
   private UserData findUserData() {
