@@ -2,8 +2,8 @@ package butatopanto.progress;
 
 
 import butatopanto.test.GrailsJUnit4TestCase
-import org.junit.Test
 import groovy.util.slurpersupport.GPathResult
+import org.junit.Test
 
 class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
 
@@ -104,16 +104,6 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
     assertUrlContains "&chdlp=b&chdl=right|wrong|remaining"
   }
 
-  private void assertHasAttributeValue(def attribute, def value) {
-    def xml = asXml()
-    assertEquals value, xml.@"$attribute".text()
-  }
-
-  private def assertUrlEndsWith(String end) {
-    def xml = asXml()
-    assertTrue "Got url: ${xml.@src.text()}", xml.@src.text().endsWith(end)
-  }
-
   private def assertUrlContains(String substring) {
     def xml = asXml()
     assertTrue "Got url: ${xml.@src.text()}", xml.@src.text().contains(substring)
@@ -126,8 +116,12 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   def invokeMethod(String name, args) {
     def matcher = name =~ /assertHas(.*)Value/
-    def firstGroup = matcher[0][1]
-    def attribute = firstGroup.toLowerCase()
-    assertHasAttributeValue attribute, args[0]
+    def attributeName = matcher[0][1].toLowerCase()
+    assertHasAttributeValue attributeName, args[0]
+  }
+
+  private void assertHasAttributeValue(def attribute, def value) {
+    def xml = asXml()
+    assertEquals value, xml.@"$attribute".text()
   }
 }
