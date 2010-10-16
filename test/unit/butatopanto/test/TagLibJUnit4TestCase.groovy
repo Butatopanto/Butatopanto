@@ -4,8 +4,11 @@ package butatopanto.test;
 import grails.test.TagLibUnitTestCase
 import org.junit.After
 import org.junit.Before
+import java.text.MessageFormat
 
 class TagLibJUnit4TestCase extends TagLibUnitTestCase {
+
+  protected def messageCodes = [:]
 
   TagLibJUnit4TestCase() {
     super("TagLib")
@@ -19,6 +22,7 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
   public void setUp() {
     super.setUp()
     mockLink()
+    mockMessage()
   }
 
   void mockLink() {
@@ -30,6 +34,20 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
       out << "</a>"
       return ""
     }
+  }
+
+  void mockMessage() {
+    tagLib.class.metaClass.message { arguments ->
+      def pattern = messageCodes[arguments.code]
+      if (!pattern){
+        return
+      }
+      return MessageFormat.format(pattern, arguments.args[0])
+    }
+  }
+
+  void setMessageCode(code, pattern) {
+    messageCodes[code] = pattern;
   }
 
   @After
