@@ -2,9 +2,9 @@ package butatopanto.kanji;
 
 
 import butatopanto.HeisigTagLib
+import butatopanto.ProgressTagLib
 import butatopanto.security.User
 import butatopanto.test.GrailsJUnit4ControllerTestCase
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -26,7 +26,8 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
   }
 
   @Before
-  void addMetaDataToHeisigTagLib() {
+  void addMetaDataToTagLibs() {
+    ProgressTagLib.metaClass.g = [message: { Map map -> return "error message" }, remoteFunction: {}]
     HeisigTagLib.metaClass.g = [message: { Map map -> return "error message" }, remoteFunction: {}]
   }
 
