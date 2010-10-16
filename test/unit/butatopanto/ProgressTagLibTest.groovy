@@ -6,6 +6,7 @@ import org.junit.Before
 import org.junit.Test
 import butatopanto.kanji.bean.Review
 import static butatopanto.sharedtest.TagLibUtilities.*
+import org.junit.Ignore
 
 class ProgressTagLibTest extends TagLibJUnit4TestCase {
 
@@ -36,6 +37,7 @@ class ProgressTagLibTest extends TagLibJUnit4TestCase {
   }
 
   @Test
+  @Ignore
   void hasChartBuilderContentInDiv() {
     chartBuilder.setBuildResult "my nice result"
     tagLib.renderProgressBar()
