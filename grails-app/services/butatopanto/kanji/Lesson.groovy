@@ -1,4 +1,4 @@
-package butatopanto.kanji.bean
+package butatopanto.kanji
 
 class Lesson {
 

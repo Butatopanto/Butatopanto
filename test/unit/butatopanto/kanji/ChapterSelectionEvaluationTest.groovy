@@ -1,6 +1,6 @@
 package butatopanto.kanji;
 
-import butatopanto.kanji.bean.ChapterSelection
+
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
 

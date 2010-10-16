@@ -1,7 +1,5 @@
 package butatopanto.kanji
 
-import butatopanto.kanji.bean.LessonProgress
-
 class LessonProgressService {
 
   static transactional = true
