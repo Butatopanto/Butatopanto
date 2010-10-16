@@ -7,7 +7,7 @@ grails.project.test.reports.dir = "target/test-reports"
 coverage {
   exclusions = [
     '**/butatopanto/sharedtest/**',
-    'BuildConfig.groovy'
+    '**/BuildConfig**'
   ]
 }
 
