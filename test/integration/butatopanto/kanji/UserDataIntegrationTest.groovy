@@ -9,7 +9,7 @@ class UserDataIntegrationTest extends GrailsJUnit4TestCase {
 
   @Before
   public void saveFrameReview() {
-    userData = new UserData(userName: "Sandra")
+    userData = new UserData(userName: "Urs")
     userData.save()
   }
 

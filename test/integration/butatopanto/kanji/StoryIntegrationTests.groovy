@@ -18,7 +18,7 @@ class StoryIntegrationTests extends GrailsJUnit4TestCase {
 
   @Test
   void addedStoryExists() {
-    assertEquals 1, Story.list().size()
+    assertTrue Story.exists((userData.storyList as List)[0].id)
   }
 
   @Test

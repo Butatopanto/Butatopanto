@@ -6,6 +6,14 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="HudsonMonitorComponent">
+    <option name="password" value="" />
+    <option name="refreshInterval" value="1" />
+    <option name="serverAddress" value="http://localhost:9090/" />
+    <option name="timeOutTextField" value="30" />
+    <option name="username" value="" />
+    <option name="viewName" value="" />
+  </component>
   <component name="IdProvider" IDEtalkID="BAC77DA1BB4CAD5FC05F14646A068447" />
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" />

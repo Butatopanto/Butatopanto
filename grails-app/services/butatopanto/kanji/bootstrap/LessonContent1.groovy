@@ -30,7 +30,10 @@ class LessonContent1 extends LessonContent {
   }
 
   void insertSomeStories() {
-    UserData userData = new UserData(userName: "Sandra").save()
+    if (UserData.findByUserName("Sandra")) {
+      return
+    }
+    UserData userData = new UserData(userName: "Sandra").save(failOnError: true)
     Frame.list().each {
       Story story = new Story(frame: it, text: "Eine tolle Geschichte für den Rahmen " + it.number)
       userData.addToStoryList(story)
