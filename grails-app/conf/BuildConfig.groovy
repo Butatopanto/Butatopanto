@@ -2,6 +2,8 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+//grailsSettings.testDependencies.add new java.io.File(basedir + '/test/groovy')
+
 grails.project.dependency.resolution = {
   // defaultDependenciesProvided true 
   // inherit Grails' default dependencies
@@ -25,9 +27,7 @@ grails.project.dependency.resolution = {
   }
   dependencies {
     // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-    test new File("${basedir}/test/groovy")
-    compile new File("${basedir}/test/groovy")
-    //grailsSettings.testDependencies.add new File("${basedir}/test/groovy")
+
     // runtime 'mysql:mysql-connector-java:5.1.5'
   }
 }
