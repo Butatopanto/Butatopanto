@@ -17,8 +17,4 @@ class TestReviewService {
   def getCurrentFrame(Review review) {
     new Frame(meaning: review.currentReview)
   }
-
-  def resolve(Review review, boolean correct){
-    //nothing to do yet
-  }
 }
