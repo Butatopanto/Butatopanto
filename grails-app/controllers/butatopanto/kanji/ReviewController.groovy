@@ -1,9 +1,7 @@
 package butatopanto.kanji
 
-import butatopanto.kanji.bean.LessonProgress
-import grails.plugins.springsecurity.Secured
-
 import butatopanto.learning.Review
+import grails.plugins.springsecurity.Secured
 
 class ReviewController {
 
