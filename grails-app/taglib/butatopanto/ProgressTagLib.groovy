@@ -9,11 +9,11 @@ class ProgressTagLib {
 
   def renderProgressBar = {
     out << "<div style='position:absolute; top: 50 px; right:7 px'>"
-    out << renderChartProgress()
+    out << renderChart()
     out << "</div>"
   }
 
-  private def renderChartProgress() {
+  private def renderChart() {
     def chartBuilder = newChartBuilder.call()
     chartBuilder.setTitle title
     chartBuilder.setTotal totalCount
