@@ -1,7 +1,11 @@
 package butatopanto.kanji.bootstrap
 
+import butatopanto.kanji.UserData
+import butatopanto.kanji.Frame
+import butatopanto.kanji.Story
+
 class LessonContent1 extends LessonContent {
-  
+
   LessonContent1() {
     super(1)
   }
@@ -22,5 +26,14 @@ class LessonContent1 extends LessonContent {
     insertFrame(13, "月", "Monat")
     insertFrame(14, "田", "Reisfeld")
     insertFrame(15, "目", "Auge")
+    insertSomeStories()
+  }
+
+  void insertSomeStories() {
+    UserData userData = new UserData(userName: "Sandra").save()
+    Frame.list().each {
+      Story story = new Story(frame: it, text: "Eine tolle Geschichte für den Rahmen " + it.number)
+      userData.addToStoryList(story)
+    }
   }
 }

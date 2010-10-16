@@ -10,6 +10,7 @@ class ReviewController {
   def lessonService
   def lessonProgressService
   def masteryService
+  def userService
 
   @Secured('ROLE_USER')
   def manage = {
@@ -53,6 +54,13 @@ class ReviewController {
     else {
       showCurrentFrame()
     }
+  }
+
+  def currentStory = {
+    def currentFrame = reviewService.getCurrentFrame(session.review)
+    def userName = userService.currentUser.username
+    def userData = UserData.findByUserName(userName)
+    render(userData.storyList.find {it.frame.id == currentFrame.id}.text)
   }
 
   def showCurrentFrame() {
