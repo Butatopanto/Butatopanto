@@ -1,7 +1,7 @@
 package butatopanto;
 
 
-import butatopanto.kanji.bean.ChapterSelection
+import butatopanto.kanji.ChapterSelection
 import butatopanto.sharedtest.TagLibJUnit4TestCase
 import org.junit.Before
 import org.junit.Test

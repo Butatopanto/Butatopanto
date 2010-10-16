@@ -1,59 +1,65 @@
 package butatopanto.kanji
 
-import butatopanto.security.User
-import grails.test.GrailsUnitTestCase
+import butatopanto.sharedtest.GrailsJUnit4TestCase
+import butatopanto.sharedtest.ValidationUtilities
+import org.junit.Before
+import org.junit.Test
 
-class StoryIntegrationTests extends GrailsUnitTestCase {
+class StoryIntegrationTests extends GrailsJUnit4TestCase {
 
-  def user = User.get(1)
+  UserData userData
 
-  protected void setUp() {
-    super.setUp()
-    def existingStory = new Story(text: 'Hallo', kanji: 'X', user: user)
-    existingStory.save();
+  @Before
+  public void saveStory() {
+    userData = new UserData(userName: "the user")
+    def story = new Story(text: 'Hallo', frame: Frame.get(1), userData: userData)
+    userData.addToStoryList(story).save(failOnError: true)
   }
 
-  protected void tearDown() {
-    super.tearDown()
+  @Test
+  void addedStoryExists() {
+    assertEquals 1, Story.list().size()
   }
 
-  void testIsInvalidIfEmpty() {
-    def story = new Story()
-    assertFalse story.validate()
+  @Test
+  void userDataMustNotBeNull() {
+    assertNotNull ValidationUtilities.getValidationFieldError(new Story(), "userData")
   }
 
-
-  void testIsInvalidWithoutKanji() {
-    def story = new Story(user: new User())
-    assertFalse story.validate()
+  @Test
+  void frameMustNotBeNull() {
+    assertNotNull ValidationUtilities.getValidationFieldError(new Story(), "frame")
   }
 
-  void testIsValidWithEverythingSet() {
-    def newUser = new User(username: "A", password: "B")
-    newUser.save()
-    def story = new Story(text: 'Hello', kanji: 'Y', user: newUser)
-    assertTrue story.validate()
+  @Test
+  void textMayBeNull() {
+    assertNull ValidationUtilities.getValidationFieldError(new Story(), "text")
   }
 
-  void testIsInvalidWithoutUser() {
-    def story = new Story(kanji: 'Y')
-    assertFalse story.validate()
+  @Test
+  void textMayBeBlank() {
+    assertNull ValidationUtilities.getValidationFieldError(new Story(text: ''), "text")
   }
 
-  void testIsInvalidWithDuplicateCombinationOfUserAndKanji() {
-    def story = new Story(kanji: 'X', user: user)
-    assertFalse story.validate()
+  @Test(expected = grails.validation.ValidationException)
+  void doesNotAllowAddingASecondStoryForSameFrame() {
+    def story = new Story(frame: Frame.get(1))
+    userData.addToStoryList(story).save(failOnError: true)
   }
 
-  void testIsValidWithDuplicateUserButUniqueKanji() {
-    def story = new Story(kanji: 'Y', user: user)
-    assertTrue story.validate()
+  @Test
+  void cascadesDeleteFromUserData() {
+    Story story = findFirstStoryFromUserData()
+    findUserData().delete()
+    assertFalse Story.exists(story.id)
   }
 
-  void testIsValidWithDuplicateKanjiButUniqueUser() {
-    def newUser = new User(username: "A", password: "B")
-    newUser.save()
-    def story = new Story(text: 'Hello', kanji: 'X', user: newUser)
-    assertTrue story.validate()
+  private Story findFirstStoryFromUserData() {
+    (findUserData().storyList as List)[0]
+  }
+
+  private UserData findUserData() {
+    def id = userData.id
+    return UserData.get(id)
   }
 }

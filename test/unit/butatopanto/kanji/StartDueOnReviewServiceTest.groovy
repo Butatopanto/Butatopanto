@@ -3,8 +3,9 @@ package butatopanto.kanji;
 
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
-import butatopanto.kanji.bean.Review
+
 import org.junit.Before
+import butatopanto.learning.Review
 
 class StartDueOnReviewServiceTest extends GrailsJUnit4TestCase {
 
@@ -19,7 +20,7 @@ class StartDueOnReviewServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void setsAllDueFrameIdsAsRemainingFrames() {
-    assertEquals([4, 7], review.remainingFrames)
+    assertEquals([4, 7], review.remainingIds)
   }
 
   @Test

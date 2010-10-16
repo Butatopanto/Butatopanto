@@ -1,6 +1,5 @@
 package butatopanto.kanji
 
-import butatopanto.security.User
 import butatopanto.learning.LeitnerService
 
 class MasteryOfFrame {
@@ -13,6 +12,7 @@ class MasteryOfFrame {
   Date lastUpdated
 
   static constraints = {
+    frame(nullable: false)
     passed(min: 0)
     failed(min: 0)
     box(min: LeitnerService.FIRST_BOX, max: LeitnerService.LAST_BOX)

@@ -1,11 +1,10 @@
 package butatopanto.kanji;
 
 
-import butatopanto.kanji.bean.ChapterSelection
-import butatopanto.kanji.bean.Review
 import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
+import butatopanto.learning.Review
 
 class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
