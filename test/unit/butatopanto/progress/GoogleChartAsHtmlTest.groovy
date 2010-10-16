@@ -17,12 +17,12 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasWidthAttributeWithDefaultValue() {
-    assertHasAttributeValue "width", "250"
+    assertHasWidthValue "250"
   }
 
   @Test
   void hasHeightAttributeWithDefaultValue() {
-    assertHasAttributeValue "height", "100"
+    assertHasHeightValue "100"
   }
 
   @Test
@@ -42,18 +42,18 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasChartMarginsHonoringDefaultWidth() {
-    assertUrlContains "&chma=5,5|250,30"
+    assertUrlContains '&chma=5,5|250,30'
   }
 
   @Test
   void hasEmptyAlternativeTextByDefault() {
-    assertHasAttributeValue "alt", ""
+    assertHasAltValue ''
   }
 
   @Test
   void hasSpecifiedAlternativeText() {
-    builder.setAlternativeText "Ich bin eine Alternative."
-    assertHasAttributeValue "alt", "Ich bin eine Alternative."
+    builder.setAlternativeText 'Ich bin eine Alternative.'
+    assertHasAltValue 'Ich bin eine Alternative.'
   }
 
   @Test
@@ -122,5 +122,12 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
   private GPathResult asXml() {
     def text = builder.buildHtml()
     new XmlSlurper().parseText(text)
+  }
+
+  def invokeMethod(String name, args) {
+    def matcher = name =~ /assertHas(.*)Value/
+    def firstGroup = matcher[0][1]
+    def attribute = firstGroup.toLowerCase()
+    assertHasAttributeValue attribute, args[0]
   }
 }
