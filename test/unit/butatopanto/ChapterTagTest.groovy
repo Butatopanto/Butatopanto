@@ -1,7 +1,6 @@
 package butatopanto
 
 import butatopanto.kanji.bean.ChapterSelection
-import grails.test.TagLibUnitTestCase
 import butatopanto.test.TagLibJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
@@ -16,7 +15,6 @@ class ChapterTagTest extends TagLibJUnit4TestCase {
 
   @Before
   public void readHtml() {
-    super.setUp()
     ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 1)
     def tag = tagLib.chapter(chapter: chapter)
     def text = tag.getBuffer().toString()

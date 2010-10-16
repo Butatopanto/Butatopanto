@@ -3,6 +3,7 @@ package butatopanto;
 
 import butatopanto.kanji.bean.ChapterSelection
 import butatopanto.test.TagLibJUnit4TestCase
+import org.junit.Before
 import org.junit.Test
 
 class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
@@ -12,6 +13,12 @@ class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
   }
 
   private ChapterSelection chapter = new ChapterSelection(chapterNumber: 1, totalFrames: 15, dueFrameCount: 6)
+
+  @Before
+  void setDuePattern() {
+    setMessageCode "review.manage.dueCount", "{0} fällig"
+  }
+
 
   @Test
   void rendersChapterNumberInFirstParagraph() {
