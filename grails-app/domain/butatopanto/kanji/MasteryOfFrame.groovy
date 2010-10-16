@@ -1,6 +1,5 @@
 package butatopanto.kanji
 
-import butatopanto.security.User
 import butatopanto.learning.LeitnerService
 
 class MasteryOfFrame {

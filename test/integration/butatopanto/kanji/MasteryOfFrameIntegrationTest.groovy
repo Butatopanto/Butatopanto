@@ -38,6 +38,12 @@ class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
     assertFalse MasteryOfFrame.exists(mastery.id)
   }
 
+  @Test(expected=grails.validation.ValidationException)
+  void doesNotAllowAddingASecondMasteryForSameFrame() {
+    def mastery = new MasteryOfFrame(frame: Frame.get(1))
+    userData.addToMasteryList(mastery).save(failOnError: true)
+  }
+
   private MasteryOfFrame deleteMastery() {
     MasteryOfFrame mastery = findFirstFrameReviewFromUserData()
     findUserData().removeFromMasteryList(mastery)
