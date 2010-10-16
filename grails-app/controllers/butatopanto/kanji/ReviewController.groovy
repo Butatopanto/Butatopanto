@@ -72,11 +72,17 @@ class ReviewController {
     reviewService.resolve(review, reviewCorrect)
     updateDueCountIfNecessary()
     def frame = reviewService.getCurrentFrame(review)
-    if (!frame) {
-      render "<h1>Herzlichen Glückwunsch</h1>"
-      return
+    if (frame) {
+      ajaxRenderFrame(frame, true)
     }
-    ajaxRenderFrame(frame, true)
+    else {
+      endReview()
+    }
+  }
+
+  private def endReview() {
+    session.review = null;
+    render "<h1>Herzlichen Glückwunsch</h1>"
   }
 
   private void createChapterSelectionIfNecessary() {

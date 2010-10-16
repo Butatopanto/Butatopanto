@@ -113,4 +113,14 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     controller.ajaxResolve()
     assertEquals "<h1>Herzlichen Glückwunsch</h1>", controller.response.contentAsString
   }
+
+  @Test
+  void clearsReviewAfterResolvingLastFrame() {
+    controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}]
+    controller.masteryService = [listDueFrameIdsForChapter: {[]}]
+    controller.session.review = new Review(currentReview: "second")
+    controller.params.reviewCorrect = true
+    controller.ajaxResolve()
+    assertNull controller.session.review 
+  }
 }
