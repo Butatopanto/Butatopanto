@@ -7,19 +7,11 @@ class UserData {
 
   static constraints = {
     userName(unique: true)
-    masteryList(validator: {list, userData ->
-      def frameIdList = list.collect { it.frame.id }
-      def frameIdSet = frameIdList as Set
-      frameIdList.size() == frameIdSet.size()
-    })
-    storyList(validator: {list, userData ->
-      def frameIdList = list.collect { it.frame.id }
-      def frameIdSet = frameIdList as Set
-      frameIdList.size() == frameIdSet.size()
-    })
+    masteryList(validator: oncePerFrame)
+    storyList(validator: oncePerFrame)
   }
 
-  private def validateOncePerFrame = {list, userData ->
+  static def oncePerFrame = {list, userData ->
     def frameIdList = list.collect { it.frame.id }
     def frameIdSet = frameIdList as Set
     frameIdList.size() == frameIdSet.size()
