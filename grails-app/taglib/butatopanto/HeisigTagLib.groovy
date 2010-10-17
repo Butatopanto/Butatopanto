@@ -58,7 +58,7 @@ class HeisigTagLib {
   }
 
   private def renderCard(function, meaning, kanji, number) {
-    return "<div style='width:270px; height:390px; position:relative; top:50px; background-color:white' align='center' onclick=\"${function}\"> " +
+    return "<div id='card' style='width:270px; height:390px; position:relative; top:50px; background-color:white' align='center' onclick=\"${function}\"> " +
            "<table height = '100%'>" +
            renderMeaning(meaning) +
            renderCharacter(kanji) +
