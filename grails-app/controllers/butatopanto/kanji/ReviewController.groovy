@@ -55,8 +55,8 @@ class ReviewController {
   }
 
   def currentStory = {
-    def storyText = reviewService.getCurrentStory(session.review)
-    [storyText: storyText]
+    def frameId = session.review.currentReview
+    redirect(controller: "story", action: "show", id: frameId)
   }
 
   def showCurrentFrame() {

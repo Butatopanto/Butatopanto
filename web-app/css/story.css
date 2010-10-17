@@ -43,3 +43,7 @@
 #storyBox #storyEdit .control .buttonBar {
   float: right;
 }
+
+#showStory:hover {
+   background-color: #eeeeee;
+}
