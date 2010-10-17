@@ -8,7 +8,7 @@ class ProgressTagLib {
   static namespace = "progress"
 
   def renderProgressBar = {
-    out << "<div style='position:absolute; top: 50 px; right:7 px'>"
+    out << "<div style='position:absolute; top: 50 px; right:7 px; border: 1px #ccc solid;'>"
     out << renderChart()
     out << "</div>"
   }
