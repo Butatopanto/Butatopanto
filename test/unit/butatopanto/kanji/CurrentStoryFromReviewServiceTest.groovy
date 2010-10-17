@@ -11,7 +11,7 @@ class CurrentStoryFromReviewServiceTest extends GrailsJUnit4TestCase {
 
   @Before
   void mockStoryService() {
-    service.storyService = [findStoryByFrameId: { frameId ->
+    service.storyService = [findStoryTextByFrameId: { frameId ->
       storiesByFrameId[frameId]
     }]
   }

@@ -7,7 +7,7 @@ import static butatopanto.sharedtest.TagLibUtilities.getContentAsXml
 class HeisigStoryTagTest extends TagLibJUnit4TestCase {
 
   HeisigStoryTagTest() {
-    super(HeisigTagLib)
+    super(StoryTagLib)
   }
 
   @Test
