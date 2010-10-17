@@ -43,7 +43,7 @@ class GoogleChartBuilder {
   }
 
   private void setDataSeriesColorsGreenRedAndWhite() {
-    addParameter "chco=00FF00,FF0000,FFFFFF"
+    addParameter "chco=80f08e,f08080,FFFFFF"
   }
 
   private void buildMarkup(def writer) {
