@@ -323,3 +323,11 @@ textArea.story:focus {
     resize: both;
     color: black;
 }
+
+.affirmative {
+    background-color: #80f08e;
+}
+
+.negative {
+    background-color: #f08080;
+}

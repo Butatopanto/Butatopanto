@@ -32,7 +32,7 @@ class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasDataSeriesColorsGreenRedAndWhite() {
-    assertUrlContains "&chco=00FF00,FF0000,FFFFFF"
+    assertUrlContains "&chco=80f08e,f08080,FFFFFF"
   }
 
   @Test
