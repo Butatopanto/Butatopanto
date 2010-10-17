@@ -28,14 +28,9 @@ class CurrentStoryFromReviewControllerTest extends GrailsJUnit4ControllerTestCas
   }
 
   @Test
-  void asksReviewServiceForStoryOfReviewInSession() {
+  void currentStoryRedirectsToShowStoryForCurrentReview() {
+    controller.session.review = new Review(currentReview: 1)
     controller.currentStory()
-    assertSame sessionReview, demandedReview
-  }
-
-  @Test
-  void rendersStoryTextFromReviewServiceViaHeisigTagLib() {
-    def parameters = controller.currentStory()
-    assertEquals "The Story", parameters.storyText
+    assertEquals ([controller: 'story', action: 'show', id: 1], controller.redirectArgs)
   }
 }
