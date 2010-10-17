@@ -38,7 +38,7 @@
         <heisig:interaction frame="${frame}" hidden="true"/>
       </div>
       <div style='position: absolute; top: 50px; left: 15px'>
-        <div id="showStory" onclick="openStoryDialog(this, 'currentStory')" style="width:235px;height:300px; color: #bbbbbb; text-align: left"><b>[ Hier klicken, um die Geschichte anzuzeigen ]</b></div>
+        <div id="showStory" onclick="openStoryDialog(this, 'currentStory')"><b><br>Hier klicken,<br>um die Geschichte anzuzeigen</b></div>
       </div>
     </div>
   </div>

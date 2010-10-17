@@ -1,25 +1,16 @@
-.storyWindow {
-  background-color: #f5f5f5;
-  padding: 10px;
-  border: 1px solid #333;
-}
-
 #storyBox {
-  padding: 5px;
+  padding: 8px;
 }
 
 #storyBox textarea {
   padding: 5px;
   width: 215px;
-  height: 200px;
+  height: 240px;
+  overflow: hidden;
 }
 
 #storyBox #storyEdit .control {
   width: 215px;
-}
-
-#storyBox {
-  padding: 1.5em 0 0;
 }
 
 #storyBox .bookstyle {
@@ -37,13 +28,22 @@
 }
 
 #storyDisplay:hover {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
 }
 
 #storyBox #storyEdit .control .buttonBar {
   float: right;
 }
 
+#showStory {
+  background-color: white;
+  width: 235px;
+  height: 300px;
+  color: #bbbbbb;
+  text-align: center;
+  vertical-align: middle;
+}
+
 #showStory:hover {
-   background-color: #fafafa;
+  background-color: #f2f2f2;
 }
