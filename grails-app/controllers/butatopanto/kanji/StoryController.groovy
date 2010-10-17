@@ -6,15 +6,39 @@ class StoryController {
 
   def storyService
 
+  def unknown = {
+    // nothing to do
+  }
+
   @Secured('ROLE_USER')
-  def show = {
-    if (!params.id) {
-      render "<p>No id given.</p>"
+  def save = {
+    Frame frame = findFrameForIdParameter()
+    if (!frame) {
+      redirect(action: "unknown")
     }
     else {
-      def frameId = params.int('id')
-      def storyText = storyService.findStoryByFrameId(frameId)
-      [storyText: storyText, frame: Frame.findById(frameId)]
+      def storyText = params.storyText
+      storyService.saveStory(frame.id, storyText)
+      redirect(action: "show", id: frame.id)
     }
+  }
+
+  @Secured('ROLE_USER')
+  def show = {
+    Frame frame = findFrameForIdParameter()
+    if (!frame) {
+      redirect(action: "unknown")
+    }
+    else {
+      def storyText = storyService.findStoryTextByFrameId(frame.id)
+      [storyText: storyText, frame: frame]
+    }
+  }
+
+  private Frame findFrameForIdParameter() {
+    if (!params.id) {
+      return null
+    }
+    Frame.findById(params.long('id'))
   }
 }

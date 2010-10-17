@@ -44,7 +44,7 @@ class ReviewService {
 
   String getCurrentStory(Review review) {
     def currentReview = review.currentReview
-    storyService.findStoryByFrameId(currentReview) ?: ""
+    storyService.findStoryTextByFrameId(currentReview) ?: ""
   }
 
   private void toNext(Review review) {

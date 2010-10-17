@@ -3,3 +3,23 @@
   padding: 10px;
   border: 1px solid #333;
 }
+
+#storybox {
+  padding: 1.5em 0 0;
+}
+
+#storybox .bookstyle {
+  color: black;
+  padding: 5px;
+}
+
+#storybox .bookstyle.empty {
+  color: #888;
+}
+
+#story:hover {
+  padding: 5px;
+  width: 470px;
+  height: 250px;
+  background-color: #eeeeee;
+}
