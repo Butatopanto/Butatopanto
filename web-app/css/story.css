@@ -1,5 +1,5 @@
 .storyWindow {
-  background-color: #dddddd;
+  background-color: #f5f5f5;
   padding: 10px;
   border: 1px solid #333;
 }
@@ -37,7 +37,7 @@
 }
 
 #storyDisplay:hover {
-  background-color: #eeeeee;
+  background-color: #fafafa;
 }
 
 #storyBox #storyEdit .control .buttonBar {
@@ -45,5 +45,5 @@
 }
 
 #showStory:hover {
-   background-color: #eeeeee;
+   background-color: #fafafa;
 }

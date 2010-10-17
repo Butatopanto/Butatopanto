@@ -35,9 +35,9 @@ class HeisigTagLib {
     "<div style='position:relative; top:50px'>" +
     "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
     g.form(name: 'reviewKanji') {
-      g.submitToRemote(id:'confirmButton', class:"confirm", update: 'container', value: g.message(code: 'frame.reviewResult.confirm'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
+      g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'confirmButton', class: "confirm", update: 'container', value: g.message(code: 'frame.reviewResult.confirm'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
       " " +
-      g.submitToRemote(id:'declineButton', class:"decline", update: 'container', value: g.message(code: 'frame.reviewResult.decline'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false]])
+      g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'declineButton', class: "decline", update: 'container', value: g.message(code: 'frame.reviewResult.decline'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false]])
     } +
     "</div>"
   }
