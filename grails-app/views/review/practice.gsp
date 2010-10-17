@@ -10,6 +10,10 @@
   <g:javascript src="livepipe/livepipe.js"/>
   <g:javascript src="livepipe/window.js"/>
   <g:javascript src="livepipe/hotkey.js"/>
+  <g:javascript>
+    var confirmKey= '${message(code:"frame.reviewResult.confirmKey")}';
+    var declineKey= '${message(code:"frame.reviewResult.declineKey")}';
+  </g:javascript>
   <g:javascript src="storywindow.js"/>
   <g:javascript src="protolicious/event.simulate.js"/>
   <title>Kennst Du das Kanji?</title>

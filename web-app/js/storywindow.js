@@ -11,14 +11,14 @@ document.observe('dom:loaded', function() {
     }, {
         ctrlKey: false
     });
-    new HotKey('y', function(event) {
-        var element = document.getElementById('yesButton')
+    new HotKey(confirmKey, function(event) {
+        var element = document.getElementById('confirmButton')
         element.simulate('click');
     }, {
         ctrlKey: false
     });
-    new HotKey('n', function(event) {
-        var element = document.getElementById('noButton')
+    new HotKey(declineKey, function(event) {
+        var element = document.getElementById('declineButton')
         element.simulate('click');
     }, {
         ctrlKey: false
