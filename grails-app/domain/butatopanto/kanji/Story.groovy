@@ -1,12 +1,12 @@
 package butatopanto.kanji
 
-import butatopanto.security.User
-
 class Story {
 
   static belongsTo = [userData: UserData]
   Frame frame
   String text
+  Date dateCreated
+  Date lastUpdated
 
   static constraints = {
     userData(nullable: false)
