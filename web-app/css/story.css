@@ -4,22 +4,42 @@
   border: 1px solid #333;
 }
 
-#storybox {
+#storyBox {
+  padding: 5px;
+}
+
+#storyBox textarea {
+  padding: 5px;
+  width: 215px;
+  height: 200px;
+}
+
+#storyBox #storyEdit .control {
+  width: 215px;
+}
+
+#storyBox {
   padding: 1.5em 0 0;
 }
 
-#storybox .bookstyle {
+#storyBox .bookstyle {
   color: black;
-  padding: 5px;
 }
 
-#storybox .bookstyle.empty {
+.empty {
   color: #888;
 }
 
-#story:hover {
-  padding: 5px;
-  width: 470px;
-  height: 250px;
+#storyDisplay {
+  border-width: 0px;
+  resize: none;
+  color: gray;
+}
+
+#storyDisplay:hover {
   background-color: #eeeeee;
+}
+
+#storyBox #storyEdit .control .buttonBar {
+  float: right;
 }

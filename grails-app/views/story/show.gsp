@@ -8,26 +8,23 @@
 </head>
 
 <body>
-<div id="storybox">
-  <div id="storyedit" style="display:none;">
+<div id="storyBox">
+  <div id="storyEdit" style="display:none;">
     <g:form name="saveStory" url="[action:'save', id: frame.id]">
-      <textarea name="storyText" id="frmStory" rows="12" cols="55">${storyText}</textarea>
-      <div style="float:right;">
-        <input type="submit" name="doUpdate" value="Save changes" title="Save/Update story"/>
-        <input type="button" id="storyedit_cancel" value="Cancel" name="cancel" title="Cancel changes" onclick="cancelEditStory()"/>
+      <textarea name="storyText" rows="12" cols="55">${storyText}</textarea>
+      <div class="control">
+        <div class="buttonBar">
+          <input type="submit" id="storyEdit_save" value="Save changes" title="Save/Update story"/>
+          <input type="button" id="storyEdit_cancel" value="Cancel" name="cancel" title="Cancel changes" onclick="cancelEditStory()"/>
+        </div>
       </div>
     </g:form>
   </div>
 
-  <div id="storyview" style="display:block;" onclick="startEditStory()">
-    <div id="story" class="bookstyle empty" title="Click to edit your story" style="display:block;">
-      <g:if test="${storyText}">
-        ${storyText}
-      </g:if>
-      <g:else>
-        [ click here to enter your story ]
-      </g:else>
-    </div>
+  <div id="storyView" style="display:block;" onclick="startEditStory()">
+    <g:set var="initialText" value="${storyText ?: '[click here to enter your story]'}"/>
+    <g:set var="boxTitle" value="Click to edit your story"/>
+    <textarea id="storyDisplay" title="${boxTitle}" rows="12" cols="55">${initialText}</textarea>
   </div>
 </div>
 </body>

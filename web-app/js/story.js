@@ -9,9 +9,9 @@ function cancelEditStory() {
 }
 
 function getStoryView() {
-  return document.getElementById("storyview");
+  return document.getElementById("storyView");
 }
 
 function getStoryEdit() {
-  return document.getElementById("storyedit");
+  return document.getElementById("storyEdit");
 }
