@@ -324,10 +324,10 @@ textArea.story:focus {
     color: black;
 }
 
-.affirmative {
+.confirm {
     background-color: #80f08e;
 }
 
-.negative {
+.decline {
     background-color: #f08080;
 }
