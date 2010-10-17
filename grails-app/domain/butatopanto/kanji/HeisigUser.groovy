@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-class UserData {
+class HeisigUser {
 
   static hasMany = [masteryList: MasteryOfFrame, storyList: Story]
   String userName

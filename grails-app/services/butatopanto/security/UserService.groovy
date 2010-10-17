@@ -1,6 +1,6 @@
 package butatopanto.security
 
-import butatopanto.kanji.UserData
+import butatopanto.kanji.HeisigUser
 
 class UserService {
 
@@ -8,7 +8,7 @@ class UserService {
 
   def findOrCreateUserData() {
     if (!currentUserData) {
-      new UserData(userName: currentUserName).save()
+      new HeisigUser(userName: currentUserName).save()
     }
     currentUserData
   }
@@ -18,8 +18,8 @@ class UserService {
     User.findByUsername(authentication.name)
   }
 
-  UserData getCurrentUserData() {
-    return UserData.findByUserName(currentUserName)
+  HeisigUser getCurrentUserData() {
+    return HeisigUser.findByUserName(currentUserName)
   }
 
   private String getCurrentUserName() {

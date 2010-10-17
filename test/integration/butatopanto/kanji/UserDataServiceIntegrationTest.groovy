@@ -19,7 +19,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
   @Test
   void addsReviewsToUserData() {
     masteryService.activateLesson(1)
-    UserData userData = UserData.findByUserName("Test")
+    HeisigUser userData = HeisigUser.findByUserName("Test")
     assertFalse userData.masteryList.isEmpty()
   }
 
@@ -27,7 +27,7 @@ class UserDataServiceIntegrationTest extends GrailsJUnit4TestCase {
   void removesReviewsFromUserData() {
     masteryService.activateLesson(1)
     masteryService.deactivateLesson(1)
-    UserData userData = UserData.findByUserName("Test")
+    HeisigUser userData = HeisigUser.findByUserName("Test")
     assertTrue userData.masteryList.isEmpty()
   }
 

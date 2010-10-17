@@ -10,7 +10,7 @@ class MasteryServiceMasteryRemovalTest extends GrailsJUnit4TestCase {
 
   private MasteryService service = new MasteryService()
   private def userName = "the user"
-  butatopanto.kanji.UserData userData
+  butatopanto.kanji.HeisigUser heisigUser
 
   @Before
   void mockUserService() {
@@ -20,8 +20,8 @@ class MasteryServiceMasteryRemovalTest extends GrailsJUnit4TestCase {
   @Before
   void mockDomain() {
     mockDomain Frame, [new Frame(id: 1, meaning: 'first', lesson: 1), new Frame(id: 2, meaning: 'second', lesson: 2), new Frame(id: 3, meaning: 'third', lesson: 2)]
-    this.userData = new UserData(userName: userName)
-    mockDomain UserData, [userData]
+    this.heisigUser = new HeisigUser(userName: userName)
+    mockDomain HeisigUser, [heisigUser]
   }
 
   @Test
@@ -51,20 +51,20 @@ class MasteryServiceMasteryRemovalTest extends GrailsJUnit4TestCase {
     }
     mockDomain MasteryOfFrame, reviews
     reviews.each {
-      userData.addToMasteryList(it)
+      heisigUser.addToMasteryList(it)
     }
   }
 
-  private UserData createUserDataWithUserName() {
-    new UserData(userName: userName).save()
+  private HeisigUser createUserDataWithUserName() {
+    new HeisigUser(userName: userName).save()
   }
 
   private def assertHasMasterySortedByMeaning(expected) {
-    def userData = UserData.findByUserName(userName)
-    assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
+    def user = HeisigUser.findByUserName(userName)
+    assertEquals(expected, user.masteryList.collect({ it.frame.meaning }).sort())
   }
 
   private def assertHasNoReviews() {
-    assertTrue userData.masteryList.isEmpty()
+    assertTrue heisigUser.masteryList.isEmpty()
   }
 }

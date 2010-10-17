@@ -5,22 +5,22 @@ import org.junit.Before
 import org.junit.Test
 
 class UserDataIntegrationTest extends GrailsJUnit4TestCase {
-  UserData userData
+  HeisigUser heisigUser
 
   @Before
   public void saveFrameReview() {
-    userData = new UserData(userName: "Urs")
-    userData.save()
+    heisigUser = new HeisigUser(userName: "Urs")
+    heisigUser.save()
   }
 
   @Test
   void doesExist() {
-    assertTrue UserData.exists(userData.id)
+    assertTrue HeisigUser.exists(heisigUser.id)
   }
 
   @Test
   void doesNoLongerExistAfterDelete() {
-    userData.delete()
-    assertFalse UserData.exists(userData.id)
+    heisigUser.delete()
+    assertFalse heisigUser.exists(heisigUser.id)
   }
 }

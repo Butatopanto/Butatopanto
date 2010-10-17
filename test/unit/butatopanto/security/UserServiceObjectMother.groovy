@@ -1,6 +1,6 @@
 package butatopanto.security
 
-import butatopanto.kanji.UserData
+import butatopanto.kanji.HeisigUser
 
 class UserServiceObjectMother {
 
@@ -12,7 +12,7 @@ class UserServiceObjectMother {
   }
 
   def setEnsuredCurrentUserDataExists(String userName) {
-    def existingUserData = new UserData(userName: userName).save()
+    def existingUserData = new HeisigUser(userName: userName).save()
     service["findOrCreateUserData"] = {
       existingUserData
     }
@@ -21,12 +21,12 @@ class UserServiceObjectMother {
 
   void setEnsuresUserDataWillBeCreated() {
     service["findOrCreateUserData"] = {
-      service["currentUserData"] = new UserData(userName: defaultUserName).save()
+      service["currentUserData"] = new HeisigUser(userName: defaultUserName).save()
     }
   }
 
   def setCurrentUserDataExists() {
-    def userData = new UserData(userName: "The User").save()
+    def userData = new HeisigUser(userName: "The User").save()
     service["currentUserData"] = userData
     userData
   }

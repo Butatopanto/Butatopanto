@@ -20,13 +20,13 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   void mockDomain() {
     mockDomain MasteryOfFrame
     mockDomain Frame, [new Frame(id: 1, meaning: 'first', lesson: 1), new Frame(id: 2, meaning: 'second', lesson: 2), new Frame(id: 3, meaning: 'third', lesson: 2)]
-    mockDomain UserData
+    mockDomain HeisigUser
   }
 
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
     service.activateLesson(1)
-    assertNotNull "No UserData found for user", UserData.findByUserName(userName)
+    assertNotNull "No UserData found for user", HeisigUser.findByUserName(userName)
   }
 
   @Test
@@ -50,7 +50,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void knowsExistingCurrentUserData() {
-    UserData userData = createUserDataWithUserName()
+    HeisigUser userData = createUserDataWithUserName()
     assertEquals userData.id, service.currentUserData.id
   }
 
@@ -67,7 +67,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasActiveFramesForExistingFrameReview() {
-    UserData userData = createUserDataWithUserName();
+    HeisigUser userData = createUserDataWithUserName();
     def reviewedFrame = Frame.get(2)
     userData.addToMasteryList(new MasteryOfFrame(frame: reviewedFrame))
     assertEquals([2], service.listActiveFrameIdsForChapter(reviewedFrame.lesson))
@@ -91,12 +91,12 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
     assertEquals([dueMastery.frame.id], service.listDueFrameIds())
   }
 
-  private UserData createUserDataWithUserName() {
-    new UserData(userName: userName).save()
+  private HeisigUser createUserDataWithUserName() {
+    new HeisigUser(userName: userName).save()
   }
 
   private def assertHasMasterySortedByMeaning(expected) {
-    def userData = UserData.findByUserName(userName)
+    def userData = HeisigUser.findByUserName(userName)
     assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
   }
 }

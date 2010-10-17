@@ -5,13 +5,13 @@ import org.junit.Before
 import org.junit.Test
 
 class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
-  UserData userData
+  HeisigUser heisigUser
 
   @Before
   public void saveMastery() {
-    userData = new UserData(userName: "the user")
+    heisigUser = new HeisigUser(userName: "the user")
     def mastery = new MasteryOfFrame(frame: Frame.get(1))
-    userData.addToMasteryList(mastery).save(failOnError: true)
+    heisigUser.addToMasteryList(mastery).save(failOnError: true)
   }
 
   @Test
@@ -28,35 +28,35 @@ class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
   @Test
   void noLongerBelongsToUserDataAfterRemoval() {
     deleteMastery()
-    assertEquals 0, findUserData().masteryList.size()
+    assertEquals 0, findHeisigUser().masteryList.size()
   }
 
   @Test
   void cascadesDeleteFromUserData() {
     MasteryOfFrame mastery = findFirstMasteryFromUserData()
-    findUserData().delete()
+    findHeisigUser().delete()
     assertFalse MasteryOfFrame.exists(mastery.id)
   }
 
-  @Test(expected=grails.validation.ValidationException)
+  @Test(expected = grails.validation.ValidationException)
   void doesNotAllowAddingASecondMasteryForSameFrame() {
     def mastery = new MasteryOfFrame(frame: Frame.get(1))
-    userData.addToMasteryList(mastery).save(failOnError: true)
+    heisigUser.addToMasteryList(mastery).save(failOnError: true)
   }
 
   private MasteryOfFrame deleteMastery() {
     MasteryOfFrame mastery = findFirstMasteryFromUserData()
-    findUserData().removeFromMasteryList(mastery)
+    findHeisigUser().removeFromMasteryList(mastery)
     mastery.delete()
     return mastery
   }
 
   private MasteryOfFrame findFirstMasteryFromUserData() {
-    (findUserData().masteryList as List)[0]
+    (findHeisigUser().masteryList as List)[0]
   }
 
-  private UserData findUserData() {
-    def id = userData.id
-    return UserData.get(id)
+  private HeisigUser findHeisigUser() {
+    def id = heisigUser.id
+    return HeisigUser.get(id)
   }
 }

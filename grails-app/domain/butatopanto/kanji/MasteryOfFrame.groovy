@@ -3,7 +3,7 @@ package butatopanto.kanji
 import butatopanto.learning.LeitnerService
 
 class MasteryOfFrame {
-  static belongsTo = [userData: UserData]
+  static belongsTo = [user: HeisigUser]
   Frame frame
   int box = LeitnerService.FIRST_BOX
   int passed = 0

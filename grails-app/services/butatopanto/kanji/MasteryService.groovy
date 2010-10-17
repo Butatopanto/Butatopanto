@@ -89,8 +89,8 @@ class MasteryService {
     masteryList.find {it.frame.id == frameId}
   }
 
-  UserData getCurrentUserData() {
-    return UserData.findByUserName(currentUserName)
+  HeisigUser getCurrentUserData() {
+    return HeisigUser.findByUserName(currentUserName)
   }
 
   int getMasteryCount() {
@@ -102,7 +102,7 @@ class MasteryService {
 
   private def findOrCreateUserData() {
     if (!currentUserData) {
-      new UserData(userName: currentUserName).save()
+      new HeisigUser(userName: currentUserName).save()
     }
     currentUserData
   }

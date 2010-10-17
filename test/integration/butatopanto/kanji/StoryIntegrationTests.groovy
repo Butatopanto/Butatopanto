@@ -7,23 +7,23 @@ import org.junit.Test
 
 class StoryIntegrationTests extends GrailsJUnit4TestCase {
 
-  UserData userData
+  HeisigUser heisigUser
 
   @Before
   public void saveStory() {
-    userData = new UserData(userName: "the user")
-    def story = new Story(text: 'Hallo', frame: Frame.get(1), userData: userData)
-    userData.addToStoryList(story).save(failOnError: true)
+    heisigUser = new HeisigUser(userName: "the user")
+    def story = new Story(text: 'Hallo', frame: Frame.get(1), userData: heisigUser)
+    heisigUser.addToStoryList(story).save(failOnError: true)
   }
 
   @Test
   void addedStoryExists() {
-    assertTrue Story.exists((userData.storyList as List)[0].id)
+    assertTrue Story.exists((heisigUser.storyList as List)[0].id)
   }
 
   @Test
   void userDataMustNotBeNull() {
-    assertNotNull ValidationUtilities.getValidationFieldError(new Story(), "userData")
+    assertNotNull ValidationUtilities.getValidationFieldError(new Story(), "user")
   }
 
   @Test
@@ -44,7 +44,7 @@ class StoryIntegrationTests extends GrailsJUnit4TestCase {
   @Test(expected = grails.validation.ValidationException)
   void doesNotAllowAddingASecondStoryForSameFrame() {
     def story = new Story(frame: Frame.get(1))
-    userData.addToStoryList(story).save(failOnError: true)
+    heisigUser.addToStoryList(story).save(failOnError: true)
   }
 
   @Test
@@ -58,8 +58,8 @@ class StoryIntegrationTests extends GrailsJUnit4TestCase {
     (findUserData().storyList as List)[0]
   }
 
-  private UserData findUserData() {
-    def id = userData.id
-    return UserData.get(id)
+  private HeisigUser findUserData() {
+    def id = heisigUser.id
+    return HeisigUser.get(id)
   }
 }

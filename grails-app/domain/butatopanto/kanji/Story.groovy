@@ -2,14 +2,14 @@ package butatopanto.kanji
 
 class Story {
 
-  static belongsTo = [userData: UserData]
+  static belongsTo = [user: HeisigUser]
   Frame frame
   String text
   Date dateCreated
   Date lastUpdated
 
   static constraints = {
-    userData(nullable: false)
+    user(nullable: false)
     text(nullable: true, blank: true)
     frame(nullable: false)
   }

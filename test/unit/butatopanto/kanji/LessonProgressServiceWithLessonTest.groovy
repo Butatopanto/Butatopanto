@@ -8,7 +8,7 @@ import org.junit.Test
 class LessonProgressServiceWithLessonTest extends GrailsJUnit4TestCase {
 
   private LessonProgressService service = new LessonProgressService()
-  private UserData userData = new UserData()
+  private HeisigUser userData = new HeisigUser()
   private def activeFramesByLesson = [:];
   private def allFrames = [new Frame(id: 1), new Frame(id: 2), new Frame(id: 3)]
   

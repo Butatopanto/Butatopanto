@@ -1,6 +1,6 @@
 package butatopanto.kanji.bootstrap
 
-import butatopanto.kanji.UserData
+import butatopanto.kanji.HeisigUser
 import butatopanto.kanji.Frame
 import butatopanto.kanji.Story
 
@@ -30,10 +30,10 @@ class LessonContent1 extends LessonContent {
   }
 
   void insertSomeStories() {
-    if (UserData.findByUserName("Sandra")) {
+    if (HeisigUser.findByUserName("Sandra")) {
       return
     }
-    UserData userData = new UserData(userName: "Sandra").save(failOnError: true)
+    HeisigUser userData = new HeisigUser(userName: "Sandra").save(failOnError: true)
     Frame.list().each {
       Story story = new Story(frame: it, text: "Eine tolle Geschichte für den Rahmen " + it.number)
       userData.addToStoryList(story)
