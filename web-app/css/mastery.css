@@ -1,0 +1,63 @@
+.overviewColumn {
+  width: 800px;
+  position: relative
+}
+
+div.selector {
+  width: 60px;
+  height: 60px;
+  margin: 8px;
+  text-align: center;
+  valign: center;
+  float: left;
+}
+
+.kanjibox {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  font-weight: normal;
+  color: black;
+  font-size: 44px;
+}
+
+.box1 {
+  background-color: white;
+}
+
+.box2 {
+  background-color: #f0f0fb;
+}
+
+.box3 {
+  background-color: #dedefc;
+}
+
+.box4 {
+  background-color: #bfbffb;
+}
+
+.box5 {
+  background-color: #b5b5f7;
+}
+
+.box6 {
+  background-color: #aaaafb;
+}
+
+.box7 {
+  background-color: #8c8cfc;
+}
+
+.box8 {
+  background-color: #6767f9;
+}
+
+.withStory {
+  border: 2px #006600 solid;
+}
+
+.withoutStory {
+  border: 2px #ff0000 solid;
+}
