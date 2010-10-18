@@ -1,8 +1,10 @@
 package butatopanto.kanji;
 
-import butatopanto.sharedtest.*
-import org.junit.*
+
 import butatopanto.security.User
+import butatopanto.sharedtest.GrailsJUnit4TestCase
+import org.junit.Before
+import org.junit.Test
 
 class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
 
@@ -15,6 +17,11 @@ class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
     def password = "test"
     new User(username: userName, password: password).save(flush: true, failOnError: true)
     springSecurityService.reauthenticate(userName, password)
+  }
+
+  @Test
+  void hasNoActiveFramesWithoutCurrentUserData() {
+    assertEquals([], masteryService.listActiveFrameIdsForChapter(1))
   }
 
   @Test

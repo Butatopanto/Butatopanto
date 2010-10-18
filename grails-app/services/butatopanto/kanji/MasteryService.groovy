@@ -6,23 +6,26 @@ class MasteryService {
 
   static transactional = true
   def userService
+  def masteryQueryService
   def leitnerService
 
-  def activateLesson(def lessonNumber) {
-    def userData = findOrCreateUserData()
-    Frame.findAllByLesson(lessonNumber).each {
+  def activateLesson(def number) {
+    def heisigUser = findOrCreateHeisigUser()
+    def chapterFrameList = Frame.findAllByLesson(number)
+    chapterFrameList.each {
       if (!MasteryOfFrame.findByFrame(it)) {
-        userData.addToMasteryList new MasteryOfFrame(frame: it)
+        heisigUser.addToMasteryList new MasteryOfFrame(frame: it)
       }
     }
   }
 
-  def deactivateLesson(def lessonNumber) {
-    def userData = findOrCreateUserData()
-    Frame.findAllByLesson(lessonNumber).each {
+  def deactivateLesson(def number) {
+    def heisigUser = findOrCreateHeisigUser()
+    def chapterFrameList = Frame.findAllByLesson(number)
+    chapterFrameList.each {
       def review = MasteryOfFrame.findByFrame(it)
       if (review) {
-        userData.removeFromMasteryList review
+        heisigUser.removeFromMasteryList review
         review.delete()
       }
     }
@@ -47,9 +50,8 @@ class MasteryService {
   }
 
   def listActiveFrameIdsForChapterList(List chapterNumbers) {
-    def masteryList = listMastery()
-    def relevantMastery = masteryList.findAll {chapterNumbers.contains(it.frame.lesson)}
-    relevantMastery.collect {it.frame.id}
+    def masteryList = masteryQueryService.listMasteryForChapterList(chapterNumbers)
+    masteryList.collect {it.frame.id}
   }
 
   def listActiveFrameIds() {
@@ -63,10 +65,7 @@ class MasteryService {
   }
 
   def listMastery() {
-    if (!currentUserData?.masteryList) {
-      return []
-    }
-    currentUserData.masteryList as List
+    masteryQueryService.listMastery()
   }
 
   def answerRight(def frameId) {
@@ -83,31 +82,27 @@ class MasteryService {
     mastery.save()
   }
 
-  def findMasteryByFrameId(def frameId) {
-    def currentUserData = getCurrentUserData();
-    def masteryList = currentUserData.masteryList as List
-    masteryList.find {it.frame.id == frameId}
-  }
-
-  HeisigUser getCurrentUserData() {
-    return HeisigUser.findByUserName(currentUserName)
+  def findMasteryByFrameId(long frameId) {
+    masteryQueryService.findMasteryByFrameId(frameId)
   }
 
   int getMasteryCount() {
-    if (!currentUserData?.masteryList) {
-      return 0
-    }
-    return findOrCreateUserData().masteryList.size()
+    listMastery().size()
   }
 
-  private def findOrCreateUserData() {
+  private def findOrCreateHeisigUser() {
     if (!currentUserData) {
       new HeisigUser(userName: currentUserName).save()
     }
     currentUserData
   }
 
+  private HeisigUser getCurrentUserData() {
+    return HeisigUser.findByUserName(currentUserName)
+  }
+
   private String getCurrentUserName() {
-    userService.currentUser.username
+    def user = userService.currentUser
+    user.username
   }
 }

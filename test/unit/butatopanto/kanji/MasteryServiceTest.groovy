@@ -14,6 +14,15 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   @Before
   void mockUserService() {
     service.userService = [currentUser: new User(username: userName)]
+    service.masteryQueryService = [
+      listMastery: {
+        HeisigUser.findByUserName(userName).masteryList as List
+      },
+      findMasteryByFrameId: {  frameId ->
+        def masteryList = HeisigUser.findByUserName(userName).masteryList as List
+        masteryList.find {frameId == it.frame.id}
+      }
+    ]
   }
 
   @Before
@@ -52,25 +61,6 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   void knowsExistingCurrentUserData() {
     HeisigUser userData = createUserDataWithUserName()
     assertEquals userData.id, service.currentUserData.id
-  }
-
-  @Test
-  void hasNoActiveFramesWithoutCurrentUserData() {
-    assertEquals([], service.listActiveFrameIdsForChapter(1))
-  }
-
-  @Test
-  void hasNoActiveFramesForUserDataWithoutMastery() {
-    createUserDataWithUserName()
-    assertEquals([], service.listActiveFrameIdsForChapter(1))
-  }
-
-  @Test
-  void hasActiveFramesForExistingFrameReview() {
-    HeisigUser userData = createUserDataWithUserName();
-    def reviewedFrame = Frame.get(2)
-    userData.addToMasteryList(new MasteryOfFrame(frame: reviewedFrame))
-    assertEquals([2], service.listActiveFrameIdsForChapter(reviewedFrame.lesson))
   }
 
   @Test
