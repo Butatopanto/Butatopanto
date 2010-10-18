@@ -11,10 +11,13 @@
   <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
 </div>
 <div style="left: 10px; position: relative">
-  <h1 style="position:absolute; top: 0px; left: 800px"><a href="${chapterNumber + 1}">></a></h1>
-  <h1 class="overviewColumn" style="text-align: center">Kapitel ${chapterNumber}</h1>
+  <div id="navigationHeader" style="position:absolute; top: 0px; left: 15px">
+    <h1 class="overviewColumn" style="text-align: center">Kapitel ${chapterNumber}</h1>
+    <a href="${chapterNumber - 1}" style="position: absolute; left: 0px; top: 15px">zurück</a>
+    <a href="${chapterNumber + 1}" style="position: absolute; right: 0px; top: 10px;">weiter</a>
+  </div>
   <p>&nbsp</p>
-  <div class="body">
+  <div class="body" style="position: relative; top: 30px">
     <div class="dialog">
       <div class="overviewColumn" style='height:550px; border:solid; border-width:thin'>
         <div id="container" style="padding: 5px">
