@@ -6,11 +6,11 @@ class UserService {
 
   def springSecurityService
 
-  def findOrCreateUserData() {
-    if (!currentUserData) {
+  def findOrCreateHeisigUser() {
+    if (!currentHeisigUser) {
       new HeisigUser(userName: currentUserName).save()
     }
-    currentUserData
+    currentHeisigUser
   }
 
   def getCurrentUser() {
@@ -18,7 +18,7 @@ class UserService {
     User.findByUsername(authentication.name)
   }
 
-  HeisigUser getCurrentUserData() {
+  HeisigUser getCurrentHeisigUser() {
     return HeisigUser.findByUserName(currentUserName)
   }
 

@@ -34,35 +34,35 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
-    userServiceObjectMother.setEnsuredUserDataWillBeCreated()
+    userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
     service.activateLesson(1)
-    assertNotNull "No UserData found for user", currentHeisigUser
+    assertNotNull "No Heisig User found for user", currentHeisigUser
   }
 
   @Test
   void addsMasteryForSingleFrameToUserData() {
-    userServiceObjectMother.setEnsuredUserDataWillBeCreated()
+    userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
     service.activateLesson(1)
     assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
   void addsMasteryForMultipleFramesToUserData() {
-    userServiceObjectMother.setEnsuredUserDataWillBeCreated()
+    userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
     service.activateLesson(2)
     assertHasMasterySortedByMeaning(['second', 'third'])
   }
 
   @Test
   void addsFrameToExistingCurrentUserData() {
-    userServiceObjectMother.setEnsuredCurrentUserDataExists()
+    userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
     service.activateLesson(1)
     assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
   void retainsMasteryOnRepeatedAddition() {
-    userServiceObjectMother.setEnsuredCurrentUserDataExists()
+    userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
     service.activateLesson(1)
     MasteryOfFrame mastery = (currentHeisigUser.masteryList as List)[0]
     mastery.passed = 10
@@ -73,7 +73,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void listsAllFrameIdAsDueForMasteryRecognizedByLeitnerService() {
-    userServiceObjectMother.setEnsuredCurrentUserDataExists()
+    userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
     service.activateLesson(2)
     MasteryOfFrame dueMastery = (currentHeisigUser.masteryList as List)[0]
     service.leitnerService = [isDue: {it == dueMastery}]
@@ -85,6 +85,6 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   }
 
   private def getCurrentHeisigUser() {
-    userServiceObjectMother.service.currentUserData
+    userServiceObjectMother.service.currentHeisigUser
   }
 }

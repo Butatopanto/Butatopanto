@@ -12,7 +12,7 @@ class StoryService {
       existingStory.save()
     }
     else {
-      def userData = userService.findOrCreateUserData()
+      def userData = userService.findOrCreateHeisigUser()
       def frame = Frame.findById(frameId)
       userData.addToStoryList(new Story(frame: frame, text: storyText))
     }
@@ -24,7 +24,7 @@ class StoryService {
   }
 
   private def findStoryByFrameId(def frameId) {
-    def storyList = userService.currentUserData?.storyList
+    def storyList = userService.currentHeisigUser?.storyList
     if (!storyList) {
       return null
     }

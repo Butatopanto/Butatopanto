@@ -91,10 +91,10 @@ class MasteryService {
   }
 
   private def findOrCreateHeisigUser() {
-    userService.findOrCreateUserData()
+    userService.findOrCreateHeisigUser()
   }
 
   private HeisigUser getCurrentUserData() {
-    userService.findOrCreateUserData()
+    userService.findOrCreateHeisigUser()
   }
 }

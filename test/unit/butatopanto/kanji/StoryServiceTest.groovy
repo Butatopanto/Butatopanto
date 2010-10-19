@@ -29,41 +29,41 @@ class StoryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void findsStoryForFrameInUserData() {
-    def userData = userServiceMother.setCurrentUserDataExists()
+    def userData = userServiceMother.setCurrentHeisigUserExists()
     userData.addToStoryList(new Story(frame: Frame.get(1), text: "Erste Geschichte"))
     assertEquals "Erste Geschichte", service.findStoryTextByFrameId(1)
   }
 
   @Test
   void findsNoStoryInEmptyUserData() {
-    def userData = userServiceMother.setCurrentUserDataExists()
+    def userData = userServiceMother.setCurrentHeisigUserExists()
     assertNull service.findStoryTextByFrameId(1)
   }
 
   @Test
   void findsNoStoryWithPresentStoriesForOtherIds() {
-    def userData = userServiceMother.setCurrentUserDataExists()
+    def userData = userServiceMother.setCurrentHeisigUserExists()
     userData.addToStoryList(new Story(frame: Frame.get(1), text: "Erste Geschichte"))
     assertNull service.findStoryTextByFrameId(2)
   }
 
   @Test
   void savesNewStoryInUserDataCreatedByService() {
-    userServiceMother.setEnsuredUserDataWillBeCreated()
+    userServiceMother.setEnsuredHeisigUserWillBeCreated()
     service.saveStory(2, "Eine neue Geschichte")
     assertEquals "Eine neue Geschichte", service.findStoryTextByFrameId(2)
   }
 
   @Test
   void savesNewStoryInExistingUserData() {
-    userServiceMother.setEnsuredCurrentUserDataExists()
+    userServiceMother.setEnsuredCurrentHeisigUserExists()
     service.saveStory(2, "Eine neue Geschichte")
     assertEquals "Eine neue Geschichte", service.findStoryTextByFrameId(2)
   }
 
   @Test
   void updatesExistingStoryInExistingUserData() {
-    def userData = userServiceMother.setEnsuredCurrentUserDataExists()
+    def userData = userServiceMother.setEnsuredCurrentHeisigUserExists()
     userData.addToStoryList(new Story(frame: Frame.get(2), text: "Die alte Geschichte"))
     service.saveStory(2, "Eine neue Geschichte")
     assertEquals "Eine neue Geschichte", service.findStoryTextByFrameId(2)

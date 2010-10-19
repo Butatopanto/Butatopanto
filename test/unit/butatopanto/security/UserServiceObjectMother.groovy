@@ -7,27 +7,27 @@ class UserServiceObjectMother {
   static def defaultUserName = "The User"
   def service = [:]
 
-  def setEnsuredCurrentUserDataExists() {
-    setEnsuredCurrentUserDataExists(defaultUserName)
+  def setEnsuredCurrentHeisigUserExists() {
+    setEnsuredCurrentHeisigUserExists(defaultUserName)
   }
 
-  def setEnsuredCurrentUserDataExists(String userName) {
-    def existingUserData = new HeisigUser(userName: userName).save()
-    service["findOrCreateUserData"] = {
-      existingUserData
+  def setEnsuredCurrentHeisigUserExists(String userName) {
+    def existingHeisigUser = new HeisigUser(userName: userName).save()
+    service["findOrCreateHeisigUser"] = {
+      existingHeisigUser
     }
-    service["currentUserData"] = existingUserData
+    service["currentHeisigUser"] = existingHeisigUser
   }
 
-  void setEnsuredUserDataWillBeCreated() {
-    service["findOrCreateUserData"] = {
-      service["currentUserData"] = new HeisigUser(userName: defaultUserName).save()
+  void setEnsuredHeisigUserWillBeCreated() {
+    service["findOrCreateHeisigUser"] = {
+      service["currentHeisigUser"] = new HeisigUser(userName: defaultUserName).save()
     }
   }
 
-  def setCurrentUserDataExists() {
-    def userData = new HeisigUser(userName: "The User").save()
-    service["currentUserData"] = userData
-    userData
+  def setCurrentHeisigUserExists() {
+    def heisigUser = new HeisigUser(userName: defaultUserName).save()
+    service["currentHeisigUser"] = heisigUser
+    heisigUser
   }
 }

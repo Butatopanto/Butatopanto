@@ -1,7 +1,6 @@
 package butatopanto.kanji;
 
 
-import butatopanto.security.User
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
@@ -25,7 +24,7 @@ class MasteryServiceMasteryRemovalTest extends GrailsJUnit4TestCase {
     mockDomain MasteryOfFrame
     mockDomain Frame, [new Frame(id: 1, meaning: 'first', lesson: 1), new Frame(id: 2, meaning: 'second', lesson: 2), new Frame(id: 3, meaning: 'third', lesson: 2)]
     mockDomain HeisigUser
-    heisigUser = userService.setEnsuredCurrentUserDataExists(userName)
+    heisigUser = userService.setEnsuredCurrentHeisigUserExists(userName)
   }
 
   @Test
