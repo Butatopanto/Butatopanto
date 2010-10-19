@@ -1,0 +1,57 @@
+package butatopanto.kanji.bootstrap
+
+class LessonContent8 extends LessonContent {
+
+  LessonContent8() {
+    super(8)
+  }
+
+  public void insertFrames() {
+    insertFrame(127, "川", "Fluss")
+    insertFrame(128, "州", "Staat")
+    insertFrame(129, "順", "gehorchen")
+    insertFrame(130, "水", "Wasser")
+    insertFrame(131, "氷", "Eiszapfen")
+    insertFrame(132, "永", "Ewigkeit")
+    insertFrame(133, "泉", "Springquell")
+    insertFrame(134, "原", "Wiese")
+    insertFrame(135, "願", "Gesuch")
+    insertFrame(136, "泳", "schwimmen")
+    insertFrame(137, "沼", "Morast")
+    insertFrame(138, "沖", "offenes Meer")
+    insertFrame(139, "江", "Meeresarm")
+    insertFrame(140, "汁", "Suppe")
+    insertFrame(141, "潮", "Gezeiten")
+    insertFrame(142, "源", "Quelle")
+    insertFrame(143, "活", "lebendig")
+    insertFrame(144, "消", "löschen")
+    insertFrame(145, "況", "Zustand")
+    insertFrame(146, "河", "Strom")
+    insertFrame(147, "泊", "übernachten")
+    insertFrame(148, "湖", "See")
+    insertFrame(149, "測", "ausloten")
+    insertFrame(150, "土", "Erde")
+    insertFrame(151, "吐", "ausspucken")
+    insertFrame(152, "圧", "Druck")
+    insertFrame(153, "埼", "Kap")
+    insertFrame(154, "垣", "Hecke")
+    insertFrame(155, "圭", "eckiger Edelstein")
+    insertFrame(156, "封", "Siegel")
+    insertFrame(157, "涯", "Horizont")
+    insertFrame(158, "寺", "buddhistischer Tempel")
+    insertFrame(159, "時", "Zeit")
+    insertFrame(160, "均", "ebnen")
+    insertFrame(161, "火", "Feuer")
+    insertFrame(162, "炎", "Entzündung")
+    insertFrame(163, "煩", "Sorgen")
+    insertFrame(164, "淡", "blass")
+    insertFrame(165, "灯", "Lampe")
+    insertFrame(166, "畑", "Acker")
+    insertFrame(167, "災", "Katastrophe")
+    insertFrame(168, "灰", "Asche")
+    insertFrame(169, "点", "Punkt")
+    insertFrame(170, "照", "scheinen")
+    insertFrame(171, "魚", "Fisch")
+    insertFrame(172, "漁", "Fischfang")
+  }
+}
