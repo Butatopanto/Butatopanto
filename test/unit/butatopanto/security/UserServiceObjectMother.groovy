@@ -4,7 +4,7 @@ import butatopanto.kanji.HeisigUser
 
 class UserServiceObjectMother {
 
-  def defaultUserName = "The User"
+  static def defaultUserName = "The User"
   def service = [:]
 
   def setEnsuredCurrentUserDataExists() {
@@ -19,7 +19,7 @@ class UserServiceObjectMother {
     service["currentUserData"] = existingUserData
   }
 
-  void setEnsuresUserDataWillBeCreated() {
+  void setEnsuredUserDataWillBeCreated() {
     service["findOrCreateUserData"] = {
       service["currentUserData"] = new HeisigUser(userName: defaultUserName).save()
     }

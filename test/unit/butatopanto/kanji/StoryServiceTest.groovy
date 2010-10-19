@@ -49,7 +49,7 @@ class StoryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void savesNewStoryInUserDataCreatedByService() {
-    userServiceMother.setEnsuresUserDataWillBeCreated()
+    userServiceMother.setEnsuredUserDataWillBeCreated()
     service.saveStory(2, "Eine neue Geschichte")
     assertEquals "Eine neue Geschichte", service.findStoryTextByFrameId(2)
   }

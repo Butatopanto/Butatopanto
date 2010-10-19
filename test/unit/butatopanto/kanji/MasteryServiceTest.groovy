@@ -1,25 +1,25 @@
 package butatopanto.kanji;
 
 
-import butatopanto.security.User
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
+import butatopanto.security.UserServiceObjectMother
 
 class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   private MasteryService service = new MasteryService()
-  private def userName = "the user"
+  private UserServiceObjectMother userServiceObjectMother = new UserServiceObjectMother()
 
   @Before
   void mockUserService() {
-    service.userService = [currentUser: new User(username: userName)]
+    service.userService = userServiceObjectMother.service
     service.masteryQueryService = [
       listMastery: {
-        HeisigUser.findByUserName(userName).masteryList as List
+        HeisigUser.findByUserName(UserServiceObjectMother.defaultUserName).masteryList as List
       },
       findMasteryByFrameId: {  frameId ->
-        def masteryList = HeisigUser.findByUserName(userName).masteryList as List
+        def masteryList = HeisigUser.findByUserName(UserServiceObjectMother.defaultUserName).masteryList as List
         masteryList.find {frameId == it.frame.id}
       }
     ]
@@ -34,59 +34,57 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
+    userServiceObjectMother.setEnsuredUserDataWillBeCreated()
     service.activateLesson(1)
-    assertNotNull "No UserData found for user", HeisigUser.findByUserName(userName)
+    assertNotNull "No UserData found for user", currentHeisigUser
   }
 
   @Test
   void addsMasteryForSingleFrameToUserData() {
+    userServiceObjectMother.setEnsuredUserDataWillBeCreated()
     service.activateLesson(1)
     assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
   void addsMasteryForMultipleFramesToUserData() {
+    userServiceObjectMother.setEnsuredUserDataWillBeCreated()
     service.activateLesson(2)
     assertHasMasterySortedByMeaning(['second', 'third'])
   }
 
   @Test
   void addsFrameToExistingCurrentUserData() {
-    createUserDataWithUserName()
+    userServiceObjectMother.setEnsuredCurrentUserDataExists()
     service.activateLesson(1)
     assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
-  void knowsExistingCurrentUserData() {
-    HeisigUser userData = createUserDataWithUserName()
-    assertEquals userData.id, service.currentUserData.id
-  }
-
-  @Test
   void retainsMasteryOnRepeatedAddition() {
+    userServiceObjectMother.setEnsuredCurrentUserDataExists()
     service.activateLesson(1)
-    MasteryOfFrame mastery = (service.currentUserData.masteryList as List)[0]
+    MasteryOfFrame mastery = (currentHeisigUser.masteryList as List)[0]
     mastery.passed = 10
     mastery.save()
     service.activateLesson(1)
-    assertEquals 10, (service.currentUserData.masteryList as List)[0].passed
+    assertEquals 10, (currentHeisigUser.masteryList as List)[0].passed
   }
 
   @Test
   void listsAllFrameIdAsDueForMasteryRecognizedByLeitnerService() {
+    userServiceObjectMother.setEnsuredCurrentUserDataExists()
     service.activateLesson(2)
-    MasteryOfFrame dueMastery = (service.currentUserData.masteryList as List)[0]
+    MasteryOfFrame dueMastery = (currentHeisigUser.masteryList as List)[0]
     service.leitnerService = [isDue: {it == dueMastery}]
     assertEquals([dueMastery.frame.id], service.listDueFrameIds())
   }
 
-  private HeisigUser createUserDataWithUserName() {
-    new HeisigUser(userName: userName).save()
+  private def assertHasMasterySortedByMeaning(expected) {
+    assertEquals(expected, currentHeisigUser.masteryList.collect({ it.frame.meaning }).sort())
   }
 
-  private def assertHasMasterySortedByMeaning(expected) {
-    def userData = HeisigUser.findByUserName(userName)
-    assertEquals(expected, userData.masteryList.collect({ it.frame.meaning }).sort())
+  private def getCurrentHeisigUser() {
+    userServiceObjectMother.service.currentUserData
   }
 }

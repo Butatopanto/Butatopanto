@@ -82,7 +82,7 @@ class MasteryService {
     mastery.save()
   }
 
-  def findMasteryByFrameId(long frameId) {
+  private def findMasteryByFrameId(long frameId) {
     masteryQueryService.findMasteryByFrameId(frameId)
   }
 
@@ -91,18 +91,10 @@ class MasteryService {
   }
 
   private def findOrCreateHeisigUser() {
-    if (!currentUserData) {
-      new HeisigUser(userName: currentUserName).save()
-    }
-    currentUserData
+    userService.findOrCreateUserData()
   }
 
   private HeisigUser getCurrentUserData() {
-    return HeisigUser.findByUserName(currentUserName)
-  }
-
-  private String getCurrentUserName() {
-    def user = userService.currentUser
-    user.username
+    userService.findOrCreateUserData()
   }
 }
