@@ -4,7 +4,7 @@ import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
 
-class UserDataIntegrationTest extends GrailsJUnit4TestCase {
+class HeisigUserIntegrationTest extends GrailsJUnit4TestCase {
   HeisigUser heisigUser
 
   @Before

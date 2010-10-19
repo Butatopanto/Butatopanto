@@ -13,20 +13,8 @@ class MasteryService {
     def heisigUser = findOrCreateHeisigUser()
     def chapterFrameList = Frame.findAllByLesson(number)
     chapterFrameList.each {
-      if (!MasteryOfFrame.findByFrame(it)) {
+      if (!masteryQueryService.findMasteryByFrameId(it.id)) {
         heisigUser.addToMasteryList new MasteryOfFrame(frame: it)
-      }
-    }
-  }
-
-  def deactivateLesson(def number) {
-    def heisigUser = findOrCreateHeisigUser()
-    def chapterFrameList = Frame.findAllByLesson(number)
-    chapterFrameList.each {
-      def review = MasteryOfFrame.findByFrame(it)
-      if (review) {
-        heisigUser.removeFromMasteryList review
-        review.delete()
       }
     }
   }
