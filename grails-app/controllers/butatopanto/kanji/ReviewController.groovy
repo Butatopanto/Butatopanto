@@ -21,7 +21,7 @@ class ReviewController {
     masteryService.activateLesson(chapterNumber)
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
-    updateDueCountIfNecessary()
+    updateDueCountIfNecessary(chapterNumber)
     redirect(action: "manage")
   }
 
@@ -72,9 +72,9 @@ class ReviewController {
     boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
     reviewService.resolve(review, reviewCorrect)
-    updateDueCountIfNecessary()
     def frame = reviewService.getCurrentFrame(review)
     if (frame) {
+      updateDueCountIfNecessary(frame.lesson)
       ajaxRenderFrame(frame, true)
     }
     else {
@@ -93,13 +93,11 @@ class ReviewController {
     }
   }
 
-  private void updateDueCountIfNecessary() {
+  private void updateDueCountIfNecessary(def chapterNumber) {
     if (session.chapters) {
-      session.chapters.each {
-        def chapterNumber = it.chapterNumber
-        def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
-        it.dueFrameCount = dueFrames.size()
-      }
+      def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
+      def chapterSelection = evaluateChapters().getChapterForNumber(chapterNumber)
+      chapterSelection.dueFrameCount = dueFrames.size()
     }
   }
 
