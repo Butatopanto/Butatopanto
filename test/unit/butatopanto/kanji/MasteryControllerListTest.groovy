@@ -6,7 +6,7 @@ import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
 
-class MasteryControllerTest extends GrailsJUnit4ControllerTestCase {
+class MasteryControllerListTest extends GrailsJUnit4ControllerTestCase {
   int masteryCount = 0
   List masteryList = []
   int masteryListMax
@@ -14,7 +14,7 @@ class MasteryControllerTest extends GrailsJUnit4ControllerTestCase {
   String masteryListSortAttribute
   String masteryListOrder
 
-  MasteryControllerTest() {
+  MasteryControllerListTest() {
     super(MasteryController)
   }
 

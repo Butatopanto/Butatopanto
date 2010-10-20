@@ -4,7 +4,7 @@
   <meta name="layout" content="main"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='mastery.css'/>"/>
   <g:javascript library="prototype"/>
-  <title><g:message code="review.manage.title"/></title>
+  <title>Kapitel ${current}</title>
 </head>
 <body>
 <div class="nav">
@@ -28,7 +28,7 @@
           <div>
             <g:each in="${masteredFrames}" status="i" var="${masteredFrame}">
               <div class="selector">
-                <div class="box${masteredFrame.box} ${masteredFrame.hasStory ? 'withStory' : 'withoutStory'} kanjibox">${masteredFrame.kanji}</div>
+                <div title="${meaning}" class="${masteredFrame.cssClass}">${masteredFrame.kanji}</div>
               </div>
             </g:each>
           </div>

@@ -1,26 +1,28 @@
 package butatopanto.kanji
 
-import butatopanto.kanji.MasteredFrame;
-
 class MasteryController {
 
   def masteryService
   def storyService
+  def chapterService
 
   def listByChapter = {
     int chapterNumber = params.int('id')
-    def activeFrameIds = masteryService.listActiveFrameIdsForChapter(chapterNumber)
-    def activeFrames = activeFrameIds.collect {Frame.get(it)}
-    def masteredFrames = activeFrames.collect {
-      boolean hasStory = storyService.findStoryTextByFrameId(it.id) != null
-      def mastery = masteryService.findMasteryByFrameId (it.id)
-      def box = mastery.box
-      def kanji = it.kanji
-      new MasteredFrame(kanji: kanji, box: box, hasStory: hasStory)
-    }
+    def activeFrameIds = chapterService.getFramesFor(chapterNumber)
+    List masteredFrames = asMasteredFrames(activeFrameIds)
     def previous = chapterNumber - 1
-    def next = chapterNumber + 1
+    def next = chapterNumber == chapterService.getLastChapterNumber() ? null : chapterNumber + 1
     [current: chapterNumber, masteredFrames: masteredFrames, previous: previous, next: next]
+  }
+
+  private List asMasteredFrames(List activeFrameIds) {
+    activeFrameIds.collect {
+      Frame frame = Frame.get(it)
+      boolean hasStory = storyService.findStoryTextByFrameId(it) != null
+      MasteryOfFrame mastery = masteryService.findMasteryByFrameId(frame.id)
+      def box = mastery ? mastery.box : 0
+      new MasteredFrame(meaning: frame.meaning, kanji: frame.kanji, box: box, hasStory: hasStory)
+    }
   }
 
   def index = {

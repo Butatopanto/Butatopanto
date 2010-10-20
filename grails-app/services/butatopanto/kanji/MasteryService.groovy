@@ -70,7 +70,7 @@ class MasteryService {
     mastery.save()
   }
 
-  private def findMasteryByFrameId(long frameId) {
+  MasteryOfFrame findMasteryByFrameId(long frameId) {
     masteryQueryService.findMasteryByFrameId(frameId)
   }
 

@@ -33,4 +33,9 @@ class ChapterServiceWithFramesTest extends GrailsJUnit4TestCase {
   void findsChapterWithFrameForNumberTwo() {
     assertEquals([3], service.findAll()[1].frameIds)
   }
+
+  @Test
+  void hasNoLastChapter() {
+    assertEquals 3, service.getLastChapterNumber()
+  }
 }

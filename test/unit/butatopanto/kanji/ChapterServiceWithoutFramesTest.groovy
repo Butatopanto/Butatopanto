@@ -17,4 +17,9 @@ class ChapterServiceWithoutFramesTest extends GrailsJUnit4TestCase {
   void findsNoChapterWithoutFrames() {
     assertEquals 0, service.findAll().size()
   }
+
+  @Test
+  void hasNoLastChapter() {
+    assertEquals 0, service.getLastChapterNumber()
+  }
 }
