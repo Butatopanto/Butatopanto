@@ -6,8 +6,8 @@ import grails.plugins.springsecurity.Secured
 class ReviewController {
 
   def reviewService
-  def lessonService
-  def lessonProgressService
+  def chapterService
+  def chapterProgressService
   def masteryService
 
   @Secured('ROLE_USER')
@@ -74,7 +74,7 @@ class ReviewController {
     reviewService.resolve(review, reviewCorrect)
     def frame = reviewService.getCurrentFrame(review)
     if (frame) {
-      updateDueCountIfNecessary(frame.lesson)
+      updateDueCountIfNecessary(frame.chapter)
       ajaxRenderFrame(frame, true)
     }
     else {
@@ -102,18 +102,18 @@ class ReviewController {
   }
 
   private List createChapterSelections() {
-    def progressList = lessonProgressService.findAll()
+    def progressList = chapterProgressService.findAll()
     def chapterSelection = progressList.collect {
       transformToChapterSelection(it)
     }
     return chapterSelection
   }
 
-  private ChapterSelection transformToChapterSelection(LessonProgress progress) {
-    def frameCount = progress.lesson.frameIds.size()
+  private ChapterSelection transformToChapterSelection(ChapterProgress progress) {
+    def frameCount = progress.chapter.frameIds.size()
     def dueCount = progress.dueFrameIds.size()
     boolean active = progress.activeFrameIds
-    def chapterNumber = progress.lesson.number
+    def chapterNumber = progress.chapter.number
     new ChapterSelection(chapterNumber: chapterNumber, selected: active, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
   }
 

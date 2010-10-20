@@ -1,7 +1,7 @@
 package butatopanto.kanji
 
-class LessonProgress {
-  Lesson lesson
+class ChapterProgress {
+  Chapter chapter
   def activeFrameIds = []
   def dueFrameIds = []
 }

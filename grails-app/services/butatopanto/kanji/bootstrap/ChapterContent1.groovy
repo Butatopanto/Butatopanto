@@ -4,9 +4,9 @@ import butatopanto.kanji.HeisigUser
 import butatopanto.kanji.Frame
 import butatopanto.kanji.Story
 
-class LessonContent1 extends LessonContent {
+class ChapterContent1 extends ChapterContent {
 
-  LessonContent1() {
+  ChapterContent1() {
     super(1)
   }
 

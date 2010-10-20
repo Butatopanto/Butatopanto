@@ -12,7 +12,7 @@ class MasteryQueryService {
           eq('userName', currentUserName)
         }
         frame {
-          'in'('lesson', numbers)
+          'in'('chapter', numbers)
         }
       }
     }

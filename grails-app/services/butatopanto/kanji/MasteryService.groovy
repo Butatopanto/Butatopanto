@@ -11,7 +11,7 @@ class MasteryService {
 
   def activateLesson(def number) {
     def heisigUser = findOrCreateHeisigUser()
-    def chapterFrameList = Frame.findAllByLesson(number)
+    def chapterFrameList = Frame.findAllByChapter(number)
     chapterFrameList.each {
       if (!masteryQueryService.findMasteryByFrameId(it.id)) {
         heisigUser.addToMasteryList new MasteryOfFrame(frame: it)

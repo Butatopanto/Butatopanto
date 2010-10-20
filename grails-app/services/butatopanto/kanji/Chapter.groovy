@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-class Lesson {
+class Chapter {
 
   def number
   def frameIds = []

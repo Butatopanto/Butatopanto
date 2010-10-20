@@ -1,17 +1,17 @@
 package butatopanto.kanji
 
-class LessonProgressService {
+class ChapterProgressService {
 
   static transactional = true
   def masteryService
-  def lessonService
+  def chapterService
 
   def findAll() {
-    def lessons = lessonService.findAll()
+    def lessons = chapterService.findAll()
     lessons.collect {
       def activeFrameIds = masteryService.listActiveFrameIdsForChapter(it.number)
       def dueFrameIds = masteryService.listDueFrameIdsForChapter(it.number)
-      new LessonProgress(lesson: it, activeFrameIds: activeFrameIds, dueFrameIds: dueFrameIds)
+      new ChapterProgress(chapter: it, activeFrameIds: activeFrameIds, dueFrameIds: dueFrameIds)
     }
   }
 }

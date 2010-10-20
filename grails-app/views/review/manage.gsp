@@ -21,7 +21,7 @@
       <div id="container" style="padding: 5px">
         <div>
           <g:each in="${session.chapters}" status="i" var="${chapter}">
-            <div class="lessonselector">
+            <div class="chapterselector">
               <heisig:chapterSelector chapter="${chapter}"/>
             </div>
           </g:each>

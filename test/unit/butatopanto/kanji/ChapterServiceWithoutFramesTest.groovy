@@ -4,9 +4,9 @@ package butatopanto.kanji;
 import org.junit.*
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 
-class LessonServiceWithoutFramesTest extends GrailsJUnit4TestCase {
+class ChapterServiceWithoutFramesTest extends GrailsJUnit4TestCase {
 
-  private LessonService service = new LessonService()
+  private ChapterService service = new ChapterService()
 
   @Before
   void mockDomainClasses() {
@@ -14,7 +14,7 @@ class LessonServiceWithoutFramesTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void findsNoLessonsWithoutFrames() {
+  void findsNoChapterWithoutFrames() {
     assertEquals 0, service.findAll().size()
   }
 }

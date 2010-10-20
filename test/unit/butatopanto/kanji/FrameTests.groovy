@@ -78,13 +78,13 @@ class FrameTests extends GrailsJUnit4TestCase {
 
   @Test
   void isValidWithLessonOf1() {
-    def frame = new Frame(lesson: 1)
-    assertNull getValidationFieldError(frame, "lesson")
+    def frame = new Frame(chapter: 1)
+    assertNull getValidationFieldError(frame, "chapter")
   }
 
   @Test
   void isInvalidWithLessonBelow1() {
-    def frame = new Frame(lesson: 0)
-    assertNotNull getValidationFieldError(frame, "lesson")
+    def frame = new Frame(chapter: 0)
+    assertNotNull getValidationFieldError(frame, "chapter")
   }
 }

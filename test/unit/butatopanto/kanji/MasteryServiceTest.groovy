@@ -28,7 +28,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   @Before
   void mockDomain() {
     mockDomain MasteryOfFrame
-    mockDomain Frame, [new Frame(id: 1, meaning: 'first', lesson: 1), new Frame(id: 2, meaning: 'second', lesson: 2), new Frame(id: 3, meaning: 'third', lesson: 2)]
+    mockDomain Frame, [new Frame(id: 1, meaning: 'first', chapter: 1), new Frame(id: 2, meaning: 'second', chapter: 2), new Frame(id: 3, meaning: 'third', chapter: 2)]
     mockDomain HeisigUser
   }
 

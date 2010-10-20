@@ -21,12 +21,12 @@ class HeisigContentBootstrappingTest extends GrailsJUnit4TestCase {
 
   @Test
   void knows15FramesInLesson1() {
-    assertEquals 15, Frame.countByLesson(1)
+    assertEquals 15, Frame.countByChapter(1)
   }
 
   @Test
   void knows19FramesInLesson2() {
-    assertEquals 19, Frame.countByLesson(2)
+    assertEquals 19, Frame.countByChapter(2)
   }
 
   private def assertKnowsAllDefaultFrames() {

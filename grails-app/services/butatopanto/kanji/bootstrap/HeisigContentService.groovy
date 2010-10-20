@@ -5,9 +5,9 @@ class HeisigContentService {
   def initializeDatabase() {
     log.info "Starting initialization of Heisig heisig."
     def lessons = [
-      new LessonContent1(), new LessonContent2(), new LessonContent3(), new LessonContent4(), new LessonContent5(), new LessonContent6(),
-      new LessonContent7(), new LessonContent8(), new LessonContent9(), new LessonContent10(), new LessonContent11(), new LessonContent12(),
-      new LessonContent13()
+      new ChapterContent1(), new ChapterContent2(), new ChapterContent3(), new ChapterContent4(), new ChapterContent5(), new ChapterContent6(),
+      new ChapterContent7(), new ChapterContent8(), new ChapterContent9(), new ChapterContent10(), new ChapterContent11(), new ChapterContent12(),
+      new ChapterContent13()
     ]
     lessons.each { it.insertFrames() }
     log.info "Finished initialization of Heisig heisig."
