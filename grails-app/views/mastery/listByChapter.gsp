@@ -12,9 +12,13 @@
 </div>
 <div style="left: 10px; position: relative">
   <div id="navigationHeader" style="position:absolute; top: 0px; left: 15px">
-    <h1 class="overviewColumn" style="text-align: center">Kapitel ${chapterNumber}</h1>
-    <a href="${chapterNumber - 1}" style="position: absolute; left: 0px; top: 15px">zurück</a>
-    <a href="${chapterNumber + 1}" style="position: absolute; right: 0px; top: 10px;">weiter</a>
+    <h1 class="overviewColumn" style="text-align: center">Kapitel ${current}</h1>
+    <g:if test="${previous}">
+      <a href="${previous}" style="position: absolute; left: 0px; top: 15px">zurück</a>
+    </g:if>
+    <g:if test="${next}">
+      <a href="${next}" style="position: absolute; right: 0px; top: 10px;">weiter</a>
+    </g:if>
   </div>
   <p>&nbsp</p>
   <div class="body" style="position: relative; top: 30px">
@@ -22,7 +26,7 @@
       <div class="overviewColumn" style='height:550px; border:solid; border-width:thin'>
         <div id="container" style="padding: 5px">
           <div>
-            <g:each in="${masteredFrameList}" status="i" var="${masteredFrame}">
+            <g:each in="${masteredFrames}" status="i" var="${masteredFrame}">
               <div class="selector">
                 <div class="box${masteredFrame.box} ${masteredFrame.hasStory ? 'withStory' : 'withoutStory'} kanjibox">${masteredFrame.kanji}</div>
               </div>

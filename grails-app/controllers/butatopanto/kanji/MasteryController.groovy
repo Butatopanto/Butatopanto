@@ -10,7 +10,7 @@ class MasteryController {
   def listByChapter = {
     int chapterNumber = params.int('id')
     def activeFrameIds = masteryService.listActiveFrameIdsForChapter(chapterNumber)
-    def activeFrames = activeFrameIds.collect {Frame.get(it)}.sort {a, b -> a.number <=> b.number}
+    def activeFrames = activeFrameIds.collect {Frame.get(it)}
     def masteredFrames = activeFrames.collect {
       boolean hasStory = storyService.findStoryTextByFrameId(it.id) != null
       def mastery = masteryService.findMasteryByFrameId (it.id)
@@ -18,7 +18,9 @@ class MasteryController {
       def kanji = it.kanji
       new MasteredFrame(kanji: kanji, box: box, hasStory: hasStory)
     }
-    [chapterNumber: chapterNumber, masteredFrameList: masteredFrames]
+    def previous = chapterNumber - 1
+    def next = chapterNumber + 1
+    [current: chapterNumber, masteredFrames: masteredFrames, previous: previous, next: next]
   }
 
   def index = {
