@@ -8,17 +8,17 @@ class ReviewService {
   def masteryService
   def storyService
 
-  def startChapters(List chapterNumbers) {
+  Review startChapters(List chapterNumbers) {
     def frameIds = masteryService.listActiveFrameIdsForChapterList(chapterNumbers)
     start(frameIds)
   }
 
-  def startDue() {
+  Review startDue() {
     def dueFrameIds = masteryService.listDueFrameIds()
     start (dueFrameIds)
   }
 
-  private def start(List frameIds) {
+  Review start(List frameIds) {
     Review review = new Review()
     review.remainingIds = frameIds
     review.totalCount = frameIds.size()
@@ -39,7 +39,7 @@ class ReviewService {
 
   Frame getCurrentFrame(Review review) {
     def currentReview = review.currentReview
-    Frame.findById(currentReview)
+    Frame.get(currentReview)
   }
 
   String getCurrentStory(Review review) {
