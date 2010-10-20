@@ -56,9 +56,6 @@ private void saveUserNameAndPassword(def username, def password) {
   if (userWantsToSave()) {
     saveUsername username
     savePassword password
-  }else{
-    saveUsername null
-    savePassword null
   }
 }
 
