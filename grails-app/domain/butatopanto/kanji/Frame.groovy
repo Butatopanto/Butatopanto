@@ -13,6 +13,10 @@ class Frame {
     lesson(min: 1)
   }
 
+  static mapping  = {
+    sort "number"
+  }
+
   String toString() {
     number + ": " + kanji + " (" + meaning + ")"
   }
