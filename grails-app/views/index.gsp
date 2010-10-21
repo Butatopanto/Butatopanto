@@ -68,7 +68,7 @@
         <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
       </ul>
       <ul>
-        <li class="controller"><g:link controller="frame"><g:message code="navigation.frameManagement"/></g:link></li>
+        <li class="controller"><g:link controller="mastery" action="listByChapter" id="1"><g:message code="navigation.frameManagement"/></g:link></li>
         <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
         <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
       </ul>
