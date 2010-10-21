@@ -64,7 +64,7 @@ class ReviewController {
   }
 
   def ajaxReveal = {
-    def frame = Frame.findById(params.id)
+    def frame = Frame.get(params.id)
     ajaxRenderFrame(frame, false)
   }
 
@@ -83,7 +83,9 @@ class ReviewController {
   }
 
   private def ajaxRenderFrame(frame, boolean hidden) {
-    render heisig.frameCard([frame: frame, hidden: hidden]) + heisig.interaction([frame: frame, hidden: hidden])
+    def frameCard = heisig.frameCard [frame: frame, hidden: hidden]
+    def interaction = heisig.interaction [frame: frame, hidden: hidden]
+    render frameCard + interaction
   }
 
   private def endReview() {

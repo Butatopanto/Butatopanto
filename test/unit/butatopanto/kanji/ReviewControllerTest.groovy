@@ -77,7 +77,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void redirectsToManageAfterAddingLesson() {
+  void redirectsToManageAfterAddingChapter() {
     masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.params.id = "1"
     controller.addChapter()
@@ -93,7 +93,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void redirectsToManageAfterRemovingLesson() {
+  void redirectsToManageAfterRemovingChapter() {
     controller.params.id = "3"
     controller.removeChapter()
     assertEquals "manage", controller.redirectArgs.action
