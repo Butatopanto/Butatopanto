@@ -10,19 +10,13 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
 
   private MasteryService service = new MasteryService()
   private UserServiceObjectMother userServiceObjectMother = new UserServiceObjectMother()
+  private MasteryQueryServiceObjectMother masteryQueryServiceObjectMother = new MasteryQueryServiceObjectMother()
 
   @Before
   void mockUserService() {
     service.userService = userServiceObjectMother.service
-    service.masteryQueryService = [
-      listMastery: {
-        HeisigUser.findByUserName(UserServiceObjectMother.defaultUserName).masteryList as List
-      },
-      findMasteryByFrameId: {  frameId ->
-        def masteryList = HeisigUser.findByUserName(UserServiceObjectMother.defaultUserName).masteryList as List
-        masteryList.find {frameId == it.frame.id}
-      }
-    ]
+    masteryQueryServiceObjectMother.queryFromHeisigUserData UserServiceObjectMother.defaultUserName
+    service.masteryQueryService = masteryQueryServiceObjectMother.service
   }
 
   @Before
@@ -72,12 +66,10 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void listsAllFrameIdAsDueForMasteryRecognizedByLeitnerService() {
+  void hasOneMasteryWithActiveFirstChapter() {
     userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
-    service.activateChapter(2)
-    MasteryOfFrame dueMastery = (currentHeisigUser.masteryList as List)[0]
-    service.leitnerService = [isDue: {it == dueMastery}]
-    assertEquals([dueMastery.frame.id], service.listDueFrameIds())
+    service.activateChapter(1)
+    assertEquals 1, service.getMasteryCount()
   }
 
   private def assertHasMasterySortedByMeaning(expected) {

@@ -114,12 +114,12 @@ class MasteryControllerListTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void returnsNumberOfActiveFrameReviewsFromHeisigUserDataService() {
     masteryCount = 7
-    assertEquals 7, (controller.list().numberOfActiveFrameReviews)
+    assertEquals 7, (controller.list().masteryCount)
   }
 
   @Test
   void returnsConfiguredActiveFrameListFromHeisigUserDataService() {
     masteryList = ["Der", "liebe", "Hasä"]
-    assertEquals(["Der", "liebe", "Hasä"], controller.list().activeFrameReviewList)
+    assertEquals(["Der", "liebe", "Hasä"], controller.list().masteryList)
   }
 }

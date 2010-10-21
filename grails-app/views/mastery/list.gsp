@@ -30,23 +30,23 @@
       </tr>
       </thead>
       <tbody>
-      <g:each in="${activeFrameReviewList}" status="i" var="frameReview">
+      <g:each in="${shownMasteryList}" status="i" var="mastery">
         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-          <td>${fieldValue(bean: frameReview.frame, field: "id")}</td>
-          <td>${fieldValue(bean: frameReview.frame, field: "kanji")}</td>
-          <td>${fieldValue(bean: frameReview.frame, field: "keyword")}</td>
-          <td>${fieldValue(bean: frameReview, field: "passed")}</td>
-          <td>${fieldValue(bean: frameReview, field: "failed")}</td>
-          <td>${fieldValue(bean: frameReview, field: "box")}</td>
-          <td><g:formatDate date="${frameReview.lastUpdated}" format="dd-MM-yyyy HH:mm"/></td>
-          <td><g:formatDate date="${frameReview.dateCreated}" format="dd-MM-yyyy HH:mm"/></td>
+          <td>${fieldValue(bean: mastery.frame, field: "id")}</td>
+          <td>${fieldValue(bean: mastery.frame, field: "kanji")}</td>
+          <td>${fieldValue(bean: mastery.frame, field: "keyword")}</td>
+          <td>${fieldValue(bean: mastery, field: "passed")}</td>
+          <td>${fieldValue(bean: mastery, field: "failed")}</td>
+          <td>${fieldValue(bean: mastery, field: "box")}</td>
+          <td><g:formatDate date="${mastery.lastUpdated}" format="dd-MM-yyyy HH:mm"/></td>
+          <td><g:formatDate date="${mastery.dateCreated}" format="dd-MM-yyyy HH:mm"/></td>
         </tr>
       </g:each>
       </tbody>
     </table>
   </div>
   <div class="paginateButtons">
-    <g:paginate max="20" total="${numberOfActiveFrameReviews}"/>
+    <g:paginate max="20" total="${masteryCount}"/>
   </div>
 </div>
 </body>

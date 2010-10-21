@@ -29,8 +29,8 @@ class MasteryController {
   }
 
   def list = {
-    List shownFrameReviews = listShownMastery()
-    [activeFrameReviewList: shownFrameReviews, numberOfActiveFrameReviews: masteryService.getMasteryCount()]
+    List shownMasteryList = listShownMastery()
+    [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]
   }
 
   private List listShownMastery() {
