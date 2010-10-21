@@ -74,4 +74,15 @@ class StoryControllerTest extends GrailsJUnit4ControllerTestCase {
     controller.save()
     assertEquals([action: "show", id: 1L], controller.redirectArgs)
   }
+
+  @Test
+  void doesNotRedirectOnUnknown() {
+    controller.unknown()
+    assertEquals([:], controller.redirectArgs)
+  }
+
+  @Test
+  void doesNotCreateParametersForUnknown() {
+    assertNull controller.unknown()
+  }
 }
