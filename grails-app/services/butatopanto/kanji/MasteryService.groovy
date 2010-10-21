@@ -81,8 +81,4 @@ class MasteryService {
   private def findOrCreateHeisigUser() {
     userService.findOrCreateHeisigUser()
   }
-
-  private HeisigUser getCurrentUserData() {
-    userService.findOrCreateHeisigUser()
-  }
 }
