@@ -12,6 +12,7 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
   }
 
   private storyByFrameId = [:]
+  private def inactiveFrameIds = []
 
   @Before
   void mockFrames() {
@@ -30,7 +31,11 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
   @Before
   void mockMasteryService() {
     controller.masteryService = [findMasteryByFrameId: { frameId ->
-      new MasteryOfFrame(frame: Frame.get(frameId), box: frameId + 1)
+      def frame = Frame.get(frameId)
+      if (inactiveFrameIds.contains(frameId)) {
+        return null
+      }
+      return new MasteryOfFrame(frame: frame, box: frameId + 1)
     }]
   }
 
@@ -63,6 +68,13 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
   @Test
   void hasMasteryFramesWithBoxesFromMasteryService() {
     assertEquals([2, 3], listByChapter(1).masteredFrames.collect {it.box})
+  }
+
+  @Test
+  void hasMasteryFramesWithBoxZeroForInactiveFrame() {
+    inactiveFrameIds.add 1L
+    inactiveFrameIds.add 2L
+    assertEquals([0, 0], listByChapter(1).masteredFrames.collect {it.box})
   }
 
   @Test

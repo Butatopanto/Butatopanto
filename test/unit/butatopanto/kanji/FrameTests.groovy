@@ -87,4 +87,10 @@ class FrameTests extends GrailsJUnit4TestCase {
     def frame = new Frame(chapter: 0)
     assertNotNull getValidationFieldError(frame, "chapter")
   }
+
+  @Test
+  void hasStringRepresentationWithNumberKanjiAndKeyword() {
+    Frame frame = new Frame(number: 1, kanji: 'a', keyword: 'the keyword')
+    assertEquals "1: a (the keyword)", frame.toString()
+  }
 }
