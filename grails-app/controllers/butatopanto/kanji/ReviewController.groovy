@@ -16,16 +16,16 @@ class ReviewController {
     [chaptersSelected: evaluateChapters().hasSelectedChapter(), kanjiDue: masteryService.listDueFrameIds() as boolean]
   }
 
-  def addLesson = {
+  def addChapter = {
     int chapterNumber = params.id.toInteger()
-    masteryService.activateLesson(chapterNumber)
+    masteryService.activateChapter(chapterNumber)
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
     updateDueCountIfNecessary(chapterNumber)
     redirect(action: "manage")
   }
 
-  def removeLesson = {
+  def removeChapter = {
     int chapterNumber = params.id.toInteger()
     evaluateChapters().getChapterForNumber(chapterNumber).selected = false
     redirect(action: "manage")
@@ -82,6 +82,10 @@ class ReviewController {
     }
   }
 
+  private def ajaxRenderFrame(frame, boolean hidden) {
+    render heisig.frameCard([frame: frame, hidden: hidden]) + heisig.interaction([frame: frame, hidden: hidden])
+  }
+
   private def endReview() {
     session.review = null;
     render "<h1>Herzlichen Glückwunsch</h1>"
@@ -94,11 +98,9 @@ class ReviewController {
   }
 
   private void updateDueCountIfNecessary(def chapterNumber) {
-    if (session.chapters) {
-      def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
-      def chapterSelection = evaluateChapters().getChapterForNumber(chapterNumber)
-      chapterSelection.dueFrameCount = dueFrames.size()
-    }
+    def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
+    def chapterSelection = evaluateChapters().getChapterForNumber(chapterNumber)
+    chapterSelection.dueFrameCount = dueFrames.size()
   }
 
   private List createChapterSelections() {
@@ -123,9 +125,5 @@ class ReviewController {
 
   private ChapterSelectionEvaluation evaluateChapters() {
     new butatopanto.kanji.ChapterSelectionEvaluation(chapters: getChapters())
-  }
-
-  private def ajaxRenderFrame(frame, boolean hidden) {
-    render heisig.frameCard([frame: frame, hidden: hidden]) + heisig.interaction([frame: frame, hidden: hidden])
   }
 }

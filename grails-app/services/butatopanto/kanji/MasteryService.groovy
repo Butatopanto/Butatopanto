@@ -9,7 +9,7 @@ class MasteryService {
   def masteryQueryService
   def leitnerService
 
-  def activateLesson(def number) {
+  def activateChapter(def number) {
     def heisigUser = findOrCreateHeisigUser()
     def chapterFrameList = Frame.findAllByChapter(number)
     chapterFrameList.each {

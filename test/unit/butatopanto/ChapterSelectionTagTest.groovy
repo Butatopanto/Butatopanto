@@ -66,14 +66,14 @@ class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
   void rendersLinkToRemoveLessonForSelectedLesson() {
     chapter.selected = true
     def html = createLinkHtml()
-    assertEquals("/link/to/removeLesson/1", html.@href.text())
+    assertEquals("/link/to/removeChapter/1", html.@href.text())
   }
 
   @Test
   void rendersLinkToAddLessonForDeselectedLesson() {
     chapter.selected = false
     def html = createLinkHtml()
-    assertEquals("/link/to/addLesson/1", html.@href.text())
+    assertEquals("/link/to/addChapter/1", html.@href.text())
   }
 
   private def createLinkHtml() {

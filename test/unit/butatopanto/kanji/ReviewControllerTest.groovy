@@ -13,6 +13,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   private TestReviewService reviewService = new TestReviewService()
+  private MasteryServiceObjectMother masteryServiceObjectMother = new MasteryServiceObjectMother()
 
   @Before
   void configureReviewService() {
@@ -20,8 +21,14 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Before
+  void configureMasteryService() {
+    controller.masteryService = masteryServiceObjectMother.service
+  }
+
+  @Before
   void configureChapters() {
-    controller.session.chapters = [new ChapterSelection(chapterNumber: 1),
+    controller.session.chapters = [
+      new ChapterSelection(chapterNumber: 1),
       new ChapterSelection(chapterNumber: 2),
       new ChapterSelection(chapterNumber: 3),
       new ChapterSelection(chapterNumber: 4)]
@@ -71,42 +78,31 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void redirectsToManageAfterAddingLesson() {
-    controller.masteryService = [activateLesson: { }, listDueFrameIdsForChapter: {[]}]
+    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.params.id = "1"
-    controller.addLesson()
+    controller.addChapter()
     assertEquals "manage", controller.redirectArgs.action
   }
 
   @Test
-  void addsLessonReviewsViaService() {
-    int addedLesson
-    controller.masteryService = [activateLesson: {addedLesson = it}, listDueFrameIdsForChapter: {[]}]
+  void activatesChapterOnMasteryServiceOnAddChapter() {
+    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.params.id = "4"
-    controller.addLesson()
-    assertEquals 4, addedLesson
+    controller.addChapter()
+    assertEquals([4], masteryServiceObjectMother.activatedChapters)
   }
 
   @Test
   void redirectsToManageAfterRemovingLesson() {
-    controller.masteryService = [deactivateLesson: { }]
     controller.params.id = "3"
-    controller.removeLesson()
+    controller.removeChapter()
     assertEquals "manage", controller.redirectArgs.action
   }
 
   @Test
-  void doesNotRemoveLessonReviewsViaService() {
-    int removedLesson
-    controller.masteryService = [deactivateLesson: {removedLesson = it}]
-    controller.params.id = "3"
-    controller.removeLesson()
-    assertNull removedLesson
-  }
-
-  @Test
   void showsEndOfLessonScreenAfterResolvingLastFrame() {
+    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}]
-    controller.masteryService = [listDueFrameIdsForChapter: {[]}]
     controller.session.review = new Review(currentReview: "second")
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
@@ -115,8 +111,8 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void clearsReviewAfterResolvingLastFrame() {
+    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}]
-    controller.masteryService = [listDueFrameIdsForChapter: {[]}]
     controller.session.review = new Review(currentReview: "second")
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
@@ -125,14 +121,14 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void informsManageViewWhetherNoKanjiAreDue() {
-    controller.masteryService = [listDueFrameIds: {[]}]
+    masteryServiceObjectMother.setNoDueFrameIds()
     def result = controller.manage()
     assertFalse result["kanjiDue"]
   }
 
   @Test
   void informsManageViewsWhetherAnyKanjiAreDue() {
-    controller.masteryService = [listDueFrameIds: {[1]}]
+    masteryServiceObjectMother.setDueFrameIds([1])
     def result = controller.manage()
     assertTrue result["kanjiDue"]
   }

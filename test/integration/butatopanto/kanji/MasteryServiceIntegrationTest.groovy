@@ -19,14 +19,14 @@ class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void addsMasteryToHeisigUser() {
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     HeisigUser userData = HeisigUser.findByUserName(userName)
     assertFalse userData.masteryList.isEmpty()
   }
 
   @Test
   void increasesPassedCountOnRightAnswer() {
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     def mastery = findMasteryForFrameOne()
     mastery.passed = 4
     mastery.save(failOnError: true)
@@ -36,7 +36,7 @@ class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void increasesBoxOnRightAnswer() {
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     def mastery = findMasteryForFrameOne()
     mastery.box = 1
     mastery.save(failOnError: true)
@@ -46,7 +46,7 @@ class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void increasesFailedCountOnWrongAnswer() {
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     def mastery = findMasteryForFrameOne()
     mastery.failed = 4
     mastery.save(failOnError: true)
@@ -56,7 +56,7 @@ class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void resetsBoxOnWrongAnswer() {
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     def mastery = findMasteryForFrameOne()
     mastery.box = 7
     mastery.save(failOnError: true)

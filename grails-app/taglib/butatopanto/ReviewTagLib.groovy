@@ -10,7 +10,7 @@ class ReviewTagLib {
     boolean active = chapterSelection.active
     def cssClass = active ? "active" : "inactive"
     cssClass += selected ? " selected" : " deselected"
-    def clickAction = selected ? "removeLesson" : "addLesson"
+    def clickAction = selected ? "removeChapter" : "addChapter"
     def chapterNumber = chapterSelection.chapterNumber
     out << g.link("class": cssClass, action: clickAction, id: chapterNumber) {
       chapter(attributes)

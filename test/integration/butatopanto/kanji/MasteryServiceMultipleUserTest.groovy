@@ -20,9 +20,9 @@ class MasteryServiceMultipleUserTest extends GrailsJUnit4TestCase {
   @Test
   void activesFrameThatIsAlreadyKnownByOtherUser() {
     springSecurityService.reauthenticate(firstUser.username, firstUser.password)
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     springSecurityService.reauthenticate(secondUser.username, secondUser.password)
-    masteryService.activateLesson(1)
+    masteryService.activateChapter(1)
     assertEquals 15, masteryService.listActiveFrameIdsForChapter(1).size()
   }
 }

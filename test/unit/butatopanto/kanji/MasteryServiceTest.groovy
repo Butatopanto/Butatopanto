@@ -35,46 +35,46 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   @Test
   void createsNonExistingUserDataWhenAddingFrameReviews() {
     userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
-    service.activateLesson(1)
+    service.activateChapter(1)
     assertNotNull "No Heisig User found for user", currentHeisigUser
   }
 
   @Test
   void addsMasteryForSingleFrameToUserData() {
     userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
-    service.activateLesson(1)
+    service.activateChapter(1)
     assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
   void addsMasteryForMultipleFramesToUserData() {
     userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
-    service.activateLesson(2)
+    service.activateChapter(2)
     assertHasMasterySortedByMeaning(['second', 'third'])
   }
 
   @Test
   void addsFrameToExistingCurrentUserData() {
     userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
-    service.activateLesson(1)
+    service.activateChapter(1)
     assertHasMasterySortedByMeaning(['first'])
   }
 
   @Test
   void retainsMasteryOnRepeatedAddition() {
     userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
-    service.activateLesson(1)
+    service.activateChapter(1)
     MasteryOfFrame mastery = (currentHeisigUser.masteryList as List)[0]
     mastery.passed = 10
     mastery.save()
-    service.activateLesson(1)
+    service.activateChapter(1)
     assertEquals 10, (currentHeisigUser.masteryList as List)[0].passed
   }
 
   @Test
   void listsAllFrameIdAsDueForMasteryRecognizedByLeitnerService() {
     userServiceObjectMother.setEnsuredCurrentHeisigUserExists()
-    service.activateLesson(2)
+    service.activateChapter(2)
     MasteryOfFrame dueMastery = (currentHeisigUser.masteryList as List)[0]
     service.leitnerService = [isDue: {it == dueMastery}]
     assertEquals([dueMastery.frame.id], service.listDueFrameIds())

@@ -43,21 +43,21 @@ class ManageReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCa
   @Test
   void selectsChapterOnLessonAddition() {
     controller.params.id = "1"
-    controller.addLesson()
+    controller.addChapter()
     assertTrue(controller.session.chapters[0].selected)
   }
 
   @Test
   void activatesChapterOnLessonAddition() {
     controller.params.id = "1"
-    controller.addLesson()
+    controller.addChapter()
     assertTrue(controller.session.chapters[0].active)
   }
 
   @Test
   void updatesDueCountOnLessonAddition() {
     controller.params.id = "1"
-    controller.addLesson()
+    controller.addChapter()
     assertEquals(15, controller.session.chapters[0].dueFrameCount)
   }
 }
