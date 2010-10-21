@@ -1,10 +1,11 @@
-package butatopanto;
+package butatopanto.kanji;
 
 
 import butatopanto.kanji.ChapterSelection
 import butatopanto.sharedtest.TagLibJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
+import butatopanto.kanji.ReviewTagLib
 
 class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
 

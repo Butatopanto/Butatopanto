@@ -1,4 +1,4 @@
-package butatopanto
+package butatopanto.kanji
 
 class StoryTagLib {
 

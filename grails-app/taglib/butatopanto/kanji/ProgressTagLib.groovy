@@ -1,4 +1,4 @@
-package butatopanto
+package butatopanto.kanji
 
 import butatopanto.learning.Review
 import butatopanto.progress.GoogleChartBuilder

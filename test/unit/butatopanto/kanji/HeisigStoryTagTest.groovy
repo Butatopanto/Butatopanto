@@ -1,8 +1,9 @@
-package butatopanto
+package butatopanto.kanji
 
 import butatopanto.sharedtest.TagLibJUnit4TestCase
 import org.junit.Test
 import static butatopanto.sharedtest.TagLibUtilities.getContentAsXml
+import butatopanto.kanji.StoryTagLib
 
 class HeisigStoryTagTest extends TagLibJUnit4TestCase {
 

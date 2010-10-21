@@ -1,4 +1,4 @@
-package butatopanto
+package butatopanto.kanji
 
 import butatopanto.sharedtest.TagLibJUnit4TestCase
 
