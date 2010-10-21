@@ -2,7 +2,7 @@ package butatopanto.kanji
 
 class ChapterSelectionEvaluation {
 
-  def chapters = []
+  List<ChapterSelection> chapters = []
 
   def getSelectedChapterNumbers() {
     def selectedChapters = chapters.findAll {it.selected}

@@ -28,7 +28,7 @@
           <div>
             <g:each in="${masteredFrames}" status="i" var="${masteredFrame}">
               <div class="selector">
-                <div title="${masteredFrame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.kanji}</div>
+                <div title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.frame.kanji}</div>
               </div>
             </g:each>
           </div>

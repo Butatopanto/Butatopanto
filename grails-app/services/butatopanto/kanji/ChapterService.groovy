@@ -8,12 +8,12 @@ class ChapterService {
     List<Frame> frameList = Frame.list()
     Set<Integer> chapterNumbers = ((frameList.collect {it.chapter} as Set) as List).sort()
     chapterNumbers.collect {
-      new Chapter(number: it, frameIds: getFramesFor(it))
+      new Chapter(number: it, frameIds: listFramesFor(it).collect {it.id})
     }
   }
 
-  List<Frame> getFramesFor(def chapterNumber) {
-     Frame.findAllByChapter(chapterNumber).collect {it.id}.sort()
+  List<Frame> listFramesFor(def chapterNumber) {
+    Frame.findAllByChapter chapterNumber
   }
 
   int getLastChapterNumber() {

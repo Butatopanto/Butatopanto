@@ -11,7 +11,7 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
     super(MasteryController)
   }
 
-  private activeFrameIdsByChapter = [:]
+  private storyByFrameId = [:]
 
   @Before
   void mockFrames() {
@@ -19,9 +19,18 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
   }
 
   @Before
+  void mockStoryService() {
+    controller.storyService = [
+      findStoryTextByFrameId: { frameId ->
+        storyByFrameId[frameId]
+      }
+    ]
+  }
+
+  @Before
   void mockMasteryService() {
-    controller.masteryService = [listActiveFrameIdsForChapter: { chapterNumber ->
-      activeFrameIdsByChapter[(Object) chapterNumber]
+    controller.masteryService = [findMasteryByFrameId: { frameId ->
+      new MasteryOfFrame(frame: Frame.get(frameId), box: frameId + 1)
     }]
   }
 
@@ -31,20 +40,40 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
       getLastChapterNumber: {
         5
       },
-      getFramesFor: {chapterNumber ->
-        Frame.findByChapter chapterNumber
+      listFramesFor: {chapterNumber ->
+        Frame.findAllByChapter chapterNumber
       }]
   }
 
   @Test
   void hasNoNextChapterForLastChapter() {
-    controller.params.id = 5
-    assertNull controller.listByChapter().next
+    assertNull listByChapter(5).next
   }
 
   @Test
   void hasPreviousChapterNumberAsPrevious() {
-    controller.params.id = 5
-    assertEquals 4, controller.listByChapter().previous
+    assertEquals 4, listByChapter(5).previous
+  }
+
+  @Test
+  void hasMasteryFramesForEachChapterFrame() {
+    assertEquals([1, 2], listByChapter(1).masteredFrames.collect {it.frame.id})
+  }
+
+  @Test
+  void hasMasteryFramesWithBoxesFromMasteryService() {
+    assertEquals([2, 3], listByChapter(1).masteredFrames.collect {it.box})
+  }
+
+  @Test
+  void hasMasteryFramesWithoutStoriesAccordingToStoryService() {
+    storyByFrameId[1L] = "A story"
+    def result = listByChapter(1)
+    assertEquals([true, false], result.masteredFrames.collect {it.hasStory})
+  }
+
+  private def listByChapter(int chapterNumber) {
+    controller.params.id = chapterNumber
+    def result = controller.listByChapter()
   }
 }

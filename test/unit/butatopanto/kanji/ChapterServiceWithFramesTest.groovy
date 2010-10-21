@@ -26,12 +26,14 @@ class ChapterServiceWithFramesTest extends GrailsJUnit4TestCase {
 
   @Test
   void findsChapterWithFramesForNumberOne() {
-    assertEquals([1, 2], service.findAll()[0].frameIds)
+    List<Chapter> chapters = service.findAll()
+    assertEquals([1, 2], chapters[0].frameIds)
   }
 
   @Test
   void findsChapterWithFrameForNumberTwo() {
-    assertEquals([3], service.findAll()[1].frameIds)
+    List<Chapter> chapters = service.findAll()
+    assertEquals([3], chapters[1].frameIds)
   }
 
   @Test

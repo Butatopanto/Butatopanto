@@ -6,27 +6,26 @@ class MasteryController {
   def storyService
   def chapterService
 
+  def index = {
+    redirect(action: "listByChapter", id: 1)
+  }
+
   def listByChapter = {
     int chapterNumber = params.int('id')
-    def activeFrameIds = chapterService.getFramesFor(chapterNumber)
-    List masteredFrames = asMasteredFrames(activeFrameIds)
+    List<Frame> activeFrames = chapterService.listFramesFor(chapterNumber)
+    List<MasteredFrame> masteredFrames = toMasteredFrames(activeFrames)
     def previous = chapterNumber - 1
     def next = chapterNumber == chapterService.getLastChapterNumber() ? null : chapterNumber + 1
     [current: chapterNumber, masteredFrames: masteredFrames, previous: previous, next: next]
   }
 
-  private List asMasteredFrames(List activeFrameIds) {
-    activeFrameIds.collect {
-      Frame frame = Frame.get(it)
-      boolean hasStory = storyService.findStoryTextByFrameId(it) != null
-      MasteryOfFrame mastery = masteryService.findMasteryByFrameId(frame.id)
+  private List<MasteredFrame> toMasteredFrames(List<Frame> activeFrames) {
+    activeFrames.collect {
+      boolean hasStory = storyService.findStoryTextByFrameId(it.id) != null
+      MasteryOfFrame mastery = masteryService.findMasteryByFrameId(it.id)
       def box = mastery ? mastery.box : 0
-      new MasteredFrame(keyword: frame.keyword, kanji: frame.kanji, box: box, hasStory: hasStory)
+      new MasteredFrame(frame: it, box: box, hasStory: hasStory)
     }
-  }
-
-  def index = {
-    redirect(action: "list", params: params)
   }
 
   def list = {

@@ -33,9 +33,9 @@ class MasteryControllerListTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void redirectsIndexToList() {
+  void redirectsIndexToListFirstChapter() {
     controller.index()
-    assertEquals(controller.redirectArgs.action, "list")
+    assertEquals([action: "listByChapter", id: 1], controller.redirectArgs)
   }
 
   @Test
