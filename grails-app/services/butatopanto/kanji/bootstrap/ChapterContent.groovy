@@ -14,6 +14,6 @@ class ChapterContent {
     if (frame != null) {
       return;
     }
-    new Frame(number: number, kanji: character, meaning: meaning, chapter: chapterNumber).save();
+    new Frame(number: number, kanji: character, keyword: meaning, chapter: chapterNumber).save();
   }
 }

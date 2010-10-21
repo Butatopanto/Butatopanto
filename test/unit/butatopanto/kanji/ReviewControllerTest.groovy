@@ -66,7 +66,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   void passesCurrentFrameAsParameterForPractice() {
     controller.session.review = new Review(currentReview: "second")
     Frame passedFrame = controller.practice()."frame"
-    assertEquals "second", passedFrame.meaning
+    assertEquals "second", passedFrame.keyword
   }
 
   @Test

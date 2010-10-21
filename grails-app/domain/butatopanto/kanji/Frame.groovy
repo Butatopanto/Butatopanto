@@ -2,14 +2,14 @@ package butatopanto.kanji
 
 class Frame {
   int number
-  String meaning
+  String keyword
   String kanji
   int chapter
 
   static constraints = {
     number(min: 1, unique: true)
     kanji(blank: false, unique: true, maxSize: 1)
-    meaning(blank: false, unique: true)
+    keyword(blank: false, unique: true)
     chapter(min: 1)
   }
 
@@ -18,6 +18,6 @@ class Frame {
   }
 
   String toString() {
-    number + ": " + kanji + " (" + meaning + ")"
+    number + ": " + kanji + " (" + keyword + ")"
   }
 }

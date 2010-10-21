@@ -9,12 +9,12 @@ class StartChaptersOnReviewServiceWithFramesTest extends GrailsUnitTestCase {
 
   private ReviewService reviewService = new ReviewService()
   private Review review
-  private def frame1 = new Frame(id: 1, meaning: 'Schatz')
-  private def frame2 = new Frame(id: 2, meaning: 'Nichts')
+  private def frame1 = new Frame(id: 1, keyword: 'Schatz')
+  private def frame2 = new Frame(id: 2, keyword: 'Nichts')
 
   protected void setUp() {
     super.setUp()
-    mockDomain Frame, [frame1, frame2, new Frame(id: 3, meaning: 'inactive')]
+    mockDomain Frame, [frame1, frame2, new Frame(id: 3, keyword: 'inactive')]
     reviewService.random = mock(Random)
     when(reviewService.random.nextInt(2)).thenReturn(1)
     when(reviewService.random.nextInt(1)).thenReturn(0)

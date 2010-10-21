@@ -2,7 +2,7 @@ package butatopanto.kanji
 
 class MasteredFrame {
   def kanji
-  def meaning
+  def keyword
   def box
   boolean hasStory
 

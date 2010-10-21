@@ -44,12 +44,12 @@ class HeisigTagLib {
 
   private def renderHiddenCard(frame) {
     def function = g.remoteFunction(action: 'ajaxReveal', update: 'container', id: frame.id)
-    renderCard(function, frame.meaning, '?', '');
+    renderCard(function, frame.keyword, '?', '');
   }
 
   private def renderRevealedCard(frame) {
     def function = ""
-    renderCard(function, frame.meaning, frame.kanji, frame.number)
+    renderCard(function, frame.keyword, frame.kanji, frame.number)
   }
 
   private def renderCard(function, meaning, kanji, number) {

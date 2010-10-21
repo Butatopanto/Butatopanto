@@ -13,25 +13,25 @@ class FrameTests extends GrailsJUnit4TestCase {
 
   @Before
   public void mockFrameForConstraints() {
-    def existingFrame = new Frame(number: 12, meaning: existingMeaning, kanji: existingKanji)
+    def existingFrame = new Frame(number: 12, keyword: existingMeaning, kanji: existingKanji)
     mockForConstraintsTests(Frame, [existingFrame])
   }
 
   void isValidWithStringMeaning() {
-    def frame = new Frame(meaning: 'other meaning')
-    assertNull getValidationFieldError(frame, "meaning")
+    def frame = new Frame(keyword: 'other keyword')
+    assertNull getValidationFieldError(frame, "keyword")
   }
 
   @Test
   void isInvalidWithBlankMeaning() {
-    def frame = new Frame(meaning: '')
-    assertNotNull getValidationFieldError(frame, "meaning")
+    def frame = new Frame(keyword: '')
+    assertNotNull getValidationFieldError(frame, "keyword")
   }
 
   @Test
   void isInvalidWithDuplicatedMeaning() {
-    def frame = new Frame(meaning: existingMeaning)
-    assertNotNull getValidationFieldError(frame, "meaning")
+    def frame = new Frame(keyword: existingMeaning)
+    assertNotNull getValidationFieldError(frame, "keyword")
   }
 
   @Test

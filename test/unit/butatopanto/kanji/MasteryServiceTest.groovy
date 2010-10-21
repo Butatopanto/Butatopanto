@@ -28,7 +28,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   @Before
   void mockDomain() {
     mockDomain MasteryOfFrame
-    mockDomain Frame, [new Frame(id: 1, meaning: 'first', chapter: 1), new Frame(id: 2, meaning: 'second', chapter: 2), new Frame(id: 3, meaning: 'third', chapter: 2)]
+    mockDomain Frame, [new Frame(id: 1, keyword: 'first', chapter: 1), new Frame(id: 2, keyword: 'second', chapter: 2), new Frame(id: 3, keyword: 'third', chapter: 2)]
     mockDomain HeisigUser
   }
 
@@ -81,7 +81,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   }
 
   private def assertHasMasterySortedByMeaning(expected) {
-    assertEquals(expected, currentHeisigUser.masteryList.collect({ it.frame.meaning }).sort())
+    assertEquals(expected, currentHeisigUser.masteryList.collect({ it.frame.keyword }).sort())
   }
 
   private def getCurrentHeisigUser() {

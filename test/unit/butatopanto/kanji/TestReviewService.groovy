@@ -15,6 +15,6 @@ class TestReviewService {
   }
 
   def getCurrentFrame(Review review) {
-    new Frame(meaning: review.currentReview)
+    new Frame(keyword: review.currentReview)
   }
 }

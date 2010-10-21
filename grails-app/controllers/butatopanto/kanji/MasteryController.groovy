@@ -21,7 +21,7 @@ class MasteryController {
       boolean hasStory = storyService.findStoryTextByFrameId(it) != null
       MasteryOfFrame mastery = masteryService.findMasteryByFrameId(frame.id)
       def box = mastery ? mastery.box : 0
-      new MasteredFrame(meaning: frame.meaning, kanji: frame.kanji, box: box, hasStory: hasStory)
+      new MasteredFrame(keyword: frame.keyword, kanji: frame.kanji, box: box, hasStory: hasStory)
     }
   }
 

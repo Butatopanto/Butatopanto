@@ -19,7 +19,7 @@ class StoryServiceTest extends GrailsJUnit4TestCase {
   void mockDomain() {
     mockDomain HeisigUser
     mockDomain Story
-    mockDomain Frame, [new Frame(id: 1, meaning: 'first'), new Frame(id: 2, meaning: 'second'), new Frame(id: 3, meaning: 'third')]
+    mockDomain Frame, [new Frame(id: 1, keyword: 'first'), new Frame(id: 2, keyword: 'second'), new Frame(id: 3, keyword: 'third')]
   }
 
   @Test
