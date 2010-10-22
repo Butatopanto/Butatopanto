@@ -56,7 +56,7 @@ class HeisigTagLib {
     return "<div id='card' style='width:270px; height:390px; position:relative; top:50px; background-color:white' align='center' onclick=\"${function}\"> " +
            "<table height = '100%'>" +
            renderMeaning(meaning) +
-           renderCharacter(kanji) +
+           renderKanji(kanji) +
            renderNumber(number) +
            "</table>" +
            "</div>"
@@ -74,9 +74,9 @@ class HeisigTagLib {
     "</tr>"
   }
 
-  private def renderCharacter(character) {
+  private def renderKanji(character) {
     "<tr>" +
-    "<td height = '100%' style = 'text-align: center; vertical-align:middle; font-size:100px' >${character}</td>" +
+    "<td class='frameCardKanji' style = 'text-align: center; vertical-align:middle; font-size:100px; height: 100%' >${character}</td>" +
     "</tr>"
   }
 }

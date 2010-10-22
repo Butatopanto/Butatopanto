@@ -1,44 +1,44 @@
 .menuButton a.learn {
-    background: url(../images/skin/questionmark.gif) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
+  background: url(../images/skin/questionmark.gif) center left no-repeat;
+  color: #333;
+  padding-left: 25px;
 }
 
 .menuButton a.manage {
-    background: url(../images/skin/manage-16.jpg) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
+  background: url(../images/skin/manage-16.jpg) center left no-repeat;
+  color: #333;
+  padding-left: 25px;
 }
 
 .menuButton a.practice {
-    background: url(../images/skin/practice-16.jpg) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
+  background: url(../images/skin/practice-16.jpg) center left no-repeat;
+  color: #333;
+  padding-left: 25px;
 }
 
 div.chapterselector {
-    width: 60px;
-    height: 60px;
-    margin: 6px;
-    text-align: center;
-    float: left;
+  width: 60px;
+  height: 60px;
+  margin: 6px;
+  text-align: center;
+  float: left;
 }
 
 a.active, a.selected, a.inactive, a.deselected {
-    display: block;
-    height: 100%;
-    width: 100%;
-    border-radius: 15px;
-    font-weight: normal;
-    color: black;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  font-weight: normal;
+  color: black;
 }
 
 a.active {
-    background-color: #ccccff;
+  background-color: #ccccff;
 }
 
 a.inactive {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 a.selected {
@@ -47,4 +47,11 @@ a.selected {
 
 a.deselected {
   border: 2px #dedede solid;
+}
+
+.frameCardKanji {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 100px;
+  height: 100%
 }

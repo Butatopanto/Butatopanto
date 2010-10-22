@@ -9,6 +9,7 @@ import java.text.MessageFormat
 class TagLibJUnit4TestCase extends TagLibUnitTestCase {
 
   protected def messageCodes = [:]
+  def remoteFunctions = []
 
   TagLibJUnit4TestCase() {
     super("TagLib")
@@ -23,6 +24,7 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
     super.setUp()
     mockLink()
     mockMessage()
+    mockRemoteFunction()
   }
 
   void mockLink() {
@@ -43,6 +45,14 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
         return "unconfigured message code: ${arguments.code}"
       }
       return MessageFormat.format(pattern, arguments.args as Object[])
+    }
+  }
+
+  void mockRemoteFunction() {
+    tagLib.class.metaClass.remoteFunction { arguments ->
+      def index = remoteFunctions.size()
+      remoteFunctions.add arguments
+      "remoteFunction(${index})"
     }
   }
 
