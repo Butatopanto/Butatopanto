@@ -2,7 +2,7 @@ package butatopanto.progress
 
 import groovy.xml.MarkupBuilder
 
-class GoogleChartB  ilder {
+class GoogleChartBuilder {
 
   private int width = 250
   private int height = 100
