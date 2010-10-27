@@ -10,6 +10,8 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
 
   protected def messageCodes = [:]
   def remoteFunctions = []
+  def submitsToRemote = []
+  def formArguments = []
 
   TagLibJUnit4TestCase() {
     super("TagLib")
@@ -23,8 +25,10 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
   public void setUp() {
     super.setUp()
     mockLink()
+    mockForm()
     mockMessage()
     mockRemoteFunction()
+    mockSubmitToRemote()
   }
 
   void mockLink() {
@@ -48,11 +52,26 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
     }
   }
 
+  void mockForm() {
+    tagLib.class.metaClass.form {  arguments, body ->
+      formArguments.add(arguments)
+      "<form>" + body() + "</form>"
+    }
+  }
+
   void mockRemoteFunction() {
     tagLib.class.metaClass.remoteFunction { arguments ->
       def index = remoteFunctions.size()
       remoteFunctions.add arguments
       "remoteFunction(${index})"
+    }
+  }
+
+  private mockSubmitToRemote() {
+    tagLib.class.metaClass.submitToRemote {  arguments ->
+      def index = submitsToRemote.size()
+      submitsToRemote.add arguments
+      "submitToRemote(${index})"
     }
   }
 

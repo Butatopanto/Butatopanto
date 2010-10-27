@@ -74,3 +74,8 @@ a.deselected {
   text-align: right;
   font-size: 12px;
 }
+
+.frameMessage {
+  position:relative;
+  top:50px;
+}
