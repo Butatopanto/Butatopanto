@@ -28,11 +28,11 @@ class HeisigTagLib {
   }
 
   private def renderRevealMessage() {
-    "<p style='position:relative; top:50px'>${g.message(code: 'frame.revealMessage')}</p>"
+    "<p class='frameMessage'>${g.message(code: 'frame.revealMessage')}</p>"
   }
 
   private def renderReviewButtons(frame) {
-    "<div style='position:relative; top:50px'>" +
+    "<div class='frameMessage'>" +
     "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
     g.form(name: 'reviewKanji') {
       g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'confirmButton', class: "confirm", update: 'container', value: g.message(code: 'frame.reviewResult.confirm'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
@@ -53,30 +53,24 @@ class HeisigTagLib {
   }
 
   private def renderCard(function, meaning, kanji, number) {
-    return "<div id='card' style='width:270px; height:390px; position:relative; top:50px; background-color:white' align='center' onclick=\"${function}\"> " +
+    return "<div id='card' class='frameCard' onclick=\"${function}\"> " +
            "<table height = '100%'>" +
-           renderMeaning(meaning) +
+           renderKeyword(meaning) +
            renderKanji(kanji) +
            renderNumber(number) +
            "</table>" +
            "</div>"
   }
 
-  private def renderNumber(number) {
-    "<tr height = '10%' >" +
-    "<td style = 'text-align: right; font-size:12px'>${number}</td>" +
-    "</tr>"
-  }
-
-  private def renderMeaning(meaning) {
-    "<tr height = '10%'> " +
-    "<td style = 'text-align: left; font-size:20px'>${meaning}</td>" +
-    "</tr>"
+  private def renderKeyword(keyword) {
+    "<tr height = '10%'><td class='frameCardKeyword'>${keyword}</td></tr>"
   }
 
   private def renderKanji(character) {
-    "<tr>" +
-    "<td class='frameCardKanji' style = 'text-align: center; vertical-align:middle; font-size:100px; height: 100%' >${character}</td>" +
-    "</tr>"
+    "<tr><td class='frameCardKanji'>${character}</td></tr>"
+  }
+
+  private def renderNumber(number) {
+    "<tr height = '10%' ><td class='frameCardNumber'>${number}</td></tr>"
   }
 }
