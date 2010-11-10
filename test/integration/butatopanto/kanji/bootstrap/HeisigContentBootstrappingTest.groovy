@@ -30,6 +30,6 @@ class HeisigContentBootstrappingTest extends GrailsJUnit4TestCase {
   }
 
   private def assertKnowsAllDefaultFrames() {
-    assertEquals 299, Frame.list().size()
+    assertEquals 352, Frame.list().size()
   }
 }
