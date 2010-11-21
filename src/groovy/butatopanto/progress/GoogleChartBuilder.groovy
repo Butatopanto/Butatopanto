@@ -2,7 +2,7 @@ package butatopanto.progress
 
 import groovy.xml.MarkupBuilder
 
-class GoogleChartBuilder {
+class GoogleChartBuilder extends HtmlBuilder {
 
   private int width = 250
   private int height = 100
@@ -32,12 +32,6 @@ class GoogleChartBuilder {
     addParameter "chdl=${right}|${wrong}|${remaining}"
   }
 
-  def buildHtml() {
-    def writer = new StringWriter()
-    buildMarkup(writer)
-    writer.toString()
-  }
-
   private void addLegendAtBottom() {
     addParameter "chdlp=b"
   }
@@ -46,8 +40,7 @@ class GoogleChartBuilder {
     addParameter "chco=80f08e,f08080,FFFFFF"
   }
 
-  private void buildMarkup(def writer) {
-    MarkupBuilder builder = new MarkupBuilder(writer)
+  protected void build(MarkupBuilder builder) {
     builder.img(alt: alternativeText, width: width, height: height, src: buildUrl())
   }
 

@@ -7,6 +7,7 @@ import org.junit.Test
 import static butatopanto.sharedtest.TagLibUtilities.getContentAsXml
 
 class HeisigRevealedFrameCardTagTest extends TagLibJUnit4TestCase {
+
   private def contentXml
 
   HeisigRevealedFrameCardTagTest() {
