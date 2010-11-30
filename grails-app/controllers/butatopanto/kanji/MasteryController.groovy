@@ -1,5 +1,7 @@
 package butatopanto.kanji
 
+import grails.plugins.springsecurity.Secured
+
 class MasteryController {
 
   def masteryService
@@ -10,6 +12,7 @@ class MasteryController {
     redirect(action: "listByChapter", id: 1)
   }
 
+  @Secured('ROLE_USER')
   def listByChapter = {
     int chapterNumber = params.int('id')
     List<Frame> activeFrames = chapterService.listFramesFor(chapterNumber)
