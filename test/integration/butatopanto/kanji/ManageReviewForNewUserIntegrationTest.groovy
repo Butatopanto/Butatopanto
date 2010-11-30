@@ -17,7 +17,7 @@ class ManageReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCa
   void createUserAndLogIn() {
     new User(username: "Test", password: "Toast").save(failOnError: true)
     springSecurityService.reauthenticate("Test", "Toast")
-    controller.manage()
+    controller.assemble()
   }
 
   @Test

@@ -81,7 +81,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.params.id = "1"
     controller.addChapter()
-    assertEquals "manage", controller.redirectArgs.action
+    assertEquals "assemble", controller.redirectArgs.action
   }
 
   @Test
@@ -96,7 +96,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   void redirectsToManageAfterRemovingChapter() {
     controller.params.id = "3"
     controller.removeChapter()
-    assertEquals "manage", controller.redirectArgs.action
+    assertEquals "assemble", controller.redirectArgs.action
   }
 
   @Test
@@ -120,16 +120,16 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void informsManageViewWhetherNoKanjiAreDue() {
+  void informsAssembleViewWhetherNoKanjiAreDue() {
     masteryServiceObjectMother.setNoDueFrameIds()
-    def result = controller.manage()
+    def result = controller.assemble()
     assertFalse result["kanjiDue"]
   }
 
   @Test
-  void informsManageViewsWhetherAnyKanjiAreDue() {
+  void informsAssembleViewsWhetherAnyKanjiAreDue() {
     masteryServiceObjectMother.setDueFrameIds([1])
-    def result = controller.manage()
+    def result = controller.assemble()
     assertTrue result["kanjiDue"]
   }
 }

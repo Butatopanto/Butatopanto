@@ -10,8 +10,12 @@ class ReviewController {
   def chapterProgressService
   def masteryService
 
+  def index = {
+    redirect(action: "assemble", id: 1)
+  }
+
   @Secured('ROLE_USER')
-  def manage = {
+  def assemble = {
     createChapterSelectionIfNecessary()
     [chaptersSelected: evaluateChapters().hasSelectedChapter(), kanjiDue: masteryService.listDueFrameIds() as boolean]
   }
@@ -22,13 +26,13 @@ class ReviewController {
     evaluateChapters().getChapterForNumber(chapterNumber).selected = true
     evaluateChapters().getChapterForNumber(chapterNumber).active = true
     updateDueCountIfNecessary(chapterNumber)
-    redirect(action: "manage")
+    redirect(action: "assemble")
   }
 
   def removeChapter = {
     int chapterNumber = params.id.toInteger()
     evaluateChapters().getChapterForNumber(chapterNumber).selected = false
-    redirect(action: "manage")
+    redirect(action: "assemble")
   }
 
   @Secured('ROLE_USER')

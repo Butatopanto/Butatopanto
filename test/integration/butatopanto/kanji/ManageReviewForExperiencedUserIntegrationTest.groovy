@@ -20,7 +20,7 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
     new User(username: "Test", password: "Toast").save(failOnError: true)
     springSecurityService.reauthenticate("Test", "Toast")
     masteryService.activateChapter(1)
-    controller.manage()
+    controller.assemble()
   }
 
   @Before

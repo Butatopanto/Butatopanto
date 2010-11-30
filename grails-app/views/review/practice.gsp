@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="layout" content="main"/>
+  <link rel="stylesheet" href="<g:createLinkTo dir='css/kanji' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='story.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
@@ -26,7 +27,8 @@
 <body>
 <div class="nav">
   <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-  <span class="menuButton"><g:link class="manage" action="manage"><g:message code="menu.manageReview"/></g:link></span>
+  <span class="menuButton"><g:link class="manage" controller="mastery" action="listByChapter" id="1"><g:message code="menu.kanji.overview"/></g:link></span>
+  <span class="menuButton"><g:link class="assemble" action="assemble"><g:message code="menu.assembleReview"/></g:link></span>
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
