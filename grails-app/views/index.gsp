@@ -65,10 +65,10 @@
     <div class="panelBody">
       <ul>
         <li class="controller"><g:link controller="review" action="manage"><g:message code="navigation.frameTraining"/></g:link></li>
-        <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
-      </ul>
-      <ul>
         <li class="controller"><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
+       </ul>
+      <ul>
+        <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
         <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
         <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
       </ul>
