@@ -1,13 +1,34 @@
 package butatopanto.kanji.bootstrap
 
-import butatopanto.kanji.Frame
-
 class MissingChapterService {
 
   def allChapters() {
-    return [new ChapterContent1(), new ChapterContent2(), new ChapterContent3(), new ChapterContent4(), new ChapterContent5(), new ChapterContent6(),
-            new ChapterContent7(), new ChapterContent8(), new ChapterContent9(), new ChapterContent10(), new ChapterContent11(), new ChapterContent12(),
-            new ChapterContent13(), new ChapterContent14(), new ChapterContent15(), new ChapterContent16(), new ChapterContent17(), new ChapterContent18(),
-            new ChapterContent19()]
+    def allChapters = []
+    int chapterNumber = 1
+    while (isValidChapterNumber(chapterNumber)) {
+      def chapter = loadChapter(chapterNumber)
+      allChapters.add(chapter)
+      chapterNumber++
+    }
+    return allChapters
+  }
+
+  private boolean isValidChapterNumber(int chapterNumber) {
+    try {
+      loadChapterClass(chapterNumber)
+    } catch (Exception e) {
+      return false;
+    }
+    return true
+  }
+
+  private def loadChapter(int chapterNumber) {
+    Class<?> chapterClass = loadChapterClass(chapterNumber)
+    return chapterClass.newInstance()
+  }
+
+  private Class<?> loadChapterClass(int chapterNumber) {
+    String className = "butatopanto.kanji.bootstrap.ChapterContent" + chapterNumber
+    getClass().getClassLoader().loadClass(className)
   }
 }
