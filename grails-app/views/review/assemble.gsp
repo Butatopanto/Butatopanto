@@ -9,11 +9,9 @@
 </head>
 <body>
 <div class="nav">
-  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-  <span class="menuButton"><g:link class="manage" controller="mastery" action="listByChapter" id="1"><g:message code="menu.kanji.overview"/></g:link></span>
-  <g:if test="${session.review}">
-    <span class="menuButton"><g:link class="practice" action="practice"><g:message code="menu.returnToPractice"/></g:link></span>
-  </g:if>
+  <menu:home/>
+  <menu:chapterList/>
+  <menu:backToPractice />
 </div>
 <h1><g:message code="review.assemble.chapterselection"/></h1>
 <p>&nbsp</p>

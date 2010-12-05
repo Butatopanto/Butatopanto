@@ -26,9 +26,9 @@
 </head>
 <body>
 <div class="nav">
-  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-  <span class="menuButton"><g:link class="manage" controller="mastery" action="listByChapter" id="1"><g:message code="menu.kanji.overview"/></g:link></span>
-  <span class="menuButton"><g:link class="assemble" action="assemble"><g:message code="menu.assembleReview"/></g:link></span>
+  <menu:home />
+  <menu:chapterList />
+  <menu:assembleReview />
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>

@@ -9,8 +9,9 @@
 </head>
 <body>
 <div class="nav">
-  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-  <span class="menuButton"><g:link class="assemble" controller="review" action="assemble"><g:message code="menu.assembleReview"/></g:link></span>
+  <menu:home />
+  <menu:assembleReview />
+  <menu:backToPractice />
 </div>
 <div style="left: 10px; position: relative">
   <div id="navigationHeader" style="position:absolute; top: 0px; left: 15px">
