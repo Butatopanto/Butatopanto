@@ -1,16 +1,12 @@
 package butatopanto.kanji.bootstrap
 
-import butatopanto.kanji.HeisigUser
-import butatopanto.kanji.Frame
-import butatopanto.kanji.Story
-
 class ChapterContent1 extends ChapterContent {
 
   ChapterContent1() {
     super(1)
   }
 
-  public void insertFrames() {
+  public void addFramesToDatabase() {
     insertFrame(1, "一", "eins")
     insertFrame(2, "二", "zwei")
     insertFrame(3, "三", "drei")

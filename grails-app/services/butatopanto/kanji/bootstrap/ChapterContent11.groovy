@@ -6,7 +6,7 @@ class ChapterContent11 extends ChapterContent {
     super(11)
   }
 
-  public void insertFrames() {
+  public void addFramesToDatabase() {
     insertFrame(235, "兆", "Vorzeichen")
     insertFrame(236, "桃", "Pfirsich")
     insertFrame(237, "眺", "anstarren")
