@@ -16,6 +16,6 @@ class MissingChapterServiceTests extends GrailsJUnit4TestCase {
   @Test
   void hasAllChapters() {
     def missingChapters = new MissingChapterService().allChapters()
-    assertEquals 15, missingChapters.size()
+    assertEquals 19, missingChapters.size()
   }
 }
