@@ -26,17 +26,5 @@ class ChapterContent1 extends ChapterContent {
     insertFrame(13, "月", "Monat")
     insertFrame(14, "田", "Reisfeld")
     insertFrame(15, "目", "Auge")
-    insertSomeStories()
-  }
-
-  void insertSomeStories() {
-    if (HeisigUser.findByUserName("Sandra")) {
-      return
-    }
-    HeisigUser userData = new HeisigUser(userName: "Sandra").save(failOnError: true)
-    Frame.list().each {
-      Story story = new Story(frame: it, text: "Eine tolle Geschichte für den Rahmen " + it.number)
-      userData.addToStoryList(story)
-    }
   }
 }
