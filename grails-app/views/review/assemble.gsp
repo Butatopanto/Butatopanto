@@ -11,7 +11,7 @@
 <div class="nav">
   <menu:home/>
   <menu:chapterList/>
-  <menu:backToPractice />
+  <menu:backToPractice/>
 </div>
 <h1><g:message code="review.assemble.chapterselection"/></h1>
 <p>&nbsp</p>
@@ -20,7 +20,7 @@
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <div id="container" style="padding: 5px">
         <div>
-          <g:each in="${session.chapters}" status="i" var="${chapter}">
+          <g:each in="${session.chapters.sort({it.chapterNumber}) }" status="i" var="${chapter}">
             <div class="chapterselector">
               <heisig:chapterSelector chapter="${chapter}"/>
             </div>
