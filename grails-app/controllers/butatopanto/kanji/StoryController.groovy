@@ -6,6 +6,10 @@ class StoryController {
 
   def storyService
 
+  def index = {
+    //nothing to do
+  }
+
   def unknown = {
     // nothing to do
   }
