@@ -36,9 +36,7 @@
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
       <div id="container">
-        <heisig:frameCard frame="${frame}" hidden="true"/>
-        <heisig:interaction frame="${frame}" hidden="true"/>
-        <heisig:storyDialog/>
+        <heisig:practiceTablet frame="${frame}" hidden="true"/>
       </div>
     </div>
   </div>

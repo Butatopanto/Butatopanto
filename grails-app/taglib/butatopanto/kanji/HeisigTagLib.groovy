@@ -6,6 +6,12 @@ class HeisigTagLib {
 
   static namespace = "heisig"
 
+  def practiceTablet = { attributes ->
+    out << frameCard(attributes)
+    out << interaction(attributes)
+    out << storyDialog(attributes)
+  }
+
   def interaction = { attributes ->
     def frame = attributes.frame
     def hidden = attributes.hidden
