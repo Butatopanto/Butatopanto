@@ -38,14 +38,24 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertTrue(chartUrl, chartUrl.contains('9 of 10'))
   }
 
-  void pendingTestDoesNotShowStoryDialogOnFinalPage() {
+  void testShowsStoryDialogForActiveReview() {
     startChapter6()
     assertNotNull byId('showStory')
+    revealAndConfirmKanji()
+    assertNotNull byId('showStory')
+  }
+
+  void testDoesNotShowStoryDialogOnFinalPage() {
+    startChapter6()
     for (i in 1..10) {
-      clickAndWaitShort 'kanji-card'
-      clickAndWaitLong 'confirmButton'
+      revealAndConfirmKanji()
     }
     assertNull byId('showStory')
+  }
+
+  private def revealAndConfirmKanji() {
+    clickAndWaitShort 'kanji-card'
+    clickAndWaitLong 'confirmButton'
   }
 
   protected void clickAndWaitShort(String identifier) {

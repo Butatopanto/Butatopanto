@@ -89,7 +89,8 @@ class ReviewController {
   private def ajaxRenderFrame(frame, boolean hidden) {
     def frameCard = heisig.frameCard([frame: frame, hidden: hidden])
     def interaction = heisig.interaction([frame: frame, hidden: hidden])
-    render frameCard + interaction
+    def storyDialog = heisig.storyDialog()
+    render frameCard + interaction + storyDialog
   }
 
   private def endReview() {

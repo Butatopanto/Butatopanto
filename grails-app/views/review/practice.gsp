@@ -26,9 +26,9 @@
 </head>
 <body>
 <div class="nav">
-  <menu:home />
-  <menu:chapterList />
-  <menu:assembleReview />
+  <menu:home/>
+  <menu:chapterList/>
+  <menu:assembleReview/>
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
@@ -38,9 +38,7 @@
       <div id="container">
         <heisig:frameCard frame="${frame}" hidden="true"/>
         <heisig:interaction frame="${frame}" hidden="true"/>
-      </div>
-      <div style='position: absolute; top: 50px; left: 15px'>
-        <div id="showStory" onclick="openStoryDialog(this, 'currentStory')"><b><br>Hier klicken,<br>um die Geschichte anzuzeigen</b></div>
+        <heisig:storyDialog/>
       </div>
     </div>
   </div>
