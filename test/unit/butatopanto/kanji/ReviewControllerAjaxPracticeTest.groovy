@@ -19,7 +19,8 @@ class ReviewControllerAjaxPracticeTest extends GrailsJUnit4ControllerTestCase {
 
   @Before
   void mockHeisigObjectMother() {
-    controller.class.getMetaClass().heisig = new HeisigTagLibObjectMother().tagLib
+    registerMetaClass controller.class
+    controller.class.metaClass.heisig = new HeisigTagLibObjectMother().tagLib
   }
 
   @Test

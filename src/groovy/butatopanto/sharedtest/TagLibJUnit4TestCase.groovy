@@ -24,6 +24,7 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
   @Before
   public void setUp() {
     super.setUp()
+    registerMetaClass tagLib.class
     mockLink()
     mockForm()
     mockMessage()

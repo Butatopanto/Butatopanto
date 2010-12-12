@@ -25,13 +25,10 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
 
   @Before
   void addMetaDataToTagLibs() {
+    registerMetaClass ProgressTagLib
+    registerMetaClass HeisigTagLib
     ProgressTagLib.metaClass.g = [message: { Map map -> return "error message" }, remoteFunction: {}]
     HeisigTagLib.metaClass.g = [message: { Map map -> return "error message" }, remoteFunction: {}]
-  }
-
-  void removeMetaDataFromHeisigTagLib() {
-    def remove = GroovySystem.metaClassRegistry.&removeMetaClass
-    remove HeisigTagLib
   }
 
   @Test
