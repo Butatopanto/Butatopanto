@@ -1,3 +1,15 @@
+.previous {
+    position: absolute;
+    left: 0px;
+    top: 15px
+}
+
+.next {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
 .overviewColumn {
   width: 800px;
   position: relative

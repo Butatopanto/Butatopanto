@@ -15,11 +15,17 @@ class MasteryController {
   @Secured('ROLE_USER')
   def listByChapter = {
     int chapterNumber = params.int('id')
+    int startIndex = params.startIndex ? params.int('startIndex') : 0
+    NavigationChapter navigationChapter = new NavigationChapter(chapterNumber: chapterNumber)
+    navigationChapter.previous = chapterNumber - 1
+    navigationChapter.next = chapterNumber == chapterService.getLastChapterNumber() ? null : chapterNumber + 1
+    navigationChapter.masteredFrames = getMasteredFrames(chapterNumber)
+    [navigation: navigationChapter]
+  }
+
+  private List<MasteredFrame> getMasteredFrames(int chapterNumber) {
     List<Frame> activeFrames = chapterService.listFramesFor(chapterNumber)
-    List<MasteredFrame> masteredFrames = toMasteredFrames(activeFrames)
-    def previous = chapterNumber - 1
-    def next = chapterNumber == chapterService.getLastChapterNumber() ? null : chapterNumber + 1
-    [current: chapterNumber, masteredFrames: masteredFrames, previous: previous, next: next]
+    toMasteredFrames(activeFrames)
   }
 
   private List<MasteredFrame> toMasteredFrames(List<Frame> activeFrames) {
