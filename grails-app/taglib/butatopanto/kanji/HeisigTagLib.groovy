@@ -37,9 +37,10 @@ class HeisigTagLib {
 
   def storyDialog = { attributes ->
     if (session.review) {
-      def revealMessage = g.message(code: "frame.clickToShowStory")
+      def revealMessage = g.message(code: "story.dialog.clickToShow")
+      def dialogTitle = g.message(code: 'story.dialog.title')
       out << "<div style='position: absolute; top: 50px; left: 15px'>"
-      out << "<div id='showStory' onclick=\"openStoryDialog(this, 'currentStory')\">"
+      out << "<div id='showStory' onclick=\"openStoryDialog(this, 'currentStory', '${dialogTitle}')\">"
       out << "<b><br/>${revealMessage}</b></div>"
       out << "</div>"
     }

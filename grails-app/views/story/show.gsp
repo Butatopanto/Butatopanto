@@ -22,8 +22,8 @@
   </div>
 
   <div id="storyView" style="display:block;" onclick="startEditStory()">
-    <g:set var="initialText" value="${storyText ?: g.message(code: 'frame.clickToEditStory')}"/>
-    <g:set var="boxTitle" value="${g.message(code: 'frame.clickToEditStory')}"/>
+    <g:set var="initialText" value="${storyText ?: g.message(code: 'story.dialog.clickToEdit')}"/>
+    <g:set var="boxTitle" value="${g.message(code: 'story.dialog.clickToEdit')}"/>
     <textarea id="storyDisplay" title="${boxTitle}" rows="12" cols="55">${initialText}</textarea>
   </div>
 </div>
