@@ -17,6 +17,7 @@ class HeisigStoryDialogTagTest extends TagLibJUnit4TestCase {
   @Before
   void configureMessages() {
     messageCodes['frame.clickToRevealStory'] = "Click to reveal story"
+    messageCodes['story.dialog.title'] = "Story"
   }
 
   @Test
@@ -30,7 +31,7 @@ class HeisigStoryDialogTagTest extends TagLibJUnit4TestCase {
   void hasOnClickAttributeToShowDialog() {
     tagLib.session.review = new Review()
     def wrappedDialog = renderAndWrapStoryDialog()
-    assertEquals "openStoryDialog(this, 'currentStory')", wrappedDialog.div[0].div[0].@onclick.text()
+    assertEquals "openStoryDialog(this, 'currentStory', 'Story')", wrappedDialog.div[0].div[0].@onclick.text()
   }
 
   private def renderAndWrapStoryDialog() {
