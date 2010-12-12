@@ -7,6 +7,10 @@ class Review {
   def rightIds = []
   def wrongIds = []
 
+  boolean isFinished() {
+    !remainingIds
+  }
+
   def getRemainingCount() {
     remainingIds.size()
   }
