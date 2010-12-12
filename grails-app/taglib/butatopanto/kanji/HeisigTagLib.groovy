@@ -38,7 +38,7 @@ class HeisigTagLib {
   def storyDialog = { attributes ->
     if (session.review) {
       out << "<div style='position: absolute; top: 50px; left: 15px'>"
-      out << "<div id='showStory' onclick='openStoryDialog(this, 'currentStory')'><b><br>Hier klicken,<br>um die Geschichte anzuzeigen</b></div>"
+      out << "<div id='showStory' onclick=\"openStoryDialog(this, 'currentStory')\"><b><br/>Hier klicken,<br/>um die Geschichte anzuzeigen</b></div>"
       out << "</div>"
     }
   }
