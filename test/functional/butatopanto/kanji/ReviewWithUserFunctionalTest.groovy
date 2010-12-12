@@ -1,5 +1,7 @@
 package butatopanto.kanji
 
+import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController
+
 class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   void setUp() {
@@ -20,8 +22,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   void testShowsAffirmativePracticedKanjiAsRight() {
     startChapter6()
-    clickAndWaitLong 'kanji-card'
-    clickAndWaitLong 'confirmButton'
+    revealAndConfirmKanji()
     String chartUrl = byId('progress-chart').getSrcAttribute()
     assertTrue(chartUrl, chartUrl.contains('1 right'))
     assertTrue(chartUrl, chartUrl.contains('0 wrong'))
@@ -30,8 +31,8 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   void testShowsNegativePracticedKanjiAsWrong() {
     startChapter6()
-    clickAndWaitShort 'kanji-card'
-    clickAndWaitLong 'declineButton'
+    clickAndWait 'kanji-card'
+    clickAndWait 'declineButton'
     String chartUrl = byId('progress-chart').getSrcAttribute()
     assertTrue(chartUrl, chartUrl.contains('0 right'))
     assertTrue(chartUrl, chartUrl.contains('1 wrong'))
@@ -54,21 +55,13 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   private def revealAndConfirmKanji() {
-    clickAndWaitShort 'kanji-card'
-    clickAndWaitLong 'confirmButton'
+    clickAndWait 'kanji-card'
+    clickAndWait 'confirmButton'
   }
 
-  protected void clickAndWaitShort(String identifier) {
-    clickAndWait(identifier, 500)
-  }
-
-  protected void clickAndWaitLong(String identifier) {
-    clickAndWait(identifier, 2000)
-  }
-
-  protected void clickAndWait(String identifier, long milliseconds) {
+  protected void clickAndWait(String identifier) {
     click identifier
-    Thread.sleep(milliseconds)
+    getClient().waitForBackgroundJavaScript(10000)
   }
 
   private void goToAssembleReviewPage() {
