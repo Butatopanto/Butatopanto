@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-class NavigationChapter {
+class ChapterNavigation {
 
   def visibleCount = 70
   def chapterNumber
