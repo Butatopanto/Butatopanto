@@ -73,6 +73,11 @@ class HeisigHiddenFrameCardTagTest extends TagLibJUnit4TestCase {
   }
 
   @Test
+  void hasKanjiCardIdForKanjiTableData() {
+    assertEquals "kanji-card", getKanjiTableData().@id.text()
+  }
+
+  @Test
   void hasNumberTableRowWith10PercentHeight() {
     assertEquals "10%", getNumberTableRow().@height.text()
   }

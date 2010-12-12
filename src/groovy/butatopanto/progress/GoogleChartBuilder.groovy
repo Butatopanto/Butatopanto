@@ -41,7 +41,7 @@ class GoogleChartBuilder extends HtmlBuilder {
   }
 
   protected void build(MarkupBuilder builder) {
-    builder.img(alt: alternativeText, width: width, height: height, src: buildUrl())
+    builder.img(alt: alternativeText, id: 'progress-chart', width: width, height: height, src: buildUrl())
   }
 
   private String buildUrl() {

@@ -65,22 +65,23 @@ class HeisigTagLib {
   }
 
   private def renderKeyword(keyword) {
-   renderRow(keyword, 'frameCardKeyword', 10)
+    renderRow(keyword, 'frameCardKeyword', 10)
   }
 
   private def renderKanji(character) {
-    renderRow(character, 'frameCardKanji')
+    renderRow(character, 'frameCardKanji', 100, "kanji-card")
   }
 
   private def renderNumber(number) {
     renderRow(number, 'frameCardNumber', 10)
   }
 
-  private def renderRow(def content, def classname, int height = 100) {
+  private def renderRow(def content, def classname, int height, def id = null) {
     def builder = new TableRowBuilder()
     builder.setClassname classname
     builder.setHeightInPercent height
     builder.setContent content
+    builder.setId id
     builder.buildHtml()
   }
 }
