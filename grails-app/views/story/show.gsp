@@ -14,16 +14,16 @@
       <textarea name="storyText" rows="12" cols="55">${storyText}</textarea>
       <div class="control">
         <div class="buttonBar">
-          <input type="submit" id="storyEdit_save" value="Save changes" title="Save/Update story"/>
-          <input type="button" id="storyEdit_cancel" value="Cancel" name="cancel" title="Cancel changes" onclick="cancelEditStory()"/>
+          <input type="submit" id="storyEdit_save" value="${g.message(code: 'story.save-button.text')}" title="${g.message(code: 'story.save-button.tooltip')}"/>
+          <input type="button" id="storyEdit_cancel" value="${g.message(code: 'story.cancel-button.text')}" name="cancel" title="${g.message(code: 'story.cancel-button.tooltip')}" onclick="cancelEditStory()"/>
         </div>
       </div>
     </g:form>
   </div>
 
   <div id="storyView" style="display:block;" onclick="startEditStory()">
-    <g:set var="initialText" value="${storyText ?: '[click here to enter your story]'}"/>
-    <g:set var="boxTitle" value="Click to edit your story"/>
+    <g:set var="initialText" value="${storyText ?: g.message(code: 'frame.clickToEditStory')}"/>
+    <g:set var="boxTitle" value="${g.message(code: 'frame.clickToEditStory')}"/>
     <textarea id="storyDisplay" title="${boxTitle}" rows="12" cols="55">${initialText}</textarea>
   </div>
 </div>
