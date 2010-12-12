@@ -21,7 +21,7 @@ class NavigationChapter {
   }
 
   boolean isOverrun() {
-     startIndex + visibleCount <= masteredFrames.size()
+     startIndex + visibleCount < masteredFrames.size()
   }
 
   boolean isUnderrun() {

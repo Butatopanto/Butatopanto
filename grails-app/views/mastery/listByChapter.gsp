@@ -29,10 +29,8 @@
               <div class="selector">
                 <div title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.frame.kanji}</div>
               </div>
-              <g:if test="${navigation.isOverrun()}">
-                <div style="font-size: 15px; position: absolute; right: 10px; bottom: 30px">˅</div>
-              </g:if>
             </g:each>
+            <mastery:overrun navigation="${navigation}"/>
           </div>
         </div>
       </div>

@@ -10,6 +10,13 @@
     top: 10px;
 }
 
+.overrun {
+    font-size: 15px;
+    position: absolute;
+    right: 10px;
+    bottom: 30px
+}
+
 .overviewColumn {
   width: 800px;
   position: relative

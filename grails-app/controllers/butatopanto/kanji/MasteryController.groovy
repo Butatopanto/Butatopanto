@@ -15,8 +15,8 @@ class MasteryController {
   @Secured('ROLE_USER')
   def listByChapter = {
     int chapterNumber = params.int('id')
-    int startIndex = params.startIndex ? params.int('startIndex') : 0
     NavigationChapter navigationChapter = new NavigationChapter(chapterNumber: chapterNumber)
+    navigationChapter.startIndex = params.startIndex ? params.int('startIndex') : 0
     navigationChapter.previous = chapterNumber - 1
     navigationChapter.next = chapterNumber == chapterService.getLastChapterNumber() ? null : chapterNumber + 1
     navigationChapter.masteredFrames = getMasteredFrames(chapterNumber)

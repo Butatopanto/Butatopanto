@@ -13,11 +13,20 @@ class MasteryTagLib {
     }
   }
 
-  def previousChapter = {  attributes ->
+  def previousChapter = { attributes ->
     def navigation = attributes.navigation
     if (navigation.previous) {
       writeLinkToListByChapter 'previous', navigation.previous, 0, {
         g.message(code: 'mastery.navigation.previous')
+      }
+    }
+  }
+
+  def overrun = { attributes ->
+    def navigation = attributes.navigation
+    if (navigation.isOverrun()) {
+      writeLinkToListByChapter('overrun', navigation.chapterNumber, navigation.startIndex + 10) {
+        out << 'M'
       }
     }
   }
