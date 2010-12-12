@@ -2,7 +2,7 @@ package butatopanto.kanji
 
 class ChapterNavigationBuilder {
 
-  int visibleFrameCount = 70
+  int visibleCount = 70
   private int startIndex = 0
   private List<MasteredFrame> frames = []
   private int lastChapter
@@ -23,9 +23,9 @@ class ChapterNavigationBuilder {
   }
 
   void setFrames(List<MasteredFrame> frames) {
-    this.frames = frames 
+    this.frames = frames
   }
-  
+
   void setChapterNumber(int chapterNumber) {
     currentChapter = Math.max(1, chapterNumber)
     currentChapter = Math.min(lastChapter, currentChapter)
@@ -38,8 +38,32 @@ class ChapterNavigationBuilder {
     navigation.previous = previousChapter
     navigation.next = nextChapter
     navigation.chapterNumber = currentChapter
-    navigation.masteredFrames = frames
     navigation.startIndex = startIndex
+    navigation.visibleFrames = getVisibleFrames()
+    navigation.overrun = isOverrun()
+    navigation.underrun = isUnderrun()
     return navigation
+  }
+
+  List<MasteredFrame> getVisibleFrames() {
+    if (!frames) {
+      return []
+    }
+    def endIndex = getEndIndex()
+    frames[startIndex..endIndex]
+  }
+
+  private def getEndIndex() {
+    def nextStartIndex = startIndex + visibleCount
+    def availableFrameCount = frames.size()
+    Math.min(nextStartIndex, availableFrameCount) - 1
+  }
+
+  private boolean isOverrun() {
+    startIndex + visibleCount < frames.size()
+  }
+
+  private boolean isUnderrun() {
+    return startIndex > 0
   }
 }

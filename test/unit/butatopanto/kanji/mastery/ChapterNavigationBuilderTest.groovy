@@ -76,42 +76,42 @@ class ChapterNavigationBuilderTest extends GrailsJUnit4TestCase {
   void showsAllFramesForFew() {
     def frames = createFrameList(2)
     builder.setFrames frames
-    assertEquals frames, build().masteredFrames
+    assertEquals frames, build().visibleFrames
   }
 
   @Test
   void showsLeadingFramesForManyAndStartIndexZero() {
-    def frames = createFrameList(builder.visibleFrameCount + 1)
+    def frames = createFrameList(builder.visibleCount + 1)
     builder.setFrames frames
     builder.setStartIndex 0
-    assertEquals frames[0..69], build().getVisibleFrames()
+    assertEquals frames[0..69], build().visibleFrames
   }
 
   @Test
   void showsTrailingFramesForManyAndStartIndexTen() {
-    def frames = createFrameList(builder.visibleFrameCount + 1)
+    def frames = createFrameList(builder.visibleCount + 1)
     builder.setFrames frames
     builder.setStartIndex 10
-    assertEquals frames[10..frames.size() - 1], build().getVisibleFrames()
+    assertEquals frames[10..frames.size() - 1], build().visibleFrames
   }
 
   @Test
   void isNotOverrunForNumberOfVisibleFramesAndStartIndexZero() {
-    builder.setFrames createFrameList(builder.visibleFrameCount)
+    builder.setFrames createFrameList(builder.visibleCount)
     builder.setStartIndex 0
     assertFalse build().isOverrun()
   }
 
   @Test
   void isOverrunForMoreFramesThanVisibleAndStartIndexZero() {
-    builder.setFrames createFrameList(builder.visibleFrameCount + 1)
+    builder.setFrames createFrameList(builder.visibleCount + 1)
     builder.setStartIndex 0
     assertTrue build().isOverrun()
   }
 
   @Test
   void isNotOverrunForOneFrameMoreThanVisibleAndStartIndexOfOne() {
-    builder.setFrames createFrameList(builder.visibleFrameCount + 1)
+    builder.setFrames createFrameList(builder.visibleCount + 1)
     builder.setStartIndex 1
     assertFalse build().isOverrun()
   }
