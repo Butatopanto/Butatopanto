@@ -22,7 +22,7 @@
   <g:javascript src="windows_js/effects.js"/>
   <g:javascript src="windows_js/window.js"/>
   <g:javascript src="windows_js/window_effects.js"/>
-  <title>Kennst Du das Kanji?</title>
+  <title><g:message code="frame.title"/></title>
 </head>
 <body>
 <div class="nav">

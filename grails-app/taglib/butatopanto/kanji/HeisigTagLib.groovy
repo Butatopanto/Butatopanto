@@ -1,5 +1,7 @@
 package butatopanto.kanji
 
+import butatopanto.html.TableRowBuilder
+
 class HeisigTagLib {
 
   static namespace = "heisig"

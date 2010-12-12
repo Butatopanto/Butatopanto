@@ -11,7 +11,7 @@ class ReviewWithoutUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   void testShowsAssemblePageAfterLogIn() {
     get("/review/assemble")
-    logIn("Sandra", "password")
+    logInDefaultUser()
     assertTitle "Review which chapters?"
   }
 }

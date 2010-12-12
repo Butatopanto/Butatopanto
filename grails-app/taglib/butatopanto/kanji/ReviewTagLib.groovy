@@ -12,7 +12,7 @@ class ReviewTagLib {
     cssClass += selected ? " selected" : " deselected"
     def clickAction = selected ? "removeChapter" : "addChapter"
     def chapterNumber = chapterSelection.chapterNumber
-    out << g.link("class": cssClass, action: clickAction, id: chapterNumber) {
+    out << g.link("class": cssClass, action: clickAction, id: chapterNumber, elementId: "chapter${chapterNumber}") {
       chapter(attributes)
     }
   }
