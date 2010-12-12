@@ -52,36 +52,36 @@ class MasteryControllerListByChapterTest extends GrailsJUnit4ControllerTestCase 
 
   @Test
   void hasNoNextChapterForLastChapter() {
-    assertNull listByChapter(5).next
+    assertNull listByChapter(5).navigation.next
   }
 
   @Test
   void hasPreviousChapterNumberAsPrevious() {
-    assertEquals 4, listByChapter(5).previous
+    assertEquals 4, listByChapter(5).navigation.previous
   }
 
   @Test
   void hasMasteryFramesForEachChapterFrame() {
-    assertEquals([1, 2], listByChapter(1).masteredFrames.collect {it.frame.id})
+    assertEquals([1, 2], listByChapter(1).navigation.visibleFrames.collect {it.frame.id})
   }
 
   @Test
   void hasMasteryFramesWithBoxesFromMasteryService() {
-    assertEquals([2, 3], listByChapter(1).masteredFrames.collect {it.box})
+    assertEquals([2, 3], listByChapter(1).navigation.visibleFrames.collect {it.box})
   }
 
   @Test
   void hasMasteryFramesWithBoxZeroForInactiveFrame() {
     inactiveFrameIds.add 1L
     inactiveFrameIds.add 2L
-    assertEquals([0, 0], listByChapter(1).masteredFrames.collect {it.box})
+    assertEquals([0, 0], listByChapter(1).navigation.visibleFrames.collect {it.box})
   }
 
   @Test
   void hasMasteryFramesWithoutStoriesAccordingToStoryService() {
     storyByFrameId[1L] = "A story"
     def result = listByChapter(1)
-    assertEquals([true, false], result.masteredFrames.collect {it.hasStory})
+    assertEquals([true, false], result.navigation.visibleFrames.collect {it.hasStory})
   }
 
   private def listByChapter(int chapterNumber) {
