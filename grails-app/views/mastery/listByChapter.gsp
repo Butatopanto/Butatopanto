@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css/kanji' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='mastery.css'/>"/>
   <g:javascript library="prototype"/>
-  <title>Kapitel ${current}</title>
+  <title><g:message code='mastery.current-chapter' args="${[navigation.chapterNumber]}" /></title>
 </head>
 <body>
 <div class="nav">
@@ -15,7 +15,7 @@
 </div>
 <div style="left: 10px; position: relative">
   <div id="navigationHeader" style="position:absolute; top: 0px; left: 15px">
-    <h1 class="overviewColumn" style="text-align: center">Kapitel ${navigation.chapterNumber}</h1>
+    <h1 class="overviewColumn" style="text-align: center"><g:message code='mastery.current-chapter' args="${[navigation.chapterNumber]}" /></h1>
     <mastery:previousChapter navigation="${navigation}" />
     <mastery:nextChapter navigation="${navigation}" />
   </div>

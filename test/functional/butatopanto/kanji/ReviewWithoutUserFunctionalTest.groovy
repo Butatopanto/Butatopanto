@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-import functionaltestplugin.FunctionalTestCase
+import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
 
 class ReviewWithoutUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 

@@ -33,7 +33,7 @@ class MasteryTagLib {
 
   private def writeLinkToListByChapter(cssClass, chapter, startIndex, closure) {
     out << "<div class='${cssClass}'>"
-    out << g.link(controller: 'mastery', action: 'listByChapter', id: chapter, params: [startIndex: startIndex]) {
+    out << g.link(controller: 'mastery', action: 'listByChapter', id: chapter, elementId: cssClass, params: [startIndex: startIndex]) {
       closure.call()
     }
     out << "</div>"

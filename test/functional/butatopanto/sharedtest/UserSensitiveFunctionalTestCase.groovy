@@ -1,4 +1,4 @@
-package butatopanto.kanji
+package butatopanto.sharedtest
 
 import functionaltestplugin.FunctionalTestCase
 

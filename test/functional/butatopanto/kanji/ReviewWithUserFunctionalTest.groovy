@@ -1,6 +1,6 @@
 package butatopanto.kanji
 
-import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController
+import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
 
 class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
