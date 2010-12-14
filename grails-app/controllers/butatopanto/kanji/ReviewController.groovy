@@ -17,7 +17,10 @@ class ReviewController {
   @Secured('ROLE_USER')
   def assemble = {
     createChapterSelectionIfNecessary()
-    [chaptersSelected: evaluateChapters().hasSelectedChapter(), kanjiDue: masteryService.listDueFrameIds() as boolean]
+    boolean dueFrames = masteryService.listDueFrameIds() as boolean
+    boolean chaptersSelected = evaluateChapters().hasSelectedChapter()
+    boolean dueSelected = evaluateChapters().hasDueSelected()
+    [chaptersSelected: chaptersSelected, dueFrames: dueFrames, dueSelected: dueSelected]
   }
 
   def addChapter = {
@@ -39,6 +42,13 @@ class ReviewController {
   def startSelectedChapters = {
     List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
     session.review = reviewService.startChapters(selectedChapterNumbers)
+    redirect(action: "practice")
+  }
+
+  @Secured('ROLE_USER')
+  def startDueFramesFromSelectedChapter = {
+    List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
+    session.review = reviewService.startDueFrom(selectedChapterNumbers)
     redirect(action: "practice")
   }
 

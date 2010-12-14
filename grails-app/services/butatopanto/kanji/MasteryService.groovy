@@ -31,7 +31,13 @@ class MasteryService {
   }
 
   def listDueFrameIdsForChapter(int chapterNumber) {
-    listActiveFrameIdsForChapterList([chapterNumber]).findAll {
+    List chapterList = [chapterNumber]
+    listDueFramesForChapterList(chapterList)
+  }
+
+  def listDueFramesForChapterList(List chapterList) {
+    def frameList = listActiveFrameIdsForChapterList(chapterList)
+    frameList.findAll {
       def mastery = findMasteryByFrameId(it)
       leitnerService.isDue(mastery)
     }

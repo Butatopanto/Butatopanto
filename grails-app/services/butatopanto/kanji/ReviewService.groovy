@@ -13,6 +13,11 @@ class ReviewService {
     start(frameIds)
   }
 
+  Review startDueFrom(List chapterNumbers) {
+    def dueFrameIds = masteryService.listDueFramesForChapterList(chapterNumbers)
+    start(dueFrameIds)
+  }
+
   Review startDue() {
     def dueFrameIds = masteryService.listDueFrameIds()
     start (dueFrameIds)

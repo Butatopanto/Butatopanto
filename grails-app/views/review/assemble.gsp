@@ -26,8 +26,11 @@
             </div>
           </g:each>
           <div class="nav" style='position:absolute; left:0px; bottom: 0px; width:775px'>
-            <g:if test="${kanjiDue}">
+            <g:if test="${dueFrames}">
               <span class="menuButton"><g:link class="practice" action="startDue"><g:message code="review.assemble.due"/></g:link></span>
+            </g:if>
+            <g:if test="${dueSelected}">
+              <span class="menuButton"><g:link class="practice" action="startDueFramesFromSelectedChapter"><g:message code="review.assemble.startSelectedDue"/></g:link></span>
             </g:if>
             <g:if test="${chaptersSelected}">
               <span class="menuButton"><g:link class="practice" action="startSelectedChapters"><g:message code="review.assemble.selected"/></g:link></span>
