@@ -62,6 +62,11 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertNull byId('overrun')
   }
 
+  void testShowsEmptyKanjiListForVeryHighStartIndex() {
+    get("/mastery/listByChapter/1?startIndex=100")
+    assertTitle 'Chapter 1'
+  }
+
   private def goToChapterWith80Kanji() {
     goToListPageForChapter 18
   }

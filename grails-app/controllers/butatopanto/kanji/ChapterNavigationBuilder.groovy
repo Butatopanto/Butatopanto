@@ -50,7 +50,7 @@ class ChapterNavigationBuilder {
       return []
     }
     def endIndex = getEndIndex()
-    frames[startIndex..endIndex]
+    endIndex < startIndex ? [] : frames[startIndex..endIndex]
   }
 
   private def getEndIndex() {

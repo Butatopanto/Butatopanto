@@ -128,6 +128,13 @@ class ChapterNavigationBuilderTest extends GrailsJUnit4TestCase {
     assertTrue build().isUnderrun()
   }
 
+  @Test
+  void hasNoVisibleFramesForVeryHighStartIndex() {
+    builder.setStartIndex 7
+    builder.setFrames createFrameList(7)
+    assertEquals 0, build().visibleFrames.size()
+  }
+
   private def createFrameList(int size) {
     def frames = []
     for (i in 1..size) {

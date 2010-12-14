@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All Functional Tests" type="GrailsRunConfigurationType" factoryName="Grails">
     <module name="ButatoPanto" />
-    <setting name="vmparams" value="-Dserver.port=8081" />
+    <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=128M" />
     <setting name="cmdLine" value="test-app -functional" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
