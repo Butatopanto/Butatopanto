@@ -123,13 +123,13 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   void informsAssembleViewWhetherNoKanjiAreDue() {
     masteryServiceObjectMother.setNoDueFrameIds()
     def result = controller.assemble()
-    assertFalse result["kanjiDue"]
+    assertFalse result["dueFrames"]
   }
 
   @Test
   void informsAssembleViewsWhetherAnyKanjiAreDue() {
     masteryServiceObjectMother.setDueFrameIds([1])
     def result = controller.assemble()
-    assertTrue result["kanjiDue"]
+    assertTrue result["dueFrames"]
   }
 }
