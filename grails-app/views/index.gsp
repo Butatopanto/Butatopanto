@@ -84,9 +84,9 @@
 <div id="pageBody">
   <h1>よこそう</h1>
 
-  <p>Japanisch ist leicht. Japanisch macht Spaß. Sieh selbst!</p>
+  <p><g:message code="home.firstSteps.fun"/> </p>
 
-  <p>Hier kannst Du Deine Vokabeln <g:link controller="vocable">verwalten</g:link> und <g:link controller="question">lernen</g:link>.</P>
+  <p><g:message code="home.firstSteps.begin"/> <g:link controller="vocable"><g:message code="home.firstSteps.manage"/></g:link> <g:message code="home.firstSteps.middle"/> <g:link controller="question"><g:message code="home.firstSteps.study"/></g:link> <g:message code="home.firstSteps.end"/></P>
 
   <P>楽しんで&#x3002</p>
 </div>
