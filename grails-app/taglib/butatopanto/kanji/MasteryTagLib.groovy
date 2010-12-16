@@ -25,7 +25,7 @@ class MasteryTagLib {
   def flipDown = { attributes ->
     def navigation = attributes.navigation
     if (navigation.isOverrun()) {
-      writeLinkToListByChapter('flip-', navigation.chapterNumber, navigation.startIndex + 10) {
+      writeLinkToListByChapter('flip-down', navigation.chapterNumber, navigation.startIndex + 10) {
         out << "<img src='../../images/skin/arrow-down.png'/>"
       }
     }
@@ -34,7 +34,7 @@ class MasteryTagLib {
     def flipUp = { attributes ->
       def navigation = attributes.navigation
       if (navigation.isUnderrun()) {
-        writeLinkToListByChapter('underrun', navigation.chapterNumber, navigation.startIndex - 10) {
+        writeLinkToListByChapter('flip-up', navigation.chapterNumber, navigation.startIndex - 10) {
           out << "<img src='../../images/skin/arrow-up.png'/>"
          }
       }

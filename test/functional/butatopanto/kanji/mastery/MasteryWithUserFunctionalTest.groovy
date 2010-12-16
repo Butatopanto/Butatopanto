@@ -24,17 +24,17 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertTitle 'Chapter 3'
   }
 
-  void testDoesNotShowOverrunForShortChapter(){
-    assertNull byId('overrun')
+  void testDoesNotShowFlipDownForShortChapter(){
+    assertNull byId('flip-down')
   }
 
-  void testDoesNotShowUnderrunForStartIndexZero() {
-    assertNull byId('underrun')
+  void testDoesNotShowFlipUpForStartIndexZero() {
+    assertNull byId('flip-up')
   }
 
-  void testShowsOverrunForChapterWithMoreThan70Kanji() {
+  void testShowsFlipDownForChapterWithMoreThan70Kanji() {
     goToChapterWith80Kanji()
-    assertNotNull byId('overrun')
+    assertNotNull byId('flip-down')
   }
 
   void testDoesNotShowThe71stKanjiOfLongChapter() {
@@ -44,22 +44,22 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   void testDoesShowTheNextTenKanjiOfAChapterAfterClickOnOverrun() {
     goToChapterWith80Kanji()
-    click 'overrun'
+    click 'flip-down'
     assertContentContains '欠'
     assertContentContains '諮'
   }
 
   void testDoesNotShowTheFirstTenKanjiOfAChapterAfterClickOnOverrun() {
     goToChapterWith80Kanji()
-    click 'overrun'
+    click 'flip-down'
     assertContentDoesNotContain '衣'
     assertContentDoesNotContain '布'
   }
 
   void testDoesNotShowOverrunSymbolAfterFlippingToEndOfLongChapter() {
     goToChapterWith80Kanji()
-    click 'overrun'
-    assertNull byId('overrun')
+    click 'flip-down'
+    assertNull byId('flip-down')
   }
 
   void testShowsEmptyKanjiListForVeryHighStartIndex() {
