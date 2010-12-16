@@ -26,10 +26,19 @@ class MasteryTagLib {
     def navigation = attributes.navigation
     if (navigation.isOverrun()) {
       writeLinkToListByChapter('overrun', navigation.chapterNumber, navigation.startIndex + 10) {
-        out << 'M'
+        out << "<img src='../../images/skin/arrow-down.png'/>"
       }
     }
   }
+
+    def underrun = { attributes ->
+      def navigation = attributes.navigation
+      if (navigation.isUnderrun()) {
+        writeLinkToListByChapter('underrun', navigation.chapterNumber, navigation.startIndex - 10) {
+          out << "<img src='../../images/skin/arrow-up.png'/>"
+         }
+      }
+    }
 
   private def writeLinkToListByChapter(cssClass, chapter, startIndex, closure) {
     out << "<div class='${cssClass}'>"

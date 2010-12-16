@@ -11,10 +11,15 @@
 }
 
 .overrun {
-    font-size: 15px;
     position: absolute;
     right: 10px;
     bottom: 30px
+}
+
+a.underun {
+    position: absolute;
+    right: 10px;
+    top: 30px
 }
 
 .overviewColumn {
@@ -23,6 +28,7 @@
 }
 
 div.selector {
+  position: relative;
   width: 60px;
   height: 60px;
   margin: 8px;
