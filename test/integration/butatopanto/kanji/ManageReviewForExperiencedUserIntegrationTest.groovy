@@ -42,8 +42,8 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
   }
 
   @Test
-  void marksActiveChapterAsSelected() {
-    assertTrue(controller.session.chapters[0].selected)
+  void doesNotMarkActiveChapterAsSelected() {
+    assertFalse controller.session.chapters[0].selected
   }
 
   @Test
@@ -53,6 +53,8 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
 
   @Test
   void reducesDueCountAfterCorrectResolve() {
+    controller.params.id = "1"
+    controller.addChapter()
     controller.startSelectedChapters()
     controller.params.reviewCorrect = "true"
     controller.ajaxResolve()

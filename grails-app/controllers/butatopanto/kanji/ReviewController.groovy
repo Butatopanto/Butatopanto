@@ -131,7 +131,7 @@ class ReviewController {
     def dueCount = progress.dueFrameIds.size()
     boolean active = progress.activeFrameIds
     def chapterNumber = progress.chapter.number
-    new ChapterSelection(chapterNumber: chapterNumber, selected: active, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
+    new ChapterSelection(chapterNumber: chapterNumber, selected: false, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
   }
 
   private def getChapters() {
