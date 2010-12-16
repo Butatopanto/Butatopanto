@@ -22,16 +22,16 @@ class MasteryTagLib {
     }
   }
 
-  def overrun = { attributes ->
+  def flipDown = { attributes ->
     def navigation = attributes.navigation
     if (navigation.isOverrun()) {
-      writeLinkToListByChapter('overrun', navigation.chapterNumber, navigation.startIndex + 10) {
+      writeLinkToListByChapter('flip-', navigation.chapterNumber, navigation.startIndex + 10) {
         out << "<img src='../../images/skin/arrow-down.png'/>"
       }
     }
   }
 
-    def underrun = { attributes ->
+    def flipUp = { attributes ->
       def navigation = attributes.navigation
       if (navigation.isUnderrun()) {
         writeLinkToListByChapter('underrun', navigation.chapterNumber, navigation.startIndex - 10) {

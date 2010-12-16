@@ -10,21 +10,32 @@
     top: 10px;
 }
 
-.overrun {
-    position: absolute;
-    right: 10px;
-    bottom: 30px
-}
-
-a.underun {
-    position: absolute;
-    right: 10px;
-    top: 30px
-}
-
-.overviewColumn {
+.main-column {
   width: 800px;
-  position: relative
+}
+
+.main-area {
+  position: relative;
+  height:550px;
+  border:solid;
+  border-width:thin
+}
+
+.icon div {
+    width: 16px;
+    height: 16px
+}
+
+.flip-up div {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.flip-down div {
+    position: absolute;
+    right: 10px;
+    bottom: 26px;
 }
 
 div.selector {
