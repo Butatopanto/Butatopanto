@@ -10,11 +10,11 @@ class TagLibUtilities {
   }
 
   static def GPathResult getWrappedContentAsXml(def tagLib) {
-    def text = "<root>${tagLib.out.getBuffer().toString()}</root>"
+    def text = "<root>${getContentAsString(tagLib)}</root>"
     new XmlSlurper().parseText(text)
   }
 
-  private static def getContentAsString(tagLib) {
+  static def getContentAsString(tagLib) {
     tagLib.out.getBuffer().toString()
   }
 }

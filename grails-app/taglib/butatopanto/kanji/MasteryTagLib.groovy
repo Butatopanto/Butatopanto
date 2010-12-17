@@ -42,16 +42,16 @@ class MasteryTagLib {
 
   def linkForPreviousKanji = { attributes ->
     def navigation = attributes.navigation
-    def newIndex = attributes.navigation.startIndex - 10
+    def newIndex = navigation.startIndex - 10
     def chapter = navigation.chapterNumber
-    out << createLink(controller: 'mastery', action: 'listByChapter', id: chapter, params: [startIndex: newIndex])
+    linkToKanji(chapter, newIndex)
   }
 
   def linkForNextKanji = { attributes ->
     def navigation = attributes.navigation
-    def newIndex = attributes.navigation.startIndex + 10
+    def newIndex = navigation.startIndex + 10
     def chapter = navigation.chapterNumber
-    out << createLink(controller: 'mastery', action: 'listByChapter', id: chapter, params: [startIndex: newIndex])
+    linkToKanji(chapter, newIndex);
   }
 
   private def writeLinkToListByChapter(cssClass, chapter, startIndex, closure) {
@@ -60,5 +60,9 @@ class MasteryTagLib {
       closure.call()
     }
     out << "</div>"
+  }
+
+  private def linkToKanji(chapter, newIndex) {
+    out << createLink(controller: 'mastery', action: 'listByChapter', id: chapter, params: [startIndex: newIndex])
   }
 }

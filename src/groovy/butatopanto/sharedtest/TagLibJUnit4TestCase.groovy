@@ -2,9 +2,9 @@ package butatopanto.sharedtest;
 
 
 import grails.test.TagLibUnitTestCase
+import java.text.MessageFormat
 import org.junit.After
 import org.junit.Before
-import java.text.MessageFormat
 
 class TagLibJUnit4TestCase extends TagLibUnitTestCase {
 
@@ -26,6 +26,7 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
     super.setUp()
     registerMetaClass tagLib.class
     mockLink()
+    mockCreateLink()
     mockForm()
     mockMessage()
     mockRemoteFunction()
@@ -39,6 +40,20 @@ class TagLibJUnit4TestCase extends TagLibUnitTestCase {
       out << " href = '/link/to/${arguments.action}/${arguments.id}' > "
       body()
       out << "</a>"
+      return ""
+    }
+  }
+
+  void mockCreateLink() {
+    tagLib.class.metaClass.createLink { arguments ->
+      out << "/$arguments.controller/$arguments.action/$arguments.id"
+      if (arguments.params) {
+        out << '?'
+        arguments.params.each {
+          key, value ->
+          out << "$key=$value"
+        }
+      }
       return ""
     }
   }
