@@ -31,14 +31,28 @@ class MasteryTagLib {
     }
   }
 
-    def flipUp = { attributes ->
-      def navigation = attributes.navigation
-      if (navigation.isUnderrun()) {
-        writeLinkToListByChapter('flip-up', navigation.chapterNumber, navigation.startIndex - 10) {
-          out << "<img src='../../images/skin/arrow-up.png'/>"
-         }
+  def flipUp = { attributes ->
+    def navigation = attributes.navigation
+    if (navigation.isUnderrun()) {
+      writeLinkToListByChapter('flip-up', navigation.chapterNumber, navigation.startIndex - 10) {
+        out << "<img src='../../images/skin/arrow-up.png'/>"
       }
     }
+  }
+
+  def linkForPreviousKanji = { attributes ->
+    def navigation = attributes.navigation
+    def newIndex = attributes.navigation.startIndex - 10
+    def chapter = navigation.chapterNumber
+    out << createLink(controller: 'mastery', action: 'listByChapter', id: chapter, params: [startIndex: newIndex])
+  }
+
+  def linkForNextKanji = { attributes ->
+    def navigation = attributes.navigation
+    def newIndex = attributes.navigation.startIndex + 10
+    def chapter = navigation.chapterNumber
+    out << createLink(controller: 'mastery', action: 'listByChapter', id: chapter, params: [startIndex: newIndex])
+  }
 
   private def writeLinkToListByChapter(cssClass, chapter, startIndex, closure) {
     out << "<div class='${cssClass}'>"
