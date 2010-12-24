@@ -35,18 +35,18 @@ class ChapterProgressServiceWithLessonTest extends GrailsJUnit4TestCase {
   @Test
   void findsAChapterProgressForEachChapter() {
     def progressList = service.findAll()
-    assertEquals([1, 2], progressList.collect {it.chapter.number})
+    assertEquals([1, 2], progressList.chapter.number)
   }
 
   @Test
   void findsChapterProgressWithoutActiveFrame() {
     def progressList = service.findAll()
-    assertEquals([[], []], progressList.collect {it.activeFrameIds})
+    assertEquals([[], []], progressList.activeFrameIds)
   }
 
   @Test
   void findsChapterProgressWithActiveFramesForExistingFrameReviews() {
     activeFramesByChapter[1] = [1]
-    assertEquals([[1], []], service.findAll().collect {it.activeFrameIds})
+    assertEquals([[1], []], service.findAll().activeFrameIds)
   }
 }
