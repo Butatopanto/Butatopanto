@@ -5,6 +5,10 @@ import functionaltestplugin.FunctionalTestCase
 class UserSensitiveFunctionalTestCase extends FunctionalTestCase {
 
   void logInDefaultUser() {
+    logIn("Gast", "password")
+  }
+
+  void logInAdministrator() {
     logIn("Sandra", "password")
   }
  
