@@ -94,7 +94,7 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
         '/securityInfo/**': ['ROLE_ADMIN']
 ]
 
-grails.mail.default.from="notification@butatopanto.de"
+grails.plugins.springsecurity.ui.register.emailFrom = 'registration@butatopanto.de'
 
 //This is a workaround for a bug in jquery 1.4.4 used by spring security ui.
 //See http://grails.1312388.n4.nabble.com/Spring-Security-Management-Console-td3095815.html
