@@ -27,13 +27,16 @@ class BootStrap {
         sandra.save(flush: true)
         def gast = new User(username: 'Gast', enabled: true, password: password)
         gast.save(flush: true)
-        UserRole.create sandra, userRole, true
-        UserRole.create sandra, adminRole, true
-        UserRole.create urs, userRole, true
-        UserRole.create urs, adminRole, true
+        createAdminUser(sandra, userRole, adminRole)
+        createAdminUser(urs, userRole, adminRole)
         UserRole.create gast, userRole, true
       }
     }
+  }
+
+  private def createAdminUser(User user, Role userRole, Role adminRole) {
+    UserRole.create user, userRole, true
+    UserRole.create user, adminRole, true
   }
 
   private boolean isProduction() {
