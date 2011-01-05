@@ -16,7 +16,7 @@ class BootStrap {
   }
 
   def createUsers() {
-    if (isDevelopment() || isTest() || isProduction()){
+    if (isDevelopment() || isTest() || isProduction()) {
       if (!Role.list()) {
         def userRole = loadOrCreateRole('ROLE_USER')
         def adminRole = loadOrCreateRole('ROLE_ADMIN')
@@ -35,8 +35,9 @@ class BootStrap {
   }
 
   private def grantPermissionsToUser(def user, def roles) {
-    UserRole.create user, roles[0], true
-    UserRole.create user, roles[1], true
+    roles.each { def role ->
+      UserRole.create user, role, true
+    }
   }
 
   private boolean isProduction() {
