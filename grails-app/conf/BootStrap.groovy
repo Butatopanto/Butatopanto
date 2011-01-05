@@ -15,8 +15,8 @@ class BootStrap {
 
   def createUsers() {
     if (!Role.list()) {
-      def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
-      def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+      def userRole = loadOrCreateRole('ROLE_USER')
+      def adminRole = loadOrCreateRole('ROLE_ADMIN')
       String password = springSecurityService.encodePassword('password')
       def urs = new User(username: 'Urs', enabled: true, password: password)
       urs.save(flush: true)
@@ -30,6 +30,14 @@ class BootStrap {
       UserRole.create urs, adminRole, true
       UserRole.create gast, userRole, true
     }
+  }
+
+  private def loadOrCreateRole(def authority) {
+    def role = Role.findByAuthority(authority)
+    if (!role) {
+      role = new Role(authority: authority).save(flush: true)
+    }
+    return role
   }
 
   def destroy = {
