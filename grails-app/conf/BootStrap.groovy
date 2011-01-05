@@ -30,13 +30,16 @@ class BootStrap {
   private void createAdmin(def roles) {
     if (!User.findByUsername('Admin')) {
       def password = '0fcd568a5cb9bdb4677b69354b11ee415af8f784519cff3da49a26f84eaee7f2'
-      def admin = createUser('Admin', password)
-      grantPermissionsToUser(admin, roles)
+      def admin = createUser('Admin', password, roles)
     }
   }
 
   private void createTestUser(def name, def roles) {
     def password = springSecurityService.encodePassword('password')
+    def user = createUser(name, password, roles)
+  }
+
+  private def createUser(name, password, roles) {
     def user = createUser(name, password)
     grantPermissionsToUser user, roles
   }
