@@ -16,7 +16,7 @@ class BootStrap {
   }
 
   def createUsers() {
-    if (Environment.getCurrentEnvironment() == Environment.DEVELOPMENT || Environment.getCurrentEnvironment() == Environment.TEST || Environment.getCurrentEnvironment() == Environment.PRODUCTION){
+    if (isDevelopment() || isTest() || isProduction()){
       if (!Role.list()) {
         def userRole = loadOrCreateRole('ROLE_USER')
         def adminRole = loadOrCreateRole('ROLE_ADMIN')
@@ -34,6 +34,18 @@ class BootStrap {
         UserRole.create gast, userRole, true
       }
     }
+  }
+
+  private boolean isProduction() {
+    return Environment.getCurrentEnvironment() == Environment.PRODUCTION
+  }
+
+  private boolean isTest() {
+    return Environment.getCurrentEnvironment() == Environment.TEST
+  }
+
+  private boolean isDevelopment() {
+    return Environment.getCurrentEnvironment() == Environment.DEVELOPMENT
   }
 
 
