@@ -3,6 +3,7 @@ import grails.plugins.springsecurity.SpringSecurityService
 import butatopanto.security.Role
 import butatopanto.security.User
 import butatopanto.security.UserRole
+import grails.util.Environment
 
 class BootStrap {
 
@@ -15,7 +16,7 @@ class BootStrap {
   }
 
   def createUsers() {
-    if (true)
+    if (Environment.getCurrentEnvironment() == Environment.DEVELOPMENT || Environment.getCurrentEnvironment() == Environment.TEST || Environment.getCurrentEnvironment() == Environment.PRODUCTION){
       if (!Role.list()) {
         def userRole = loadOrCreateRole('ROLE_USER')
         def adminRole = loadOrCreateRole('ROLE_ADMIN')
@@ -32,6 +33,7 @@ class BootStrap {
         UserRole.create urs, adminRole, true
         UserRole.create gast, userRole, true
       }
+    }
   }
 
 
