@@ -20,18 +20,21 @@ class BootStrap {
       if (!Role.list()) {
         def userRole = loadOrCreateRole('ROLE_USER')
         def adminRole = loadOrCreateRole('ROLE_ADMIN')
-        String password = springSecurityService.encodePassword('password')
-        def urs = new User(username: 'Urs', enabled: true, password: password)
-        urs.save(flush: true)
-        def sandra = new User(username: 'Sandra', enabled: true, password: password)
-        sandra.save(flush: true)
-        def gast = new User(username: 'Gast', enabled: true, password: password)
-        gast.save(flush: true)
-        grantPermissionsToUser(sandra, [userRole, adminRole])
-        grantPermissionsToUser(urs, [userRole, adminRole])
-        UserRole.create gast, userRole, true
+        def urs = createUser('Urs')
+        def sandra = createUser('Sandra')
+        def gast = createUser('Gast')
+        grantPermissionsToUser sandra, [userRole, adminRole]
+        grantPermissionsToUser urs, [userRole, adminRole]
+        grantPermissionsToUser gast, [userRole]
       }
     }
+  }
+
+  private def createUser(def name) {
+    def password = springSecurityService.encodePassword('password')
+    def user = new User(username: name, enabled: true, password: password)
+    user.save(flush: true)
+    return user
   }
 
   private def grantPermissionsToUser(def user, def roles) {
