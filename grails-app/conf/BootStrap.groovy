@@ -20,18 +20,30 @@ class BootStrap {
       if (!Role.list()) {
         def userRole = loadOrCreateRole('ROLE_USER')
         def adminRole = loadOrCreateRole('ROLE_ADMIN')
-        def urs = createUser('Urs')
-        def sandra = createUser('Sandra')
-        def gast = createUser('Gast')
-        grantPermissionsToUser sandra, [userRole, adminRole]
-        grantPermissionsToUser urs, [userRole, adminRole]
+        def allRoles = [userRole, adminRole]
+        def urs = createTestUser('Urs')
+        def sandra = createTestUser('Sandra')
+        def gast = createTestUser('Gast')
+        createAdmin(allRoles)
+        grantPermissionsToUser sandra, allRoles
+        grantPermissionsToUser urs, allRoles
         grantPermissionsToUser gast, [userRole]
       }
     }
   }
 
-  private def createUser(def name) {
+  private def createAdmin(def roles) {
+    def password = '0fcd568a5cb9bdb4677b69354b11ee415af8f784519cff3da49a26f84eaee7f2'
+    def admin = createUser('Admin', password)
+    grantPermissionsToUser(admin, roles)
+  }
+
+  private def createTestUser(def name) {
     def password = springSecurityService.encodePassword('password')
+    return createUser(name, password)
+  }
+
+  private def createUser(name, password) {
     def user = new User(username: name, enabled: true, password: password)
     user.save(flush: true)
     return user
@@ -55,7 +67,6 @@ class BootStrap {
     return Environment.getCurrentEnvironment() == Environment.DEVELOPMENT
   }
 
-
   private def loadOrCreateRole(def authority) {
     def role = Role.findByAuthority(authority)
     if (!role) {
@@ -66,5 +77,4 @@ class BootStrap {
 
   def destroy = {
   }
-
 }
