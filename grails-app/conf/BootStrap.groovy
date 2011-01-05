@@ -1,5 +1,3 @@
-import grails.plugins.springsecurity.SpringSecurityService
-
 import butatopanto.security.Role
 import butatopanto.security.User
 import butatopanto.security.UserRole
@@ -33,9 +31,11 @@ class BootStrap {
   }
 
   private def createAdmin(def roles) {
-    def password = '0fcd568a5cb9bdb4677b69354b11ee415af8f784519cff3da49a26f84eaee7f2'
-    def admin = createUser('Admin', password)
-    grantPermissionsToUser(admin, roles)
+    if (!User.findByUsername('Admin')) {
+      def password = '0fcd568a5cb9bdb4677b69354b11ee415af8f784519cff3da49a26f84eaee7f2'
+      def admin = createUser('Admin', password)
+      grantPermissionsToUser(admin, roles)
+    }
   }
 
   private def createTestUser(def name) {
