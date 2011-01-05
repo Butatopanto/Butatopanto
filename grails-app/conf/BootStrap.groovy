@@ -27,16 +27,16 @@ class BootStrap {
         sandra.save(flush: true)
         def gast = new User(username: 'Gast', enabled: true, password: password)
         gast.save(flush: true)
-        createAdminUser(sandra, userRole, adminRole)
-        createAdminUser(urs, userRole, adminRole)
+        grantPermissionsToUser(sandra, [userRole, adminRole])
+        grantPermissionsToUser(urs, [userRole, adminRole])
         UserRole.create gast, userRole, true
       }
     }
   }
 
-  private def createAdminUser(User user, Role userRole, Role adminRole) {
-    UserRole.create user, userRole, true
-    UserRole.create user, adminRole, true
+  private def grantPermissionsToUser(def user, def roles) {
+    UserRole.create user, roles[0], true
+    UserRole.create user, roles[1], true
   }
 
   private boolean isProduction() {
