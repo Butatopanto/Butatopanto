@@ -19,18 +19,15 @@ class BootStrap {
         def userRole = loadOrCreateRole('ROLE_USER')
         def adminRole = loadOrCreateRole('ROLE_ADMIN')
         def allRoles = [userRole, adminRole]
-        def urs = createTestUser('Urs')
-        def sandra = createTestUser('Sandra')
-        def gast = createTestUser('Gast')
+        createTestUser('Urs', allRoles)
+        createTestUser('Sandra', allRoles)
+        createTestUser('Gast', [userRole])
         createAdmin(allRoles)
-        grantPermissionsToUser sandra, allRoles
-        grantPermissionsToUser urs, allRoles
-        grantPermissionsToUser gast, [userRole]
       }
     }
   }
 
-  private def createAdmin(def roles) {
+  private void createAdmin(def roles) {
     if (!User.findByUsername('Admin')) {
       def password = '0fcd568a5cb9bdb4677b69354b11ee415af8f784519cff3da49a26f84eaee7f2'
       def admin = createUser('Admin', password)
@@ -38,9 +35,10 @@ class BootStrap {
     }
   }
 
-  private def createTestUser(def name) {
+  private void createTestUser(def name, def roles) {
     def password = springSecurityService.encodePassword('password')
-    return createUser(name, password)
+    def user = createUser(name, password)
+    grantPermissionsToUser user, roles
   }
 
   private def createUser(name, password) {
@@ -49,7 +47,7 @@ class BootStrap {
     return user
   }
 
-  private def grantPermissionsToUser(def user, def roles) {
+  private void grantPermissionsToUser(def user, def roles) {
     roles.each { def role ->
       UserRole.create user, role, true
     }
