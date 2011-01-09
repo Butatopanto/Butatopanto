@@ -45,7 +45,9 @@
         <div style="position: absolute; left: 0px; top: 0px; width: 765px; height: 550px">
           <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
             <div class="selector">
-              <div onclick="openStoryDialog(this, 'Geschichte')" title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.frame.kanji}</div>
+              <g:set var="storyLink" value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number)}"/>
+              <g:set var="storyTitle" value="${message(code: 'chapterList.story.title', args: [masteredFrame.frame.keyword, masteredFrame.frame.kanji])}"/>
+              <div onclick='openStoryDialog(this, "${storyTitle}", "${storyLink}")' title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.frame.kanji}</div>
             </div>
           </g:each>
         </div>
