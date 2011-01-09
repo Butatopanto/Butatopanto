@@ -1,6 +1,7 @@
 package butatopanto.kanji.mastery
 
 import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
+import com.gargoylesoftware.htmlunit.html.FrameWindow
 
 class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
@@ -24,7 +25,7 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertTitle 'Chapter 3'
   }
 
-  void testDoesNotShowFlipDownForShortChapter(){
+  void testDoesNotShowFlipDownForShortChapter() {
     assertNull byId('flip-down')
   }
 
@@ -65,6 +66,25 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   void testShowsEmptyKanjiListForVeryHighStartIndex() {
     get("/mastery/listByChapter/1?startIndex=100")
     assertTitle 'Chapter 1'
+  }
+
+  void testShowsStoryEditorOnClick() {
+    clickAndWait "古"
+    def windows = getClient().getWebWindows()
+    def window = windows.find {
+      def isAFrameWindow = it instanceof FrameWindow
+      if (!isAFrameWindow) {
+        return false
+      }
+      def showsStoryEditor = it.frameElement.getAttribute('src') == '/ButatoPanto/story/show/16'
+      return showsStoryEditor
+    }
+    assertNotNull(window)
+  }
+
+  private void clickAndWait(String identifier) {
+    click identifier
+    getClient().waitForBackgroundJavaScript(10000)
   }
 
   private def goToChapterWith80Kanji() {
