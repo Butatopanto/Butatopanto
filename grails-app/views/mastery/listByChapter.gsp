@@ -4,8 +4,13 @@
   <meta name="layout" content="main"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css/kanji' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='mastery.css'/>"/>
+  <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
   <g:javascript library="prototype"/>
+  <g:javascript src="chapterlist.js"/>
   <g:javascript src="protowheel.js"/>
+  <g:javascript src="windows_js/effects.js"/>
+  <g:javascript src="windows_js/window.js"/>
+  <g:javascript src="windows_js/window_effects.js"/>
   <g:javascript>
     function scrollByWheel(e) {
       var scrollCount = Event.wheel(e);
@@ -40,7 +45,7 @@
         <div style="position: absolute; left: 0px; top: 0px; width: 765px; height: 550px">
           <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
             <div class="selector">
-              <div title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.frame.kanji}</div>
+              <div onclick="openStoryDialog(this, 'Geschichte')" title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass}">${masteredFrame.frame.kanji}</div>
             </div>
           </g:each>
         </div>
