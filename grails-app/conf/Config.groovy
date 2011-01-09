@@ -53,7 +53,6 @@ environments {
   test {
     grails.serverURL = "http://localhost:8080/${appName}"
   }
-
 }
 
 // log4j configuration
@@ -82,9 +81,22 @@ log4j = {
   warn 'org.mortbay.log'
 }
 
-
-     
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'butatopanto.security.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'butatopanto.security.UserRole'
 grails.plugins.springsecurity.authority.className = 'butatopanto.security.Role'
+
+// Added for Spring Security UI plugin:
+grails.plugins.springsecurity.controllerAnnotations.staticRules = [
+        '/user/**': ['ROLE_ADMIN'],
+        '/role/**': ['ROLE_ADMIN'],
+        '/registrationCode/**': ['ROLE_ADMIN'],
+        '/securityInfo/**': ['ROLE_ADMIN']
+]
+
+grails.plugins.springsecurity.ui.register.emailFrom = 'registration@butatopanto.de'
+grails.plugins.springsecurity.ui.register.emailSubject = 'Activate your account at butatopanto.de'
+
+//This is a workaround for a bug in jquery 1.4.4 used by spring security ui.
+//See http://grails.1312388.n4.nabble.com/Spring-Security-Management-Console-td3095815.html
+jquery.version = '1.4.4'
