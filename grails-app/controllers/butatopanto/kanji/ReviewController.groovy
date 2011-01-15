@@ -85,10 +85,11 @@ class ReviewController {
   def ajaxResolve = {
     boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
+    def resolvedFrame = review.currentReview
     reviewService.resolve(review, reviewCorrect)
+    updateDueCount(resolvedFrame)
     def frame = reviewService.getCurrentFrame(review)
     if (frame) {
-      updateDueCountIfNecessary(frame.chapter)
       ajaxRenderFrame(frame, true)
     }
     else {
@@ -110,6 +111,11 @@ class ReviewController {
     if (!session.chapters) {
       session.chapters = createChapterSelections()
     }
+  }
+
+  private void updateDueCount(long frameId) {
+    def mastery = masteryService.findMasteryByFrameId(frameId)
+    updateDueCountIfNecessary mastery.frame.chapter
   }
 
   private void updateDueCountIfNecessary(def chapterNumber) {

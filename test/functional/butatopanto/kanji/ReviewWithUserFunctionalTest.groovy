@@ -54,10 +54,30 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertNull byId('showStory')
   }
 
+  void testCalculatesCorrectNumberOfDueKanjiAfterCompletingChapter() {
+    startChapter6();
+    revealAndDeclineKanji()
+    for (i in 2..10) {
+      revealAndConfirmKanji()
+    }
+    returnToAssemblePage()
+    assertContentContains '1 due'
+  }
+
   private def revealAndConfirmKanji() {
     clickAndWait 'kanji-card'
     clickAndWait 'confirmButton'
   }
+
+  private def revealAndDeclineKanji() {
+    clickAndWait 'kanji-card'
+    clickAndWait 'declineButton'
+  }
+
+  private def returnToAssemblePage() {
+    click 'Assemble review'
+  }
+
 
   protected void clickAndWait(String identifier) {
     click identifier
