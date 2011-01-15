@@ -17,7 +17,7 @@ class ReviewController {
   @Secured('ROLE_USER')
   def assemble = {
     createChapterSelectionIfNecessary()
-    boolean dueFrames = masteryService.listDueFrameIds() as boolean
+    boolean dueFrames = evaluateChapters().hasDue()
     boolean chaptersSelected = evaluateChapters().hasSelectedChapter()
     boolean dueSelected = evaluateChapters().hasDueSelected()
     [chaptersSelected: chaptersSelected, dueFrames: dueFrames, dueSelected: dueSelected]
@@ -145,6 +145,6 @@ class ReviewController {
   }
 
   private ChapterSelectionEvaluation evaluateChapters() {
-    new butatopanto.kanji.ChapterSelectionEvaluation(chapters: getChapters())
+    new ChapterSelectionEvaluation(chapters: getChapters())
   }
 }

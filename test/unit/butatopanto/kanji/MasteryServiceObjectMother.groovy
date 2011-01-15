@@ -15,14 +15,4 @@ class MasteryServiceObjectMother {
       []
     }
   }
-
-  void setNoDueFrameIds() {
-    setDueFrameIds([])
-  }
-
-  void setDueFrameIds(List due) {
-    service["listDueFrameIds"] = {
-      due
-    }
-  }
 }

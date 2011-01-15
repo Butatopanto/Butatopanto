@@ -10,10 +10,7 @@ class ChapterSelectionEvaluation {
   }
 
   boolean hasDueSelected() {
-    def selectedChapters = getSelectedChapters()
-    selectedChapters.find { 
-      it.dueFrameCount > 0
-    }
+    haveTheseChaptersAnyKanjiDue selectedChapters
   }
 
   boolean hasSelectedChapter() {
@@ -21,6 +18,16 @@ class ChapterSelectionEvaluation {
   }
 
   boolean hasDue() {
+    haveTheseChaptersAnyKanjiDue chapters
+  }
+
+  def getChapterForNumber(int chapterNumber) {
+    chapters.find {
+      it.chapterNumber == chapterNumber
+    }
+  }
+
+  private boolean haveTheseChaptersAnyKanjiDue(def chapters) {
     chapters.find {
       it.dueFrameCount > 0
     }
@@ -28,11 +35,5 @@ class ChapterSelectionEvaluation {
 
   private List<ChapterSelection> getSelectedChapters() {
     chapters.findAll {it.selected}
-  }
-
-  def getChapterForNumber(int chapterNumber) {
-    chapters.find {
-      it.chapterNumber == chapterNumber
-    }
   }
 }
