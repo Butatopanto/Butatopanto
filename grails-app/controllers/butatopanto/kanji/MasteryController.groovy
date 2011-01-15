@@ -25,6 +25,11 @@ class MasteryController {
     [navigation: builder.build()]
   }
 
+  def list = {
+    List shownMasteryList = listShownMastery()
+    [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]
+  }
+
   private List<MasteredFrame> getMasteredFrames(int chapterNumber) {
     List<Frame> activeFrames = chapterService.listFramesFor(chapterNumber)
     toMasteredFrames(activeFrames)
@@ -37,11 +42,6 @@ class MasteryController {
       def box = mastery ? mastery.box : 0
       new MasteredFrame(frame: it, box: box, hasStory: hasStory)
     }
-  }
-
-  def list = {
-    List shownMasteryList = listShownMastery()
-    [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]
   }
 
   private List listShownMastery() {
