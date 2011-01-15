@@ -13,11 +13,17 @@ class ChapterSelectionEvaluation {
     def selectedChapters = getSelectedChapters()
     selectedChapters.find { 
       it.dueFrameCount > 0
-    } != null
+    }
   }
 
-  def hasSelectedChapter() {
-    chapters.find {it.selected} != null
+  boolean hasSelectedChapter() {
+    chapters.find {it.selected}
+  }
+
+  boolean hasDue() {
+    chapters.find {
+      it.dueFrameCount > 0
+    }
   }
 
   private List<ChapterSelection> getSelectedChapters() {
