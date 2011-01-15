@@ -17,7 +17,7 @@ class ReviewController {
   @Secured('ROLE_USER')
   def assemble = {
     createChapterSelectionIfNecessary()
-    boolean dueFrames = evaluateChapters().hasDue()
+    boolean dueFrames = masteryService.listDueFrameIds() as boolean
     boolean chaptersSelected = evaluateChapters().hasSelectedChapter()
     boolean dueSelected = evaluateChapters().hasDueSelected()
     [chaptersSelected: chaptersSelected, dueFrames: dueFrames, dueSelected: dueSelected]
@@ -114,8 +114,8 @@ class ReviewController {
   }
 
   private void updateDueCount(long frameId) {
-    def mastery = masteryService.findMasteryByFrameId(frameId)
-    updateDueCountIfNecessary mastery.frame.chapter
+    def frame = Frame.findByNumber((int)frameId)
+    updateDueCountIfNecessary frame.chapter
   }
 
   private void updateDueCountIfNecessary(def chapterNumber) {

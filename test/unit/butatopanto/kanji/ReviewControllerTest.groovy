@@ -28,10 +28,10 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Before
   void configureChapters() {
     controller.session.chapters = [
-      new ChapterSelection(chapterNumber: 1),
-      new ChapterSelection(chapterNumber: 2),
-      new ChapterSelection(chapterNumber: 3),
-      new ChapterSelection(chapterNumber: 4)]
+            new ChapterSelection(chapterNumber: 1),
+            new ChapterSelection(chapterNumber: 2),
+            new ChapterSelection(chapterNumber: 3),
+            new ChapterSelection(chapterNumber: 4)]
   }
 
   @Test
@@ -101,9 +101,10 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void showsEndOfLessonScreenAfterResolvingLastFrame() {
+    mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
     masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}]
-    controller.session.review = new Review(currentReview: "second")
+    controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
     assertEquals "<h1>Herzlichen Glückwunsch</h1>", controller.response.contentAsString
@@ -111,9 +112,10 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void clearsReviewAfterResolvingLastFrame() {
+    mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
     masteryServiceObjectMother.setNoDueFramesIdsForChapter()
     controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}]
-    controller.session.review = new Review(currentReview: "second")
+    controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
     assertNull controller.session.review
