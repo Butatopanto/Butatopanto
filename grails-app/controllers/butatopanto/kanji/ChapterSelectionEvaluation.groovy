@@ -13,11 +13,11 @@ class ChapterSelectionEvaluation {
     haveTheseChaptersAnyKanjiDue selectedChapters
   }
 
-  boolean hasSelectedChapter() {
+  boolean hasChaptersSelected() {
     chapters.find {it.selected}
   }
 
-  boolean hasDue() {
+  boolean hasDueFrames() {
     haveTheseChaptersAnyKanjiDue chapters
   }
 

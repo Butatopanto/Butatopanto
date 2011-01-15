@@ -9,25 +9,25 @@ class ChapterSelectionEvaluation_DueTest extends GrailsJUnit4TestCase {
   @Test
   void findsDueKanjiIfAny() {
     def evaluation = evaluateWithDueCount(1)
-    assertTrue(evaluation.hasDue())
+    assertTrue(evaluation.hasDueFrames())
   }
 
   @Test
   void findsNoDueKanjiIfNone() {
     def evaluation = evaluateWithDueCount(0)
-    assertFalse(evaluation.hasDue())
+    assertFalse(evaluation.hasDueFrames())
   }
 
   @Test
   void findsSelectedKanjiIfAny() {
     def evaluation = evaluateWithSelected(true)
-    assertTrue(evaluation.hasSelectedChapter())
+    assertTrue(evaluation.hasChaptersSelected())
   }
 
   @Test
   void findsNoSelectedKanjiIfNone() {
     def evaluation = evaluateWithSelected(false)
-    assertFalse(evaluation.hasSelectedChapter())
+    assertFalse(evaluation.hasChaptersSelected())
   }
 
   @Test

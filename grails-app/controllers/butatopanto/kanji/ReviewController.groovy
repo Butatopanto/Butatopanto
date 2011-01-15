@@ -17,45 +17,46 @@ class ReviewController {
   @Secured('ROLE_USER')
   def assemble = {
     createChapterSelectionIfNecessary()
-    boolean dueFrames = evaluateChapters().hasDue()
-    boolean chaptersSelected = evaluateChapters().hasSelectedChapter()
-    boolean dueSelected = evaluateChapters().hasDueSelected()
-    [chaptersSelected: chaptersSelected, dueFrames: dueFrames, dueSelected: dueSelected]
+    evaluateChapters().with({
+      [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
+    })
   }
 
   def addChapter = {
     int chapterNumber = params.id.toInteger()
     masteryService.activateChapter(chapterNumber)
-    evaluateChapters().getChapterForNumber(chapterNumber).selected = true
-    evaluateChapters().getChapterForNumber(chapterNumber).active = true
+    def chapterSelection = getChapterSelection(chapterNumber)
+    chapterSelection.selected = true
+    chapterSelection.active = true
     updateDueCountIfNecessary(chapterNumber)
-    redirect(action: "assemble")
+    continueAssembly()
   }
+
 
   def removeChapter = {
     int chapterNumber = params.id.toInteger()
-    evaluateChapters().getChapterForNumber(chapterNumber).selected = false
-    redirect(action: "assemble")
+    getChapterSelection().selected = false
+    continueAssembly()
   }
 
   @Secured('ROLE_USER')
   def startSelectedChapters = {
     List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
     session.review = reviewService.startChapters(selectedChapterNumbers)
-    redirect(action: "practice")
+    startPractice()
   }
 
   @Secured('ROLE_USER')
   def startDueFramesFromSelectedChapter = {
     List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
     session.review = reviewService.startDueFrom(selectedChapterNumbers)
-    redirect(action: "practice")
+    startPractice()
   }
 
   @Secured('ROLE_USER')
   def startDue = {
     session.review = reviewService.startDue()
-    redirect(action: "practice")
+    startPractice()
   }
 
   @Secured('ROLE_USER')
@@ -114,7 +115,7 @@ class ReviewController {
   }
 
   private void updateDueCount(long frameId) {
-    def frame = Frame.findByNumber((int)frameId)
+    def frame = Frame.findByNumber((int) frameId)
     updateDueCountIfNecessary frame.chapter
   }
 
@@ -140,8 +141,20 @@ class ReviewController {
     new ChapterSelection(chapterNumber: chapterNumber, selected: false, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
   }
 
+  private def continueAssembly() {
+    redirect(action: "assemble")
+  }
+
+  private def startPractice() {
+    redirect(action: "practice")
+  }
+
   private def getChapters() {
     session.chapters
+  }
+
+  private def getChapterSelection(int chapterNumber) {
+    return evaluateChapters().getChapterForNumber(chapterNumber)
   }
 
   private ChapterSelectionEvaluation evaluateChapters() {
