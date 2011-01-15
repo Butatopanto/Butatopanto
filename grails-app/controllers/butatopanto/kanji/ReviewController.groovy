@@ -32,10 +32,9 @@ class ReviewController {
     continueAssembly()
   }
 
-
   def removeChapter = {
     int chapterNumber = params.id.toInteger()
-    getChapterSelection().selected = false
+    getChapterSelection(chapterNumber).selected = false
     continueAssembly()
   }
 
@@ -86,9 +85,9 @@ class ReviewController {
   def ajaxResolve = {
     boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
-    def resolvedFrame = review.currentReview
-    reviewService.resolve(review, reviewCorrect)
-    updateDueCount(resolvedFrame)
+    reviewService.resolve review, reviewCorrect
+    updateDueCount review
+    reviewService.toNext review
     def frame = reviewService.getCurrentFrame(review)
     if (frame) {
       ajaxRenderFrame(frame, true)
@@ -97,6 +96,7 @@ class ReviewController {
       endReview()
     }
   }
+
 
   private def ajaxRenderFrame(frame, boolean hidden) {
     def practiceTablet = heisig.practiceTablet([frame: frame, hidden: hidden])
@@ -114,8 +114,9 @@ class ReviewController {
     }
   }
 
-  private void updateDueCount(long frameId) {
-    def frame = Frame.findByNumber((int) frameId)
+  private def updateDueCount(Review review) {
+    def resolvedFrameId = review.currentReview
+    def frame = Frame.findByNumber(resolvedFrameId)
     updateDueCountIfNecessary frame.chapter
   }
 

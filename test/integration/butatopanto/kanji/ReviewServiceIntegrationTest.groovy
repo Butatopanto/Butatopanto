@@ -5,6 +5,7 @@ import butatopanto.sharedtest.ValidationUtilities
 import org.junit.Before
 import org.junit.Test
 import butatopanto.learning.Review
+import butatopanto.security.User
 
 class ReviewServiceIntegrationTest extends GrailsJUnit4TestCase {
 
@@ -13,12 +14,5 @@ class ReviewServiceIntegrationTest extends GrailsJUnit4TestCase {
   @Test
   void hasNoCurrentFrameForEmptyReview() {
     assertNull reviewService.getCurrentFrame(new Review())
-  }
-
-  @Test
-  void hasNoCurrentFrameAfterLastReview() {
-    Review review = reviewService.start([1L])
-    reviewService.toNext review
-    assertNull reviewService.getCurrentFrame(review)
   }
 }

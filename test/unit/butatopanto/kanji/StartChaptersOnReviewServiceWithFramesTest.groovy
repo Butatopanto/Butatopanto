@@ -27,7 +27,8 @@ class StartChaptersOnReviewServiceWithFramesTest extends GrailsUnitTestCase {
   }
 
   void testHasRemainingFrameAfterResolve() {
-    reviewService.resolve(review, true)
+    reviewService.resolve review, true
+    reviewService.toNext review
     assertEquals frame1, reviewService.getCurrentFrame(review)
   }
 

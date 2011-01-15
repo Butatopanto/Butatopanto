@@ -3,6 +3,7 @@ package butatopanto.kanji
 import butatopanto.learning.Review
 
 class ReviewService {
+
   static transactional = true
   def random = new Random()
   def masteryService
@@ -10,17 +11,17 @@ class ReviewService {
 
   Review startChapters(List chapterNumbers) {
     def frameIds = masteryService.listActiveFrameIdsForChapterList(chapterNumbers)
-    start(frameIds)
+    start frameIds
   }
 
   Review startDueFrom(List chapterNumbers) {
     def dueFrameIds = masteryService.listDueFramesForChapterList(chapterNumbers)
-    start(dueFrameIds)
+    start dueFrameIds
   }
 
   Review startDue() {
     def dueFrameIds = masteryService.listDueFrameIds()
-    start (dueFrameIds)
+    start dueFrameIds
   }
 
   Review start(List frameIds) {
@@ -39,7 +40,11 @@ class ReviewService {
     } else {
       masteryService.answerWrong(review.currentReview)
     }
-    toNext(review)
+    review.remainingIds.remove((Object) review.currentReview)
+  }
+
+  void toNext(Review review) {
+    review.currentReview = getRandomId(review)
   }
 
   Frame getCurrentFrame(Review review) {
@@ -50,11 +55,6 @@ class ReviewService {
   String getCurrentStory(Review review) {
     def currentReview = review.currentReview
     storyService.findStoryTextByFrameId(currentReview) ?: ""
-  }
-
-  private void toNext(Review review) {
-    review.remainingIds.remove((Object) review.currentReview)
-    review.currentReview = getRandomId(review)
   }
 
   private def getRandomId(Review review) {
