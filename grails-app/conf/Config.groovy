@@ -96,7 +96,3 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
 
 grails.plugins.springsecurity.ui.register.emailFrom = 'registration@butatopanto.de'
 grails.plugins.springsecurity.ui.register.emailSubject = 'Activate your account at butatopanto.de'
-
-//This is a workaround for a bug in jquery 1.4.4 used by spring security ui.
-//See http://grails.1312388.n4.nabble.com/Spring-Security-Management-Console-td3095815.html
-jquery.version = '1.4.4'
