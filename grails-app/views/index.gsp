@@ -7,47 +7,25 @@
   #nav {
     margin-top: 2em;
     margin-left: 2.9em;
-    width: 20.5em;
+    width: 19.5em;
     float: left;
+    border: 0.2em solid #e8e8e8;
+    padding: 0.2em;
+    border-radius: 0.4em 0.4em;
+    box-shadow: 1px 1px 5px #222222;
+    -webkit-box-shadow: 1px 1px 5px #222222;  /**For Chrome/Safari*/
   }
 
-  .homePagePanel * {
-    margin: 0em;
-  }
-
-  .homePagePanel .panelBody ul {
+  .activityselector ul {
     list-style-type: none;
     margin-bottom: 0.95em;
+    text-align: left;
   }
 
-  .homePagePanel .panelBody h1 {
-    text-transform: uppercase;
-    font-size: 1.1em;
-    margin-bottom: 1em;
-  }
-
-  .homePagePanel .panelBody {
-    background: url(images/leftnav_midstretch.png) repeat-y top;
+  .activityselector .panelBody {
     margin: 0em;
     padding: 1.4em;
-  }
-
-  .homePagePanel .panelBtm {
-    background: url(images/leftnav_btm.png) no-repeat top;
-    height: 2em;
-    margin: 0em;
-  }
-
-  .homePagePanel .panelTop {
-    background: url(images/leftnav_top.png) no-repeat top;
-    height: 1em;
-    margin: 0em;
-  }
-
-  h2 {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    font-size: 1.2em;
+    font-size: 11px;
   }
 
   #pageBody {
@@ -72,18 +50,16 @@
 </head>
 <body>
 <div id="nav">
-  <div class="homePagePanel">
-    <div class="panelTop">
-    </div>
+  <div class="activityselector" style="background-color: #e8e8e8; border: 0em; border-radius: 0.2em 0.2em;">
     <div class="panelBody">
       <ul>
-        <li class="controller"><g:link controller="review" action="assemble"><g:message code="navigation.frameTraining"/></g:link></li>
-        <li class="controller"><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
+        <li><g:link controller="review" action="assemble"><g:message code="navigation.frameTraining"/></g:link></li>
+        <li><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
       </ul>
       <ul>
-        <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
-        <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
-        <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
+        <li><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
+        <li><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
+        <li><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
       </ul>
       <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
         <ul>
@@ -91,8 +67,6 @@
           <li><a class="home" href="${createLink(uri: '/system.gsp')}"><g:message code="navigation.system"/></a></li>
         </ul>
       </g:if>
-    </div>
-    <div class="panelBtm">
     </div>
   </div>
 
