@@ -5,68 +5,68 @@
   <style type="text/css" media="screen">
 
   #nav {
-    margin-top: 20px;
-    margin-left: 30px;
-    width: 228px;
+    margin-top: 2em;
+    margin-left: 2.9em;
+    width: 20.5em;
     float: left;
   }
 
   .homePagePanel * {
-    margin: 0px;
+    margin: 0em;
   }
 
   .homePagePanel .panelBody ul {
     list-style-type: none;
-    margin-bottom: 10px;
+    margin-bottom: 0.95em;
   }
 
   .homePagePanel .panelBody h1 {
     text-transform: uppercase;
     font-size: 1.1em;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
   }
 
   .homePagePanel .panelBody {
     background: url(images/leftnav_midstretch.png) repeat-y top;
-    margin: 0px;
-    padding: 15px;
+    margin: 0em;
+    padding: 1.4em;
   }
 
   .homePagePanel .panelBtm {
     background: url(images/leftnav_btm.png) no-repeat top;
-    height: 20px;
-    margin: 0px;
+    height: 2em;
+    margin: 0em;
   }
 
   .homePagePanel .panelTop {
     background: url(images/leftnav_top.png) no-repeat top;
-    height: 11px;
-    margin: 0px;
+    height: 1em;
+    margin: 0em;
   }
 
   h2 {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     font-size: 1.2em;
   }
 
   #pageBody {
-    margin-left: 280px;
-    margin-right: 20px;
+    margin-left: 25.5em;
+    margin-right: 2em;
   }
 
   .activityselector {
     display: table-cell;
     vertical-align: middle;
-    font-size: 20px;
-    border: 4px solid;
-    border-radius: 15px 15px;
+    font-size: 2em;
+    border: 0.2em solid;
+    border-radius: 0.7em 0.7em;
     text-align: center;
     width: 15em
   }
 
   .padded {
-    margin-top: 10px
+    margin-top: 1em
   }
   </style>
 </head>
