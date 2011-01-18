@@ -6,9 +6,9 @@ class MenuTagLib {
 
   def home = {
     out << "<span class='menuButton'>"
-    out << "<a class='home' href='${createLink(uri: '/')}'> "
-    out << g.message(code: 'default.home.label')
-    out << "</a>"
+    createHomeLink([]) {
+      g.message(code: 'default.home.label')
+    }
     out << "</span>"
   }
 
@@ -28,6 +28,12 @@ class MenuTagLib {
     }
     def linkParameters = ['class': "practice", controller: "review", action: "practice"]
     writeMenuButton(linkParameters, 'menu.returnToPractice')
+  }
+
+  def createHomeLink = {attributes, body ->
+    out << "<a class='home' href='${createLink(uri: '/')}'> "
+    out << body()
+    out << "</a>"
   }
 
   void writeMenuButton(def linkParameters, def messageCode) {
