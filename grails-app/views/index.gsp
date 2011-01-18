@@ -9,7 +9,6 @@
     margin-left: 30px;
     width: 228px;
     float: left;
-
   }
 
   .homePagePanel * {
@@ -55,6 +54,20 @@
     margin-left: 280px;
     margin-right: 20px;
   }
+
+  .activityselector {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20px;
+    border: 4px solid;
+    border-radius: 15px 15px;
+    text-align: center;
+    width: 15em
+  }
+
+  .padded {
+    margin-top: 10px
+  }
   </style>
 </head>
 <body>
@@ -66,7 +79,7 @@
       <ul>
         <li class="controller"><g:link controller="review" action="assemble"><g:message code="navigation.frameTraining"/></g:link></li>
         <li class="controller"><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
-       </ul>
+      </ul>
       <ul>
         <li class="controller"><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
         <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
@@ -84,11 +97,24 @@
 <div id="pageBody">
   <h1>よこそう</h1>
 
-  <p><g:message code="home.firstSteps.fun"/> </p>
+  <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> 楽しんで&#x3002</p>
 
-  <p><g:message code="home.firstSteps.begin"/> <g:link controller="vocable"><g:message code="home.firstSteps.manage"/></g:link> <g:message code="home.firstSteps.middle"/> <g:link controller="question"><g:message code="home.firstSteps.study"/></g:link> <g:message code="home.firstSteps.end"/></P>
+  <div class="padded">
+    <g:link controller="vocable">
+      <div class="activityselector" style="background-color: #90ee90; border-color: green; height: 10em;">
+        <g:message code="home.firstSteps.study"/>
+      </div>
+    </g:link>
+  </div>
 
-  <P>楽しんで&#x3002</p>
+  <div class="padded">
+    <g:link controller="mastery">
+      <div class="activityselector" style="background-color:#add8e6; border-color:#00008b; height: 3em;">
+        <g:message code="home.firstSteps.manage"/>
+      </div>
+    </g:link>
+  </div>
+
 </div>
 </body>
 </html>
