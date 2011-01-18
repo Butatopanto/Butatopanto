@@ -103,7 +103,7 @@
   <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> 楽しんで&#x3002</p>
 
   <div class="padded">
-    <g:link controller="vocable">
+    <g:link controller="review">
       <div class="activityselector" style="background-color: #90ee90; border-color: green; height: 10em;">
         <g:message code="home.firstSteps.study"/>
       </div>
