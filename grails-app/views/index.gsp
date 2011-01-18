@@ -85,9 +85,12 @@
         <li class="controller"><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
         <li class="controller"><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
       </ul>
-      <ul>
-        <li><a class="home" href="${createLink(uri: '/system.gsp')}"><g:message code="navigation.system"/></a></li>
-      </ul>
+      <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
+        <ul>
+          <li><g:link controller="user"><g:message code="navigation.administration"/></g:link></li>
+          <li><a class="home" href="${createLink(uri: '/system.gsp')}"><g:message code="navigation.system"/></a></li>
+        </ul>
+      </g:if>
     </div>
     <div class="panelBtm">
     </div>
