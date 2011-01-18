@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="96.076637"
+   height="96.076637"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="buta_icon.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3664">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.63063061;"
+         offset="0"
+         id="stop3666" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="1"
+         id="stop3668" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3636">
+      <stop
+         style="stop-color:#3c3c3c;stop-opacity:1;"
+         offset="0"
+         id="stop3638" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3640" />
+    </linearGradient>
+    <filter
+       id="filter3687"
+       inkscape:label="Metallized ridge"
+       inkscape:menu="Ridges"
+       inkscape:menu-tooltip="Gel Ridge metallized at its top"
+       height="2"
+       y="-0.5"
+       width="2"
+       x="-0.5"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur3689"
+         stdDeviation="1"
+         result="result1" />
+      <feGaussianBlur
+         id="feGaussianBlur3691"
+         stdDeviation="8"
+         result="result6"
+         in="result1" />
+      <feComposite
+         id="feComposite3693"
+         in2="result1"
+         operator="atop"
+         in="result6"
+         result="result8" />
+      <feComposite
+         id="feComposite3695"
+         in2="result8"
+         operator="xor"
+         result="fbSourceGraphic"
+         in="result6" />
+      <feColorMatrix
+         id="feColorMatrix3697"
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 2 0 " />
+      <feGaussianBlur
+         id="feGaussianBlur3699"
+         result="result0"
+         in="fbSourceGraphicAlpha"
+         stdDeviation="2.5" />
+      <feSpecularLighting
+         id="feSpecularLighting3701"
+         specularExponent="35"
+         specularConstant="1"
+         surfaceScale="4"
+         lighting-color="#ffffff"
+         result="result1"
+         in="result0">
+        <fePointLight
+           id="fePointLight3703"
+           z="20000"
+           y="-10000"
+           x="-5000" />
+      </feSpecularLighting>
+      <feComposite
+         id="feComposite3705"
+         in2="fbSourceGraphicAlpha"
+         operator="in"
+         result="result2"
+         in="result1" />
+      <feComposite
+         id="feComposite3707"
+         in2="result2"
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         result="result4"
+         in="fbSourceGraphic"
+         k1="0"
+         k4="0" />
+      <feComposite
+         id="feComposite3709"
+         in2="result4"
+         operator="atop"
+         result="result91" />
+      <feBlend
+         id="feBlend3711"
+         in2="result91"
+         mode="multiply" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3636"
+       id="linearGradient3662"
+       x1="152.3815"
+       y1="342.82471"
+       x2="152.3815"
+       y2="281.21808"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(25.860336,2.220566)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3664"
+       id="linearGradient3670"
+       x1="254.51041"
+       y1="340.42871"
+       x2="254.51041"
+       y2="302.33853"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-76.268544,-7.1416391)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="58.224851"
+     inkscape:cy="6.0609777"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="962"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-130.20352,-266.20363)">
+    <rect
+       style="fill:#ff0000"
+       id="rect2838"
+       width="61.606628"
+       height="61.606628"
+       x="147.43852"
+       y="283.43863"
+       rx="8.9522858"
+       ry="8.9522858"
+       inkscape:export-filename="C:\Users\Urs\Pictures\Buta Icon 2.png"
+       inkscape:export-xdpi="51.521358"
+       inkscape:export-ydpi="51.521358" />
+    <rect
+       style="fill:url(#linearGradient3662);fill-opacity:1;stroke:none"
+       id="rect2838-1"
+       width="61.606628"
+       height="61.606628"
+       x="147.43852"
+       y="283.43863"
+       rx="8.9522858"
+       ry="8.9522858"
+       inkscape:export-filename="C:\Users\Urs\Pictures\Buta Icon 2.png"
+       inkscape:export-xdpi="51.521358"
+       inkscape:export-ydpi="51.521358" />
+    <rect
+       style="fill:#ff2a2a;filter:url(#filter3687)"
+       id="rect2838-6"
+       width="110.10663"
+       height="110.10663"
+       x="171.61176"
+       y="317.4559"
+       rx="16"
+       ry="16"
+       transform="matrix(0.55951789,0,0,0.55951789,51.418677,105.81638)"
+       inkscape:export-filename="C:\Users\Urs\Pictures\Buta Icon 2.png"
+       inkscape:export-xdpi="51.521358"
+       inkscape:export-ydpi="51.521358" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.42492676px;font-style:normal;font-weight:normal;fill:url(#linearGradient3670);fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Copperplate Gothic Bold;-inkscape-font-specification:Copperplate Gothic Bold"
+       x="155.52753"
+       y="329.96725"
+       id="text2832"
+       inkscape:export-filename="C:\Users\Urs\Pictures\Buta Icon 2.png"
+       inkscape:export-xdpi="51.521358"
+       inkscape:export-ydpi="51.521358"><tspan
+         sodipodi:role="line"
+         id="tspan2834"
+         x="155.52753"
+         y="329.96725"
+         style="font-size:44.72973633px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:url(#linearGradient3670);fill-opacity:1;fill-rule:nonzero;font-family:MS Mincho;-inkscape-font-specification:MS Mincho">豚</tspan></text>
+  </g>
+</svg>

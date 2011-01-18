@@ -12,7 +12,7 @@
 </div>
 <table style="border:none; width:100%">
   <tr>
-    <td width="60px"><menu:createHomeLink><img src="${resource(dir: 'images', file: 'logoSmall.png')}" alt="ButatoPanto" border="0"/></menu:createHomeLink></td>
+    <td width="60px"><menu:createHomeLink><img src="${resource(dir: 'images', file: 'buta_icon.svg')}" alt="ButatoPanto" border="0" title="${message(code:'default.home.label')}"/></menu:createHomeLink></td>
     <td style="vertical-align: middle; font-size:30px">豚とパンと</td>
     <td style="horizontal-align: right">
       <sec:securityLink/>
