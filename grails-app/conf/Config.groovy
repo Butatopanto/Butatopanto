@@ -45,7 +45,7 @@ grails.spring.bean.packages = []
 // set per-environment serverURL stem for creating absolute links
 environments {
   production {
-    grails.serverURL = "http://butatopanto.de:8081/butatopanto"
+    grails.serverURL = "http://www.butatopanto.de"
   }
   development {
     grails.serverURL = "http://localhost:8080/${appName}"
