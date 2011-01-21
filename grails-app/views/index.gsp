@@ -40,7 +40,7 @@
     border: 0.2em solid;
     border-radius: 0.7em 0.7em;
     text-align: center;
-    width: 15em
+    width: 11em
   }
 
   .padded {
