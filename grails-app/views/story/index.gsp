@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="nav">
-  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+  <menu:home/>
 </div>
 The story-controller is not meant to be used directly.</br>
 It is exposed via other pages.
