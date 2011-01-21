@@ -75,28 +75,8 @@
 <div id="pageBody">
   <h1>よこそう</h1>
   <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> 楽しんで&#x3002</p>
-  <div class="padded">
-    <g:link controller="review">
-      <div class="activityselector" style="background-color: #90ee90; border-color: green;">
-        <div style="font-size: 4em;">
-          覚
-        </div>
-        <g:message code="home.firstSteps.study"/>
-      </div>
-    </g:link>
-  </div>
-
-  <div class="padded" style="margin-left: 1em;">
-    <g:link controller="mastery">
-      <div class="activityselector" style="background-color:#add8e6; border-color:#00008b;">
-        <div style="font-size: 4em;">
-          運
-        </div>
-        <g:message code="home.firstSteps.manage"/>
-      </div>
-    </g:link>
-  </div>
-
+  <g:render template="/action" model="[controller:'review', kanji:'覚', message:'home.firstSteps.study', background: '#90ee90', border:'green']"/>
+  <g:render template="/action" model="[controller:'mastery', kanji:'運', message:'home.firstSteps.manage', background: '#add8e6', border:'#00008b', style:'margin-left:1em']"/>
 </div>
 </body>
 </html>
