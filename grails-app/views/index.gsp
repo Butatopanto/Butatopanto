@@ -13,7 +13,7 @@
     padding: 0.2em;
     border-radius: 0.4em 0.4em;
     box-shadow: 1px 1px 5px #222222;
-    -webkit-box-shadow: 1px 1px 5px #222222;  /**For Chrome/Safari*/
+    -webkit-box-shadow: 1px 1px 5px #222222; /**For Chrome/Safari*/
   }
 
   .activityselector ul {
@@ -44,7 +44,8 @@
   }
 
   .padded {
-    margin-top: 1em
+    margin-top: 1em;
+    float: left;
   }
   </style>
 </head>
@@ -73,20 +74,24 @@
 </div>
 <div id="pageBody">
   <h1>よこそう</h1>
-
   <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> 楽しんで&#x3002</p>
-
   <div class="padded">
     <g:link controller="review">
-      <div class="activityselector" style="background-color: #90ee90; border-color: green; height: 10em;">
+      <div class="activityselector" style="background-color: #90ee90; border-color: green;">
+        <div style="font-size: 4em;">
+          覚
+        </div>
         <g:message code="home.firstSteps.study"/>
       </div>
     </g:link>
   </div>
 
-  <div class="padded">
+  <div class="padded" style="margin-left: 1em;">
     <g:link controller="mastery">
-      <div class="activityselector" style="background-color:#add8e6; border-color:#00008b; height: 3em;">
+      <div class="activityselector" style="background-color:#add8e6; border-color:#00008b;">
+        <div style="font-size: 4em;">
+          運
+        </div>
         <g:message code="home.firstSteps.manage"/>
       </div>
     </g:link>
