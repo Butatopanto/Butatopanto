@@ -56,6 +56,7 @@
       <ul>
         <li><g:link controller="review" action="assemble"><g:message code="navigation.frameTraining"/></g:link></li>
         <li><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
+        <li><g:link controller="flashcard"><g:message code="navigation.flashcardStatus"/></g:link></li>
       </ul>
       <ul>
         <li><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
@@ -75,8 +76,8 @@
 <div id="pageBody">
   <h1>よこそう</h1>
   <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> 楽しんで&#x3002</p>
-  <g:render template="/action" model="[controller:'review', kanji:'覚', message:'home.firstSteps.study', background: '#90ee90', border:'green']"/>
-  <g:render template="/action" model="[controller:'mastery', kanji:'運', message:'home.firstSteps.manage', background: '#add8e6', border:'#00008b', style:'margin-left:1em']"/>
+  <g:render template="/action" model="[controller:'review', kanji:'習', message:'home.firstSteps.study', background: '#90ee90', border:'green']"/>
+  <g:render template="/action" model="[controller:'mastery', kanji:'治', message:'home.firstSteps.manage', background: '#add8e6', border:'#00008b', style:'margin-left:1em']"/>
 </div>
 </body>
 </html>
