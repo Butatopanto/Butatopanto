@@ -35,13 +35,4 @@ class ProgressTagLibTest extends TagLibJUnit4TestCase {
     tagLib.renderProgressBar()
     assertEquals "ChartTitle", chartBuilder.title
   }
-
-  @Test
-  @Ignore
-  void hasChartBuilderContentInDiv() {
-    chartBuilder.setBuildResult "my nice result"
-    tagLib.renderProgressBar()
-    def xml = getContentAsXml(tagLib)
-    assertEquals "my nice result", xml.div[0].text()
-  }
 }
