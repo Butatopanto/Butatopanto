@@ -3,7 +3,7 @@ package butatopanto.security
 import butatopanto.kanji.HeisigUser
 
 class UserService {
-
+  def static NO_USER = null
   def springSecurityService
 
   def findOrCreateHeisigUser() {
@@ -16,7 +16,7 @@ class UserService {
   def getCurrentUser() {
     def authentication = springSecurityService.authentication
     if (!authentication) {
-      return null
+      return NO_USER;
     }
     User.findByUsername(authentication.name)
   }

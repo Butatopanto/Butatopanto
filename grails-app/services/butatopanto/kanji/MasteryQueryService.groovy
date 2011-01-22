@@ -19,7 +19,7 @@ class MasteryQueryService {
   }
 
   def listMastery() {
-    if(!userService.currentUser) {
+    if (!userService.currentUser) {
       return []
     }
     MasteryOfFrame.withCriteria {
@@ -39,6 +39,18 @@ class MasteryQueryService {
       }
     }
     masteryList[0]
+  }
+
+  def listMasteriesForBox(int box) {
+    if (!userService.currentUser) {
+      return []
+    }
+    MasteryOfFrame.withCriteria {
+      user {
+        eq('userName', currentUserName)
+      }
+      eq('box', box)
+    }
   }
 
   private String getCurrentUserName() {
