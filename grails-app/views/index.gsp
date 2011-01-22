@@ -58,11 +58,6 @@
         <li><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
         <li><g:link controller="flashcard"><g:message code="navigation.flashcardStatus"/></g:link></li>
       </ul>
-      <ul>
-        <li><g:link controller="question"><g:message code="navigation.question"/></g:link></li>
-        <li><g:link controller="vocable"><g:message code="navigation.vocable"/></g:link></li>
-        <li><g:link controller="studylist"><g:message code="navigation.studylist"/></g:link></li>
-      </ul>
       <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
         <ul>
           <li><g:link controller="user"><g:message code="navigation.administration"/></g:link></li>
