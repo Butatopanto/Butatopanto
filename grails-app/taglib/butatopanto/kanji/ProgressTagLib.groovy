@@ -2,6 +2,7 @@ package butatopanto.kanji
 
 import butatopanto.learning.Review
 import butatopanto.progress.GoogleChartBuilder
+import butatopanto.progress.ProgressChartBuilder
 
 class ProgressTagLib {
 
@@ -24,7 +25,7 @@ class ProgressTagLib {
   }
 
   protected def newChartBuilder = {
-    new GoogleChartBuilder()
+    new ProgressChartBuilder()
   }
 
   private def getTitle() {

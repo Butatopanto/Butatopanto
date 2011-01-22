@@ -22,6 +22,7 @@
           <g:each in="${boxes}" status="i" var="${box}">
             <p>Box ${box.number}: ${box.dueKanji} due out of ${box.totalKanji}</p>
           </g:each>
+          <flashcard:renderStatus boxes="${boxes}"/>
         </div>
       </div>
     </div>

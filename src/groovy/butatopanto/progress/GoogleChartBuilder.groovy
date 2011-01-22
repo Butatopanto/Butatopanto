@@ -4,10 +4,10 @@ import groovy.xml.MarkupBuilder
 
 class GoogleChartBuilder extends HtmlBuilder {
 
-  private int width = 250
-  private int height = 100
+  int width = 250
+  int height = 100
   private def alternativeText = "";
-  private def additionalParameters = ""
+  def additionalParameters = ""
 
   void setAlternativeText(def text) {
     this.alternativeText = text
@@ -23,16 +23,7 @@ class GoogleChartBuilder extends HtmlBuilder {
     setAxisLabels(total)
   }
 
-  void setDataSeriesValuesForRightWrongAndRemaining(def right, def wrong, def remaining) {
-    addParameter "chd=t:${right}|${wrong}|${remaining}"
-  }
-
-  void setLegendForRightWrongAndRemaining(def right, def wrong, def remaining) {
-    addLegendAtBottom()
-    addParameter "chdl=${right}|${wrong}|${remaining}"
-  }
-
-  private void addLegendAtBottom() {
+  void addLegendAtBottom() {
     addParameter "chdlp=b"
   }
 
@@ -44,7 +35,7 @@ class GoogleChartBuilder extends HtmlBuilder {
     builder.img(alt: alternativeText, id: 'progress-chart', width: width, height: height, src: buildUrl())
   }
 
-  private String buildUrl() {
+  protected String buildUrl() {
     setBackgroundColorGradient()
     setXAxisVisible()
     setDataSeriesColorsGreenRedAndWhite()
@@ -56,8 +47,12 @@ class GoogleChartBuilder extends HtmlBuilder {
     addParameter "chf=bg,lg,0,EFEFEF,0,D1D1D1,1"
   }
 
-  private void setXAxisVisible() {
+  void setXAxisVisible() {
     addParameter "chxt=x"
+  }
+
+  void setXAndYAxesVisible() {
+    addParameter "chxt=y,x"
   }
 
   private void setAxisRange(total) {
@@ -77,7 +72,7 @@ class GoogleChartBuilder extends HtmlBuilder {
     addParameter "chds=0,${total},0,${total},0,${total}"
   }
 
-  private void addParameter(String parameter) {
+  void addParameter(String parameter) {
     additionalParameters += "&$parameter"
   }
 }
