@@ -7,6 +7,7 @@ import static butatopanto.learning.LeitnerService.LAST_BOX
 class FlashcardController {
 
   def leitnerService
+  def masteryQueryService
 
   def index = {
     redirect(action: 'status')
@@ -16,7 +17,7 @@ class FlashcardController {
   def status = {
     def boxes = [];
     for (boxnumber in FIRST_BOX..LAST_BOX) {
-      def kanjiInBox = MasteryOfFrame.findAllByBox(boxnumber)
+      def kanjiInBox = masteryQueryService.listMasteriesForBox(boxnumber)
       def totalKanji = kanjiInBox.size();
       def dueKanji = kanjiInBox ? kanjiInBox.sum() {leitnerService.isDue(it) ? 1 : 0} : 0
       def box = new CardBox(number: boxnumber, totalKanji: totalKanji, dueKanji: dueKanji)

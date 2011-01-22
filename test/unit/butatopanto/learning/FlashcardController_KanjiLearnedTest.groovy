@@ -14,9 +14,11 @@ class FlashcardController_KanjiLearnedTest extends GrailsJUnit4ControllerTestCas
 
   @Before
   void prepareMasteryOfFrame() {
+    def differentUserMastery = new MasteryOfFrame(box: 2)
     def dueMastery = new MasteryOfFrame(box: 2)
     def nonDueMastery = new MasteryOfFrame(box: 2)
-    mockDomain(MasteryOfFrame.class, [nonDueMastery, dueMastery])
+    controller.masteryQueryService = [listMasteriesForBox: {it == 2 ? [dueMastery, nonDueMastery] : []}]
+    mockDomain(MasteryOfFrame.class, [nonDueMastery, dueMastery, differentUserMastery])
     controller.leitnerService = [isDue: {it == dueMastery}]
   }
 
@@ -25,7 +27,7 @@ class FlashcardController_KanjiLearnedTest extends GrailsJUnit4ControllerTestCas
     assertEquals([0, 2, 0, 0, 0, 0, 0, 0], getBoxes()*.totalKanji)
   }
 
-   @Test
+  @Test
   void hasDueKanjiAccordingToLeitnerService() {
     assertEquals([0, 1, 0, 0, 0, 0, 0, 0], getBoxes()*.dueKanji)
   }
