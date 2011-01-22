@@ -6,8 +6,10 @@ class GoogleChartBuilder extends HtmlBuilder {
 
   int width = 250
   int height = 100
-  private def alternativeText = "";
-  def additionalParameters = ""
+  def id = 'chart'
+  private def alternativeText = ""
+  protected def additionalParameters = ""
+  protected def type = 'bhs'
 
   void setAlternativeText(def text) {
     this.alternativeText = text
@@ -17,34 +19,28 @@ class GoogleChartBuilder extends HtmlBuilder {
     addParameter "chtt=${title}"
   }
 
-  void setTotal(def total) {
-    setDataSeries(total)
-    setAxisRange(total)
-    setAxisLabels(total)
-  }
-
   void addLegendAtBottom() {
     addParameter "chdlp=b"
   }
 
-  private void setDataSeriesColorsGreenRedAndWhite() {
+  void setDataSeriesColorsGreenRedAndWhite() {
     addParameter "chco=80f08e,f08080,FFFFFF"
   }
 
+  void setDataSeriesColorsOrangeAndGreen() {
+    addParameter "chco=FF9900,0FF80F"
+  }
+
   protected void build(MarkupBuilder builder) {
-    builder.img(alt: alternativeText, id: 'progress-chart', width: width, height: height, src: buildUrl())
+    builder.img(alt: alternativeText, id: id, width: width, height: height, src: buildUrl())
   }
 
   protected String buildUrl() {
-    setBackgroundColorGradient()
-    setXAxisVisible()
-    setDataSeriesColorsGreenRedAndWhite()
-    setChartMargins()
-    "http://chart.apis.google.com/chart?chs=${width}x${height}&cht=bhs" + additionalParameters
+    "http://chart.apis.google.com/chart?chs=${width}x${height}&cht=${type}" + additionalParameters
   }
 
-  private void setBackgroundColorGradient() {
-    addParameter "chf=bg,lg,0,EFEFEF,0,D1D1D1,1"
+  void setTypeToBarGrid() {
+    type = "bvg"
   }
 
   void setXAxisVisible() {
@@ -55,22 +51,6 @@ class GoogleChartBuilder extends HtmlBuilder {
     addParameter "chxt=y,x"
   }
 
-  private void setAxisRange(total) {
-    addParameter "chxr=0,0,${total}"
-  }
-
-  private void setAxisLabels(total) {
-    int step = total / 3
-    addParameter "chxl=0:|0|${step}|${step * 2}|${total}"
-  }
-
-  private void setChartMargins() {
-    addParameter "chma=5,5|${width},30"
-  }
-
-  private void setDataSeries(total) {
-    addParameter "chds=0,${total},0,${total},0,${total}"
-  }
 
   void addParameter(String parameter) {
     additionalParameters += "&$parameter"
