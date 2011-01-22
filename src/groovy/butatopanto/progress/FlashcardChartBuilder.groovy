@@ -4,7 +4,7 @@ import butatopanto.learning.LeitnerService
 
 class FlashcardChartBuilder extends GoogleChartBuilder {
 
-  def maximum
+  def maximum = 100
 
   FlashcardChartBuilder() {
     setWidth 600
