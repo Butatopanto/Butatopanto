@@ -17,6 +17,13 @@ class FlashcardController_NoKanjiLearnedTest extends GrailsJUnit4ControllerTestC
     mockDomain(MasteryOfFrame.class)
   }
 
+
+  @Before
+  void prepareMasteryQueryService() {
+    controller.masteryQueryService = [listMasteriesForBox: {[]}]
+  }
+
+
   @Test
   void redirectsIndexToStatus() {
     controller.index()
