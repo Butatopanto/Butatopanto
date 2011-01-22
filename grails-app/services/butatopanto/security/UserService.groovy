@@ -15,6 +15,9 @@ class UserService {
 
   def getCurrentUser() {
     def authentication = springSecurityService.authentication
+    if (!authentication) {
+      return null
+    }
     User.findByUsername(authentication.name)
   }
 

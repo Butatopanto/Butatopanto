@@ -1,17 +1,16 @@
 package butatopanto.security
 
-import grails.test.*
+import butatopanto.sharedtest.GrailsJUnit4TestCase
+import org.junit.Test
 
-class UserServiceTests extends GrailsUnitTestCase {
-    protected void setUp() {
-        super.setUp()
-    }
+class UserServiceTests extends GrailsJUnit4TestCase {
 
-    protected void tearDown() {
-        super.tearDown()
-    }
+  UserService userService = new UserService()
 
-    void testSomething() {
-
-    }
+  @Test
+  void hasNoCurrentUserIfNoneAuthenticated() {
+    userService.springSecurityService = [authentication: null]
+    def user = userService.getCurrentUser()
+    assertNull user
+  }
 }
