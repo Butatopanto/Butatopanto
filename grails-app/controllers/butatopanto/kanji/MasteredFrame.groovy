@@ -11,11 +11,20 @@ class MasteredFrame {
   }
 
   def getCssClass() {
+    def classes = []
+    classes.add('kanjibox')
     if (isActive()) {
-      def storyCssClass = hasStory ? 'withStory' : 'withoutStory'
-      def boxCssClass = "box${box}"
-      return "kanjibox $storyCssClass $boxCssClass"
+      classes.add("box${box}");
+      if (!hasStory) {
+        classes.add('withoutStory')
+      }
     }
-    return "kanjibox inactiveKanji"
+    else {
+      classes.add('inactiveKanji')
+    }
+    if (hasStory) {
+      classes.add('withStory')
+    }
+    return classes.join(' ')
   }
 }

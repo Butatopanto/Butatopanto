@@ -29,4 +29,11 @@ class MasteredFrameTest extends GrailsJUnit4TestCase {
     def cssClasses = masteredFrame.getCssClass().split(" ")
     assertEquals "inactiveKanji", cssClasses[1]
   }
+
+  @Test
+  void visualizesStoriesForInactiveFrames() {
+    masteredFrame.hasStory = true
+    def cssClasses = masteredFrame.getCssClass().split(" ")
+    assertEquals "withStory", cssClasses[2]
+  }
 }
