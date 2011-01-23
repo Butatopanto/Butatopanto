@@ -17,6 +17,11 @@ class FlashcardController_NoKanjiLearnedTest extends GrailsJUnit4ControllerTestC
     mockDomain(MasteryOfFrame.class)
   }
 
+  @Before
+  void prepareLeitnerService() {
+    controller.leitnerService = [getExpirationIntervalForBox: {it*2}]
+  }
+
 
   @Before
   void prepareMasteryQueryService() {
@@ -41,8 +46,13 @@ class FlashcardController_NoKanjiLearnedTest extends GrailsJUnit4ControllerTestC
   }
 
   @Test
-  void eachBoxIsEmpty() {
-    assertFalse getBoxes().findAll() {it.totalKanji > 0} as boolean
+  void hasDurationsForEachBox() {
+    assertEquals([2, 4, 6, 8, 10, 12, 14, 16], getBoxes()*.daysUntilDue)
+  }
+
+  @Test
+  void noBoxHasKanjiMastered() {
+    assertFalse getBoxes().findAll() {it.masteredKanji > 0} as boolean
   }
 
   @Test

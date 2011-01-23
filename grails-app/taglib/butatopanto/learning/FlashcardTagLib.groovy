@@ -28,7 +28,7 @@ class FlashcardTagLib {
   }
 
   def getKnownKanji(def boxes) {
-    boxes.collect {it.totalKanji - it.dueKanji}
+    boxes.collect {it.masteredKanji}
   }
 
   def getDueKanji(def boxes) {

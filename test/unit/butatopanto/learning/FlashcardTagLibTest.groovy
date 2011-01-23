@@ -25,7 +25,7 @@ class FlashcardTagLibTest extends TagLibJUnit4TestCase {
 
   @Before
   void createBoxes() {
-    this.boxes = [new CardBox(number: 1, totalKanji: 15, dueKanji: 7), new CardBox(number: 2, totalKanji: 10, dueKanji: 3)]
+    this.boxes = [new CardBox(number: 1, masteredKanji: 15, dueKanji: 7), new CardBox(number: 2, masteredKanji: 10, dueKanji: 3)]
   }
 
   @Test
@@ -47,7 +47,7 @@ class FlashcardTagLibTest extends TagLibJUnit4TestCase {
   @Test
   void createsDataseriesForKnownAndDueKanji() {
     render()
-    assertEquals "7,3|8,7", chartBuilder.dataSeriesValues
+    assertEquals "7,3|15,10", chartBuilder.dataSeriesValues
   }
 
   private def render() {

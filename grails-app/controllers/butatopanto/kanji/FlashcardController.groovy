@@ -18,9 +18,10 @@ class FlashcardController {
     def boxes = [];
     for (boxnumber in FIRST_BOX..LAST_BOX) {
       def kanjiInBox = masteryQueryService.listMasteriesForBox(boxnumber)
-      def totalKanji = kanjiInBox.size();
       def dueKanji = kanjiInBox ? kanjiInBox.sum() {leitnerService.isDue(it) ? 1 : 0} : 0
-      def box = new CardBox(number: boxnumber, totalKanji: totalKanji, dueKanji: dueKanji)
+      def masteredKanji = kanjiInBox.size() - dueKanji;
+      def daysUntilDue = leitnerService.getExpirationIntervalForBox(boxnumber)
+      def box = new CardBox(number: boxnumber, daysUntilDue: daysUntilDue, masteredKanji: masteredKanji, dueKanji: dueKanji)
       boxes.add(box)
     }
     [boxes: boxes]

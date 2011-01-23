@@ -21,10 +21,10 @@
       <div id="container" style="padding: 5px">
         <div style="width:750px;  margin-left: auto; margin-right: auto; padding-left:50px">
           <g:each in="${boxes}" status="i" var="${box}">
-            <div class="boxselector">
+            <div class="boxselector" title="${g.message(code: "flashcard.status.dueTime", args: [box.daysUntilDue])}">
               <p style="font-size:20px"><flashcard:romanNumber number="${box.number}"/></p>
               <p><g:message code="review.assemble.dueCount" args='["${box.dueKanji}"]'/></p>
-              <p><g:message code="flashcard.status.known" args='["${box.totalKanji- box.dueKanji}"]'/></p>
+              <p><g:message code="flashcard.status.known" args='["${box.masteredKanji}"]'/></p>
             </div>
           </g:each>
         </div>

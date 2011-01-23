@@ -20,7 +20,7 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
 
   @Test
   void hasHeadingAboutCurrentStatus() {
-    assertContentContains "Your current status"
+    assertContentContains "How many Kanji are in which box of flashcards?"
   }
 
   @Test

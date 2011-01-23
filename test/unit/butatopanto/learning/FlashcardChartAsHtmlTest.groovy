@@ -17,7 +17,7 @@ class FlashcardChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasWidthAttributeWithDefaultValue() {
-    assertHasWidthValue "600"
+    assertHasWidthValue "750"
   }
 
   @Test
@@ -37,7 +37,7 @@ class FlashcardChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasVerticalBarGridInDefaultSizeAsSource() {
-    assertUrlContains "http://chart.apis.google.com/chart?chs=600x400&cht=bvg"
+    assertUrlContains "http://chart.apis.google.com/chart?chs=750x400&cht=bvg"
   }
 
   @Test
@@ -65,7 +65,7 @@ class FlashcardChartAsHtmlTest extends GrailsJUnit4TestCase {
 
   @Test
   void showsBoxLabelsForXAxis() {
-    assertUrlContains "chxl=1:|1|2|3|4|5|6|7|8"
+    assertUrlContains "chxl=1:|I|II|III|IV|V|VI|VII|VIII"
   }
 
   @Test
