@@ -19,7 +19,7 @@
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <div id="container" style="padding: 5px">
-        <div style="padding-left: 30px">
+        <div style="width:750px;  margin-left: auto; margin-right: auto; padding-left:50px">
           <g:each in="${boxes}" status="i" var="${box}">
             <div class="boxselector">
               <p style="font-size:20px"><flashcard:romanNumber number="${box.number}"/></p>
@@ -28,10 +28,13 @@
             </div>
           </g:each>
         </div>
-        <flashcard:renderStatus boxes="${boxes}"/>
+        <div style="width:750px;  margin-left: auto; margin-right: auto;">
+          <flashcard:renderStatus boxes="${boxes}"/>
+        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>
