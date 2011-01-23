@@ -50,6 +50,13 @@ class StoryServiceTest extends GrailsJUnit4TestCase {
   }
 
   @Test
+  void ignoresMissingStoryForDeletion() {
+    userServiceMother.setEnsuredHeisigUserWillBeCreated()
+    def userData = userServiceMother.setEnsuredCurrentHeisigUserExists()
+    service.deleteStory 1
+  }
+
+  @Test
   void findsNoStoryWithPresentStoriesForOtherIds() {
     def userData = userServiceMother.setCurrentHeisigUserExists()
     userData.addToStoryList(new Story(frame: Frame.get(1), text: "Erste Geschichte"))

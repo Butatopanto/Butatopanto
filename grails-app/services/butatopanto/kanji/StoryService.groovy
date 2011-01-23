@@ -26,8 +26,10 @@ class StoryService {
   def deleteStory(def frameId) {
     def userData = userService.findOrCreateHeisigUser()
     def story = findStoryByFrameId(frameId)
-    userData.removeFromStoryList story
-    story.delete()
+    if (story) {
+      userData.removeFromStoryList story
+      story.delete()
+    }
   }
 
   private def findStoryByFrameId(def frameId) {
