@@ -16,7 +16,6 @@ class ReviewController {
   }
 
   def assemble = {
-    createChapterSelectionIfNecessary()
     evaluateChapters().with({
       [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
     })
@@ -104,12 +103,6 @@ class ReviewController {
     render "<h1>Herzlichen Glückwunsch</h1>"
   }
 
-  private void createChapterSelectionIfNecessary() {
-    if (!session.chapters) {
-      session.chapters = createChapterSelections()
-    }
-  }
-
   private def updateDueCount(Review review) {
     def resolvedFrameId = review.currentReview
     def frame = Frame.findByNumber(resolvedFrameId)
@@ -155,6 +148,13 @@ class ReviewController {
   }
 
   private ChapterSelectionEvaluation evaluateChapters() {
+    createChapterSelectionIfNecessary();
     new ChapterSelectionEvaluation(chapters: getChapters())
+  }
+
+  private void createChapterSelectionIfNecessary() {
+    if (!session.chapters) {
+      session.chapters = createChapterSelections()
+    }
   }
 }
