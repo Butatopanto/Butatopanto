@@ -29,28 +29,9 @@ class MasteredFrameTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void hasBoxCssClassForActiveFrame() {
-    masteredFrame.box = 1
-    assertEquals "box1", cssClasses[1]
-  }
-
-  @Test
   void visualizesStoriesForInactiveFrames() {
     masteredFrame.hasStory = true
     assertEquals "withStory", cssClasses[2]
-  }
-
-  @Test
-  void visualizesStoriesForActiveFrames() {
-    masteredFrame.hasStory = true
-    masteredFrame.box = 1
-    assertEquals "withStory", cssClasses[2]
-  }
-
-  @Test
-  void visualizesLackOfStoriesForActiveFrames() {
-    masteredFrame.box = 1
-    assertEquals "withoutStory", cssClasses[2]
   }
 
   @Test

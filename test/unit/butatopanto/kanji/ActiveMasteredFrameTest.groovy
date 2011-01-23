@@ -22,20 +22,20 @@ class ActiveMasteredFrameTest extends GrailsJUnit4TestCase {
   @Test
   void hasBoxOneCssClass() {
     def cssClass = masteredFrame.getCssClass().split(" ")
-    assertEquals "box1", cssClass[2]
+    assertEquals "box1", cssClass[1]
   }
 
   @Test
   void hasWithStoryClassIfStoryIsKnown() {
     masteredFrame.hasStory = true
     def cssClass = masteredFrame.getCssClass().split(" ")
-    assertEquals "withStory", cssClass[1]
+    assertEquals "withStory", cssClass[2]
   }
 
   @Test
   void hasWithoutStoryClassIfStoryIsKnown() {
     masteredFrame.hasStory = false
     def cssClass = masteredFrame.getCssClass().split(" ")
-    assertEquals "withoutStory", cssClass[1]
+    assertEquals "withoutStory", cssClass[2]
   }
 }
