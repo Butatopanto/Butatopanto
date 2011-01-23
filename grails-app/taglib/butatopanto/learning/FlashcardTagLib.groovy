@@ -1,10 +1,15 @@
 package butatopanto.learning
 
+import butatopanto.progress.CardBoxIdentifier
 import butatopanto.progress.FlashcardChartBuilder
 
 class FlashcardTagLib {
 
   static namespace = "flashcard"
+
+  def romanNumber = {arguments ->
+    out << new CardBoxIdentifier().identify(arguments.number)
+  }
 
   def renderStatus = {  arguments ->
     out << "<div>"

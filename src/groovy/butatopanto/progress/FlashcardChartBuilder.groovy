@@ -7,7 +7,7 @@ class FlashcardChartBuilder extends GoogleChartBuilder {
   private def maximumValueOnYAxis = 100
 
   FlashcardChartBuilder() {
-    setWidth 600
+    setWidth 750
     setHeight 400
     setId 'flashcard-chart'
   }
@@ -31,6 +31,7 @@ class FlashcardChartBuilder extends GoogleChartBuilder {
     setBoxAxisLabels()
     setKanjiAxisRange()
     setTypeToBarGrid()
+    addLegendAtBottom()
     super.buildUrl()
   }
 
@@ -40,6 +41,7 @@ class FlashcardChartBuilder extends GoogleChartBuilder {
 
   private void setBoxAxisLabels() {
     def boxes = LeitnerService.FIRST_BOX..LeitnerService.LAST_BOX
-    addParameter "chxl=1:|${boxes.join("|")}"
+    def romans = boxes.collect {new CardBoxIdentifier().identify(it)}
+    addParameter "chxl=1:|${romans.join("|")}"
   }
 }

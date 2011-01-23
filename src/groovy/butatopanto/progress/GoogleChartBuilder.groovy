@@ -41,6 +41,7 @@ class GoogleChartBuilder extends HtmlBuilder {
 
   void setTypeToBarGrid() {
     type = "bvg"
+    addParameter "chbh=a"
   }
 
   void setXAxisVisible() {

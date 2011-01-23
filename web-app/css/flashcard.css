@@ -1,0 +1,13 @@
+div.boxselector {
+    width: 60px;
+    height: 60px;
+    margin: 12px;
+    text-align: center;
+    border-radius: 15px;
+    display: block;
+    float: left;
+    font-weight: normal;
+    color: black;
+    border: 2px #a9a9a9 solid;
+    cursor: default;
+}
