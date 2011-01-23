@@ -11,14 +11,14 @@
 }
 
 .main-column {
-  width: 800px;
+    width: 800px;
 }
 
 .main-area {
-  position: relative;
-  height:550px;
-  border:solid;
-  border-width:thin
+    position: relative;
+    height: 550px;
+    border: solid;
+    border-width: thin
 }
 
 .icon div {
@@ -39,73 +39,74 @@
 }
 
 div.selector {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 8px;
-  text-align: center;
-  valign: center;
-  float: left;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 8px;
+    text-align: center;
+    valign: center;
+    float: left;
+    cursor: pointer;
 }
 
 .kanjibox {
-  display: block;
-  height: 100%;
-  width: 100%;
-  border-radius: 15px;
-  font-weight: normal;
-  font-size: 44px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    font-weight: normal;
+    font-size: 44px;
 }
 
 .box1 {
-  background-color: white;
-  color: black;
+    background-color: white;
+    color: black;
 }
 
 .box2 {
-  background-color: #f0f0fb;
-  color: black;
+    background-color: #f0f0fb;
+    color: black;
 }
 
 .box3 {
-  background-color: #dedefc;
-  color: black;
+    background-color: #dedefc;
+    color: black;
 }
 
 .box4 {
-  background-color: #bfbffb;
-  color: black;
+    background-color: #bfbffb;
+    color: black;
 }
 
 .box5 {
-  background-color: #b5b5f7;
-  color: black;
+    background-color: #b5b5f7;
+    color: black;
 }
 
 .box6 {
-  background-color: #aaaafb;
-  color: black;
+    background-color: #aaaafb;
+    color: black;
 }
 
 .box7 {
-  background-color: #8c8cfc;
+    background-color: #8c8cfc;
 }
 
 .box8 {
-  background-color: #6767f9;
-  color: black;
+    background-color: #6767f9;
+    color: black;
 }
 
 .inactiveKanji {
-  background-color: white;
-  color: #d3d3d3;
-  border: 2px #d3d3d3 solid;
+    background-color: white;
+    color: #d3d3d3;
+    border: 2px #d3d3d3 solid;
 }
 
 .withStory {
-  border: 2px #006600 solid;
+    border: 2px #006600 solid;
 }
 
 .withoutStory {
-  border: 2px #ff0000 solid;
+    border: 2px #ff0000 solid;
 }
