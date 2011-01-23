@@ -25,7 +25,9 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
 
   @Test
    void hasSomeKanjiInBox1() {
-    assertContentContains "Box 1: 10 due out of 10"
+    assertContentContains "I"
+    assertContentContains "10 due"
+    assertContentContains "0 mast."
   }
 
   private void goToAssembleReviewPage() {
