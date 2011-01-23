@@ -5,9 +5,9 @@ import butatopanto.sharedtest.GrailsJUnit4TestCase
 import groovy.util.slurpersupport.GPathResult
 import org.junit.Test
 
-class GoogleChartAsHtmlTest extends GrailsJUnit4TestCase {
+class ProgressChartAsHtmlTest extends GrailsJUnit4TestCase {
 
-  def builder = new GoogleChartBuilder()
+  def builder = new ProgressChartBuilder()
 
   @Test
   void isHtmlImage() {
