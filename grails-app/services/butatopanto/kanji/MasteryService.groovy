@@ -10,9 +10,26 @@ class MasteryService {
   def leitnerService
 
   def activateChapter(def number) {
+    def frames = Frame.findAllByChapter(number)
+    activateFrames frames
+  }
+
+  def activateRange(int from, int to) {
+    List frames = getAllFramesInNumberRange(from, to)
+    activateFrames frames
+  }
+
+  private static List getAllFramesInNumberRange(int from, int to) {
+    def frames = []
+    for (number in from..to) {
+      frames.add(Frame.findByNumber(number))
+    }
+    return frames
+  }
+
+  private def activateFrames(List<Frame> frames) {
     def heisigUser = findOrCreateHeisigUser()
-    def chapterFrameList = Frame.findAllByChapter(number)
-    chapterFrameList.each {
+    frames.each {
       if (!masteryQueryService.findMasteryByFrameId(it.id)) {
         heisigUser.addToMasteryList new MasteryOfFrame(frame: it)
       }

@@ -25,6 +25,15 @@ class MasteryController {
     [navigation: builder.build()]
   }
 
+  @Secured('ROLE_USER')
+  def activate = {
+    int from = params.int('from')
+    int to = params.int('to')
+    masteryService.activateRange(from, to)
+    def fromChapterNumber = Frame.findByNumber(from).chapter
+    redirect(action: 'listByChapter', params: [id: fromChapterNumber])
+  }
+
   def list = {
     List shownMasteryList = listShownMastery()
     [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]
