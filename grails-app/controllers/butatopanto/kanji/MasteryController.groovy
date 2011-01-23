@@ -31,7 +31,7 @@ class MasteryController {
     int to = params.int('to')
     masteryService.activateRange(from, to)
     def fromChapterNumber = Frame.findByNumber(from).chapter
-    redirect(action: 'listByChapter', params: [id: fromChapterNumber])
+    redirect(action: 'listByChapter', id: fromChapterNumber)
   }
 
   def list = {
