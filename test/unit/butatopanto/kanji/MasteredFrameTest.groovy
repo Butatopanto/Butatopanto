@@ -20,20 +20,45 @@ class MasteredFrameTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasKanjiBoxCssClass() {
-    def cssClasses = masteredFrame.getCssClass().split(" ")
     assertEquals "kanjibox", cssClasses[0]
   }
 
   @Test
   void hasInactiveCssClass() {
-    def cssClasses = masteredFrame.getCssClass().split(" ")
     assertEquals "inactiveKanji", cssClasses[1]
+  }
+
+  @Test
+  void hasBoxCssClassForActiveFrame() {
+    masteredFrame.box = 1
+    assertEquals "box1", cssClasses[1]
   }
 
   @Test
   void visualizesStoriesForInactiveFrames() {
     masteredFrame.hasStory = true
-    def cssClasses = masteredFrame.getCssClass().split(" ")
     assertEquals "withStory", cssClasses[2]
+  }
+
+  @Test
+  void visualizesStoriesForActiveFrames() {
+    masteredFrame.hasStory = true
+    masteredFrame.box = 1
+    assertEquals "withStory", cssClasses[2]
+  }
+
+  @Test
+  void visualizesLackOfStoriesForActiveFrames() {
+    masteredFrame.box = 1
+    assertEquals "withoutStory", cssClasses[2]
+  }
+
+  @Test
+  void doesNotVisualizeLackOfStoriesForInactiveFrames() {
+    assertEquals 2, cssClasses.size()
+  }
+
+  private def getCssClasses() {
+    return masteredFrame.getCssClass().split(" ")
   }
 }
