@@ -27,4 +27,20 @@ class ReviewControllerDirectAccessTest extends GrailsJUnit4ControllerTestCase {
     controller.addChapter()
     assertTrue(controller.session.chapters[0].selected)
   }
+
+  @Test
+  void startsReviewWithKanjiFromGivenRange() {
+    controller.params.from = 4
+    controller.params.to = 7
+    controller.startRange()
+    assertTrue(controller.session.review.remainingIds.containsAll(4..7))
+  }
+
+   @Test
+  void beginsPracticeWhenStartingRangeReview() {
+    controller.params.from = 1
+    controller.params.to = 2
+    controller.startRange()
+    assertEquals ([action: 'practice'], controller.redirectArgs)
+  }
 }

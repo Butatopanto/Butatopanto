@@ -54,6 +54,13 @@ class ReviewController {
     startPractice()
   }
 
+  def startRange = {
+    int from = params.getInt('from')
+    int to = params.getInt('to')
+    session.review = reviewService.startRange(from, to)
+    startPractice()
+  }
+
   def practice = {
     if (!session.review) {
       redirect(action: "startDue")
@@ -92,7 +99,6 @@ class ReviewController {
     }
   }
 
-
   private def ajaxRenderFrame(frame, boolean hidden) {
     def practiceTablet = heisig.practiceTablet([frame: frame, hidden: hidden])
     render practiceTablet
@@ -113,22 +119,6 @@ class ReviewController {
     def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
     def chapterSelection = evaluateChapters().getChapterForNumber(chapterNumber)
     chapterSelection.dueFrameCount = dueFrames.size()
-  }
-
-  private List createChapterSelections() {
-    def progressList = chapterProgressService.findAll()
-    def chapterSelection = progressList.collect {
-      transformToChapterSelection(it)
-    }
-    return chapterSelection
-  }
-
-  private ChapterSelection transformToChapterSelection(ChapterProgress progress) {
-    def frameCount = progress.chapter.frameIds.size()
-    def dueCount = progress.dueFrameIds.size()
-    boolean active = progress.activeFrameIds
-    def chapterNumber = progress.chapter.number
-    new ChapterSelection(chapterNumber: chapterNumber, selected: false, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
   }
 
   private def continueAssembly() {
@@ -156,5 +146,21 @@ class ReviewController {
     if (!session.chapters) {
       session.chapters = createChapterSelections()
     }
+  }
+
+  private List createChapterSelections() {
+    def progressList = chapterProgressService.findAll()
+    def chapterSelection = progressList.collect {
+      transformToChapterSelection(it)
+    }
+    return chapterSelection
+  }
+
+  private ChapterSelection transformToChapterSelection(ChapterProgress progress) {
+    def frameCount = progress.chapter.frameIds.size()
+    def dueCount = progress.dueFrameIds.size()
+    boolean active = progress.activeFrameIds
+    def chapterNumber = progress.chapter.number
+    new ChapterSelection(chapterNumber: chapterNumber, selected: false, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
   }
 }
