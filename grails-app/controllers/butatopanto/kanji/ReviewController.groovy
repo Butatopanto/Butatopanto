@@ -3,6 +3,7 @@ package butatopanto.kanji
 import butatopanto.learning.Review
 import grails.plugins.springsecurity.Secured
 
+@Secured('ROLE_USER')
 class ReviewController {
 
   def reviewService
@@ -14,7 +15,6 @@ class ReviewController {
     redirect(action: "assemble", id: 1)
   }
 
-  @Secured('ROLE_USER')
   def assemble = {
     createChapterSelectionIfNecessary()
     evaluateChapters().with({
@@ -38,27 +38,23 @@ class ReviewController {
     continueAssembly()
   }
 
-  @Secured('ROLE_USER')
   def startSelectedChapters = {
     List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
     session.review = reviewService.startChapters(selectedChapterNumbers)
     startPractice()
   }
 
-  @Secured('ROLE_USER')
   def startDueFramesFromSelectedChapter = {
     List selectedChapterNumbers = evaluateChapters().getSelectedChapterNumbers()
     session.review = reviewService.startDueFrom(selectedChapterNumbers)
     startPractice()
   }
 
-  @Secured('ROLE_USER')
   def startDue = {
     session.review = reviewService.startDue()
     startPractice()
   }
 
-  @Secured('ROLE_USER')
   def practice = {
     if (!session.review) {
       redirect(action: "startDue")
