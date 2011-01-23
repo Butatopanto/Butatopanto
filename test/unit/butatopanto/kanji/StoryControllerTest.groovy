@@ -12,16 +12,18 @@ class StoryControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   private def savedStoriesByFrameId = [:]
+  private def deletedStories = []
 
   @Before
   void mockStoryForFrame() {
     controller.storyService = [
-      findStoryTextByFrameId: { frameId ->
-        "Story for $frameId"
-      },
-      saveStory: { Long frameId, String storyText ->
-        savedStoriesByFrameId[frameId] = storyText
-      }
+            findStoryTextByFrameId: { frameId ->
+              "Story for $frameId"
+            },
+            saveStory: { Long frameId, String storyText ->
+              savedStoriesByFrameId[frameId] = storyText
+            },
+            deleteStory: {frameId -> deletedStories.add(frameId)}
     ]
     mockDomain Frame, [new Frame(id: 1, number: 1)]
   }
@@ -66,6 +68,24 @@ class StoryControllerTest extends GrailsJUnit4ControllerTestCase {
     controller.save()
     assertEquals "The new story", savedStoriesByFrameId[1L]
   }
+
+
+  @Test
+  void deletesStoryWithEmptyText() {
+    controller.params.id = "1"
+    controller.params.storyText = ""
+    controller.save()
+    assertEquals([1L], deletedStories)
+  }
+
+  @Test
+  void doesNotSaveStoryWithEmptyText() {
+    controller.params.id = "1"
+    controller.params.storyText = ""
+    controller.save()
+    assertEquals([:], savedStoriesByFrameId)
+  }
+
 
   @Test
   void redirectsToShowStoryForFrameIdAfterSuccessful() {

@@ -1,9 +1,9 @@
 package butatopanto.kanji
 
+import butatopanto.security.UserServiceObjectMother
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
-import butatopanto.security.UserServiceObjectMother
 
 class StoryServiceTest extends GrailsJUnit4TestCase {
 
@@ -37,6 +37,15 @@ class StoryServiceTest extends GrailsJUnit4TestCase {
   @Test
   void findsNoStoryInEmptyUserData() {
     def userData = userServiceMother.setCurrentHeisigUserExists()
+    assertNull service.findStoryTextByFrameId(1)
+  }
+
+  @Test
+  void removesDeletedStoryFromUserData() {
+    userServiceMother.setEnsuredHeisigUserWillBeCreated()
+    def userData = userServiceMother.setEnsuredCurrentHeisigUserExists()
+    userData.addToStoryList(new Story(frame: Frame.get(1), text: "Erste Geschichte"))
+    service.deleteStory 1
     assertNull service.findStoryTextByFrameId(1)
   }
 

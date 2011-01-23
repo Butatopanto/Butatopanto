@@ -23,6 +23,13 @@ class StoryService {
     foundStory?.text
   }
 
+  def deleteStory(def frameId) {
+    def userData = userService.findOrCreateHeisigUser()
+    def story = findStoryByFrameId(frameId)
+    userData.removeFromStoryList story
+    story.delete()
+  }
+
   private def findStoryByFrameId(def frameId) {
     def storyList = userService.currentHeisigUser?.storyList
     if (!storyList) {

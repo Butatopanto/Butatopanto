@@ -22,7 +22,12 @@ class StoryController {
     }
     else {
       def storyText = params.storyText
-      storyService.saveStory(frame.id, storyText)
+      if (!storyText) {
+        storyService.deleteStory frame.id
+      }
+      else {
+        storyService.saveStory(frame.id, storyText)
+      }
       redirect(action: "show", id: frame.id)
     }
   }
