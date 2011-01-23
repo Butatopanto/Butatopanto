@@ -24,6 +24,10 @@ class ReviewService {
     start dueFrameIds
   }
 
+  Review startRange(int from, int to) {
+    start new ArrayList(from..to)
+  }
+
   Review start(List frameIds) {
     Review review = new Review()
     review.remainingIds = frameIds
