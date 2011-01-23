@@ -1,10 +1,10 @@
 package butatopanto.kanji;
 
 
+import butatopanto.security.UserServiceObjectMother
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
-import butatopanto.security.UserServiceObjectMother
 
 class MasteryServiceTest extends GrailsJUnit4TestCase {
 
@@ -22,7 +22,7 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
   @Before
   void mockDomain() {
     mockDomain MasteryOfFrame
-    mockDomain Frame, [new Frame(id: 1, keyword: 'first', chapter: 1), new Frame(id: 2, keyword: 'second', chapter: 2), new Frame(id: 3, keyword: 'third', chapter: 2)]
+    mockDomain Frame, [new Frame(id: 1, number: 1, keyword: 'first', chapter: 1), new Frame(id: 2, number: 2, keyword: 'second', chapter: 2), new Frame(id: 3, number: 3, keyword: 'third', chapter: 2)]
     mockDomain HeisigUser
   }
 
@@ -38,6 +38,28 @@ class MasteryServiceTest extends GrailsJUnit4TestCase {
     userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
     service.activateChapter(1)
     assertHasMasterySortedByMeaning(['first'])
+  }
+
+  @Test
+  void addsMasteryForRangeToUserData() {
+    userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
+    service.activateRange(2, 2)
+    assertHasMasterySortedByMeaning(['second'])
+  }
+
+
+  @Test
+  void doesNotAddMasteryOutsideRange() {
+    userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
+    service.activateRange(2, 2)
+    assertNull(currentHeisigUser.masteryList.find { it.frame.keyword == 'first' })
+  }
+
+  @Test
+  void canHandleInverseRanges() {
+    userServiceObjectMother.setEnsuredHeisigUserWillBeCreated()
+    service.activateRange(3, 2)
+    assertHasMasterySortedByMeaning(['second', 'third'])
   }
 
   @Test
