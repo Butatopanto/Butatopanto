@@ -12,7 +12,7 @@ class ReviewController {
   def masteryService
 
   def index = {
-    redirect(action: "assemble", id: 1)
+    redirect(action: 'assemble')
   }
 
   def assemble = {
@@ -27,7 +27,6 @@ class ReviewController {
     def chapter = getChapterSelection(chapterNumber)
     chapter.selected = true
     chapter.active = true
-    updateDueCountIfNecessary chapter
     continueAssembly()
   }
 
