@@ -10,9 +10,15 @@ class MasteryServiceObjectMother {
     }
   ]
 
-  void setNoDueFramesIdsForChapter() {
+  void setNoDueFramesIds() {
     service["listDueFrameIdsForChapter"] = {
       []
+    }
+  }
+
+  void setDueFrames() {
+    service["listDueFrameIdsForChapter"] = {
+      [15]
     }
   }
 }

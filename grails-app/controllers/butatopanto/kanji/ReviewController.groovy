@@ -24,10 +24,10 @@ class ReviewController {
   def addChapter = {
     int chapterNumber = params.id.toInteger()
     masteryService.activateChapter(chapterNumber)
-    def chapterSelection = getChapterSelection(chapterNumber)
-    chapterSelection.selected = true
-    chapterSelection.active = true
-    updateDueCountIfNecessary(chapterNumber)
+    def chapter = getChapterSelection(chapterNumber)
+    chapter.selected = true
+    chapter.active = true
+    updateDueCountIfNecessary chapter
     continueAssembly()
   }
 
@@ -88,7 +88,6 @@ class ReviewController {
     boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
     reviewService.resolve review, reviewCorrect
-    updateDueCount review
     reviewService.toNext review
     def frame = reviewService.getCurrentFrame(review)
     if (frame) {
@@ -109,17 +108,6 @@ class ReviewController {
     render "<h1>Herzlichen Glückwunsch</h1>"
   }
 
-  private def updateDueCount(Review review) {
-    def resolvedFrameId = review.currentReview
-    def frame = Frame.findByNumber(resolvedFrameId)
-    updateDueCountIfNecessary frame.chapter
-  }
-
-  private void updateDueCountIfNecessary(def chapterNumber) {
-    def dueFrames = masteryService.listDueFrameIdsForChapter(chapterNumber)
-    def chapterSelection = evaluateChapters().getChapterForNumber(chapterNumber)
-    chapterSelection.dueFrameCount = dueFrames.size()
-  }
 
   private def continueAssembly() {
     redirect(action: "assemble")
@@ -129,23 +117,25 @@ class ReviewController {
     redirect(action: "practice")
   }
 
-  private def getChapters() {
-    session.chapters
-  }
-
   private def getChapterSelection(int chapterNumber) {
     return evaluateChapters().getChapterForNumber(chapterNumber)
   }
 
   private ChapterSelectionEvaluation evaluateChapters() {
-    createChapterSelectionIfNecessary();
+    createOrUpdateChapterSelection();
     new ChapterSelectionEvaluation(chapters: getChapters())
   }
 
-  private void createChapterSelectionIfNecessary() {
-    if (!session.chapters) {
-      session.chapters = createChapterSelections()
+  private void createOrUpdateChapterSelection() {
+    if (!getChapters()) {
+      createChapterSelection()
+    } else {
+      updateDueCount()
     }
+  }
+
+  private def createChapterSelection() {
+    session.chapters = createChapterSelections()
   }
 
   private List createChapterSelections() {
@@ -162,5 +152,20 @@ class ReviewController {
     boolean active = progress.activeFrameIds
     def chapterNumber = progress.chapter.number
     new ChapterSelection(chapterNumber: chapterNumber, selected: false, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
+  }
+
+  private def updateDueCount() {
+    getChapters().each {
+      updateDueCountIfNecessary it
+    }
+  }
+
+  private void updateDueCountIfNecessary(def chapterSelection) {
+    def dueFrames = masteryService.listDueFrameIdsForChapter(chapterSelection.chapterNumber)
+    chapterSelection.dueFrameCount = dueFrames.size()
+  }
+
+  private def getChapters() {
+    session.chapters
   }
 }

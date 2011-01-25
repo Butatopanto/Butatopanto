@@ -22,6 +22,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Before
   void configureMasteryService() {
+    masteryServiceObjectMother.setNoDueFramesIds()
     controller.masteryService = masteryServiceObjectMother.service
   }
 
@@ -78,7 +79,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void redirectsToManageAfterAddingChapter() {
-    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
+    masteryServiceObjectMother.setNoDueFramesIds()
     controller.params.id = "1"
     controller.addChapter()
     assertEquals "assemble", controller.redirectArgs.action
@@ -86,7 +87,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void activatesChapterOnMasteryServiceOnAddChapter() {
-    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
+    masteryServiceObjectMother.setNoDueFramesIds()
     controller.params.id = "4"
     controller.addChapter()
     assertEquals([4], masteryServiceObjectMother.activatedChapters)
@@ -102,7 +103,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void showsEndOfLessonScreenAfterResolvingLastFrame() {
     mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
-    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
+    masteryServiceObjectMother.setNoDueFramesIds()
     controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}, toNext: {review ->}]
     controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
@@ -113,7 +114,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void clearsReviewAfterResolvingLastFrame() {
     mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
-    masteryServiceObjectMother.setNoDueFramesIdsForChapter()
+    masteryServiceObjectMother.setNoDueFramesIds()
     controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}, toNext: {review ->}]
     controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
@@ -136,5 +137,6 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   private def setFramesDue() {
     controller.session.chapters[0].dueFrameCount = 1
+    masteryServiceObjectMother.setDueFrames()
   }
 }

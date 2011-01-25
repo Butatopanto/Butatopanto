@@ -52,12 +52,13 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
   }
 
   @Test
-  void reducesDueCountAfterCorrectResolve() {
+  void reducesDueCountForNextAssemblyAfterCorrectReview() {
     controller.params.id = "1"
     controller.addChapter()
     controller.startSelectedChapters()
     controller.params.reviewCorrect = "true"
     controller.ajaxResolve()
+    controller.assemble()
     assertEquals(14, controller.session.chapters[0].dueFrameCount)
   }
 }
