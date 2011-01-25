@@ -29,6 +29,11 @@ class MasteryController {
   def activate = {
     int from = params.int('from')
     int to = params.int('to')
+    if (!from || !to) {
+      flash.message = "mastery.activation.error"
+      redirect(action: 'listByChapter', id: 1)
+      return
+    }
     masteryService.activateRange(from, to)
     def fromChapterNumber = Frame.findByNumber(from).chapter
     redirect(action: 'listByChapter', id: fromChapterNumber)

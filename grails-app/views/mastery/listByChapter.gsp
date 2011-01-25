@@ -40,6 +40,9 @@
   </div>
   <p>&nbsp</p>
   <div class="body" style="position: relative; top: 30px">
+    <g:if test="${flash.message}">
+      <div class="message"><g:message code="${flash.message}"/></div>
+    </g:if>
     <div class="dialog">
       <div class="main-column main-area">
         <div style="position: absolute; left: 0px; top: 0px; width: 765px; height: 550px">
@@ -56,6 +59,13 @@
         </div>
         <div class="flip-down icon">
           <mastery:flipDown navigation="${navigation}"/>
+        </div>
+        <div style="position: absolute; left: 0px; top: 560px;">
+          <g:form action="activate">
+            <g:textField name="from" value="${g.message(code:'mastery.activation.from')}"/>
+            <g:textField name="to" value="${g.message(code:'mastery.activation.to')}"/>
+            <g:submitButton name="activate" id='activate' value="${g.message(code:'mastery.activation.submit')}"/>
+          </g:form>
         </div>
       </div>
     </div>
