@@ -1,3 +1,4 @@
+<%@ page import="butatopanto.learning.FlashcardTagLib" %>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -6,6 +7,24 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='flashcard.css'/>"/>
   <title><g:message code="flashcard.status.title"/></title>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+    ${new FlashcardTagLib().generateDataScript(boxes:boxes, dataVariable:'data')}
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, {
+        chartArea:{left:50,top:50,width:"710",height:"75%"},
+        width:780, height: 450,
+        legend:'bottom',
+        colors:['#FF9900','#0FF80F'],
+        hAxis: {title: 'Box'}  ,
+        vAxis: {title: 'Kanji', maxValue:100}
+      });
+    }
+  </script>
 </head>
 <body>
 <div class="nav">
@@ -19,7 +38,7 @@
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <div id="container" style="padding: 5px">
-        <div style="width:750px;  margin-left: auto; margin-right: auto; padding-left:50px">
+        <div style="width:750px;  margin-left: auto; margin-right: auto; padding-left:50px;padding-bottom:80px">
           <g:each in="${boxes}" status="i" var="${box}">
             <div class="boxselector" title="${g.message(code: "flashcard.status.dueTime", args: [box.daysUntilDue])}">
               <p style="font-size:20px"><flashcard:romanNumber number="${box.number}"/></p>
@@ -28,13 +47,10 @@
             </div>
           </g:each>
         </div>
-        <div style="width:750px;  margin-left: auto; margin-right: auto;">
-          <flashcard:renderStatus boxes="${boxes}"/>
-        </div>
+        <div id="chart_div"></div>
       </div>
     </div>
   </div>
-</div>
 </div>
 </body>
 </html>
