@@ -68,4 +68,10 @@ class ReviewService {
     }
     null
   }
+
+  def resolveAndAdvance(Review review, Boolean correct) {
+    resolve review, correct
+    toNext review
+    getCurrentFrame review
+  }
 }

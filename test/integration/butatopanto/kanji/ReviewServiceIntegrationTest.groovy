@@ -28,11 +28,32 @@ class ReviewServiceIntegrationTest extends GrailsJUnit4TestCase {
   @Test
   void resolvesKanjiForRangeReview() {
     logInUser 'test'
-    masteryService.activateRange 5, 7
-    def review = reviewService.startRange(5, 7)
+    masteryService.activateRange 5, 6
+    def review = reviewService.startRange(5, 6)
     review.currentReview = 5
-    reviewService.resolve review, true
-    assertTrue review.remainingIds.containsAll(6..7)
+    reviewService.resolveAndAdvance review, true
+    assertTrue review.remainingIds.containsAll(6..6)
+  }
+
+
+  @Test
+  void switchesToNextKanjiAfterResolve() {
+    logInUser 'test'
+    masteryService.activateRange 5, 6
+    def review = reviewService.startRange(5, 6)
+    review.currentReview = 5
+    reviewService.resolveAndAdvance review, true
+    assertEquals 6, review.currentReview
+  }
+
+  @Test
+  void returnsFrameForCurrentReviewAfterResolve() {
+    logInUser 'test'
+    masteryService.activateRange 5, 6
+    def review = reviewService.startRange(5, 6)
+    review.currentReview = 5
+    def frame = reviewService.resolveAndAdvance(review, true)
+    assertEquals Frame.findById(6), frame
   }
 
   private void logInUser(def userName) {

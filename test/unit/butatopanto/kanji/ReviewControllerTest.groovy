@@ -104,7 +104,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   void showsEndOfLessonScreenAfterResolvingLastFrame() {
     mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
     masteryServiceObjectMother.setNoDueFramesIds()
-    controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}, toNext: {review ->}]
+    controller.reviewService = [resolveAndAdvance: {review, correct ->}]
     controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
@@ -115,7 +115,7 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   void clearsReviewAfterResolvingLastFrame() {
     mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
     masteryServiceObjectMother.setNoDueFramesIds()
-    controller.reviewService = [resolve: {review, correct ->}, getCurrentFrame: {}, toNext: {review ->}]
+    controller.reviewService = [resolveAndAdvance: {review, correct ->}]
     controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
     controller.ajaxResolve()

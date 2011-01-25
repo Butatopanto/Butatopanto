@@ -86,9 +86,7 @@ class ReviewController {
   def ajaxResolve = {
     boolean reviewCorrect = params.reviewCorrect == "true"
     Review review = session.review
-    reviewService.resolve review, reviewCorrect
-    reviewService.toNext review
-    def frame = reviewService.getCurrentFrame(review)
+    def frame = reviewService.resolveAndAdvance(review, reviewCorrect)
     if (frame) {
       ajaxRenderFrame(frame, true)
     }
