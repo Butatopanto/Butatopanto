@@ -56,6 +56,10 @@ class ReviewController {
   def startRange = {
     int from = params.getInt('from')
     int to = params.getInt('to')
+    if (!from || !to) {
+      continueAssembly()
+      return
+    }
     session.review = reviewService.startRange(from, to)
     startPractice()
   }

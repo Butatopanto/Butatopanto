@@ -36,11 +36,27 @@ class ReviewControllerDirectAccessTest extends GrailsJUnit4ControllerTestCase {
     assertTrue(controller.session.review.remainingIds.containsAll(4..7))
   }
 
-   @Test
+  @Test
   void beginsPracticeWhenStartingRangeReview() {
     controller.params.from = 1
     controller.params.to = 2
     controller.startRange()
-    assertEquals ([action: 'practice'], controller.redirectArgs)
+    assertEquals([action: 'practice'], controller.redirectArgs)
+  }
+
+  @Test
+  void showsAssemblyPageAfterBadFromArgument() {
+    controller.params.from = 'abc'
+    controller.params.to = 7
+    controller.startRange()
+    assertEquals([action: 'assemble'], controller.redirectArgs)
+  }
+
+  @Test
+  void showsAssemblyPageAfterBadToArgument() {
+    controller.params.from = 5
+    controller.params.to = 'abc'
+    controller.startRange()
+    assertEquals([action: 'assemble'], controller.redirectArgs)
   }
 }
