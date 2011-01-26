@@ -10,6 +10,10 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     goToAssembleReviewPage()
   }
 
+  void tearDown() {
+    MasteryOfFrame.list().each { it.delete(flush: true)}
+  }
+
   void testShowsAssemblePageOnAssemble() {
     assertTitle "Review which chapters?"
   }
