@@ -16,6 +16,9 @@
 <h1><g:message code="review.assemble.chapterselection"/></h1>
 <p>&nbsp</p>
 <div class="body">
+  <g:if test="${flash.message}">
+    <div class="message"><g:message code="${flash.message}"/></div>
+  </g:if>
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <div id="container" style="padding: 5px">

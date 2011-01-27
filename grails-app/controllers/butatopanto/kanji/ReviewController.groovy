@@ -57,6 +57,7 @@ class ReviewController {
     int from = params.getInt('from')
     int to = params.getInt('to')
     if (!from || !to) {
+      flash.message = "review.practiceRange.error"
       continueAssembly()
       return
     }
