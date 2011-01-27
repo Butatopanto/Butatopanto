@@ -1,5 +1,6 @@
 package butatopanto.learning
 
+import butatopanto.kanji.MasteryOfFrame
 import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
 import org.junit.Test
 
@@ -13,6 +14,10 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
     goToFlashCardStatusPage()
   }
 
+  void tearDown() {
+    MasteryOfFrame.list().each {it.delete(flush: true)}
+  }
+
   @Test
   void hasTitleFlashcardStatus() {
     assertTitle "Flashcard Status"
@@ -24,7 +29,7 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
   }
 
   @Test
-   void hasSomeKanjiInBox1() {
+  void hasSomeKanjiInBox1() {
     assertContentContains "I"
     assertContentContains "10 due"
     assertContentContains "0 mast."
