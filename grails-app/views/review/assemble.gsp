@@ -38,6 +38,14 @@
           </div>
         </div>
       </div>
+
+      <div style="position: absolute; left: 0px; top: 560px;">
+        <g:form action="startRange">
+          <g:textField name="from" value="${g.message(code:'review.practiceRange.from')}"/>
+          <g:textField name="to" value="${g.message(code:'review.practiceRange.to')}"/>
+          <g:submitButton name="practice" id='practice' value="${g.message(code:'review.practiceRange.submit')}"/>
+        </g:form>
+      </div>
     </div>
   </div>
 </div>
