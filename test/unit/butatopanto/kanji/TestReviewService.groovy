@@ -17,4 +17,8 @@ class TestReviewService {
   def getCurrentFrame(Review review) {
     new Frame(keyword: review.currentReview)
   }
+
+  def startRange(int from, int to){
+    //nothing here
+  }
 }

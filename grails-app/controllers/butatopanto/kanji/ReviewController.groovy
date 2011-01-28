@@ -61,6 +61,7 @@ class ReviewController {
       continueAssembly()
       return
     }
+    masteryService.activateRange from, to
     session.review = reviewService.startRange(from, to)
     startPractice()
   }

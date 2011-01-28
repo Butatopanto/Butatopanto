@@ -15,7 +15,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   void testShowsAssemblePageOnAssemble() {
-    assertTitle "Review which chapters?"
+    assertTitle "Study which chapters?"
   }
 
   void testStartsReviewForChapter6With10Frames() {

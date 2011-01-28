@@ -42,7 +42,7 @@ class MasteryRangeBadActivationFunctionalTest extends UserSensitiveFunctionalTes
       to = "abc"
       click "activate"
     }
-    assertContentContains "Please enter the numbers of the first and last Kanji you want to activate."
+    assertContentContains "Please enter the numbers of the first and last Kanji you want to add to your flashcards."
   }
 
 

@@ -67,7 +67,7 @@ class HeisigRevealedFrameCardTagTest extends TagLibJUnit4TestCase {
 
   @Test
   void hasFrameCardKanjiCssClassForKanjiTableData() {
-    assertEquals "frameCardKanji", getKanjiTableData().@class.text()
+    assertTrue getKanjiTableData().@class.text().contains("frameCardKanji")
   }
 
   @Test
