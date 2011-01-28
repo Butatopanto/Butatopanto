@@ -86,7 +86,7 @@ class HeisigTagLib {
   }
 
   private def renderKanji(character) {
-    renderRow(character, 'frameCardKanji', 100, "kanji-card")
+    renderRow(character, 'frameCardKanji japanese', 100, "kanji-card")
   }
 
   private def renderNumber(number) {

@@ -140,7 +140,7 @@
        x2="254.51041"
        y2="302.33853"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-76.268544,-7.1416391)" />
+       gradientTransform="translate(-72.73301,-10.32362)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -220,17 +220,18 @@
        inkscape:export-ydpi="51.521358" />
     <text
        xml:space="preserve"
-       style="font-size:12.42492676px;font-style:normal;font-weight:normal;fill:url(#linearGradient3670);fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Copperplate Gothic Bold;-inkscape-font-specification:Copperplate Gothic Bold"
-       x="155.52753"
-       y="329.96725"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;fill:url(#linearGradient3670);fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:MS PGothic;-inkscape-font-specification:MS PGothic"
+       x="159.06306"
+       y="326.78528"
        id="text2832"
        inkscape:export-filename="C:\Users\Urs\Pictures\Buta Icon 2.png"
        inkscape:export-xdpi="51.521358"
-       inkscape:export-ydpi="51.521358"><tspan
+       inkscape:export-ydpi="51.521358"
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan2834"
-         x="155.52753"
-         y="329.96725"
-         style="font-size:44.72973633px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:url(#linearGradient3670);fill-opacity:1;fill-rule:nonzero;font-family:MS Mincho;-inkscape-font-specification:MS Mincho">豚</tspan></text>
+         x="159.06306"
+         y="326.78528"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;fill:url(#linearGradient3670);fill-opacity:1;fill-rule:nonzero;font-family:MS PGothic;-inkscape-font-specification:MS PGothic">豚</tspan></text>
   </g>
 </svg>

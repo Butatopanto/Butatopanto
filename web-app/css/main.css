@@ -331,3 +331,7 @@ textArea.story:focus {
 .decline {
     background-color: #f08080;
 }
+
+.japanese {
+    font-family: 'MS PGothic';
+}

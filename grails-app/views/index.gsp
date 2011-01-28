@@ -40,7 +40,7 @@
     border: 0.2em solid;
     border-radius: 0.7em 0.7em;
     text-align: center;
-    width: 11em
+    width: 11em;
   }
 
   .padded {
@@ -69,8 +69,8 @@
 
 </div>
 <div id="pageBody">
-  <h1>よこそう</h1>
-  <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> 楽しんで&#x3002</p>
+  <h1 class='japanese'>よこそう</h1>
+  <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> <span class='japanese'>楽しんで&#x3002</span></p>
   <g:render template="/action" model="[controller:'review', kanji:'習', message:'home.firstSteps.study', background: '#90ee90', border:'green']"/>
   <g:render template="/action" model="[controller:'mastery', kanji:'治', message:'home.firstSteps.manage', background: '#add8e6', border:'#00008b', style:'margin-left:1em']"/>
 </div>
