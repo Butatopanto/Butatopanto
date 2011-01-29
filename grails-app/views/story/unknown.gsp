@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='main.css'/>"/>
-  <title>Unbekannter Rahmen</title>
+  <title>Unknown Frame</title>
 </head>
-<body><p>Der angegebene Rahmen ist unbekannt.</p></body>
+<body><p>This frame is unknown to Butatopanto.</p></body>
 </html>
