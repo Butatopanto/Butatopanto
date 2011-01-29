@@ -335,3 +335,17 @@ textArea.story:focus {
 .japanese {
     font-family: 'MS PGothic';
 }
+
+.footer {
+    position: fixed;
+    margin-bottom: -0.5em;
+    bottom: 0.8em;
+    font-size: 0.8em;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.footer span {
+    background-color: inherit;
+}
