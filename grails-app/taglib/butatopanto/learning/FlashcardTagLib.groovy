@@ -15,14 +15,9 @@ class FlashcardTagLib {
     out << "${data}.addColumn('string', 'Box');"
     out << "${data}.addColumn('number', 'Due');"
     out << "${data}.addColumn('number', 'Mastered');"
-    int index = 0
     arguments.boxes.each {
       def roman = romanNumber(number: it.number)
-      out << "${data}.addRow();"
-      out << "${data}.setValue($index, 0, '$roman');"
-      out << "${data}.setValue($index, 1, ${it.dueKanji});"
-      out << "${data}.setValue($index, 2, ${it.masteredKanji});"
-      index++
+      out << "${data}.addRow(['$roman', ${it.dueKanji}, ${it.masteredKanji}]);"
     }
   }
 }
