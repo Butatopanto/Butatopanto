@@ -12,9 +12,11 @@ class FlashcardTagLib {
 
   def generateDataScript = {arguments ->
     def data = arguments.dataVariable
-    out << "${data}.addColumn('string', 'Box');"
-    out << "${data}.addColumn('number', 'Due');"
-    out << "${data}.addColumn('number', 'Mastered');"
+    def due = g.message(code: "flashcard.chart.dueLegend")
+    def mastered = g.message(code: "flashcard.chart.knownLegend")
+    out << "${data}.addColumn('string');"
+    out << "${data}.addColumn('number', '${due}');"
+    out << "${data}.addColumn('number', '${mastered}');"
     arguments.boxes.each {
       def roman = romanNumber(number: it.number)
       out << "${data}.addRow(['$roman', ${it.dueKanji}, ${it.masteredKanji}]);"

@@ -20,7 +20,7 @@
         width:780, height: 450,
         legend:'bottom',
         colors:['#FF9900','#0FF80F'],
-        hAxis: {title: 'Box'}  ,
+        hAxis: {title: '${g.message(code:"flashcard.chart.boxLegend")}'}  ,
         vAxis: {title: 'Kanji', maxValue:100}
       });
     }
