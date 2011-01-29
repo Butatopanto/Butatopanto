@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Butato Panto</title>
+  <meta name="google-site-verification" content="bT2c7HWLGGLeeOVxe1eN18ld0k_MVYR2gvmMCFo-XnE" />
   <meta name="layout" content="main"/>
   <style type="text/css" media="screen">
 
