@@ -1,6 +1,7 @@
 package butatopanto.learning
 
 import butatopanto.kanji.MasteryOfFrame
+import butatopanto.kanji.ReviewWithUserFunctionalTest
 import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
 import org.junit.Test
 
@@ -36,7 +37,7 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
   }
 
   private void goToAssembleReviewPage() {
-    get("/review/assemble")
+    get(ReviewWithUserFunctionalTest.controllerUrl + "/assemble")
   }
 
   private void goToFlashCardStatusPage() {
@@ -44,7 +45,7 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
   }
 
   private def selectAnyChapter() {
-    get('/review/removeChapter/6')
+    get(ReviewWithUserFunctionalTest.controllerUrl + '/removeChapter/6 ')
     click 'chapter6'
   }
 }

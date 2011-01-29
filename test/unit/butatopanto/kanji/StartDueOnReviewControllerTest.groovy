@@ -1,15 +1,15 @@
 package butatopanto.kanji;
 
 
-import org.junit.*
-
-import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import butatopanto.learning.Review
+import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
+import org.junit.Before
+import org.junit.Test
 
 class StartDueOnReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   StartDueOnReviewControllerTest() {
-    super(ReviewController)
+    super(AssembleReviewController)
   }
 
   def startedReview = null
@@ -28,7 +28,7 @@ class StartDueOnReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void redirectsToPractice() {
+  void redirectsToPracticeAction() {
     assertEquals "practice", controller.redirectArgs.action
   }
 

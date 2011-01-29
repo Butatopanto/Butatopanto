@@ -4,6 +4,8 @@ import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
 
 class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
+  public static def controllerUrl = "/assembleReview"
+
   void setUp() {
     super.setUp()
     logInDefaultUser()
@@ -89,11 +91,11 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   private void goToAssembleReviewPage() {
-    get("/review/assemble")
+    get(controllerUrl + "/assemble")
   }
 
   private def startChapter6() {
-    get('/review/removeChapter/6')
+    get(controllerUrl + '/removeChapter/6')
     click 'chapter6'
     click 'Selected'
   }

@@ -13,12 +13,12 @@ class MenuTagLib {
   }
 
   def assembleReview = {
-    def linkParameters = ['class': "assemble", controller: "review", action: "assemble"]
+    def linkParameters = ['class': "assemble", controller: "assembleReview"]
     writeMenuButton(linkParameters, 'menu.assembleReview')
   }
 
   def chapterList = {
-    def linkParameters = ['class': "manage", controller: "mastery", action: "listByChapter", id: 1]
+    def linkParameters = ['class': "manage", controller: "mastery"]
     writeMenuButton(linkParameters, 'menu.kanji.overview')
   }
 

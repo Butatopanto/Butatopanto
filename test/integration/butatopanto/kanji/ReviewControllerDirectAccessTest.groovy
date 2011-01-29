@@ -11,7 +11,7 @@ class ReviewControllerDirectAccessTest extends GrailsJUnit4ControllerTestCase {
   def masteryService
 
   ReviewControllerDirectAccessTest() {
-    super(ReviewController)
+    super(AssembleReviewController)
   }
 
   @Before

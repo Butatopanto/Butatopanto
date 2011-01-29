@@ -10,7 +10,7 @@ class ManageReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCa
   def springSecurityService
 
   ManageReviewForNewUserIntegrationTest() {
-    super(ReviewController)
+    super(AssembleReviewController)
   }
 
   @Before

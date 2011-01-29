@@ -54,7 +54,7 @@
   <div class="activityselector" style="background-color: #e8e8e8; border: 0em; border-radius: 0.2em 0.2em;">
     <div class="panelBody">
       <ul>
-        <li><g:link controller="review" action="assemble"><g:message code="navigation.frameTraining"/></g:link></li>
+        <li><g:link controller="assembleReview"><g:message code="navigation.frameTraining"/></g:link></li>
         <li><g:link controller="mastery"><g:message code="navigation.frameManagement"/></g:link></li>
         <li><g:link controller="flashcard"><g:message code="navigation.flashcardStatus"/></g:link></li>
       </ul>
@@ -71,7 +71,7 @@
 <div id="pageBody">
   <h1 class='japanese'>よこそう</h1>
   <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> <span class='japanese'>楽しんで&#x3002</span></p>
-  <g:render template="/action" model="[controller:'review', kanji:'習', message:'home.firstSteps.study', background: '#90ee90', border:'green']"/>
+  <g:render template="/action" model="[controller:'assembleReview', kanji:'習', message:'home.firstSteps.study', background: '#90ee90', border:'green']"/>
   <g:render template="/action" model="[controller:'mastery', kanji:'治', message:'home.firstSteps.manage', background: '#add8e6', border:'#00008b', style:'margin-left:1em']"/>
 </div>
 </body>

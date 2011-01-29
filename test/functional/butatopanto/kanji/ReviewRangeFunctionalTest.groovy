@@ -24,6 +24,6 @@ class ReviewRangeFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   private void goToAssemblePage() {
-    get("/review/assemble/")
+    get("/assembleReview/assemble/")
   }
 }

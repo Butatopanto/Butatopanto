@@ -4,10 +4,10 @@ import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
 
-class ReviewControllerStartRangeTest extends GrailsJUnit4ControllerTestCase {
+class AssembleReviewControllerStartRangeTest extends GrailsJUnit4ControllerTestCase {
 
-  ReviewControllerStartRangeTest() {
-    super(ReviewController)
+  AssembleReviewControllerStartRangeTest() {
+    super(AssembleReviewController)
   }
 
   private TestReviewService reviewService = new TestReviewService()

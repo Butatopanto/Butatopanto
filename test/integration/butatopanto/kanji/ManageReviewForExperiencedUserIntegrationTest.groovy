@@ -12,7 +12,7 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
   def masteryService
 
   ManageReviewForExperiencedUserIntegrationTest() {
-    super(ReviewController)
+    super(AssembleReviewController)
   }
 
   @Before
@@ -56,8 +56,7 @@ class ManageReviewForExperiencedUserIntegrationTest extends GrailsJUnit4Controll
     controller.params.id = "1"
     controller.addChapter()
     controller.startSelectedChapters()
-    controller.params.reviewCorrect = "true"
-    controller.ajaxResolve()
+    controller.reviewService.resolveAndAdvance(controller.session.review, true)
     controller.assemble()
     assertEquals(14, controller.session.chapters[0].dueFrameCount)
   }

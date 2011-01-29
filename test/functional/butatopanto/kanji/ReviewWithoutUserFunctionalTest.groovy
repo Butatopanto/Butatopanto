@@ -4,13 +4,16 @@ import butatopanto.sharedtest.UserSensitiveFunctionalTestCase
 
 class ReviewWithoutUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
+  public void setUp() {
+    super.setUp()
+    get '/assembleReview/assemble'
+  }
+
   void testShowsLogInPageOnAssemble() {
-    get("/review/assemble")
     assertTitle "Login"
   }
 
   void testShowsAssemblePageAfterLogIn() {
-    get("/review/assemble")
     logInDefaultUser()
     assertTitle "Study which chapters?"
   }
