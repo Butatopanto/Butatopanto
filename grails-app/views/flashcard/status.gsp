@@ -25,13 +25,16 @@
       });
       google.visualization.events.addListener(chart, 'select', function(e) {
         var item = chart.getSelection()[0];
-        var clickedDueColumn = item.row != null && item.column == 1;
-        if (clickedDueColumn) {
-          window.location = "${g.createLink(controller:'flashcard', action:'startBox')}" + "/" + (item.row + 1);
-        }
-        var clickedDueLegend = item.row == null && item.column == 1;
-        if (clickedDueLegend) {
-          window.location = "${g.createLink(controller:'assembleReview', action:'startDue')}";
+        var clickedDue = item.column == 1;
+        if (clickedDue) {
+          var clickedColumn = item.row != null;
+          if (clickedColumn) {
+            var boxnumber = item.row + 1;
+            window.location = "${g.createLink(controller:'flashcard', action:'startBox')}" + "/" + boxnumber;
+          }
+          else { //clicked Legend
+            window.location = "${g.createLink(controller:'assembleReview', action:'startDue')}";
+          }
         }
         var clickedMastered = item.column == 2;
         if (clickedMastered) {
