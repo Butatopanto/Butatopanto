@@ -39,7 +39,7 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
   @Test
   void startsReviewWithClickOnBox1() {
     click 'box1'
-    assertTitle 'Do you know the Kanji?'
+    assertTitle 'Do you know this Kanji?'
   }
 
   private void goToAssembleReviewPage() {

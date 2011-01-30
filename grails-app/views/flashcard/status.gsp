@@ -59,8 +59,8 @@
       <div id="container" style="padding: 5px">
         <div style="width:750px;  margin-left: auto; margin-right: auto; padding-left:50px;padding-bottom:80px">
           <g:each in="${boxes}" status="i" var="${box}">
-            <g:link action="startBox" id="${box.number}">
-              <div class="boxselector" title="${g.message(code: "flashcard.status.dueTime", args: [box.daysUntilDue])}" id="box${box.number}">
+            <g:link action="startBox" id="${box.number}" elementId="box${box.number}">
+              <div class="boxselector" title="${g.message(code: "flashcard.status.dueTime", args: [box.daysUntilDue])}">
                 <p style="font-size:20px"><flashcard:romanNumber number="${box.number}"/></p>
                 <p><g:message code="review.assemble.dueCount" args='["${box.dueKanji}"]'/></p>
                 <p><g:message code="flashcard.status.known" args='["${box.masteredKanji}"]'/></p>
