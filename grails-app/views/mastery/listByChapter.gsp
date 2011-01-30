@@ -40,9 +40,7 @@
   </div>
   <p>&nbsp</p>
   <div class="body" style="position: relative; top: 30px">
-    <g:if test="${flash.message}">
-      <div class="message"><g:message code="${flash.message}"/></div>
-    </g:if>
+    <g:render template="/flashMessage"/>
     <div class="dialog">
       <div class="main-column main-area">
         <div style="position: absolute; left: 0px; top: 0px; width: 765px; height: 550px">
