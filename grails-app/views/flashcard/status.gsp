@@ -33,12 +33,12 @@
             window.location = "${g.createLink(controller:'flashcard', action:'startBox')}" + "/" + boxnumber;
           }
           else { //clicked Legend
-            window.location = "${g.createLink(controller:'assembleReview', action:'startDue')}";
+            window.location = "${g.createLink(controller:'flashcard', action:'startDue')}";
           }
         }
         var clickedMastered = item.column == 2;
         if (clickedMastered) {
-          alert('${g.message(code:"flashcard.chart.learnNoMastered")}');
+          window.location = "${g.createLink(controller:'flashcard', action:'startMastered')}";
         }
       });
     }
@@ -53,6 +53,9 @@
 <h1><g:message code="flashcard.status.heading"/></h1>
 <p>&nbsp;</p>
 <div class="body">
+  <g:if test="${flash.message}">
+    <div class="message"><g:message code="${flash.message}"/></div>
+  </g:if>
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <div id="container" style="padding: 5px">

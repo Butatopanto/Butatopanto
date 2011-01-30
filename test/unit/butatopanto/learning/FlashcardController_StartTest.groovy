@@ -1,20 +1,20 @@
 package butatopanto.learning
 
 import butatopanto.kanji.FlashcardController
+import butatopanto.kanji.Frame
 import butatopanto.kanji.MasteryOfFrame
 import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 import org.junit.Before
 import org.junit.Test
-import butatopanto.kanji.Frame
 
-class FlashcardController_StartBoxTest extends GrailsJUnit4ControllerTestCase {
+class FlashcardController_StartTest extends GrailsJUnit4ControllerTestCase {
 
-  private def frame1 = new Frame(number:1, kanji:'x', keyword: 'y', chapter: 2)
-  private def frame2 = new Frame(number:2, kanji:'x', keyword: 'y', chapter: 2)
+  private def frame1 = new Frame(number: 1, kanji: 'x', keyword: 'y', chapter: 2)
+  private def frame2 = new Frame(number: 2, kanji: 'x', keyword: 'y', chapter: 2)
   private def dueMastery1 = new MasteryOfFrame(box: 2, frame: frame1)
   private def dueMastery2 = new MasteryOfFrame(box: 2, frame: frame2)
 
-  FlashcardController_StartBoxTest() {
+  FlashcardController_StartTest() {
     super(FlashcardController)
   }
 
@@ -35,7 +35,7 @@ class FlashcardController_StartBoxTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void startsReviewWithAllDue() {
+  void startsReviewWithAllDueInBox() {
     controller.params.id = 2
     controller.startBox()
     assertEquals('assembleReview', controller.redirectArgs.controller)
@@ -49,6 +49,26 @@ class FlashcardController_StartBoxTest extends GrailsJUnit4ControllerTestCase {
     controller.startBox()
     assertEquals([1, 2], controller.flash.kanji)
   }
+
+  @Test
+  void startsAllDueViaAssembleReview() {
+    controller.startDue()
+    assertEquals('assembleReview', controller.redirectArgs.controller)
+    assertEquals('startDue', controller.redirectArgs.action)
+  }
+
+  @Test
+  void showsStatusInsteadOfStartingMastered() {
+    controller.startMastered()
+    assertEquals('status', controller.redirectArgs.action)
+  }
+
+    @Test
+  void informsAboutUselessnessOfActionWhenStartingMastered() {
+    controller.startMastered()
+    assertEquals('flashcard.chart.learnNoMastered', controller.flash.message)
+  }
+
 
   private def startBox(int box) {
     controller.params.id = box

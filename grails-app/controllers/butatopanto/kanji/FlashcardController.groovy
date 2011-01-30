@@ -27,6 +27,15 @@ class FlashcardController {
     [boxes: boxes]
   }
 
+  def startMastered = {
+    flash.message = 'flashcard.chart.learnNoMastered'
+    redirect(action: 'status')
+  }
+
+  def startDue = {
+    redirect(controller: 'assembleReview', action: 'startDue')
+  }
+
   def startBox = {
     int boxnumber = params.id.toInteger()
     log.info boxnumber
