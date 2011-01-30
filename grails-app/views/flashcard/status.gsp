@@ -35,7 +35,7 @@
         }
         var clickedMastered = item.column == 2;
         if (clickedMastered) {
-          alert('You will hamper your progress by reviewing Kanji that are not yet due.');
+          alert('${g.message(code:"flashcard.chart.learnNoMastered")}');
         }
       });
     }
