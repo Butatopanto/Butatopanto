@@ -106,6 +106,26 @@ class AssembleReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     assertTrue result["dueFrames"]
   }
 
+  @Test
+  void startsPracticeForList() {
+    controller.flash.kanji = [75, 76]
+    controller.startList()
+    assertEquals "practice", controller.redirectArgs.action
+  }
+
+  @Test
+  void createsReviewForList() {
+    controller.flash.kanji = [75, 76]
+    controller.startList()
+    assertEquals([75, 76], controller.session.review.remainingIds)
+  }
+
+  @Test
+  void continuesAssemblyIfNoKanjiGiven() {
+    controller.startList()
+    assertEquals "assemble", controller.redirectArgs.action
+  }
+
   private def setFramesDue() {
     controller.session.chapters[0].dueFrameCount = 1
     masteryServiceObjectMother.setDueFrames()

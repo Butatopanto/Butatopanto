@@ -65,6 +65,16 @@ class AssembleReviewController {
     startPractice()
   }
 
+  def startList = {
+    def list = flash.kanji
+    if (!list) {
+      continueAssembly()
+      return
+    }
+    session.review = reviewService.start(list)
+    startPractice()
+  }
+
   def practice = {
     if (!session.review) {
       redirect(action: "startDue")

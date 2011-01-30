@@ -4,6 +4,7 @@ import grails.plugins.springsecurity.Secured
 import static butatopanto.learning.LeitnerService.FIRST_BOX
 import static butatopanto.learning.LeitnerService.LAST_BOX
 
+@Secured('ROLE_USER')
 class FlashcardController {
 
   def leitnerService
@@ -13,7 +14,6 @@ class FlashcardController {
     redirect(action: 'status')
   }
 
-  @Secured('ROLE_USER')
   def status = {
     def boxes = [];
     for (boxnumber in FIRST_BOX..LAST_BOX) {
@@ -25,5 +25,19 @@ class FlashcardController {
       boxes.add(box)
     }
     [boxes: boxes]
+  }
+
+  def startBox = {
+    int boxnumber = params.id.toInteger()
+    log.info boxnumber
+    def kanjiInBox = masteryQueryService.listMasteriesForBox(boxnumber)
+    def dueKanjiIds = kanjiInBox.findAll({leitnerService.isDue it}).collect {it.frame.number}
+    if (dueKanjiIds) {
+      flash.kanji = dueKanjiIds
+      redirect(controller: 'assembleReview', action: 'startList')
+    }
+    else {
+      redirect(action: 'status')
+    }
   }
 }

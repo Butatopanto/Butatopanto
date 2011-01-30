@@ -23,6 +23,21 @@
         hAxis: {title: '${g.message(code:"flashcard.chart.boxLegend")}'}  ,
         vAxis: {title: 'Kanji', maxValue:100}
       });
+      google.visualization.events.addListener(chart, 'select', function(e) {
+        var item = chart.getSelection()[0];
+        var clickedDueColumn = item.row != null && item.column == 1;
+        if (clickedDueColumn) {
+          window.location = "${g.createLink(controller:'flashcard', action:'startBox')}" + "/" + (item.row + 1);
+        }
+        var clickedDueLegend = item.row == null && item.column == 1;
+        if (clickedDueLegend) {
+          window.location = "${g.createLink(controller:'assembleReview', action:'startDue')}";
+        }
+        var clickedMastered = item.column == 2;
+        if (clickedMastered) {
+          alert('You will hamper your progress by reviewing Kanji that are not yet due.');
+        }
+      });
     }
   </script>
 </head>
