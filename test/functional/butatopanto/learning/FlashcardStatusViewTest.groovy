@@ -36,6 +36,12 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
     assertContentContains "0 mast."
   }
 
+  @Test
+  void startsReviewWithClickOnBox1() {
+    click 'box1'
+    assertTitle 'Do you know the Kanji?'
+  }
+
   private void goToAssembleReviewPage() {
     get(ReviewWithUserFunctionalTest.controllerUrl + "/assemble")
   }
