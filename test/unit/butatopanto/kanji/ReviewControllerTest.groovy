@@ -26,13 +26,13 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void showsEndOfLessonScreenAfterResolvingLastFrame() {
+  void endsReviewAfterLastFrame() {
     mockDomain Frame.class, [new Frame(number: 2, chapter: 1)]
     controller.reviewService = [resolveAndAdvance: {review, correct ->}]
     controller.session.review = new Review(currentReview: 2)
     controller.params.reviewCorrect = true
     controller.ajaxResolve()
-    assertEquals "<h1>Herzlichen Glückwunsch</h1>", controller.response.contentAsString
+    assertNull controller.session.review
   }
 
   @Test
