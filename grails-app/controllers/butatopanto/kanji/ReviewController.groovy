@@ -41,6 +41,6 @@ class ReviewController {
 
   private def endReview() {
     session.review = null;
-    render "<h1>Herzlichen Glückwunsch</h1>"
+    render(template: 'endReview')
   }
 }
