@@ -40,7 +40,8 @@ class ReviewController {
   }
 
   private def endReview() {
+    def finishedReview = session.review;
     session.review = null;
-    render(template: 'endReview')
+    render(template: 'endReview', model: [review: finishedReview])
   }
 }
