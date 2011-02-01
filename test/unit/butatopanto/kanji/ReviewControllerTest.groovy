@@ -45,6 +45,34 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     assertNull controller.session.review
   }
 
+  @Test
+  void forwardsAllKanjiToRepeatToFlashStore() {
+    controller.flash.allKanji = ["2", "3"]
+    controller.repeatAll()
+    assertEquals([2, 3], controller.flash.kanji)
+  }
+
+  @Test
+  void forwardsWrongKanjiToRepeatToFlashStore() {
+    controller.flash.wrongKanji = ["2", "3"]
+    controller.repeatWrong()
+    assertEquals([2, 3], controller.flash.kanji)
+  }
+
+  @Test
+  void startsNewListReviewWithRepeatedKanji() {
+    controller.repeatAll()
+    assertEquals('assembleReview', controller.redirectArgs.controller)
+    assertEquals('startList', controller.redirectArgs.action)
+  }
+
+   @Test
+  void startsNewReview() {
+    controller.startNew()
+    assertEquals('assembleReview', controller.redirectArgs.controller)
+  }
+
+
   private def setFramesDue() {
     controller.session.chapters[0].dueFrameCount = 1
     masteryServiceObjectMother.setDueFrames()

@@ -52,14 +52,6 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertNotNull byId('showStory')
   }
 
-  void testDoesNotShowStoryDialogOnFinalPage() {
-    startChapter6()
-    for (i in 1..10) {
-      revealAndConfirmKanji()
-    }
-    assertNull byId('showStory')
-  }
-
   void testCalculatesCorrectNumberOfDueKanjiAfterCompletingChapter() {
     startChapter6();
     revealAndDeclineKanji()
@@ -68,6 +60,24 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     }
     returnToAssemblePage()
     assertContentContains '1 due'
+  }
+
+  void testDoesNotShowStoryDialogOnFinalPage() {
+    startChapter6()
+    for (i in 1..10) {
+      revealAndConfirmKanji()
+    }
+    assertNull byId('showStory')
+  }
+
+  void testRepeatsWrongAfterFinalPage() {
+    startChapter6();
+    revealAndDeclineKanji()
+    for (i in 2..10) {
+      revealAndConfirmKanji()
+    }
+    click 'Repeat wrong Kanji'
+    assertContentContains '1 of 1'
   }
 
   private def revealAndConfirmKanji() {
@@ -83,7 +93,6 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   private def returnToAssemblePage() {
     click 'Assemble review'
   }
-
 
   protected void clickAndWait(String identifier) {
     click identifier

@@ -34,6 +34,23 @@ class ReviewController {
     }
   }
 
+  def repeatWrong = {
+    repeat(flash.wrongKanji)
+  }
+
+  def repeatAll = {
+    repeat(flash.allKanji)
+  }
+
+  def startNew = {
+    redirect(controller: 'assembleReview')
+  }
+
+  private def repeat(def kanji) {
+    flash.kanji = kanji.collect {it.toInteger()}
+    redirect(controller: 'assembleReview', action: 'startList')
+  }
+
   private def ajaxRenderFrame(frame, boolean hidden) {
     def practiceTablet = heisig.practiceTablet([frame: frame, hidden: hidden])
     render practiceTablet
