@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='flashcard.css'/>"/>
   <title><g:message code="flashcard.status.title"/></title>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript">
+  <g:javascript base="https://www.google.com" src="/jsapi"></g:javascript>
+  <g:javascript>
     google.load("visualization", "1", {packages:["corechart"]});
     google.setOnLoadCallback(drawChart);
     function drawChart() {
@@ -42,7 +42,7 @@
         }
       });
     }
-  </script>
+  </g:javascript>
 </head>
 <body>
 <div class="nav">
