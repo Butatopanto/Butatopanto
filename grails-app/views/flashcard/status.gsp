@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="layout" content="main"/>
-  <link rel="stylesheet" href="<g:createLinkTo dir='css/kanji' file='menu.css'/>"/>
+  <link rel="stylesheet" href="<g:createLinkTo dir='css' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='flashcard.css'/>"/>
   <title><g:message code="flashcard.status.title"/></title>

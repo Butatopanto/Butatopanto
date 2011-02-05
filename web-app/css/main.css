@@ -60,44 +60,6 @@ input:focus, select:focus, textarea:focus {
     margin: 0 15px 10px 15px;
 }
 
-/* NAVIGATION MENU */
-
-.nav {
-    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
-    border: 1px solid #ccc;
-    border-style: solid none solid none;
-    margin-top: 5px;
-    padding: 7px 12px;
-}
-
-.menuButton {
-    font-size: 10px;
-    padding: 0 5px;
-}
-
-.menuButton a {
-    color: #333;
-    padding: 4px 6px;
-}
-
-.menuButton a.home {
-    background: url(../images/skin/house.png) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
-}
-
-.menuButton a.list {
-    background: url(../images/skin/database_table.png) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
-}
-
-.menuButton a.create {
-    background: url(../images/skin/database_add.png) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
-}
-
 /* MESSAGES AND ERRORS */
 
 .message {

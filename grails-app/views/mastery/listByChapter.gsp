@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="layout" content="main"/>
-  <link rel="stylesheet" href="<g:createLinkTo dir='css/kanji' file='menu.css'/>"/>
+  <link rel="stylesheet" href="<g:createLinkTo dir='css' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='mastery.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
   <g:javascript library="prototype"/>

@@ -1,0 +1,43 @@
+/* NAVIGATION MENU */
+.nav {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    border-style: solid none solid none;
+    margin-top: 5px;
+    padding: 7px 12px;
+}
+
+.menuButton {
+    font-size: 10px;
+    padding: 0 5px;
+}
+
+.menuButton a {
+    color: #333;
+    padding: 4px 6px;
+    padding-left: 25px;
+}
+
+.menuButton a.home {
+    background: url(../images/skin/house.png) center left no-repeat;
+}
+
+.menuButton a.list {
+    background: url(../images/skin/database_table.png) center left no-repeat;
+}
+
+.menuButton a.create {
+    background: url(../images/skin/database_add.png) center left no-repeat;
+}
+
+.menuButton a.assemble {
+    background: url(../images/skin/assemble-16.jpg) center left no-repeat;
+}
+
+.menuButton a.manage {
+    background: url(../images/skin/manage-16.jpg) center left no-repeat;
+}
+
+.menuButton a.practice {
+    background: url(../images/skin/practice-16.jpg) center left no-repeat;
+}
