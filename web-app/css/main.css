@@ -16,10 +16,6 @@ body {
     font: 11px verdana, arial, helvetica, sans-serif;
 }
 
-#grailsLogo {
-    padding: 20px;
-}
-
 a:link, a:visited, a:hover {
     color: #666;
     font-weight: bold;
@@ -296,42 +292,6 @@ th.desc a {
 }
 
 /* Custom Kram  */
-
-.buttons input.solve {
-    background: transparent;
-}
-
-.menuButton a.learn {
-    background: url(../images/skin/questionmark.gif) center left no-repeat;
-    color: #333;
-    padding-left: 25px;
-}
-
-textArea.story {
-    border-width: 0px;
-    resize: none;
-    color: gray;
-}
-
-textArea.story:hover {
-    border-width: 1px;
-    resize: none;
-}
-
-textArea.story:focus {
-    border-width: 1px;
-    resize: both;
-    color: black;
-}
-
-.confirm {
-    background-color: #80f08e;
-}
-
-.decline {
-    background-color: #f08080;
-}
-
 .japanese {
     font-family: 'MS PGothic';
 }
