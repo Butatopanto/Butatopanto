@@ -1,0 +1,22 @@
+#pageBody {
+    margin-left: 9em;
+}
+
+#introText {
+    margin-left: 11em
+}
+
+.activityselector {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2em;
+    border: 0.2em solid;
+    border-radius: 0.7em 0.7em;
+    text-align: center;
+    width: 11em;
+}
+
+.padded {
+    margin-top: 1em;
+    float: left;
+}
