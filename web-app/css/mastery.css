@@ -1,12 +1,12 @@
 .previous {
     position: absolute;
-    left: 0px;
+    left: 0;
     top: 15px
 }
 
 .next {
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 10px;
 }
 
@@ -17,8 +17,7 @@
 .main-area {
     position: relative;
     height: 550px;
-    border: solid;
-    border-width: thin
+    border: thin solid;
 }
 
 .icon div {
@@ -44,7 +43,6 @@ div.selector {
     height: 50px;
     margin: 13px;
     text-align: center;
-    valign: center;
     float: left;
     cursor: pointer;
 }
@@ -91,6 +89,7 @@ div.selector {
 
 .box7 {
     background-color: #8c8cfc;
+    color: black;
 }
 
 .box8 {
