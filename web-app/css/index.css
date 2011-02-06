@@ -20,3 +20,18 @@
     margin-top: 1em;
     float: left;
 }
+
+.assembleReview {
+    background-color: #9BFF9B;
+    border-color: #007D00
+}
+
+.mastery {
+    background-color: #C2B5FF;
+    border-color: #220D80
+}
+
+.flashcard {
+    background-color: #FCCFAC;
+    border-color: #7F3B06
+}
