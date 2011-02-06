@@ -39,7 +39,7 @@
     <mastery:previousChapter navigation="${navigation}"/>
     <mastery:nextChapter navigation="${navigation}"/>
   </div>
-  <p>&nbsp</p>
+  <br/>
   <div class="body" style="position: relative; top: 30px">
     <g:render template="/flashMessage"/>
     <div class="dialog">

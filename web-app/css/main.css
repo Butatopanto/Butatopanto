@@ -84,7 +84,7 @@ div.errors ul {
 }
 
 div.errors li {
-    background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+    background: url(../images/skin/exclamation.png) 8px 0 no-repeat;
     line-height: 16px;
     padding-left: 30px;
 }
@@ -255,7 +255,7 @@ th.desc a {
 
 /* Custom Kram  */
 .japanese {
-    font-family: 'MS PGothic';
+    font-family: 'MS PGothic', sans-serif;
 }
 
 .footer {
@@ -275,4 +275,6 @@ th.desc a {
 .selector {
     border-radius: 15px;
     display: block;
+    text-align: center;
+    float: left;
 }

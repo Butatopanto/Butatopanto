@@ -52,7 +52,7 @@ chart.draw(data, {
   <menu:backToPractice/>
 </div>
 <h1><g:message code="flashcard.status.heading"/></h1>
-<p>&nbsp;</p>
+<br/>
 <div class="body">
   <g:render template="/flashMessage"/>
   <div class="dialog">

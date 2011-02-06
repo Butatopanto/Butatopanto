@@ -1,16 +1,9 @@
-div.chapterselector {
+a.active, a.selected, a.inactive, a.deselected {
+    font-weight: normal;
+    color: black;
     width: 60px;
     height: 60px;
     margin: 6px;
-    text-align: center;
-    float: left;
-}
-
-a.active, a.selected, a.inactive, a.deselected {
-    height: 100%;
-    width: 100%;
-    font-weight: normal;
-    color: black;
 }
 
 a.active {

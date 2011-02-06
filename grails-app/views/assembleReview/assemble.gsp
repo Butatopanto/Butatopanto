@@ -15,29 +15,25 @@
   <menu:status/>
 </div>
 <h1><g:message code="review.assemble.chapterselection"/></h1>
-<p>&nbsp</p>
+<br/>
 <div class="body">
   <g:render template="/flashMessage"/>
   <div class="dialog">
     <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
       <div id="container" style="padding: 5px">
-        <div>
-          <g:each in="${session.chapters.sort({it.chapterNumber}) }" status="i" var="${chapter}">
-            <div class="chapterselector">
-              <heisig:chapterSelector chapter="${chapter}"/>
-            </div>
-          </g:each>
-          <div class="nav" style='position:absolute; left:0px; bottom: 0px; width:775px'>
-            <g:if test="${dueFrames}">
-              <span class="menuButton"><g:link class="practice" action="startDue"><g:message code="review.assemble.due"/></g:link></span>
-            </g:if>
-            <g:if test="${dueSelected}">
-              <span class="menuButton"><g:link class="practice" action="startDueFramesFromSelectedChapter"><g:message code="review.assemble.startSelectedDue"/></g:link></span>
-            </g:if>
-            <g:if test="${chaptersSelected}">
-              <span class="menuButton"><g:link class="practice" action="startSelectedChapters"><g:message code="review.assemble.selected"/></g:link></span>
-            </g:if>
-          </div>
+        <g:each in="${session.chapters.sort({it.chapterNumber}) }" status="i" var="${chapter}">
+          <heisig:chapterSelector chapter="${chapter}"/>
+        </g:each>
+        <div class="nav" style='position:absolute; left:0px; bottom: 0px; width:775px'>
+          <g:if test="${dueFrames}">
+            <span class="menuButton"><g:link class="practice" action="startDue"><g:message code="review.assemble.due"/></g:link></span>
+          </g:if>
+          <g:if test="${dueSelected}">
+            <span class="menuButton"><g:link class="practice" action="startDueFramesFromSelectedChapter"><g:message code="review.assemble.startSelectedDue"/></g:link></span>
+          </g:if>
+          <g:if test="${chaptersSelected}">
+            <span class="menuButton"><g:link class="practice" action="startSelectedChapters"><g:message code="review.assemble.selected"/></g:link></span>
+          </g:if>
         </div>
       </div>
 
