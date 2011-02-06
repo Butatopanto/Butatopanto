@@ -12,6 +12,7 @@
   <menu:home/>
   <menu:chapterList/>
   <menu:backToPractice/>
+  <menu:status/>
 </div>
 <h1><g:message code="review.assemble.chapterselection"/></h1>
 <p>&nbsp</p>

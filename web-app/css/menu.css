@@ -14,8 +14,7 @@
 
 .menuButton a {
     color: #333;
-    padding: 4px 6px;
-    padding-left: 25px;
+    padding: 4px 6px 4px 25px;
 }
 
 .menuButton a.home {
@@ -40,4 +39,8 @@
 
 .menuButton a.practice {
     background: url(../images/skin/practice-16.jpg) center left no-repeat;
+}
+
+.menuButton a.status {
+    background: url(../images/skin/status.png) center left no-repeat;
 }

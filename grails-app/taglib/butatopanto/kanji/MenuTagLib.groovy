@@ -22,6 +22,11 @@ class MenuTagLib {
     writeMenuButton(linkParameters, 'menu.kanji.overview')
   }
 
+  def status = {
+    def linkParameters = ['class': "status", controller: "flashcard"]
+    writeMenuButton(linkParameters, 'menu.flashcard.status')
+  }
+
   def backToPractice = {
     if (!session.review) {
       return

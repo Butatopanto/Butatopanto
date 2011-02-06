@@ -13,14 +13,14 @@
     google.setOnLoadCallback(drawChart);
     function drawChart() {
       var data = new google.visualization.DataTable();
-    ${new FlashcardTagLib().generateDataScript(boxes:boxes, dataVariable:'data')}
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-      chart.draw(data, {
-        chartArea:{left:50,top:50,width:"710",height:"75%"},
-        width:780, height: 450,
-        legend:'bottom',
-        colors:['#FF9900','#0FF80F'],
-        hAxis: {title: '${g.message(code:"flashcard.chart.boxLegend")}'}  ,
+    ${new FlashcardTagLib().generateDataScript(boxes: boxes, dataVariable: 'data')}
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+chart.draw(data, {
+  chartArea:{left:50,top:50,width:"710",height:"75%"},
+  width:780, height: 450,
+  legend:'bottom',
+  colors:['#FF9900','#0FF80F'],
+  hAxis: {title: '${g.message(code: "flashcard.chart.boxLegend")}'}  ,
         vAxis: {title: 'Kanji', maxValue:100}
       });
       google.visualization.events.addListener(chart, 'select', function(e) {
@@ -30,15 +30,15 @@
           var clickedColumn = item.row != null;
           if (clickedColumn) {
             var boxnumber = item.row + 1;
-            window.location = "${g.createLink(controller:'flashcard', action:'startBox')}" + "/" + boxnumber;
+            window.location = "${g.createLink(controller: 'flashcard', action: 'startBox')}" + "/" + boxnumber;
           }
           else { //clicked Legend
-            window.location = "${g.createLink(controller:'flashcard', action:'startDue')}";
+            window.location = "${g.createLink(controller: 'flashcard', action: 'startDue')}";
           }
         }
         var clickedMastered = item.column == 2;
         if (clickedMastered) {
-          window.location = "${g.createLink(controller:'flashcard', action:'startMastered')}";
+          window.location = "${g.createLink(controller: 'flashcard', action: 'startMastered')}";
         }
       });
     }
@@ -49,6 +49,7 @@
   <menu:home/>
   <menu:chapterList/>
   <menu:assembleReview/>
+  <menu:backToPractice/>
 </div>
 <h1><g:message code="flashcard.status.heading"/></h1>
 <p>&nbsp;</p>

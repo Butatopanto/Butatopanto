@@ -29,6 +29,7 @@
   <menu:home/>
   <menu:chapterList/>
   <menu:assembleReview/>
+  <menu:status/>
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
