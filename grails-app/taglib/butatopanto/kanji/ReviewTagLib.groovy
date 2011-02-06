@@ -8,7 +8,8 @@ class ReviewTagLib {
     def chapterSelection = attributes.chapter
     boolean selected = chapterSelection.selected
     boolean active = chapterSelection.active
-    def cssClass = active ? "active" : "inactive"
+    def cssClass = 'selector'
+    cssClass += active ? " active" : " inactive"
     cssClass += selected ? " selected" : " deselected"
     def clickAction = selected ? "removeChapter" : "addChapter"
     def chapterNumber = chapterSelection.chapterNumber

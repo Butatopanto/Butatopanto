@@ -7,10 +7,8 @@ div.chapterselector {
 }
 
 a.active, a.selected, a.inactive, a.deselected {
-    display: block;
     height: 100%;
     width: 100%;
-    border-radius: 15px;
     font-weight: normal;
     color: black;
 }

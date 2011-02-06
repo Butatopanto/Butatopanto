@@ -271,3 +271,8 @@ th.desc a {
 .footer span {
     background-color: inherit;
 }
+
+.selector {
+    border-radius: 15px;
+    display: block;
+}
