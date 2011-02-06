@@ -35,7 +35,7 @@
 <p>&nbsp</p>
 <div class="body">
   <div class="dialog">
-    <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px' align="center">
+    <div class='content' align="center">
       <div id="container">
         <heisig:practiceTablet frame="${frame}" hidden="true"/>
       </div>
