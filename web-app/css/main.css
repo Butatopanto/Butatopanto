@@ -278,3 +278,11 @@ th.desc a {
     text-align: center;
     float: left;
 }
+
+.content {
+    width: 800px;
+    height: 550px;
+    border: thin solid;
+    position: absolute;
+    left: 50px
+}

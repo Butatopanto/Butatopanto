@@ -19,7 +19,7 @@
 <div class="body">
   <g:render template="/flashMessage"/>
   <div class="dialog">
-    <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
+    <div class='content'>
       <div id="container" style="padding: 5px">
         <g:each in="${session.chapters.sort({it.chapterNumber}) }" status="i" var="${chapter}">
           <heisig:chapterSelector chapter="${chapter}"/>

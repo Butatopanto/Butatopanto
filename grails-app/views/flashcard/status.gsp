@@ -56,7 +56,7 @@ chart.draw(data, {
 <div class="body">
   <g:render template="/flashMessage"/>
   <div class="dialog">
-    <div style='width:800px; height:550px; border:solid; border-width:thin; position:absolute; left:50px'>
+    <div class='content'>
       <div id="container" style="padding: 5px">
         <div style="width:750px;  margin-left: auto; margin-right: auto; padding-left:50px;padding-bottom:80px">
           <g:each in="${boxes}" status="i" var="${box}">
