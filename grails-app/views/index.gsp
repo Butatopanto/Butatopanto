@@ -12,7 +12,7 @@
     <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> <span class='japanese'>楽しんで&#x3002</span></p>
   </div>
   <g:render template="/action" model="[controller:'assembleReview', kanji:'習', message:'navigation.frameTraining']"/>
-  <g:render template="/action" model="[controller:'mastery', kanji:'治', message:'navigation.frameManagement']"/>
+  <g:render template="/action" model="[controller:'mastery', kanji:'書', message:'navigation.frameManagement']"/>
   <g:render template="/action" model="[controller:'flashcard', kanji:'見', message:'navigation.flashcardStatus']"/>
   <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
     <div>
