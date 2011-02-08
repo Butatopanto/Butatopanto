@@ -1,8 +1,13 @@
-div.boxselector {
+.boxselector {
     width: 60px;
     height: 60px;
     margin: 12px;
     font-weight: normal;
     color: black;
     border: 2px #a9a9a9 solid;
+}
+
+.boxselector * {
+    font-weight: normal;
+    color: black;
 }
