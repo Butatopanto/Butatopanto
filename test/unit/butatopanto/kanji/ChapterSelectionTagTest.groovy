@@ -1,11 +1,9 @@
 package butatopanto.kanji;
 
 
-import butatopanto.kanji.ChapterSelection
 import butatopanto.sharedtest.TagLibJUnit4TestCase
 import org.junit.Before
 import org.junit.Test
-import butatopanto.kanji.ReviewTagLib
 
 class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
 
@@ -24,19 +22,27 @@ class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
   @Test
   void rendersChapterNumberInFirstParagraph() {
     def html = createLinkHtml()
-    assertEquals("1", html.div[0].p[0].text())
+    assertEquals("1", html.p[0].text())
+  }
+
+  @Test
+  void writesChapterLarger() {
+    def html = createLinkHtml()
+    assertEquals("font-size: 20px", html.p[0].@style.text())
   }
 
   @Test
   void rendersTotalFramesInSecondParagraph() {
     def html = createLinkHtml()
-    assertEquals("15 Kanji", html.div[0].p[1].text())
+    assertEquals("15 Kanji", html.p[1].text())
   }
+
+
 
   @Test
   void rendersDueFramesInThirdParagraph() {
     def html = createLinkHtml()
-    assertEquals("6 fällig", html.div[0].p[2].text())
+    assertEquals("6 fällig", html.p[2].text())
   }
 
   @Test

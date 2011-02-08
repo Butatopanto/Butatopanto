@@ -18,15 +18,13 @@ class ReviewTagLib {
     }
   }
 
-  def chapter = { attributes ->
+  private chapter(attributes) {
     def chapterSelection = attributes.chapter
     def chapterNumber = chapterSelection.chapterNumber
     def totalFrames = chapterSelection.totalFrames
     def due = g.message(code: 'review.assemble.dueCount', args: [chapterSelection.dueFrameCount])
-    out << "<div>"
     out << "<p style='font-size: 20px'>$chapterNumber</p>"
     out << "<p>$totalFrames Kanji</p>"
     out << "<p>$due</p>"
-    out << "</div>"
   }
 }
