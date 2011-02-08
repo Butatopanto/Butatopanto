@@ -76,8 +76,33 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     for (i in 2..10) {
       revealAndConfirmKanji()
     }
-    click 'Repeat wrong Kanji'
+    form() {
+      click "repeatWrong"
+    }
     assertContentContains '1 of 1'
+  }
+
+  void testRepeatsAllAfterFinalPage() {
+    startChapter6();
+    revealAndDeclineKanji()
+    for (i in 2..10) {
+      revealAndConfirmKanji()
+    }
+    form('repeatAllForm') {
+      click "repeatAll"
+    }
+    assertContentContains '10 of 10'
+  }
+
+   void testStartsNewReviewAfterFinalPage() {
+    startChapter6();
+    for (i in 1..10) {
+      revealAndConfirmKanji()
+    }
+    form('startNewForm') {
+      click "startNew"
+    }
+    assertTitle "Study which chapters?"
   }
 
   private def revealAndConfirmKanji() {

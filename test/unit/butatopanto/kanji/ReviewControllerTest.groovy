@@ -47,21 +47,15 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
 
   @Test
   void forwardsAllKanjiToRepeatToFlashStore() {
-    controller.flash.allKanji = ["2", "3"]
-    controller.repeatAll()
-    assertEquals([2, 3], controller.flash.kanji)
-  }
-
-  @Test
-  void forwardsWrongKanjiToRepeatToFlashStore() {
-    controller.flash.wrongKanji = ["2", "3"]
-    controller.repeatWrong()
+    controller.params.kanji = "[2, 3]"
+    controller.repeat()
     assertEquals([2, 3], controller.flash.kanji)
   }
 
   @Test
   void startsNewListReviewWithRepeatedKanji() {
-    controller.repeatAll()
+    controller.params.kanji = "[2, 3]"
+    controller.repeat()
     assertEquals('assembleReview', controller.redirectArgs.controller)
     assertEquals('startList', controller.redirectArgs.action)
   }

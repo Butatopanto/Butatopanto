@@ -2,12 +2,14 @@
 <h4><g:message code='review.progress.legend.right' args="${[review.rightIds.size()]}"/></h4>
 <h4><g:message code='review.progress.legend.wrong' args="${[review.wrongIds.size()]}"/></h4>
 <br/>
-<%
-flash.wrongKanji = review.wrongIds
-flash.allKanji = review.wrongIds.plus(review.rightIds)
-%>
-<g:link action="repeatWrong">Repeat wrong Kanji</g:link>
-<br/>
-<g:link action="repeatAll">Repeat entire review</g:link>
-<br/>
-<g:link action="newReview">Start another review</g:link>
+<g:form action="repeat" name="repeatWrongForm">
+  <g:hiddenField name="kanji" value="${review.wrongIds}"/>
+  <g:submitButton name="repeatWrong" id='repeatWrong' value="${g.message(code:'review.finished.repeatWrong')}"/>
+</g:form>
+<g:form action="repeat" name="repeatAllForm">
+  <g:hiddenField name="kanji" value="${review.wrongIds.plus(review.rightIds)}"/>
+  <g:submitButton name="repeatAll" id='repeatAll' value="${g.message(code:'review.finished.repeatAll')}"/>
+</g:form>
+<g:form action="startNew" name="startNewForm">
+  <g:submitButton name="startNew" id='startNew' value="${g.message(code:'review.finished.startNew')}"/>
+</g:form>

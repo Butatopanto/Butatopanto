@@ -34,21 +34,14 @@ class ReviewController {
     }
   }
 
-  def repeatWrong = {
-    repeat(flash.wrongKanji)
-  }
-
-  def repeatAll = {
-    repeat(flash.allKanji)
+  def repeat = {
+    def kanji = params.kanji.minus('[').minus(']').split(',')
+    flash.kanji = kanji.collect {it.toInteger()}
+    redirect(controller: 'assembleReview', action: 'startList')
   }
 
   def startNew = {
     redirect(controller: 'assembleReview')
-  }
-
-  private def repeat(def kanji) {
-    flash.kanji = kanji.collect {it.toInteger()}
-    redirect(controller: 'assembleReview', action: 'startList')
   }
 
   private def ajaxRenderFrame(frame, boolean hidden) {
