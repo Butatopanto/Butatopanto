@@ -82,10 +82,17 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertContentContains '1 of 1'
   }
 
+  void testDoesNotShowOptionToRepeatWrongKanjiIfThereAreNone() {
+    startChapter6();
+    for (i in 1..10) {
+      revealAndConfirmKanji()
+    }
+    assertContentDoesNotContain 'Repeat wrong Kanji'
+  }
+
   void testRepeatsAllAfterFinalPage() {
     startChapter6();
-    revealAndDeclineKanji()
-    for (i in 2..10) {
+    for (i in 1..10) {
       revealAndConfirmKanji()
     }
     form('repeatAllForm') {
@@ -94,7 +101,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     assertContentContains '10 of 10'
   }
 
-   void testStartsNewReviewAfterFinalPage() {
+  void testStartsNewReviewAfterFinalPage() {
     startChapter6();
     for (i in 1..10) {
       revealAndConfirmKanji()
