@@ -18,39 +18,6 @@ class ChapterSelectionTagTest extends TagLibJUnit4TestCase {
     messageCodes["review.assemble.dueCount"] = "{0} fällig"
   }
 
-
-  @Test
-  void rendersChapterNumberInFirstParagraph() {
-    def html = createLinkHtml()
-    assertEquals("1", html.p[0].text())
-  }
-
-  @Test
-  void writesChapterLarger() {
-    def html = createLinkHtml()
-    assertEquals("font-size: 20px", html.p[0].@style.text())
-  }
-
-  @Test
-  void rendersTotalFramesInSecondParagraph() {
-    def html = createLinkHtml()
-    assertEquals("15 Kanji", html.p[1].text())
-  }
-
-
-
-  @Test
-  void rendersDueFramesInThirdParagraph() {
-    def html = createLinkHtml()
-    assertEquals("6 fällig", html.p[2].text())
-  }
-
-  @Test
-  void rendersLinkForActiveChapterWithActiveCssClass() {
-    chapter.active = true
-    assertContainsCssClass(createLinkHtml(), "active")
-  }
-
   @Test
   void rendersLinkForInactiveChapterWithInactiveCssClass() {
     chapter.active = false

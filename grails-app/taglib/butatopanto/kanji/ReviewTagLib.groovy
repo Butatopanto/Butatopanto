@@ -23,8 +23,6 @@ class ReviewTagLib {
     def chapterNumber = chapterSelection.chapterNumber
     def totalFrames = chapterSelection.totalFrames
     def due = g.message(code: 'review.assemble.dueCount', args: [chapterSelection.dueFrameCount])
-    out << "<p style='font-size: 20px'>$chapterNumber</p>"
-    out << "<p>$totalFrames Kanji</p>"
-    out << "<p>$due</p>"
+    render(template: '/selectorContent', model: [header: chapterNumber, firstComment: "$totalFrames Kanji", secondComment: due])
   }
 }
