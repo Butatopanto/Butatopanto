@@ -28,10 +28,7 @@
 </head>
 <body>
 <div class="nav">
-  <menu:home/>
-  <menu:assembleReview/>
-  <menu:backToPractice/>
-  <menu:status/>
+  <menu:render without='chapterList'/>
 </div>
 <div style="left: 10px; position: relative">
   <div id="navigationHeader" style="position:absolute; top: 0px; left: 15px">

@@ -46,10 +46,7 @@ chart.draw(data, {
 </head>
 <body>
 <div class="nav">
-  <menu:home/>
-  <menu:chapterList/>
-  <menu:assembleReview/>
-  <menu:backToPractice/>
+  <menu:render without='status'/>
 </div>
 <h1><g:message code="flashcard.status.heading"/></h1>
 <br/>

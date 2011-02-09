@@ -9,10 +9,7 @@
 </head>
 <body>
 <div class="nav">
-  <menu:home/>
-  <menu:chapterList/>
-  <menu:backToPractice/>
-  <menu:status/>
+  <menu:render without='assembleReview'/>
 </div>
 <h1><g:message code="review.assemble.chapterselection"/></h1>
 <br/>

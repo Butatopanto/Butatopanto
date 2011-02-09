@@ -26,10 +26,7 @@
 </head>
 <body>
 <div class="nav">
-  <menu:home/>
-  <menu:chapterList/>
-  <menu:assembleReview/>
-  <menu:status/>
+  <menu:render without='backToPractice'/>
 </div>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>

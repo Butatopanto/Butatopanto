@@ -4,7 +4,16 @@ class MenuTagLib {
 
   static namespace = "menu"
 
-  def home = {
+  def render = {arguments ->
+    def order = ['home', 'chapterList', 'assembleReview', 'backToPractice', 'status']
+    order.each {
+      if (arguments.without != it) {
+        out << "$it"()
+      }
+    }
+  }
+
+  private void home() {
     out << "<span class='menuButton'>"
     createHomeLink([]) {
       g.message(code: 'default.home.label')
@@ -12,22 +21,22 @@ class MenuTagLib {
     out << "</span>"
   }
 
-  def assembleReview = {
+  private void assembleReview() {
     def linkParameters = ['class': "assemble", controller: "assembleReview"]
     writeMenuButton(linkParameters, 'menu.assembleReview')
   }
 
-  def chapterList = {
+  private void chapterList() {
     def linkParameters = ['class': "manage", controller: "mastery"]
     writeMenuButton(linkParameters, 'menu.kanji.overview')
   }
 
-  def status = {
+  private void status() {
     def linkParameters = ['class': "status", controller: "flashcard"]
     writeMenuButton(linkParameters, 'menu.flashcard.status')
   }
 
-  def backToPractice = {
+  private void backToPractice() {
     if (!session.review) {
       return
     }
