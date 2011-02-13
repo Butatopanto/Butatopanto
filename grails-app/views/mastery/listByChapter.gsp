@@ -46,7 +46,7 @@
             <div class="selector">
               <g:set var="storyLink" value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number)}"/>
               <g:set var="storyTitle" value="${message(code: 'chapterList.story.title', args: [masteredFrame.frame.keyword, masteredFrame.frame.kanji])}"/>
-              <div onclick='openStoryDialog(this, "${storyTitle}", "${storyLink}")' id="${masteredFrame.frame.kanji}" title="${masteredFrame.frame.keyword}" class="${masteredFrame.cssClass} japanese selector">${masteredFrame.frame.kanji}</div>
+              <div onclick='openStoryDialog(this, "${storyTitle}", "${storyLink}")' id="${masteredFrame.frame.kanji}" title="${masteredFrame.frame.keyword} (${masteredFrame.frame.number})" class="${masteredFrame.cssClass} japanese selector">${masteredFrame.frame.kanji}</div>
             </div>
           </g:each>
         </div>
