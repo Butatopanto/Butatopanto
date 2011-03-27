@@ -5,7 +5,6 @@
     <setting name="cmdLine" value="test-app -functional" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
-    <extension name="coverage" enabled="false" merge="false" />
     <setting name="launchBrowser" value="false" />
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="56269" />
