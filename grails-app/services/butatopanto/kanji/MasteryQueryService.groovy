@@ -18,7 +18,7 @@ class MasteryQueryService {
     }
   }
 
-  def listMastery() {
+  def listMasteryForCurrentUser() {
     if (!userService.currentUser) {
       return []
     }

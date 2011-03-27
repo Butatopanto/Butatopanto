@@ -76,7 +76,7 @@ class MasteryService {
   }
 
   def listMastery() {
-    masteryQueryService.listMastery()
+    masteryQueryService.listMasteryForCurrentUser()
   }
 
   def answerRight(def frameId) {

@@ -4,7 +4,7 @@ class MasteryQueryServiceObjectMother {
   def service = [:]
 
   void queryFromHeisigUserData(String userName) {
-    service["listMastery"] = {
+    service["listMasteryForCurrentUser"] = {
       HeisigUser.findByUserName(userName).masteryList as List
     }
     service["findMasteryByFrameId"] = { frameId ->

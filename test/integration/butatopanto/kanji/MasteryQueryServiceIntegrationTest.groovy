@@ -13,20 +13,20 @@ class MasteryQueryServiceIntegrationTest extends GrailsJUnit4TestCase {
 
   @Test
   void hasNoMasteryWithoutCurrentUser() {
-    assertEquals([], masteryQueryService.listMastery())
+    assertEquals([], masteryQueryService.listMasteryForCurrentUser())
   }
 
   @Test
   void hasNoMasteryForNewUser() {
     logInUser(springSecurityService, userName)
-    assertEquals([], masteryQueryService.listMastery())
+    assertEquals([], masteryQueryService.listMasteryForCurrentUser())
   }
 
   @Test
   void findsMasteriesForExistingUsers() {
     logInUser(springSecurityService, userName)
     def mastery = createMasteryForUser()
-    assertEquals([mastery], masteryQueryService.listMastery())
+    assertEquals([mastery], masteryQueryService.listMasteryForCurrentUser())
   }
 
   @Test
