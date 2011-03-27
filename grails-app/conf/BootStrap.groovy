@@ -1,3 +1,4 @@
+import butatopanto.kanji.Frame
 import butatopanto.security.Role
 import butatopanto.security.User
 import butatopanto.security.UserRole
@@ -10,7 +11,14 @@ class BootStrap {
 
   def init = { servletContext ->
     heisigContentService.initializeDatabase()
+    correctKanji209()
     createUsers()
+  }
+
+  def correctKanji209() {
+    Frame frame = Frame.findByNumber(209)
+    frame.keyword = 'einander'
+    frame.save(flush:true)
   }
 
   def createUsers() {

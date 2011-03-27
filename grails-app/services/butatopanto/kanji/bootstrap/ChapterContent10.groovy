@@ -21,7 +21,7 @@ class ChapterContent10 extends ChapterContent {
     insertFrame(206, "枯", "verdorren")
     insertFrame(207, "朴", "schlicht")
     insertFrame(208, "村", "Dorf")
-    insertFrame(209, "相", "miteinander")
+    insertFrame(209, "相", "einander")
     insertFrame(210, "机", "Schreibtisch")
     insertFrame(211, "本", "Buch")
     insertFrame(212, "札", "Etikett")
