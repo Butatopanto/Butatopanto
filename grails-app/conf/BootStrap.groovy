@@ -11,14 +11,7 @@ class BootStrap {
 
   def init = { servletContext ->
     heisigContentService.initializeDatabase()
-    correctKanji209()
     createUsers()
-  }
-
-  def correctKanji209() {
-    Frame frame = Frame.findByNumber(209)
-    frame.keyword = 'einander'
-    frame.save(flush:true)
   }
 
   def createUsers() {
