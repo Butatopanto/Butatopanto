@@ -22,9 +22,13 @@ class MasteryQueryService {
     if (!userService.currentUser) {
       return []
     }
+    listMasteriesByUsername currentUserName
+  }
+
+  def listMasteriesByUsername(username) {
     MasteryOfFrame.withCriteria {
       user {
-        eq('userName', currentUserName)
+        eq('userName', username)
       }
     }
   }
