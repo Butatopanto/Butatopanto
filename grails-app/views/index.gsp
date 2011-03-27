@@ -11,9 +11,9 @@
     <h1 class='japanese'>よこそう</h1>
     <p><g:message code="home.firstSteps.fun"/> <g:message code="home.firstSteps.begin"/> <span class='japanese'>楽しんで&#x3002</span></p>
   </div>
-  <g:render template="/action" model="[controller:'assembleReview', kanji:'習', message:'navigation.frameTraining']"/>
-  <g:render template="/action" model="[controller:'mastery', kanji:'書', message:'navigation.frameManagement']"/>
-  <g:render template="/action" model="[controller:'flashcard', kanji:'見', message:'navigation.flashcardStatus']"/>
+  <g:render template="/action" model="[controller:'assembleReview', kanji:'学', message:'navigation.frameTraining']"/>
+  <g:render template="/action" model="[controller:'mastery', kanji:'話', message:'navigation.frameManagement']"/>
+  <g:render template="/action" model="[controller:'flashcard', kanji:'格', message:'navigation.flashcardStatus']"/>
   <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
     <div>
       <g:link controller="user"><g:message code="navigation.administration"/></g:link>
