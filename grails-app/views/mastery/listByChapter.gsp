@@ -39,7 +39,7 @@
             <mastery:previousChapters navigation="${navigation}"/>
         </div>
         <div id="currentChapter" style="width:100px; position:absolute; top: 0px; left:355px; cursor:default">
-            <div class="selector boxselector activeChapter">
+            <div class="selector boxselector chapter">
                 <p>${navigation.chapterNumber}</p>
             </div>
         </div>

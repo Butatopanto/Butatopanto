@@ -63,7 +63,7 @@ class MasteryTagLib {
     }
 
     private def writeLinkToChapterWithBox(chapterNumber, cssClass) {
-        writeLinkToListByChapter(chapterNumber, "selector boxselector inactiveChapter " + cssClass, cssClass, 0) {
+        writeLinkToListByChapter(chapterNumber, "selector boxselector chapter " + cssClass, cssClass, 0) {
             chapterNumber
         }
     }

@@ -6,13 +6,8 @@
     float: right;
 }
 
-.inactiveChapter {
+.chapter {
     font-size: 30px;
-}
-
-.activeChapter {
-    font-size: 35px;
-    left: 15px;
 }
 
 .main-column {
