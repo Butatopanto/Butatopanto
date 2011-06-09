@@ -1,13 +1,13 @@
 .previous {
     position: absolute;
     left: 0;
-    top: 15px
+    top: 30px
 }
 
 .next {
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 30px;
 }
 
 .main-column {
