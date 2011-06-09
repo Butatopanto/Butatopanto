@@ -1,9 +1,9 @@
 .next {
-    right: 0px;
+    float: left;
 }
 
 .previous {
-    left: 0px;
+    float: right;
 }
 
 .inactiveChapter {
@@ -13,7 +13,6 @@
 .activeChapter {
     font-size: 35px;
     left: 15px;
-    cursor: default !important;
 }
 
 .main-column {

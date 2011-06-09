@@ -9,7 +9,9 @@ class MasteryTagLib {
         int chapters = navigation.nextChapters;
         int numberOfChaptersToShow = getNumberOfChaptersToShow(chapters);
         if (chapters) {
-            for (chapter in navigation.chapterNumber + 1..navigation.chapterNumber + numberOfChaptersToShow) {
+            def chapterAfterCurrent = navigation.chapterNumber + 1
+            def lastChapterToShow = navigation.chapterNumber + numberOfChaptersToShow
+            for (chapter in chapterAfterCurrent..lastChapterToShow) {
                 writeLinkToChapterWithBox(chapter, 'next')
             }
         }
@@ -20,7 +22,9 @@ class MasteryTagLib {
         int chapters = navigation.previousChapters;
         int numberOfChaptersToShow = getNumberOfChaptersToShow(chapters)
         if (chapters) {
-            for (chapter in navigation.chapterNumber - numberOfChaptersToShow..navigation.chapterNumber - 1) {
+            def firstChapterToShow = navigation.chapterNumber - numberOfChaptersToShow
+            def chapterBeforeCurrent = navigation.chapterNumber - 1
+            for (chapter in chapterBeforeCurrent..firstChapterToShow) {
                 writeLinkToChapterWithBox(chapter, 'previous')
             }
         }

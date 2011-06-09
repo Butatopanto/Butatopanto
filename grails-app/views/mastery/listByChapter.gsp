@@ -35,10 +35,10 @@
 
 <div style="left:10px; position: relative">
     <div class='main-column' style="position: absolute; left: 10px; top: 0px">
-        <div id="previousChapters" style="width:350px;">
+        <div id="previousChapters" style="width:350px;position:absolute;">
             <mastery:previousChapters navigation="${navigation}"/>
         </div>
-        <div id="currentChapter" style="width:100px; position:absolute; top: 0px; left:350px">
+        <div id="currentChapter" style="width:100px; position:absolute; top: 0px; left:355px; cursor:default">
             <div class="selector boxselector activeChapter">
                 <p>${navigation.chapterNumber}</p>
             </div>
