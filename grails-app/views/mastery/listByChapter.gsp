@@ -34,22 +34,28 @@
 </div>
 
 <div style="left:10px; position: relative">
-    <div id="navigationHeader" class="main-column" style=" position:absolute; top: 0px; left: 15px">
-        <mastery:previousChapter navigation="${navigation}"/>
-        <div class="selector boxselector" style="left:350px; cursor: default">
-            <p style="font-size:35px">${navigation.chapterNumber}</p>
+    <div class='main-column' style="position: absolute; left: 10px; top: 0px">
+        <div id="previousChapters" style="width:350px;">
+            <mastery:previousChapters navigation="${navigation}"/>
         </div>
-        <mastery:nextChapter navigation="${navigation}"/>
+        <div id="currentChapter" style="width:100px; position:absolute; top: 0px; left:350px">
+            <div class="selector boxselector activeChapter">
+                <p>${navigation.chapterNumber}</p>
+            </div>
+        </div>
+        <div id="nextChapters" style="width:350px; position:absolute; top: 0px; left: 450px">
+            <mastery:nextChapters navigation="${navigation}"/>
+        </div>
     </div>
     <br/>
 
-    <div class="body" style="position: relative; top: 60px">
+    <div class="body" style="position: absolute; top: 100px">
         <g:render template="/flashMessage"/>
         <div class="dialog">
             <div class="main-column main-area">
                 <div style="position: absolute; left: 0px; top: 0px; width: 765px; height: 550px">
                     <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
-                        <div class="selector">
+                        <div class="kanjiselector selector">
                             <g:set var="storyLink"
                                    value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number)}"/>
                             <g:set var="storyTitle"

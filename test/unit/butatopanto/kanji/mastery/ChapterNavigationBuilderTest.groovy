@@ -31,27 +31,27 @@ class ChapterNavigationBuilderTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void hasChapterNumberBeforeSetChapterAsPrevious() {
+  void hasPreviousChaptersRelativeToCurrentChapter() {
     builder.setChapterNumber 3
-    assertEquals 2, build().previous
+    assertEquals 2, build().previousChapters
   }
 
   @Test
-  void hasNoPreviousChapterForFirstChapter() {
+  void hasNoPreviousChaptersForFirstChapter() {
     builder.setChapterNumber 1
-    assertNull build().previous
+    assertEquals 0, build().previousChapters
   }
 
   @Test
-  void hasChapterNumberAfterSetChapterAsNext() {
+  void hasAllRemainingChaptersAsNextChapters() {
     builder.setChapterNumber 3
-    assertEquals 4, build().next
+    assertEquals 2, build().nextChapters
   }
 
   @Test
   void hasNoNextChapterForLastChapter() {
     builder.setChapterNumber lastChapter
-    assertNull build().next
+    assertEquals 0,build().nextChapters
   }
 
   @Test
