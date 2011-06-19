@@ -1,20 +1,18 @@
+function click(id) {
+    var element = document.getElementById(id)
+    element.simulate('click');
+}
 document.observe('dom:loaded', function() {
+    var withoutControlKey = {
+        ctrlKey: false
+    };
     new HotKey(' ', function(event) {
-        var element = document.getElementById('card')
-        element.simulate('click');
-    }, {
-        ctrlKey: false
-    });
+        click('card');
+    }, withoutControlKey);
     new HotKey(confirmKey, function(event) {
-        var element = document.getElementById('confirmButton')
-        element.simulate('click');
-    }, {
-        ctrlKey: false
-    });
+        click('confirmButton');
+    }, withoutControlKey);
     new HotKey(declineKey, function(event) {
-        var element = document.getElementById('declineButton')
-        element.simulate('click');
-    }, {
-        ctrlKey: false
-    });
+        click('declineButton');
+    }, withoutControlKey);
 });
