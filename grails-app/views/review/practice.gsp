@@ -10,7 +10,6 @@
   <g:javascript library="prototype"/>
   <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
   <g:javascript src="livepipe/livepipe.js"/>
-  <g:javascript src="livepipe/window.js"/>
   <g:javascript src="livepipe/hotkey.js"/>
   <g:javascript src="practice.js"/>
   <g:javascript>

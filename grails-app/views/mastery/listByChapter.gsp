@@ -29,6 +29,7 @@
         showPreviousKanji();
       }
     }
+
     Event.observe(document, "mousewheel", scrollByWheel, false);
   </g:javascript>
   <title><g:message code='mastery.current-chapter' args="${[navigation.chapterNumber]}"/></title>
