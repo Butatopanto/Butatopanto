@@ -17,6 +17,7 @@
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
   </g:javascript>
+  <g:javascript src="hotkeys.js" />
   <g:javascript src="cardnavigation.js"/>
   <g:javascript src="protolicious/event.simulate.js"/>
   <g:javascript src="windows_js/effects.js"/>
