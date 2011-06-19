@@ -1,18 +1,19 @@
 function click(id) {
-    var element = document.getElementById(id)
+    var element = document.getElementById(id);
     element.simulate('click');
 }
-document.observe('dom:loaded', function() {
+
+function registerHotkey(key, element) {
     var withoutControlKey = {
         ctrlKey: false
     };
-    new HotKey(' ', function(event) {
-        click('card');
+    new HotKey(key, function(event) {
+        click(element);
     }, withoutControlKey);
-    new HotKey(confirmKey, function(event) {
-        click('confirmButton');
-    }, withoutControlKey);
-    new HotKey(declineKey, function(event) {
-        click('declineButton');
-    }, withoutControlKey);
+}
+
+document.observe('dom:loaded', function() {
+    registerHotkey(' ', 'card');
+    registerHotkey(confirmKey, 'confirmButton');
+    registerHotkey(declineKey, 'declineButton');
 });
