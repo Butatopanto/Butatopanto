@@ -16,13 +16,13 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   void testShowsPreviousChapterAfterClickingPrevious() {
-    click 'previous'
+    click 'to1'
     assertTitle 'Chapter 1'
   }
 
-  void testShowsNextChapterAfterClickingNext() {
-    click 'next'
-    assertTitle 'Chapter 3'
+  void testHasButtonForThreeChaptersInAdvance() {
+    click 'to5'
+    assertTitle 'Chapter 5'
   }
 
   void testDoesNotShowFlipDownForShortChapter() {
