@@ -11,7 +11,7 @@ class MasteryTagLib {
         if (chapters) {
             def chapterAfterCurrent = navigation.chapterNumber + 1
             def lastChapterToShow = navigation.chapterNumber + numberOfChaptersToShow
-            for (chapter in chapterAfterCurrent..lastChapterToShow) {
+            for (chapter in lastChapterToShow..chapterAfterCurrent) {
                 writeLinkToChapterWithBox(chapter, 'next')
             }
         }
@@ -24,7 +24,7 @@ class MasteryTagLib {
         if (chapters) {
             def firstChapterToShow = navigation.chapterNumber - numberOfChaptersToShow
             def chapterBeforeCurrent = navigation.chapterNumber - 1
-            for (chapter in chapterBeforeCurrent..firstChapterToShow) {
+            for (chapter in firstChapterToShow..chapterBeforeCurrent) {
                 writeLinkToChapterWithBox(chapter, 'previous')
             }
         }
