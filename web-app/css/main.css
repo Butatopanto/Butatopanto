@@ -286,3 +286,11 @@ th.desc a {
     position: absolute;
     left: 50px
 }
+
+.homeicon {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
+    -webkit-box-shadow:  2px 2px 1px 1px#888;
+    color: #faddde;
+    border-radius: 7px;
+    font-size: 3em
+}

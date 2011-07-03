@@ -13,11 +13,10 @@
 </div>
 <table style="border:none; width:100%">
   <tr>
-    <td width="60px"><menu:createHomeLink><img src="${resource(dir: 'images', file: 'buta_icon.svg')}" alt="ButatoPanto"
-                                               border="0"
-                                               title="${message(code: 'default.home.label')}"/></menu:createHomeLink>
+    <td width="60px"><menu:createHomeLink><div class="japanese homeicon"
+                                               style="padding:0.5em; padding-left: 0.5em">豚</div></menu:createHomeLink>
     </td>
-    <td style="vertical-align: middle; font-size:30px;" class='japanese'>豚とパンと</td>
+    <td style="vertical-align: middle; font-size:30px;" class='japanese'>とパンと</td>
     <td>
       <sec:securityLink/>
       <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
