@@ -18,28 +18,34 @@
 }
 
 .assembleReview {
-    background-color: #9BFF9B;
-    border-color: #007D00
+    border-color: #007D00;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e6ffe6), to(#9BFF9B));
+    background: -moz-linear-gradient(top, #e6ffe6, #9BFF9B);
 }
 
 .assembleReview:hover {
-    background-color: #4dff4d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e6ffe6), to(#4dff4d));
+    background: -moz-linear-gradient(top, #e6ffe6, #4dff4d);
 }
 
 .mastery {
-    background-color: #C2B5FF;
-    border-color: #220D80
+    border-color: #220D80;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eae6ff), to(#C2B5FF));
+    background: -moz-linear-gradient(top, #eae6ff, #C2B5FF);
 }
 
 .mastery:hover {
-    background-color: #a18cff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eae6ff), to(#a18cff));
+    background: -moz-linear-gradient(top, #eae6ff, #a18cff);
 }
 
 .flashcard {
-    background-color: #FCCFAC;
-    border-color: #7F3B06
+    border-color: #7F3B06;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fceee3), to(#FCCFAC));
+    background: -moz-linear-gradient(top, #fceee3, #FCCFAC);
 }
 
-.flashcard:hover{
-    background-color: #fca35d;
+.flashcard:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(#fceee3), to(#fca35d));
+    background: -moz-linear-gradient(top, #fceee3, #fca35d);
 }
