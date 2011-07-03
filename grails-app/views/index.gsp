@@ -15,13 +15,6 @@
   <g:render template="/action" model="[controller:'assembleReview', color:'green', kanji:'学', message:'navigation.frameTraining']"/>
   <g:render template="/action" model="[controller:'mastery', color:'blue', kanji:'話', message:'navigation.frameManagement']"/>
   <g:render template="/action" model="[controller:'flashcard', color:'red', kanji:'格', message:'navigation.flashcardStatus']"/>
-  <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
-    <div>
-      <g:link controller="user"><g:message code="navigation.administration"/></g:link>
-      |
-      <a class="home" href="${createLink(uri: '/system.gsp')}"><g:message code="navigation.system"/></a>
-    </div>
-  </g:if>
 </div>
 </body>
 </html>
