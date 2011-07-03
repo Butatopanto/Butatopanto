@@ -22,12 +22,24 @@
     border-color: #007D00
 }
 
+.assembleReview:hover {
+    background-color: #4dff4d;
+}
+
 .mastery {
     background-color: #C2B5FF;
     border-color: #220D80
 }
 
+.mastery:hover {
+    background-color: #a18cff;
+}
+
 .flashcard {
     background-color: #FCCFAC;
     border-color: #7F3B06
+}
+
+.flashcard:hover{
+    background-color: #fca35d;
 }
