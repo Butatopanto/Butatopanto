@@ -5,7 +5,7 @@ import grails.plugins.springsecurity.Secured
 @Secured('ROLE_USER')
 class AssembleReviewController {
     static defaultAction = "assemble"
-    static navigation = [title:'Assemble Review', order: 20]
+    static navigation = [title:'Assemble review', order: 20]
 
     def reviewService
     def chapterService
