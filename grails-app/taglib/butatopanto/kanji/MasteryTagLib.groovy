@@ -12,7 +12,7 @@ class MasteryTagLib {
             def chapterAfterCurrent = navigation.chapterNumber + 1
             def lastChapterToShow = navigation.chapterNumber + numberOfChaptersToShow
             for (chapter in lastChapterToShow..chapterAfterCurrent) {
-                writeLinkToChapterWithBox(chapter, 'next')
+                writeLinkToChapterWithBox(chapter, 'next', 'gray')
             }
         }
     }
@@ -25,9 +25,14 @@ class MasteryTagLib {
             def firstChapterToShow = navigation.chapterNumber - numberOfChaptersToShow
             def chapterBeforeCurrent = navigation.chapterNumber - 1
             for (chapter in firstChapterToShow..chapterBeforeCurrent) {
-                writeLinkToChapterWithBox(chapter, 'previous')
+                writeLinkToChapterWithBox(chapter, 'previous', 'gray')
             }
         }
+    }
+
+    def currentChapter = {attributes ->
+        def navigation = attributes.navigation
+        writeLinkToChapterWithBox(navigation.chapterNumber, '', 'white')
     }
 
     def flipDown = { attributes ->
@@ -62,9 +67,9 @@ class MasteryTagLib {
         linkToKanji(chapter, newIndex);
     }
 
-    private def writeLinkToChapterWithBox(chapterNumber, cssClass) {
-        writeLinkToListByChapter(chapterNumber, "selector boxselector chapter " + cssClass, "to$chapterNumber", 0) {
-            chapterNumber
+    private def writeLinkToChapterWithBox(chapterNumber, cssClass, color) {
+        out << g.link(controller: 'mastery', action: 'listByChapter', id: chapterNumber, "class": cssClass, elementId: "to$chapterNumber", params: [startIndex: 0]) {
+            return "<div class='medium button $color'>$chapterNumber</div>"
         }
     }
 
@@ -85,6 +90,7 @@ class MasteryTagLib {
     }
 
     private int getNumberOfChaptersToShow(int chapters) {
-        return Math.min(3, chapters)
+        return Math.min(7, chapters)
     }
+
 }
