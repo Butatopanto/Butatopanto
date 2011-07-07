@@ -5,7 +5,7 @@ import grails.plugins.springsecurity.Secured
 class MasteryController {
 
     static defaultAction = "listByChapter"
-    static navigation = true
+    static navigation = [title: 'Edit stories', order: 10]
     def masteryService
     def storyService
     def chapterService

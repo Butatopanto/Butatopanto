@@ -37,9 +37,7 @@
 </head>
 
 <body>
-<div class="nav">
-    <menu:render without='chapterList'/>
-</div>
+<g:render template="/navigation"/>
 
 <div style="left:10px; position: relative">
     <div class='main-column' style="position: absolute; left: 15px; top: 20px">

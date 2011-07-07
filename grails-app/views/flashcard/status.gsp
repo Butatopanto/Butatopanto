@@ -45,9 +45,7 @@ chart.draw(data, {
   </g:javascript>
 </head>
 <body>
-<div class="nav">
-  <menu:render without='status'/>
-</div>
+<g:render template="/navigation"/>
 <h1><g:message code="flashcard.status.heading"/></h1>
 <br/>
 <div class="body">

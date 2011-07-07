@@ -26,9 +26,7 @@
   <title><g:message code="frame.title"/></title>
 </head>
 <body>
-<div class="nav">
-  <menu:render without='backToPractice'/>
-</div>
+<g:render template="/navigation"/>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
 <div class="body">

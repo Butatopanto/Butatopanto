@@ -9,9 +9,7 @@
 </head>
 
 <body>
-<div class="nav">
-    <menu:render/>
-</div>
+<g:render template="/navigation"/>
 
 <div class="body">
     <h1><g:message code="default.list.label" args="[entityName]"/></h1>
