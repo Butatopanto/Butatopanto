@@ -44,8 +44,8 @@
 
             <div style="position: absolute; left: 0; top: 560px;">
                 <g:form action="startRange">
-                    <g:textField name="from" value="${g.message(code:'review.practiceRange.from')}"/>
-                    <g:textField name="to" value="${g.message(code:'review.practiceRange.to')}"/>
+                    <g:textField name="from" value="${g.message(code:'review.practiceRange.from')}" onclick="this.select()"/>
+                    <g:textField name="to" value="${g.message(code:'review.practiceRange.to')}" onclick="this.select()"/>
                     <g:submitButton name="practice" id='practice' class="medium gray button"
                                     value="${g.message(code:'review.practiceRange.submit')}"/>
                 </g:form>

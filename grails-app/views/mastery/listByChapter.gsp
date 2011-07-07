@@ -47,11 +47,11 @@
             <mastery:previousChapters navigation="${navigation}"/>
         </div>
 
-        <div id="currentChapter" style="width:100px; position:absolute; top: 0px; left:355px; cursor:default">
+        <div id="currentChapter" style="width:100px; position:absolute; top: 0; left:355px; cursor:default">
             <mastery:currentChapter navigation="${navigation}"/>
         </div>
 
-        <div id="nextChapters" style="width:350px; position:absolute; top: 0px; left: 450px">
+        <div id="nextChapters" style="width:350px; position:absolute; top: 0; left: 450px">
             <mastery:nextChapters navigation="${navigation}"/>
         </div>
     </div>
@@ -61,7 +61,7 @@
         <g:render template="/flashMessage"/>
         <div class="dialog">
             <div class="main-column main-area">
-                <div style="position: absolute; left: 0px; top: 0px; width: 765px; height: 550px">
+                <div style="position: absolute; left: 0; top: 0; width: 765px; height: 550px">
                     <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
                         <div class="kanjiselector selector">
                             <g:set var="storyLink"
@@ -84,10 +84,10 @@
                     <mastery:flipDown navigation="${navigation}"/>
                 </div>
 
-                <div style="position: absolute; left: 0px; top: 560px;">
+                <div style="position: absolute; left: 0; top: 560px;">
                     <g:form action="activate">
-                        <g:textField name="from" value="${g.message(code:'mastery.activation.from')}"/>
-                        <g:textField name="to" value="${g.message(code:'mastery.activation.to')}"/>
+                        <g:textField name="from" value="${g.message(code:'mastery.activation.from')}" onclick="this.select()"/>
+                        <g:textField name="to" value="${g.message(code:'mastery.activation.to')}" onclick="this.select()"/>
                         <g:submitButton name="activate" id='activate' class="medium gray button"
                                         value="${g.message(code:'mastery.activation.submit')}"/>
                     </g:form>
