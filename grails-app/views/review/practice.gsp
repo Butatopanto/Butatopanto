@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='story.css'/>"/>
+    <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
   <g:javascript library="prototype"/>
   <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
