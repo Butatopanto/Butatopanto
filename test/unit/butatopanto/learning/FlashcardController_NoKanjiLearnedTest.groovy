@@ -31,8 +31,7 @@ class FlashcardController_NoKanjiLearnedTest extends GrailsJUnit4ControllerTestC
 
   @Test
   void redirectsIndexToStatus() {
-    controller.index()
-    assertEquals([action: "status"], controller.redirectArgs)
+    controller.defaultAction == "status"
   }
 
   @Test
