@@ -182,7 +182,7 @@ th.desc a {
 
 .paginateButtons a {
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid;
     border-color: #ccc #aaa #aaa #ccc;
     color: #666;
     margin: 0 3px;
@@ -289,7 +289,8 @@ th.desc a {
 
 .homeicon {
     background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
-    -webkit-box-shadow:  2px 2px 1px 1px#888;
+    background: -moz-linear-gradient(top, #ed1c24, #aa1317);
+    box-shadow:  2px 2px 1px 1px#888;
     color: #faddde;
     border-radius: 7px;
     font-size: 3em

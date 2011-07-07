@@ -6,46 +6,7 @@
     margin-left: 11em
 }
 
-.activityselector {
-    font-size: 2em;
-    border: 0.2em solid;
-    width: 11em;
-}
-
 .padded {
     margin-top: 1em;
     float: left;
-}
-
-.assembleReview {
-    border-color: #007D00;
-    background: -webkit-gradient(linear, left top, left bottom, from(#e6ffe6), to(#9BFF9B));
-    background: -moz-linear-gradient(top, #e6ffe6, #9BFF9B);
-}
-
-.assembleReview:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(#e6ffe6), to(#4dff4d));
-    background: -moz-linear-gradient(top, #e6ffe6, #4dff4d);
-}
-
-.mastery {
-    border-color: #220D80;
-    background: -webkit-gradient(linear, left top, left bottom, from(#eae6ff), to(#C2B5FF));
-    background: -moz-linear-gradient(top, #eae6ff, #C2B5FF);
-}
-
-.mastery:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(#eae6ff), to(#a18cff));
-    background: -moz-linear-gradient(top, #eae6ff, #a18cff);
-}
-
-.flashcard {
-    border-color: #7F3B06;
-    background: -webkit-gradient(linear, left top, left bottom, from(#fceee3), to(#FCCFAC));
-    background: -moz-linear-gradient(top, #fceee3, #FCCFAC);
-}
-
-.flashcard:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(#fceee3), to(#fca35d));
-    background: -moz-linear-gradient(top, #fceee3, #fca35d);
 }
