@@ -4,81 +4,80 @@ import grails.plugins.springsecurity.Secured
 
 class MasteryController {
 
-  def masteryService
-  def storyService
-  def chapterService
+    static defaultAction = "listByChapter"
+    static navigation = true
+    def masteryService
+    def storyService
+    def chapterService
 
-  def index = {
-    redirect(action: "listByChapter", id: 1)
-  }
-
-  @Secured('ROLE_USER')
-  def listByChapter = {
-    int chapterNumber = params.int('id')
-    int lastChapter = chapterService.getLastChapterNumber()
-    ChapterNavigationBuilder builder = new ChapterNavigationBuilder(lastChapter)
-    builder.setChapterNumber chapterNumber
-    if (params.startIndex) {
-      builder.setStartIndex params.int('startIndex')
+    @Secured('ROLE_USER')
+    def listByChapter = {
+        int chapterNumber = params.int('id')
+        chapterNumber = chapterNumber ?: 1
+        int lastChapter = chapterService.getLastChapterNumber()
+        ChapterNavigationBuilder builder = new ChapterNavigationBuilder(lastChapter)
+        builder.setChapterNumber chapterNumber
+        if (params.startIndex) {
+            builder.setStartIndex params.int('startIndex')
+        }
+        builder.setFrames getMasteredFrames(chapterNumber)
+        [navigation: builder.build()]
     }
-    builder.setFrames getMasteredFrames(chapterNumber)
-    [navigation: builder.build()]
-  }
 
-  @Secured('ROLE_USER')
-  def activate = {
-    int from = params.int('from')
-    int to = params.int('to')
-    if (!from || !to) {
-      flash.message = "mastery.activation.error"
-      redirect(action: 'listByChapter', id: 1)
-      return
+    @Secured('ROLE_USER')
+    def activate = {
+        int from = params.int('from')
+        int to = params.int('to')
+        if (!from || !to) {
+            flash.message = "mastery.activation.error"
+            redirect(action: 'listByChapter', id: 1)
+            return
+        }
+        masteryService.activateRange(from, to)
+        def fromChapterNumber = Frame.findByNumber(from).chapter
+        redirect(action: 'listByChapter', id: fromChapterNumber)
     }
-    masteryService.activateRange(from, to)
-    def fromChapterNumber = Frame.findByNumber(from).chapter
-    redirect(action: 'listByChapter', id: fromChapterNumber)
-  }
 
-  def list = {
-    List shownMasteryList = listShownMastery()
-    [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]
-  }
-
-  private List<MasteredFrame> getMasteredFrames(int chapterNumber) {
-    List<Frame> activeFrames = chapterService.listFramesFor(chapterNumber)
-    toMasteredFrames(activeFrames)
-  }
-
-  private List<MasteredFrame> toMasteredFrames(List<Frame> activeFrames) {
-    activeFrames.collect {
-      boolean hasStory = storyService.findStoryTextByFrameId(it.id) != null
-      MasteryOfFrame mastery = masteryService.findMasteryByFrameId(it.id)
-      def box = mastery ? mastery.box : 0
-      new MasteredFrame(frame: it, box: box, hasStory: hasStory)
+    def list = {
+        List shownMasteryList = listShownMastery()
+        [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]
     }
-  }
 
-  private List listShownMastery() {
-    int max = calculateListMaxSize()
-    int offset = calculateOffset()
-    String sort = calculateSortAttribute()
-    String order = calculateSortOrder()
-    masteryService.listMastery(sort, order, offset, max)
-  }
+    private List<MasteredFrame> getMasteredFrames(int chapterNumber) {
+        List<Frame> activeFrames = chapterService.listFramesFor(chapterNumber)
+        toMasteredFrames(activeFrames)
+    }
 
-  private int calculateListMaxSize() {
-    return Math.min(params.max ? params.int('max') : 20, 100)
-  }
+    private List<MasteredFrame> toMasteredFrames(List<Frame> activeFrames) {
+        activeFrames.collect {
+            boolean hasStory = storyService.findStoryTextByFrameId(it.id) != null
+            MasteryOfFrame mastery = masteryService.findMasteryByFrameId(it.id)
+            def box = mastery ? mastery.box : 0
+            new MasteredFrame(frame: it, box: box, hasStory: hasStory)
+        }
+    }
 
-  private int calculateOffset() {
-    return params.offset ? params.int('offset') : 0
-  }
+    private List listShownMastery() {
+        int max = calculateListMaxSize()
+        int offset = calculateOffset()
+        String sort = calculateSortAttribute()
+        String order = calculateSortOrder()
+        masteryService.listMastery(sort, order, offset, max)
+    }
 
-  private String calculateSortAttribute() {
-    return params.sort ? params.sort : 'frame.number'
-  }
+    private int calculateListMaxSize() {
+        return Math.min(params.max ? params.int('max') : 20, 100)
+    }
 
-  private String calculateSortOrder() {
-    return params.order != 'desc' ? "Ascending" : "Descending"
-  }
+    private int calculateOffset() {
+        return params.offset ? params.int('offset') : 0
+    }
+
+    private String calculateSortAttribute() {
+        return params.sort ? params.sort : 'frame.number'
+    }
+
+    private String calculateSortOrder() {
+        return params.order != 'desc' ? "Ascending" : "Descending"
+    }
 }
