@@ -1,4 +1,4 @@
-<div class="padded" style="margin-left:1em">
+<div class="padded">
     <g:link controller="${controller}">
         <div class="button huge ${color}">
             <div class="japanese iconicletter">
