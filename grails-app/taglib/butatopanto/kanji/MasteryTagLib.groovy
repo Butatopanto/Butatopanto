@@ -90,7 +90,6 @@ class MasteryTagLib {
     }
 
     private int getNumberOfChaptersToShow(int chapters) {
-        return Math.min(7, chapters)
+        return Math.min(6, chapters)
     }
-
 }
