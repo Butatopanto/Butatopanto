@@ -88,7 +88,7 @@
                     <g:form action="activate">
                         <g:textField name="from" value="${g.message(code:'mastery.activation.from')}"/>
                         <g:textField name="to" value="${g.message(code:'mastery.activation.to')}"/>
-                        <g:submitButton name="activate" id='activate'
+                        <g:submitButton name="activate" id='activate' class="medium gray button"
                                         value="${g.message(code:'mastery.activation.submit')}"/>
                     </g:form>
                 </div>
