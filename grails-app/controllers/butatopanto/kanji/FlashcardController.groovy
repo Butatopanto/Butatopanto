@@ -7,7 +7,7 @@ import static butatopanto.learning.LeitnerService.*
 class FlashcardController {
 
     static defaultAction = "status"
-    static navigation = [title:'View status', order: 30]
+    static navigation = [group:'tabs', title:'status', order: 30]
 
     def leitnerService
     def masteryQueryService

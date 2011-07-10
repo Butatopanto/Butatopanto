@@ -6,7 +6,7 @@ import grails.plugins.springsecurity.Secured
 @Secured('ROLE_USER')
 class ReviewController {
 
-    static navigation = [title: "Return to review", order: 25, action: 'practice', isVisible: {
+    static navigation = [group:'tabs', title: "review", order: 25, action: 'practice', isVisible: {
         session.review
     }]
     def reviewService
