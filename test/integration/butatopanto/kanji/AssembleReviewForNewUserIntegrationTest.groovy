@@ -5,11 +5,11 @@ import org.junit.*
 import butatopanto.security.User
 import butatopanto.sharedtest.GrailsJUnit4ControllerTestCase
 
-class ManageReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCase {
+class AssembleReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCase {
 
   def springSecurityService
 
-  ManageReviewForNewUserIntegrationTest() {
+  AssembleReviewForNewUserIntegrationTest() {
     super(AssembleReviewController)
   }
 
@@ -41,23 +41,16 @@ class ManageReviewForNewUserIntegrationTest extends GrailsJUnit4ControllerTestCa
   }
 
   @Test
-  void selectsChapterOnLessonAddition() {
+  void doesNotSelectInactiveChapterOnLessonAddition() {
     controller.params.id = "1"
     controller.addChapter()
-    assertTrue(controller.session.chapters[0].selected)
+    assertFalse(controller.session.chapters[0].selected)
   }
 
   @Test
-  void activatesChapterOnLessonAddition() {
+  void doesNotActiveInactiveChapterOnLessonAddition() {
     controller.params.id = "1"
     controller.addChapter()
-    assertTrue(controller.session.chapters[0].active)
-  }
-
-  @Test
-  void updatesDueCountOnLessonAddition() {
-    controller.params.id = "1"
-    controller.addChapter()
-    assertEquals(15, controller.session.chapters[0].dueFrameCount)
+    assertFalse(controller.session.chapters[0].active)
   }
 }

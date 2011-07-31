@@ -22,13 +22,6 @@ class ReviewControllerDirectAccessTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void selectsChapterForReviewWithoutAccessToAssemble() {
-    controller.params.id = 1
-    controller.addChapter()
-    assertTrue(controller.session.chapters[0].selected)
-  }
-
-  @Test
   void startsReviewWithKanjiFromGivenRange() {
     controller.params.from = 4
     controller.params.to = 7

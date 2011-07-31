@@ -136,8 +136,18 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   private def startChapter6() {
+    activateChapter6()
     get(controllerUrl + '/removeChapter/6')
     click 'chapter6'
     click 'Selected'
+  }
+
+  private def activateChapter6() {
+    get('/mastery/listByChapter/')
+    form() {
+      from = 95
+      to = 104
+      click "activate"
+    }
   }
 }

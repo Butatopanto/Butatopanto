@@ -79,14 +79,6 @@ class AssembleReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
-  void activatesChapterOnMasteryServiceOnAddChapter() {
-    masteryServiceObjectMother.setNoDueFramesIds()
-    controller.params.id = "4"
-    controller.addChapter()
-    assertEquals([4], masteryServiceObjectMother.activatedChapters)
-  }
-
-  @Test
   void redirectsToManageAfterRemovingChapter() {
     controller.params.id = "3"
     controller.removeChapter()

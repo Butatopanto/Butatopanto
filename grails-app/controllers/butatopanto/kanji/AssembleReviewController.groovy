@@ -13,6 +13,7 @@ class AssembleReviewController {
     def masteryService
 
     def assemble = {
+        createOrUpdateChapterSelection();
         evaluateChapters().with({
             [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
         })
@@ -20,10 +21,8 @@ class AssembleReviewController {
 
     def addChapter = {
         int chapterNumber = params.id.toInteger()
-        masteryService.activateChapter(chapterNumber)
         def chapter = getChapterSelection(chapterNumber)
-        chapter.selected = true
-        chapter.active = true
+        chapter.selected = chapter.active
         continueAssembly()
     }
 
@@ -95,7 +94,6 @@ class AssembleReviewController {
     }
 
     private ChapterSelectionEvaluation evaluateChapters() {
-        createOrUpdateChapterSelection();
         new ChapterSelectionEvaluation(chapters: getChapters())
     }
 
