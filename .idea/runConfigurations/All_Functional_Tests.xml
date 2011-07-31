@@ -1,12 +1,25 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All Functional Tests" type="GrailsRunConfigurationType" factoryName="Grails">
     <module name="ButatoPanto" />
-    <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=128M" />
+    <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=128M -Xmx512M" />
     <setting name="cmdLine" value="test-app -functional" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
-    <extension name="coverage" enabled="false" merge="false" />
+    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     <setting name="launchBrowser" value="false" />
+    <MavenGeneralSettings>
+      <option name="checksumPolicy" value="FAIL" />
+      <option name="failureBehavior" value="FAST" />
+      <option name="localRepository" value="" />
+      <option name="mavenHome" value="" />
+      <option name="nonRecursive" value="false" />
+      <option name="pluginUpdatePolicy" value="DO_NOT_UPDATE" />
+      <option name="printErrorStackTraces" value="false" />
+      <option name="snapshotUpdatePolicy" value="ALWAYS_UPDATE" />
+      <option name="usePluginRegistry" value="false" />
+      <option name="userSettingsFile" value="" />
+      <option name="workOffline" value="false" />
+    </MavenGeneralSettings>
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="56269" />
       <option name="TRANSPORT" value="0" />

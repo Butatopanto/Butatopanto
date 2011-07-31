@@ -123,7 +123,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   private def returnToAssemblePage() {
-    click 'Assemble review'
+    click 'Study Kanji'
   }
 
   protected void clickAndWait(String identifier) {
