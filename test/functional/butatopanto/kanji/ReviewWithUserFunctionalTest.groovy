@@ -9,7 +9,6 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   void setUp() {
     super.setUp()
     logInDefaultUser()
-    goToAssembleReviewPage()
   }
 
   void tearDown() {
@@ -17,6 +16,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
   }
 
   void testShowsAssemblePageOnAssemble() {
+    goToAssembleReviewPage()
     assertTitle "Study which chapters?"
   }
 
@@ -137,6 +137,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   private def startChapter6() {
     activateChapter6()
+    goToAssembleReviewPage()
     get(controllerUrl + '/removeChapter/6')
     click 'chapter6'
     click 'Selected'
