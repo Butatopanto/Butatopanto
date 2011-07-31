@@ -143,6 +143,7 @@ class ReviewWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
     click 'Selected'
   }
 
+  //Duplicate In FlashCardStatusViewTest
   private def activateChapter6() {
     get('/mastery/listByChapter/')
     form() {

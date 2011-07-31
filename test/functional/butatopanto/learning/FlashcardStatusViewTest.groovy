@@ -10,8 +10,9 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
   void setUp() {
     super.setUp()
     logInDefaultUser()
+    activateChapter6()
     goToAssembleReviewPage()
-    selectAnyChapter()
+    startChapter6()
     goToFlashCardStatusPage()
   }
 
@@ -50,8 +51,18 @@ class FlashcardStatusViewTest extends UserSensitiveFunctionalTestCase {
     get("/flashcard")
   }
 
-  private def selectAnyChapter() {
+  private def startChapter6() {
     get(ReviewWithUserFunctionalTest.controllerUrl + '/removeChapter/6 ')
     click 'chapter6'
+  }
+
+  //Duplicate In butatopanto.kanji.ReviewWithUserFunctionalTest
+  private def activateChapter6() {
+    get('/mastery/listByChapter/')
+    form() {
+      from = 95
+      to = 104
+      click "activate"
+    }
   }
 }
