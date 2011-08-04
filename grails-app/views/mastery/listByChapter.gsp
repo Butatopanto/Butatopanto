@@ -8,17 +8,6 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
 
-  <style type="text/css">
-  .footer {
-    position: fixed;
-    margin-bottom: -0.5em;
-    bottom: 0.8em;
-    font-size: 0.8em;
-    width: 100%;
-    text-align: center;
-    background-color: #ffffff;
-  }
-  </style>
   <g:javascript library="prototype"/>
   <g:javascript src="chapterlist.js"/>
   <g:javascript src="protowheel.js"/>
@@ -53,25 +42,25 @@
 
 <h1><g:message code="mastery.title"/></h1>
 
-<div style="left:10px; position: relative">
-  <div class='main-column' style="position: absolute; left: 15px; top: 20px">
-    <div id="previousChapters" style="width:350px;position:absolute;">
-      <mastery:previousChapters navigation="${navigation}"/>
-    </div>
+<g:render template="/flashMessage"/>
 
-    <div id="currentChapter" style="width:100px; position:absolute; top: 0; left:355px; cursor:default">
-      <mastery:currentChapter navigation="${navigation}"/>
-    </div>
-
-    <div id="nextChapters" style="width:350px; position:absolute; top: 0; left: 450px">
-      <mastery:nextChapters navigation="${navigation}"/>
-    </div>
+<div>
+  <div id="previousChapters" style="width:350px;">
+    <mastery:previousChapters navigation="${navigation}"/>
   </div>
-  <br/>
 
-  <div class="body" style="position: absolute; top: 60px">
-    <g:render template="/flashMessage"/>
-    <div class="dialog">
+  <div id="currentChapter" style="width:100px; position:relative; top: -23px; left:355px; cursor:default">
+    <mastery:currentChapter navigation="${navigation}"/>
+  </div>
+
+  <div id="nextChapters" style="width:350px; position:relative; top: -46px; left: 450px">
+    <mastery:nextChapters navigation="${navigation}"/>
+  </div>
+</div>
+
+<div style="position: relative">
+  <div>
+    <div>
       <div class="main-column main-area">
         <div style="position: absolute; left: 0; top: 0; width: 765px; height: 550px">
           <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
@@ -95,18 +84,18 @@
         <div class="flip-down icon">
           <mastery:flipDown navigation="${navigation}"/>
         </div>
-
-        <div style="position: absolute; left: 0; top: 560px;">
-          <g:form action="activate">
-            <g:textField name="from" value="${g.message(code:'mastery.activation.from')}" onclick="this.select()"/>
-            <g:textField name="to" value="${g.message(code:'mastery.activation.to')}" onclick="this.select()"/>
-            <g:submitButton name="activate" id='activate' class="medium gray button"
-                            value="${g.message(code:'mastery.activation.submit')}"/>
-          </g:form>
-        </div>
       </div>
     </div>
   </div>
+</div>
+
+<div>
+  <g:form action="activate">
+    <g:textField name="from" value="${g.message(code:'mastery.activation.from')}" onclick="this.select()"/>
+    <g:textField name="to" value="${g.message(code:'mastery.activation.to')}" onclick="this.select()"/>
+    <g:submitButton name="activate" id='activate' class="medium gray button"
+                    value="${g.message(code:'mastery.activation.submit')}"/>
+  </g:form>
 </div>
 </body>
 </html>
