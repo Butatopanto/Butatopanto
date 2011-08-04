@@ -40,7 +40,7 @@
 <g:render template="/navigation"/>
 
 <h1><g:message code="mastery.title"/></h1>
-<div style="left:10px; position: relative">
+<div style="position: relative">
     <div class='main-column' style="position: absolute; left: 15px; top: 20px">
         <div id="previousChapters" style="width:350px;position:absolute;">
             <mastery:previousChapters navigation="${navigation}"/>
@@ -56,7 +56,7 @@
     </div>
     <br/>
 
-    <div class="body" style="position: absolute; top: 60px">
+    <div style="position: absolute; top: 60px">
         <g:render template="/flashMessage"/>
         <div class="dialog">
             <div class="main-column main-area">

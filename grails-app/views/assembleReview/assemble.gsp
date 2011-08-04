@@ -15,7 +15,7 @@
 <h1><g:message code="review.assemble.chapterselection"/></h1>
 <br/>
 
-<div class="body">
+<div style="position: relative">
     <g:render template="/flashMessage"/>
     <div class="dialog">
         <div class='content'>

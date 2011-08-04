@@ -56,11 +56,6 @@ input:focus, select:focus, textarea:focus {
     border: 1px solid #b2d1ff;
 }
 
-.body {
-    float: left;
-    margin: 0 15px 10px 15px;
-}
-
 /* MESSAGES AND ERRORS */
 
 .message {

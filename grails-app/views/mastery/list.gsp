@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
     <link rel="stylesheet" href="<g:createLinkTo dir='css' file='menu.css'/>"/>
+    <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
     <g:set var="entityName" value="${message(code: 'frameReview.label', default: 'FrameReview')}"/>
     <title><g:message code="default.list.label" args="[entityName]"/></title>
 </head>
@@ -11,7 +12,7 @@
 <body>
 <g:render template="/navigation"/>
 
-<div class="body">
+<div style="position: relative">
     <h1><g:message code="default.list.label" args="[entityName]"/></h1>
     <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
