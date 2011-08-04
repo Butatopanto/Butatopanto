@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='flashcard.css'/>"/>
+    <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
   <title><g:message code="flashcard.status.title"/></title>
   <g:javascript base="https://www.google.com" src="/jsapi"></g:javascript>
   <g:javascript>
