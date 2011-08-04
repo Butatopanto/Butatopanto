@@ -26,6 +26,11 @@ class AssembleReviewController {
     def addChapter = {
         int chapterNumber = params.id.toInteger()
         def chapter = getChapterSelection(chapterNumber)
+        if (!chapter.active) {
+            flash.message = "review.addchapter.notactive"
+            continueAssembly()
+            return
+        }
         chapter.selected = chapter.active
         continueAssembly()
     }
