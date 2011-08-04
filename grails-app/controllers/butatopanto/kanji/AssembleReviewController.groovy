@@ -31,7 +31,7 @@ class AssembleReviewController {
             continueAssembly()
             return
         }
-        chapter.selected = chapter.active
+        chapter.selected = true
         continueAssembly()
     }
 
