@@ -5,7 +5,7 @@ import grails.plugins.springsecurity.Secured
 @Secured('ROLE_USER')
 class AssembleReviewController {
     static defaultAction = "assemble"
-    static navigation = [group:'tabs',title:'start', order: 20]
+    static navigation = [group: 'tabs', title: 'start', order: 20]
 
     def reviewService
     def chapterService
@@ -13,10 +13,18 @@ class AssembleReviewController {
     def masteryService
 
     def assemble = {
-        createOrUpdateChapterSelection();
+        createChapterSelection()
         evaluateChapters().with({
             [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
         })
+    }
+
+    def continueToAssemble = {
+        updateDueCount()
+        def model =  evaluateChapters().with({
+            [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
+        })
+        render(view: 'assemble', model: model)
     }
 
     def addChapter = {
@@ -82,7 +90,7 @@ class AssembleReviewController {
     }
 
     private def continueAssembly() {
-        redirect(action: "assemble")
+        redirect(action: "continueToAssemble")
     }
 
     private def startPractice() {
@@ -95,14 +103,6 @@ class AssembleReviewController {
 
     private ChapterSelectionEvaluation evaluateChapters() {
         new ChapterSelectionEvaluation(chapters: getChapters())
-    }
-
-    private void createOrUpdateChapterSelection() {
-        if (!getChapters()) {
-            createChapterSelection()
-        } else {
-            updateDueCount()
-        }
     }
 
     private def createChapterSelection() {
