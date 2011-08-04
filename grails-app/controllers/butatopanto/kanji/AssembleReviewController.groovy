@@ -14,6 +14,7 @@ class AssembleReviewController {
 
     def assemble = {
         createChapterSelection()
+        updateDueCount()
         showAssembleView()
     }
 
