@@ -3,7 +3,8 @@
     <g:set var="group">tabs</g:set>
     <nav:eachItem group="$group">
         <g:set var="active">${active ? '_active' : ""}</g:set>
-        <div class="large button gray${active}">
+        <g:set var="color"><g:include controller="color" params="${[controller:controller]}"/></g:set>
+        <div class="large button ${color}${active}">
             <g:link controller="$controller" action="$action" style="color: inherit">
                 <g:message code="navigation.$group.$title"/>
             </g:link>
