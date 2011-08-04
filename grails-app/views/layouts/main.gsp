@@ -11,7 +11,7 @@
 <div id="spinner" class="spinner" style="display:none;">
     <img src="${resource(dir: 'images', file: 'spinner.gif')}" alt="Spinner"/>
 </div>
-<table style="border:none; width:100%">
+<table style="border:none; width:100%; margin-left: -8px">
     <tr>
         <td width="60px"><menu:createHomeLink><div class="japanese homeicon"
                                                    style="padding:0.5em; padding-left: 0.5em">豚</div></menu:createHomeLink>
