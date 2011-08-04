@@ -29,7 +29,7 @@
 <g:render template="/navigation"/>
 <h1><g:message code="frame.title"/></h1>
 <p>&nbsp</p>
-<div class="body">
+<div style="position: relative;">
   <div class="dialog">
     <div class='content' align="center">
       <div id="container">

@@ -3,7 +3,7 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eaeaea));
     background: -moz-linear-gradient(top, #fff, #eaeaea);
     border: 1px #ccc;
-    border-style: solid none solid none;
+    border-style: solid solid solid solid;
     margin-top: 5px;
     padding: 7px 12px;
 }

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/butatopanto.iml" filepath="$PROJECT_DIR$/butatopanto.iml" />
-      <module fileurl="file://$PROJECT_DIR$/butatopanto-grailsPlugins.iml" filepath="$PROJECT_DIR$/butatopanto-grailsPlugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ButatoPanto.iml" filepath="$PROJECT_DIR$/ButatoPanto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ButatoPanto-grailsPlugins.iml" filepath="$PROJECT_DIR$/ButatoPanto-grailsPlugins.iml" />
     </modules>
   </component>
 </project>
