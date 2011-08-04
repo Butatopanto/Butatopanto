@@ -42,7 +42,7 @@ class ReviewControllerDirectAccessTest extends GrailsJUnit4ControllerTestCase {
     controller.params.from = 'abc'
     controller.params.to = 7
     controller.startRange()
-    assertEquals([action: 'assemble'], controller.redirectArgs)
+    assertEquals([action: 'continueToAssemble'], controller.redirectArgs)
   }
 
   @Test
@@ -50,6 +50,6 @@ class ReviewControllerDirectAccessTest extends GrailsJUnit4ControllerTestCase {
     controller.params.from = 5
     controller.params.to = 'abc'
     controller.startRange()
-    assertEquals([action: 'assemble'], controller.redirectArgs)
+    assertEquals([action: 'continueToAssemble'], controller.redirectArgs)
   }
 }

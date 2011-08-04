@@ -75,14 +75,14 @@ class AssembleReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     masteryServiceObjectMother.setNoDueFramesIds()
     controller.params.id = "1"
     controller.addChapter()
-    assertEquals "assemble", controller.redirectArgs.action
+    assertEquals "continueToAssemble", controller.redirectArgs.action
   }
 
   @Test
   void redirectsToManageAfterRemovingChapter() {
     controller.params.id = "3"
     controller.removeChapter()
-    assertEquals "assemble", controller.redirectArgs.action
+    assertEquals "continueToAssemble", controller.redirectArgs.action
   }
 
   @Test
@@ -115,7 +115,7 @@ class AssembleReviewControllerTest extends GrailsJUnit4ControllerTestCase {
   @Test
   void continuesAssemblyIfNoKanjiGiven() {
     controller.startList()
-    assertEquals "assemble", controller.redirectArgs.action
+    assertEquals "continueToAssemble", controller.redirectArgs.action
   }
 
   private def setFramesDue() {
