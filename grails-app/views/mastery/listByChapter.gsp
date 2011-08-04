@@ -62,7 +62,7 @@
   <div>
     <div>
       <div class="main-column main-area">
-        <div style="position: absolute; left: 0; top: 0; width: 765px; height: 550px">
+        <div style="position: absolute;width: 765px; height: 550px">
           <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
             <div class="kanjiselector selector">
               <g:set var="storyLink"
