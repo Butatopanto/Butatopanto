@@ -14,17 +14,12 @@ class AssembleReviewController {
 
     def assemble = {
         createChapterSelection()
-        evaluateChapters().with({
-            [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
-        })
+        showAssembleView()
     }
 
     def continueToAssemble = {
         updateDueCount()
-        def model =  evaluateChapters().with({
-            [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
-        })
-        render(view: 'assemble', model: model)
+        showAssembleView()
     }
 
     def addChapter = {
@@ -138,5 +133,12 @@ class AssembleReviewController {
 
     private def getChapters() {
         session.chapters
+    }
+
+    private def showAssembleView() {
+        def model = evaluateChapters().with({
+            [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
+        })
+        render(view: 'assemble', model: model)
     }
 }
