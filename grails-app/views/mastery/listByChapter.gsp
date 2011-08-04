@@ -39,6 +39,7 @@
 <body>
 <g:render template="/navigation"/>
 
+<h1><g:message code="mastery.title"/></h1>
 <div style="left:10px; position: relative">
     <div class='main-column' style="position: absolute; left: 15px; top: 20px">
         <div id="previousChapters" style="width:350px;position:absolute;">
