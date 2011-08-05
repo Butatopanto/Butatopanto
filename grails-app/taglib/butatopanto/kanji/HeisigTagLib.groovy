@@ -7,20 +7,20 @@ class HeisigTagLib {
   static namespace = "heisig"
 
   def practiceTablet = { attributes ->
-    out << frameCard(attributes)
-    out << interaction(attributes)
     out << storyDialog(attributes)
+    out << frameCard(attributes)
+    out << progress.renderProgressBar()
+    out << interaction(attributes)
   }
 
   def interaction = { attributes ->
     def frame = attributes.frame
     def hidden = attributes.hidden
-    out << progress.renderProgressBar()
     if (hidden) {
-      out << renderRevealMessage()
+      out << renderMessage() { renderRevealMessage() }
     }
     else {
-      out << renderReviewButtons(frame)
+      out <<  renderMessage() { renderReviewButtons(frame) }
     }
   }
 
@@ -39,11 +39,23 @@ class HeisigTagLib {
     if (session.review) {
       def revealMessage = g.message(code: "story.dialog.clickToShow")
       def dialogTitle = g.message(code: 'story.dialog.title')
-      out << "<div style='position: absolute; top: 50px; left: 15px'>"
+      out << "<div class='yui3-u-1-3'>"
       out << "<div id='showStory' onclick=\"openStoryDialog(this, 'currentStory', '${dialogTitle}')\">"
       out << "<b><br/>${revealMessage}</b></div>"
       out << "</div>"
     }
+  }
+
+  private def renderMessage(Closure content) {
+    """<div class='yui3-g'>
+      <div class='yui3-u-1-3'>
+      </div>
+      <div class='yui3-u-1-3'>
+        ${content.call()}
+      </div>
+      <div class='yui3-u-1-3'>
+      </div>
+    </div>"""
   }
 
   private def renderRevealMessage() {
@@ -72,7 +84,7 @@ class HeisigTagLib {
   }
 
   private def renderCard(function, meaning, kanji, number) {
-    return "<div id='card' class='frameCard' onclick=\"${function}\"> " +
+    return "<div id='card' class='frameCard yui3-u-1-3' onclick=\"${function}\"> " +
             "<table height = '100%'>" +
             renderKeyword(meaning) +
             renderKanji(kanji) +
