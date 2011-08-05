@@ -16,7 +16,6 @@ class HeisigRevealedInteractionTagTest extends TagLibJUnit4TestCase {
 
     @Before
     void renderHiddenInteraction() {
-        tagLib.class.metaClass.progress = [renderProgressBar: {"<progressbar/>"}]
         tagLib.interaction(hidden: false, frame: new Frame(id: 4, number: 5, kanji: 'k', keyword: 'the keyword'))
         wrappedContentXml = getWrappedContentAsXml(tagLib)
     }
@@ -26,11 +25,6 @@ class HeisigRevealedInteractionTagTest extends TagLibJUnit4TestCase {
         messageCodes['frame.reviewResultQuestion'] = configuredReviewResultQuestion
         messageCodes['frame.reviewResult.confirm'] = 'confirmMessage'
         messageCodes['frame.reviewResult.decline'] = 'declineMessage'
-    }
-
-    @Test
-    void rendersProgressBarOnFirstPosition() {
-        assertEquals 'progressbar', wrappedContentXml.children().getAt(0).name()
     }
 
     @Test
@@ -96,6 +90,6 @@ class HeisigRevealedInteractionTagTest extends TagLibJUnit4TestCase {
     }
 
     private def getResultButtonDiv() {
-        wrappedContentXml.children().getAt(1)
+        wrappedContentXml.children().getAt(0).children().getAt(1).children().getAt(0)
     }
 }
