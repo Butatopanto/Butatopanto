@@ -29,7 +29,12 @@ class HeisigHiddenFrameCardTagTest extends TagLibJUnit4TestCase {
 
   @Test
   void hasRootWithCssClassFrameCard() {
-    assertEquals 'frameCard', contentXml.@class.text()
+    assertTrue contentXml.@class.text().contains('frameCard')
+  }
+
+  @Test
+  void hasOneThirdOfYuiSpace() {
+    assertTrue contentXml.@class.text().contains('yui3-u-1-3')
   }
 
   @Test
