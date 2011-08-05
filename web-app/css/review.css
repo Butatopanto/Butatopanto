@@ -57,6 +57,11 @@ a.deselected {
     margin: 50px 10px 10px;
 }
 
+#storydialog {
+    top: inherit !important;
+    left: inherit !important;
+}
+
 .confirm {
     background-color: #80f08e;
 }
