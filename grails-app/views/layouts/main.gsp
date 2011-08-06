@@ -8,7 +8,7 @@
   <g:javascript library="application"/>
 </head>
 
-<body style="width: 1000px; margin: 10 auto">
+<body style="width: 960px; margin: 10px auto">
 <div class="yui3-g">
   <div class="yui3-u-1-12">
     <menu:createHomeLink>
