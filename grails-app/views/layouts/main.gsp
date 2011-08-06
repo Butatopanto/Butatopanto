@@ -8,16 +8,17 @@
   <g:javascript library="application"/>
 </head>
 
-<body style="width: 960px; margin: 10px auto">
+<body style="width: 960px; margin: auto">
 <div class="yui3-g">
-  <div class="yui3-u-1-12">
+  <div class="yui3-u align-stub" style="height: 50px; vertical-align: middle;"></div>
+
+  <div class="yui3-u-1-12" style="vertical-align: middle;">
     <menu:createHomeLink>
       <div class="japanese homeicon"
            style="text-align: center;">豚</div>
     </menu:createHomeLink>
   </div>
 
-  <div class="yui3-u align-stub" style="height: 45px; vertical-align: middle;"></div>
 
   <div class="yui3-u-5-24" style="vertical-align: middle;">
     <span style="font-size:30px; margin-left: 10px" class='japanese'>とパンと</span>
@@ -27,7 +28,7 @@
     <!--empty-->
   </div>
 
-  <div class="yui3-u-1-6">
+  <div class="yui3-u-1-6"  style="vertical-align: middle;">
     <sec:securityLink/>
     <g:if test="${org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')}">
       <div>
