@@ -24,17 +24,17 @@
 <div class="yui3-g" style="margin-top: 1em">
     <div class="yui3-u-1-3">
         <g:render template="/action"
-                  model="[controller:'assembleReview', color:'green', kanji:'学', message:'navigation.frameTraining']"/>
+                  model="[controller:'assembleReview', kanji:'学', message:'navigation.frameTraining']"/>
     </div>
 
     <div class="yui3-u-1-3">
         <g:render template="/action"
-                  model="[controller:'mastery', color:'blue', kanji:'話', message:'navigation.frameManagement']"/>
+                  model="[controller:'mastery', kanji:'話', message:'navigation.frameManagement']"/>
     </div>
 
     <div class="yui3-u-1-3">
         <g:render template="/action"
-                  model="[controller:'flashcard', color:'red', kanji:'格', message:'navigation.flashcardStatus']"/>
+                  model="[controller:'flashcard', kanji:'格', message:'navigation.flashcardStatus']"/>
     </div>
 </div>
 </body>
