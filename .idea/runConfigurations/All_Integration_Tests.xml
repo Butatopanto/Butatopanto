@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All Integration Tests" type="GrailsRunConfigurationType" factoryName="Grails">
-    <module name="butatopanto" />
+    <module name="ButatoPanto" />
     <setting name="vmparams" value="" />
     <setting name="cmdLine" value="test-app -integration" />
     <setting name="depsClasspath" value="true" />
