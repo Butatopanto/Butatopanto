@@ -16,14 +16,10 @@ class HeisigHiddenInteractionTagTest extends TagLibJUnit4TestCase {
 
   @Before
   void renderHiddenInteraction() {
+    messageCodes['frame.revealMessage'] = configuredRevealMessage
     tagLib.interaction(hidden: true, frame: new Frame(id: 4, number: 5, kanji: 'k', keyword: 'the keyword'))
     tagLib.out.getBuffer().toString()
     wrappedContentXml = getWrappedContentAsXml(tagLib)
-  }
-
-  @Before
-  void configureRevealMessage() {
-    messageCodes['frame.revealMessage'] = configuredRevealMessage
   }
 
   @Test
