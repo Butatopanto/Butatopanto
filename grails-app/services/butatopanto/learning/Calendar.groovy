@@ -3,6 +3,8 @@ package butatopanto.learning
 class Calendar {
 
   Date getToday() {
-    new Date()
+    def now = new Date()
+    now.clearTime()
+    return now
   }
 }

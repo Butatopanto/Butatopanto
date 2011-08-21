@@ -51,7 +51,7 @@ class MasteryQueryServiceIntegrationTest extends GrailsJUnit4TestCase {
   private def createMasteryForUser() {
     def user = new HeisigUser(userName: userName).save(failOnError: true)
     def frame = Frame.findById(1);
-    new MasteryOfFrame(user: user, frame: frame, box: 3).save(failOnError: true)
+    new MasteryOfFrame(user: user, frame: frame, box: 3, dueDate: new Date()).save(failOnError: true)
   }
 
   private void logInUser(def springSecurityService, def userName) {

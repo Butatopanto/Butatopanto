@@ -7,44 +7,28 @@ import org.junit.Test
 
 class AssembleReviewController_DueKanjiTest extends GrailsJUnit4ControllerTestCase {
 
-    AssembleReviewController_DueKanjiTest() {
-        super(AssembleReviewController)
-    }
+  AssembleReviewController_DueKanjiTest() {
+    super(AssembleReviewController)
+  }
 
-    private MasteryServiceObjectMother masteryServiceObjectMother = new MasteryServiceObjectMother()
+  private TestChapterProgressService chapterProgressService = new TestChapterProgressService()
 
-    @Before
-    void configureMasteryService() {
-        masteryServiceObjectMother.setNoDueFramesIds()
-        controller.masteryService = masteryServiceObjectMother.service
-    }
+  @Before
+  void configureChapterProgressService() {
+    controller.chapterProgressService = chapterProgressService
+  }
 
-    @Before
-    void configureChapterService() {
-        controller.chapterProgressService = new TestChapterProgressService()
-    }
+  @Test
+  void informsAssembleViewAboutNoDueKanjiOnAssemble() {
+    chapterProgressService.setNoDueFrameIds()
+    def result = controller.assemble()
+    assertFalse("Expected false, but was ${result['dueFrames']}", result["dueFrames"])
+  }
 
-    @Before
-    void configureChapters() {
-        controller.session.chapters = [new ChapterSelection(chapterNumber: 1)]
-    }
-
-    @Test
-    void informsAssembleViewWhetherNoKanjiAreDue() {
-        def result = controller.assemble()
-        assertFalse result["dueFrames"]
-    }
-
-    @Test
-    void informsAssembleViewsWhetherAnyKanjiAreDue() {
-        setFramesDue()
-        def result = controller.assemble()
-        assertTrue result["dueFrames"]
-    }
-
-
-    private def setFramesDue() {
-        controller.session.chapters[0].dueFrameCount = 1
-        masteryServiceObjectMother.setDueFrames()
-    }
+  @Test
+  void informsAssembleViewsAboutDueKanjiOnAssemble() {
+    chapterProgressService.setAnyDueFrameIds()
+    def result = controller.assemble()
+    assertTrue("Expected true, but was ${result['dueFrames']}", result['dueFrames'])
+  }
 }

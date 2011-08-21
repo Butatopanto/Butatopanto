@@ -1,9 +1,12 @@
 package butatopanto.kanji
 
+import butatopanto.learning.Calendar
+
 class MasteryQueryService {
 
   static transactional = true
   def userService
+  def calendar = new Calendar()
 
   def listMasteryForChapterList(List numbers) {
     MasteryOfFrame.withCriteria {
@@ -14,6 +17,31 @@ class MasteryQueryService {
         frame {
           'in'('chapter', numbers)
         }
+      }
+    }
+  }
+
+  def listDueMasteryForChapterList(List numbers) {
+    MasteryOfFrame.withCriteria {
+      and {
+        user {
+          eq('userName', currentUserName)
+        }
+        frame {
+          'in'('chapter', numbers)
+        }
+        le('dueDate', calendar.today)
+      }
+    }
+  }
+
+  def listDueMastery() {
+    MasteryOfFrame.withCriteria {
+      and {
+        user {
+          eq('userName', currentUserName)
+        }
+        le('dueDate', calendar.today)
       }
     }
   }
