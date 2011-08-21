@@ -2,97 +2,73 @@ package butatopanto.learning;
 
 
 import butatopanto.sharedtest.GrailsJUnit4TestCase
-import org.junit.Test
-import junit.framework.TestCase
 import butatopanto.sharedtest.TestCalendar
+import org.junit.Test
+import org.junit.Before
 
 class LeitnerServiceTest extends GrailsJUnit4TestCase {
 
+  TestCalendar calendar = new TestCalendar()
   LeitnerService service = new LeitnerService()
   def mastery = [:]
+
+  @Before
+  void initializeCalendar() {
+    service.calendar = calendar
+  }
+
+  @Before
+  void initializeDueDateSoThatMasteryIsDue() {
+    mastery.dueDate = calendar.today
+  }
 
   @Test
   void switchesDueStateAtMidnight() {
     mastery.box = 2
-    mastery.lastUpdated = new Date(2010, 11, 9, 23, 59)
-    service.calendar = [getToday: {
-      new Date(2010, 11, 12, 0, 1)
-    }]
+    mastery.dueDate = new Date(2010, 11, 9, 23, 59)
+    calendar.today = new Date(2010, 11, 10, 0, 1)
     assertTrue service.isDue(mastery)
   }
 
   @Test
-  void prefersDueDateOverLastUpdatedDueMechanism() {
+  void setsDueDateIn14DatesForKanjiEnteringBox4() {
     mastery.box = 3
-    setLastReviewDateANumberOfDaysAgo(6)
-    mastery.dueDate = service.calendar.today
-    assertTrue service.isDue(mastery)
+    service.answeredRight(mastery)
+    assertEquals(calendar.today.plus(14), mastery.dueDate)
   }
 
   @Test
-  void recognizesMasteryInBoxThreeAsDueAfterSevenDaysFromLastReview() {
-    mastery.box = 3
-    setLastReviewDateANumberOfDaysAgo(6)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(7)
-    assertTrue service.isDue(mastery)
-  }
-
-  @Test
-  void recognizesMasteryInBoxFourAsDueAfter14DaysFromLastReview() {
+  void setsDueDateIn30DaysForKanjiEnteringBox5() {
     mastery.box = 4
-    setLastReviewDateANumberOfDaysAgo(13)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(14)
-    assertTrue service.isDue(mastery)
+    service.answeredRight(mastery)
+    assertEquals(calendar.today.plus(30), mastery.dueDate)
   }
 
   @Test
-  void recognizesMasteryInBoxFiveAsDueAfter30DaysFromLastReview() {
+  void setsDueDateIn60DaysForKanjiEnteringBox6() {
     mastery.box = 5
-    setLastReviewDateANumberOfDaysAgo(29)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(30)
-    assertTrue service.isDue(mastery)
+    service.answeredRight(mastery)
+    assertEquals(calendar.today.plus(60), mastery.dueDate)
   }
 
   @Test
-  void recognizesMasteryInBoxSixAsDueAfter60DaysFromLastReview() {
+  void setsDueDateIn120DaysForKanjiEnteringBox7() {
     mastery.box = 6
-    setLastReviewDateANumberOfDaysAgo(59)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(60)
-    assertTrue service.isDue(mastery)
+    service.answeredRight(mastery)
+    assertEquals(calendar.today.plus(120), mastery.dueDate)
   }
 
   @Test
-  void recognizesMasteryInBoxSevenAsDueAfter120DaysFromLastReview() {
+  void setsDueDateIn240DaysForKanjiEnteringBox8() {
     mastery.box = 7
-    setLastReviewDateANumberOfDaysAgo(119)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(120)
-    assertTrue service.isDue(mastery)
-  }
-
-  @Test
-  void recognizesMasteryInBoxEightAsDueAfter240DaysFromLastReview() {
-    mastery.box = 8
-    setLastReviewDateANumberOfDaysAgo(239)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(240)
-    assertTrue service.isDue(mastery)
+    service.answeredRight(mastery)
+    assertEquals(calendar.today.plus(240), mastery.dueDate)
   }
 
   @Test
   void retainsBoxForDueMasteryOfHighestBox() {
     mastery.box = 8
-    setLastReviewDateANumberOfDaysAgo(240)
     service.answeredRight(mastery)
     assertEquals(8, mastery.box)
-  }
-
-  private void setLastReviewDateANumberOfDaysAgo(int numberOfDays) {
-    def today = new Date()
-    mastery.lastUpdated = today.minus(numberOfDays)
   }
 }

@@ -7,11 +7,13 @@ import grails.util.Environment
 class BootStrap {
 
   def heisigContentService
+  def leitnerMigrationService
   def springSecurityService
 
   def init = { servletContext ->
     heisigContentService.initializeDatabase()
     createUsers()
+    leitnerMigrationService.updateDueDates()
   }
 
   def createUsers() {

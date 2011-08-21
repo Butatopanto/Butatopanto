@@ -23,32 +23,21 @@ class LeitnerService {
   }
 
   boolean isDue(mastery) {
-    if (mastery.dueDate) {
-      return mastery.dueDate <= calendar.today
-    }
-    def daysToRemainInCurrentBox = calculateDaysToRemainInCurrentBox(mastery)
-    def daysSinceLastReview = calculateDaysSinceLastReview(mastery)
-    daysSinceLastReview >= daysToRemainInCurrentBox
+    return mastery.dueDate <= calendar.today
   }
 
-  private def calculateDaysToRemainInCurrentBox(mastery) {
-    expirationIntervalByBox[mastery.box]
-  }
-
-  private def calculateDaysSinceLastReview(mastery) {
-    def today = calendar.getToday()
-    def lastReviewDate = mastery.lastUpdated
-    today.minus(lastReviewDate)
-  }
-
-  private def moveCardToNextBox(mastery) {
-    mastery.box = Math.min(mastery.box + 1, LAST_BOX)
+  public def updateDueDateForMasteryAndReviewDate(mastery, Date reviewDate) {
     int numberOfDaysUntilDue = expirationIntervalByBox[mastery.box]
-    mastery.dueDate = calendar.today.plus(numberOfDaysUntilDue)
+    mastery.dueDate = reviewDate.plus(numberOfDaysUntilDue)
   }
 
   private def moveToFirstBox(mastery) {
     mastery.box = FIRST_BOX
     mastery.dueDate = calendar.today
+  }
+
+  private def moveCardToNextBox(mastery) {
+    mastery.box = Math.min(mastery.box + 1, LAST_BOX)
+    updateDueDateForMasteryAndReviewDate(mastery, calendar.today)
   }
 }
