@@ -8,18 +8,15 @@ class AssembleReviewController {
     static navigation = [group: 'tabs', title: 'start', order: 20]
 
     def reviewService
-    def chapterService
     def chapterProgressService
     def masteryService
 
     def assemble = {
         createChapterSelection()
-        updateDueCount()
         showAssembleView()
     }
 
     def continueToAssemble = {
-        updateDueCount()
         showAssembleView()
     }
 
@@ -126,23 +123,13 @@ class AssembleReviewController {
         new ChapterSelection(chapterNumber: chapterNumber, selected: false, active: active, totalFrames: frameCount, dueFrameCount: dueCount)
     }
 
-    private def updateDueCount() {
-        getChapters().each {
-            updateDueCountIfNecessary it
-        }
-    }
-
-    private void updateDueCountIfNecessary(def chapterSelection) {
-        def dueFrames = masteryService.listDueFrameIdsForChapter(chapterSelection.chapterNumber)
-        chapterSelection.dueFrameCount = dueFrames.size()
-    }
-
     private def getChapters() {
         session.chapters
     }
 
     private def showAssembleView() {
-        def model = evaluateChapters().with({
+      def chapters = evaluateChapters()
+      def model = chapters.with({
             [chaptersSelected: hasChaptersSelected(), dueFrames: hasDueFrames(), dueSelected: hasDueSelected()]
         })
         render(view: 'assemble', model: model)
