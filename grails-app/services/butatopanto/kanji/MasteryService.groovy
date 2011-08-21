@@ -1,6 +1,7 @@
 package butatopanto.kanji
 
 import butatopanto.request.ListRequester
+import butatopanto.learning.Calendar
 
 class MasteryService {
 
@@ -8,6 +9,7 @@ class MasteryService {
   def userService
   def masteryQueryService
   def leitnerService
+  def calendar = new Calendar()
 
   def activateChapter(def number) {
     def frames = Frame.findAllByChapter(number)
@@ -31,7 +33,7 @@ class MasteryService {
     def heisigUser = findOrCreateHeisigUser()
     frames.each {
       if (!masteryQueryService.findMasteryByFrameId(it.id)) {
-        heisigUser.addToMasteryList new MasteryOfFrame(frame: it)
+        heisigUser.addToMasteryList new MasteryOfFrame(frame: it, dueDate: calendar.today)
       }
     }
   }

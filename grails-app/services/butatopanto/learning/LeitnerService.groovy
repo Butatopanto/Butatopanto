@@ -9,7 +9,7 @@ class LeitnerService {
   def calendar = new Calendar()
 
   void answeredWrong(mastery) {
-    mastery.box = FIRST_BOX
+    moveToFirstBox(mastery)
   }
 
   void answeredRight(mastery) {
@@ -23,6 +23,9 @@ class LeitnerService {
   }
 
   boolean isDue(mastery) {
+    if (mastery.dueDate) {
+      return mastery.dueDate <= calendar.today
+    }
     def daysToRemainInCurrentBox = calculateDaysToRemainInCurrentBox(mastery)
     def daysSinceLastReview = calculateDaysSinceLastReview(mastery)
     daysSinceLastReview >= daysToRemainInCurrentBox
@@ -40,5 +43,12 @@ class LeitnerService {
 
   private def moveCardToNextBox(mastery) {
     mastery.box = Math.min(mastery.box + 1, LAST_BOX)
+    int numberOfDaysUntilDue = expirationIntervalByBox[mastery.box]
+    mastery.dueDate = calendar.today.plus(numberOfDaysUntilDue)
+  }
+
+  private def moveToFirstBox(mastery) {
+    mastery.box = FIRST_BOX
+    mastery.dueDate = calendar.today
   }
 }

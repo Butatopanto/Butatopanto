@@ -3,42 +3,13 @@ package butatopanto.learning;
 
 import butatopanto.sharedtest.GrailsJUnit4TestCase
 import org.junit.Test
+import junit.framework.TestCase
+import butatopanto.sharedtest.TestCalendar
 
 class LeitnerServiceTest extends GrailsJUnit4TestCase {
 
   LeitnerService service = new LeitnerService()
   def mastery = [:]
-
-  @Test
-  void putsMasteryInFirstBoxOnFailure() {
-    service.answeredWrong(mastery)
-    assertEquals(1, mastery.box)
-  }
-
-  @Test
-  void putsMasteryInFollowupBoxWhenPassingDueMastery() {
-    mastery.box = 1
-    mastery.lastUpdated = new Date()
-    service.answeredRight(mastery)
-    assertEquals(2, mastery.box)
-  }
-
-  @Test
-  void retainsBoxForUndueMastery() {
-    mastery.box = 3
-    mastery.lastUpdated = new Date()
-    service.answeredRight(mastery)
-    assertEquals(3, mastery.box)
-  }
-
-  @Test
-  void recognizesMasteryInBoxTwoAsDueAfterThreeDaysFromLastReview() {
-    mastery.box = 2
-    setLastReviewDateANumberOfDaysAgo(2)
-    assertFalse service.isDue(mastery)
-    setLastReviewDateANumberOfDaysAgo(3)
-    assertTrue service.isDue(mastery)
-  }
 
   @Test
   void switchesDueStateAtMidnight() {
@@ -47,6 +18,14 @@ class LeitnerServiceTest extends GrailsJUnit4TestCase {
     service.calendar = [getToday: {
       new Date(2010, 11, 12, 0, 1)
     }]
+    assertTrue service.isDue(mastery)
+  }
+
+  @Test
+  void prefersDueDateOverLastUpdatedDueMechanism() {
+    mastery.box = 3
+    setLastReviewDateANumberOfDaysAgo(6)
+    mastery.dueDate = service.calendar.today
     assertTrue service.isDue(mastery)
   }
 
