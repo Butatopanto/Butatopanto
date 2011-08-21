@@ -10,7 +10,8 @@
 
   <g:javascript library="prototype"/>
   <g:javascript src="chapterlist.js"/>
-  <g:javascript src="protowheel.js"/>
+  <g:javascript library="jquery" plugin="jquery"/>
+  <g:javascript src="jquery-mousewheel/jquery.mousewheel.js"/>
   <g:javascript src="windows_js/effects.js"/>
   <g:javascript src="windows_js/window.js"/>
   <g:javascript src="windows_js/window_effects.js"/>
@@ -21,9 +22,8 @@
     function showPreviousKanji(){
       window.location = "${mastery.linkForPreviousKanji([navigation: navigation])}";
     }
-    function scrollByWheel(e) {
-      var scrollCount = Event.wheel(e);
-      var down = scrollCount < 0;
+    function scrollByWheel(e, delta) {
+      var down = delta < 0;
       if (down){
         showNextKanji();
       }
@@ -31,8 +31,8 @@
         showPreviousKanji();
       }
     }
-
-    Event.observe(document, "mousewheel", scrollByWheel, false);
+    jQuery.noConflict();
+    jQuery(document).mousewheel(scrollByWheel);
   </g:javascript>
   <title><g:message code='mastery.current-chapter' args="${[navigation.chapterNumber]}"/></title>
 </head>
