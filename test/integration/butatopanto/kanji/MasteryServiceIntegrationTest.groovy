@@ -17,6 +17,7 @@ class MasteryServiceIntegrationTest extends GrailsJUnit4TestCase {
   void initializeCalendar() {
     masteryService.calendar = calendar
     masteryService.leitnerService.calendar = calendar
+    masteryService.masteryQueryService.calendar = calendar
   }
 
   @Before
