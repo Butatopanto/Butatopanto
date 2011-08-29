@@ -25,7 +25,6 @@
         showPreviousKanji();
       }
     }
-    jQuery.noConflict();
     jQuery(document).mousewheel(scrollByWheel);
   </g:javascript>
   <g:javascript>
