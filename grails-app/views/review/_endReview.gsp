@@ -1,5 +1,5 @@
 <div class="yui3-g">
-  <div class="yui3-u-1">
+  <div class="yui3-u-1" style="text-align: center;">
     <h1><g:message code='review.finished.congratulations'/></h1>
     <h4><g:message code='review.progress.legend.right' args="${[review.rightIds.size()]}"/></h4>
     <h4><g:message code='review.progress.legend.wrong' args="${[review.wrongIds.size()]}"/></h4>
