@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Butatopanto" type="GrailsRunConfigurationType" factoryName="Grails">
-    <module name="butatopanto" />
+    <module name="ButatoPanto" />
     <setting name="vmparams" value="-XX:MaxPermSize=128M" />
     <setting name="cmdLine" value="run-app" />
     <setting name="depsClasspath" value="true" />

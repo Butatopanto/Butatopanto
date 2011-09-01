@@ -16,20 +16,10 @@ class HeisigHiddenInteractionTagTest extends TagLibJUnit4TestCase {
 
   @Before
   void renderHiddenInteraction() {
-    tagLib.class.metaClass.progress = [renderProgressBar: {"<progressbar/>"}]
-    tagLib.interaction(hidden: true, frame: new Frame(id: 4, number: 5, kanji: 'k', keyword: 'the keyword'))
-    String content = tagLib.out.getBuffer().toString()
-    wrappedContentXml = getWrappedContentAsXml(tagLib)
-  }
-
-  @Before
-  void configureRevealMessage() {
     messageCodes['frame.revealMessage'] = configuredRevealMessage
-  }
-
-  @Test
-  void rendersProgressBarOnFirstPosition() {
-    assertEquals 'progressbar', wrappedContentXml.children().getAt(0).name()
+    tagLib.interaction(hidden: true, frame: new Frame(id: 4, number: 5, kanji: 'k', keyword: 'the keyword'))
+    tagLib.out.getBuffer().toString()
+    wrappedContentXml = getWrappedContentAsXml(tagLib)
   }
 
   @Test
@@ -48,6 +38,6 @@ class HeisigHiddenInteractionTagTest extends TagLibJUnit4TestCase {
   }
 
   private def getRevealMessageParagraph() {
-    wrappedContentXml.children().getAt(1)
+    wrappedContentXml.children().getAt(0).children().getAt(1).children().getAt(0)
   }
 }

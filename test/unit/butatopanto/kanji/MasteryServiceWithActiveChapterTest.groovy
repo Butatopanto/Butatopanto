@@ -33,13 +33,6 @@ class MasteryServiceWithActiveChapterTest extends GrailsJUnit4TestCase {
   }
 
   @Test
-  void listsAllFrameIdAsDueForMasteryRecognizedByLeitnerService() {
-    MasteryOfFrame dueMastery = (currentHeisigUser.masteryList as List)[0]
-    service.leitnerService = [isDue: {it == dueMastery}]
-    assertEquals([dueMastery.frame.id], service.listDueFrameIds())
-  }
-
-  @Test
   void hasTwoMasteryInList() {
     assertEquals 2, service.getMasteryCount()
   }

@@ -22,19 +22,14 @@
 </div>
 
 <div class="yui3-g" style="margin-top: 1em">
-    <div class="yui3-u-7-24">
-        <g:render template="/action"
-                  model="[controller:'assembleReview', color:'green', kanji:'学', message:'navigation.frameTraining']"/>
+    <div class="yui3-u-1-3">
+      <g:render template="/action" model="[controller:'mastery']"/>
     </div>
-
-    <div class="yui3-u-7-24">
-        <g:render template="/action"
-                  model="[controller:'mastery', color:'blue', kanji:'話', message:'navigation.frameManagement']"/>
+    <div class="yui3-u-1-3">
+      <g:render template="/action" model="[controller:'assembleReview']"/>
     </div>
-
-    <div class="yui3-u-7-24">
-        <g:render template="/action"
-                  model="[controller:'flashcard', color:'red', kanji:'格', message:'navigation.flashcardStatus']"/>
+    <div class="yui3-u-1-3">
+        <g:render template="/action" model="[controller:'flashcard']"/>
     </div>
 </div>
 </body>

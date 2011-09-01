@@ -6,6 +6,6 @@ class ColorController {
 
     def cssColor = {
         def controllerName = params.controller;
-        render (controllerName == 'assembleReview' ? 'green' : controllerName == 'mastery' ? 'blue' : controllerName == 'flashcard' ? 'red' : 'white')
+        render (controllerName == 'assembleReview' ? 'blue' : controllerName == 'mastery' ? 'green' : controllerName == 'flashcard' ? 'red' : 'white')
     }
 }

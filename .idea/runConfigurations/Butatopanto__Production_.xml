@@ -1,12 +1,12 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All Unit Tests" type="GrailsRunConfigurationType" factoryName="Grails">
+  <configuration default="false" name="Butatopanto (Production)" type="GrailsRunConfigurationType" factoryName="Grails">
     <module name="ButatoPanto" />
-    <setting name="vmparams" value="" />
-    <setting name="cmdLine" value="test-app -unit" />
+    <setting name="vmparams" value="-XX:MaxPermSize=256M" />
+    <setting name="cmdLine" value="prod run-app" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-    <setting name="launchBrowser" value="false" />
+    <setting name="launchBrowser" value="true" />
     <MavenGeneralSettings>
       <option name="checksumPolicy" value="FAIL" />
       <option name="failureBehavior" value="FAST" />
@@ -20,13 +20,7 @@
       <option name="userSettingsFile" value="" />
       <option name="workOffline" value="false" />
     </MavenGeneralSettings>
-    <RunnerSettings RunnerId="Debug">
-      <option name="DEBUG_PORT" value="52529" />
-      <option name="TRANSPORT" value="0" />
-      <option name="LOCAL" value="true" />
-    </RunnerSettings>
     <RunnerSettings RunnerId="Run" />
-    <ConfigurationWrapper RunnerId="Debug" />
     <ConfigurationWrapper RunnerId="Run" />
     <method>
       <option name="Make" enabled="false" />

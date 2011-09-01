@@ -10,6 +10,7 @@ class MasteryOfFrame {
   int failed = 0
   Date dateCreated
   Date lastUpdated
+  Date dueDate
 
   static constraints = {
     frame(nullable: false)

@@ -255,17 +255,9 @@ th.desc a {
 }
 
 .footer {
-    position: fixed;
-    margin-bottom: -0.5em;
-    bottom: 0.8em;
+    margin-top: 1em;
     font-size: 0.8em;
-    width: 100%;
     text-align: center;
-    background-color: #ffffff;
-}
-
-.footer span {
-    background-color: inherit;
 }
 
 .selector {
@@ -279,14 +271,12 @@ th.desc a {
     width: 800px;
     height: 550px;
     border: thin solid;
-    position: absolute;
-    left: 50px
 }
 
 .homeicon {
     background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
     background: -moz-linear-gradient(top, #ed1c24, #aa1317);
-    box-shadow:  2px 2px 1px 1px#888;
+    box-shadow: 2px 2px 1px 1px #888;
     color: #faddde;
     border-radius: 7px;
     font-size: 3em
