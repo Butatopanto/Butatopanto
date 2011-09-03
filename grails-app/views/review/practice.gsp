@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='story.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
+  <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
   <g:javascript library="prototype"/>
   <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
-  <g:javascript library="jquery" plugin="jquery"/>
-  <jqui:resources/>
   <g:javascript src="livepipe/livepipe.js"/>
   <g:javascript src="livepipe/hotkey.js"/>
+  <g:javascript src="practice.js"/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
@@ -20,21 +20,9 @@
   <g:javascript src="hotkeys.js"/>
   <g:javascript src="cardnavigation.js"/>
   <g:javascript src="protolicious/event.simulate.js"/>
-  <g:javascript>
-    jQuery.noConflict();
-
-    function openStoryDialog(title) {
-      var offsetX = parseInt(jQuery('#showStory').css("margin-left").replace("px", ""));
-      var dialogX = jQuery('#showStory').position().left + offsetX;
-      var offsetY = parseInt(jQuery('#showStory').css("margin-top").replace("px", ""));
-      var dialogY = jQuery('#showStory').position().top + offsetY;
-      jQuery('#currentStory').load('/ButatoPanto/review/currentStory').dialog({title: title, draggable:false,width: 240, height: 320, position: [dialogX, dialogY]});
-    }
-
-    function closeStoryDialog() {
-      jQuery('#currentStory').dialog('close');
-    }
-  </g:javascript>
+  <g:javascript src="windows_js/effects.js"/>
+  <g:javascript src="windows_js/window.js"/>
+  <g:javascript src="windows_js/window_effects.js"/>
   <title><g:message code="frame.title"/></title>
 </head>
 
@@ -53,7 +41,5 @@
     </div>
   </div>
 </div>
-
-<div id="currentStory"></div>
 </body>
 </html>

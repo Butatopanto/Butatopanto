@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='menu.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
+  <g:javascript library="prototype"/>
   <title><g:message code="review.assemble.title"/></title>
 </head>
 

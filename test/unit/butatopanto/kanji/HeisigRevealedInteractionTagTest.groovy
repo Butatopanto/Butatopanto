@@ -10,8 +10,8 @@ class HeisigRevealedInteractionTagTest extends TagLibJUnit4TestCase {
 
   private def wrappedContentXml
   private def configuredReviewResultQuestion = "Wie sieht es aus?"
-  private def configuredConfirmMessage = 'confirmMessage'
-  private def configuredDeclineMessage = 'declineMessage'
+  def configuredConfirmMessage = 'confirmMessage'
+  def configuredDeclineMessage = 'declineMessage'
 
   HeisigRevealedInteractionTagTest() {
     super(HeisigTagLib)

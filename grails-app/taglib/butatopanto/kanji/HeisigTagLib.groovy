@@ -20,7 +20,7 @@ class HeisigTagLib {
       out << renderMessage() { renderRevealMessage() }
     }
     else {
-      out << renderMessage() { renderReviewButtons(frame) }
+      out <<  renderMessage() { renderReviewButtons(frame) }
     }
   }
 
@@ -40,7 +40,7 @@ class HeisigTagLib {
       def revealMessage = g.message(code: "story.dialog.clickToShow")
       def dialogTitle = g.message(code: 'story.dialog.title')
       out << "<div class='yui3-u-1-3'>"
-      out << "<div id='showStory' onclick=\"openStoryDialog('${dialogTitle}')\">"
+      out << "<div id='showStory' onclick=\"openStoryDialog(this, 'currentStory', '${dialogTitle}')\">"
       out << "<b><br/>${revealMessage}</b></div>"
       out << "</div>"
     }

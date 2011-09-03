@@ -10,7 +10,7 @@ class MasteryOfFrameIntegrationTest extends GrailsJUnit4TestCase {
   @Before
   public void saveMastery() {
     heisigUser = new HeisigUser(userName: "the user")
-    def mastery = new MasteryOfFrame(frame: Frame.get(1))
+    def mastery = new MasteryOfFrame(frame: Frame.get(1), dueDate: new Date())
     heisigUser.addToMasteryList(mastery).save(failOnError: true)
   }
 
