@@ -31,12 +31,12 @@ class HeisigStoryDialogTagTest extends TagLibJUnit4TestCase {
   void hasOnClickAttributeToShowDialog() {
     tagLib.session.review = new Review()
     def wrappedDialog = renderAndWrapStoryDialog()
-    assertEquals "openStoryDialog(this, 'currentStory', 'Story')", wrappedDialog.div[0].div[0].@onclick.text()
+    assertEquals "openStoryDialog('Story')", wrappedDialog.div[0].div[0].@onclick.text()
   }
 
   private def renderAndWrapStoryDialog() {
     tagLib.storyDialog()
-    String content = tagLib.out.getBuffer().toString()
+    tagLib.out.getBuffer().toString()
     getWrappedContentAsXml(tagLib)
   }
 }
