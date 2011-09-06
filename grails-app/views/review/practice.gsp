@@ -7,9 +7,12 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='review.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='story.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
+  <g:javascript library="jquery" plugin="jquery"/>
+  <g:javascript>
+    jQuery.noConflict();
+  </g:javascript>
   <g:javascript library="prototype"/>
   <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
-  <g:javascript library="jquery" plugin="jquery"/>
   <jqui:resources/>
   <g:javascript src="livepipe/livepipe.js"/>
   <g:javascript src="livepipe/hotkey.js"/>
@@ -21,8 +24,6 @@
   <g:javascript src="cardnavigation.js"/>
   <g:javascript src="protolicious/event.simulate.js"/>
   <g:javascript>
-    jQuery.noConflict();
-
     function openStoryDialog(title) {
       var offsetX = parseInt(jQuery('#showStory').css("margin-left").replace("px", ""));
       var dialogX = jQuery('#showStory').position().left + offsetX;
