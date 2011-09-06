@@ -28,7 +28,6 @@ class StoryController {
       else {
         storyService.saveStory(frame.id, storyText)
       }
-      //redirect(action: "show", id: frame.id)
       def targetUri = params.uriToShowAfterSave
       redirect(uri: targetUri)
     }
