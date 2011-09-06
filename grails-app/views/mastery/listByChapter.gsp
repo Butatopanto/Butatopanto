@@ -62,8 +62,9 @@
       <div>
         <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
           <div class="kanjiselector selector">
+            <g:set var="uriToShowAfterSave" value="${request.forwardURI - request.contextPath + '?' + request.queryString}"/>
             <g:set var="storyLink"
-                   value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number)}"/>
+                   value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number, params:[uriToShowAfterSave:uriToShowAfterSave])}"/>
             <g:set var="storyTitle"
                    value="${message(code: 'chapterList.story.title', args: [masteredFrame.frame.keyword, masteredFrame.frame.kanji])}"/>
             <div onclick='openStoryDialog("${storyTitle}", "${storyLink}")'

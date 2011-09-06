@@ -12,6 +12,7 @@
   <div id="storyEdit" style="display:none;">
     <g:form name="saveStory" url="[action:'save', id: frame.id]">
       <textarea name="storyText" rows="12" cols="55">${storyText}</textarea>
+      <g:hiddenField name="uriToShowAfterSave" value="$uriToShowAfterSave"/>
       <div class="control">
         <div class="buttonBar">
           <input type="submit" id="storyEdit_save" value="${g.message(code: 'story.save-button.text')}" title="${g.message(code: 'story.save-button.tooltip')}"/>
