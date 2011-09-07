@@ -70,16 +70,8 @@ class MasteryWithUserFunctionalTest extends UserSensitiveFunctionalTestCase {
 
   void testShowsStoryEditorOnClick() {
     clickAndWait "古"
-    def windows = getClient().getWebWindows()
-    def window = windows.find {
-      def isAFrameWindow = it instanceof FrameWindow
-      if (!isAFrameWindow) {
-        return false
-      }
-      def showsStoryEditor = it.frameElement.getAttribute('src') == '/ButatoPanto/story/show/16'
-      return showsStoryEditor
-    }
-    assertNotNull(window)
+    getClient().waitForBackgroundJavaScript(10000)
+    assertNotNull byId("storyBox")
   }
 
   private void clickAndWait(String identifier) {
