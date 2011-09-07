@@ -13,7 +13,7 @@ class ReviewController {
 
     def currentStory = {
         def frameId = session.review.currentReview
-        redirect(controller: "story", action: "show", id: frameId)
+        redirect(controller: "story", action: "show", id: frameId, params: [uriToShowAfterSave:"/review/practice"])
     }
 
     def practice = {

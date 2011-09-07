@@ -31,6 +31,6 @@ class CurrentStoryFromReviewControllerTest extends GrailsJUnit4ControllerTestCas
   void currentStoryRedirectsToShowStoryForCurrentReview() {
     controller.session.review = new Review(currentReview: 1)
     controller.currentStory()
-    assertEquals ([controller: 'story', action: 'show', id: 1], controller.redirectArgs)
+    assertEquals ([controller: 'story', action: 'show', id: 1,  params:[uriToShowAfterSave:"/review/practice"]], controller.redirectArgs)
   }
 }
