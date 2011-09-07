@@ -20,8 +20,7 @@
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
-  </g:javascript>
-  <g:javascript>
+
     function click(id) {
       var element = document.getElementById(id);
       element.simulate('click');
@@ -35,8 +34,7 @@
         click(element);
       }, withoutControlKey);
     }
-  </g:javascript>
-  <g:javascript>
+
     document.observe('dom:loaded', function() {
       registerHotkey(' ', 'card');
       registerHotkey(confirmKey, 'confirmButton');
