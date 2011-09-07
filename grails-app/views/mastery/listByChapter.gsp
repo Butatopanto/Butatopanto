@@ -6,14 +6,9 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='mastery.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='flashcard.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
-  <link rel="stylesheet" href="<g:createLinkTo dir='js/windows_js/themes' file='story.css'/>"/>
-
-  <g:javascript library="prototype"/>
-  <g:javascript src="chapterlist.js"/>
-  <g:javascript src="protowheel.js"/>
-  <g:javascript src="windows_js/effects.js"/>
-  <g:javascript src="windows_js/window.js"/>
-  <g:javascript src="windows_js/window_effects.js"/>
+  <g:javascript library="jquery" plugin="jquery"/>
+  <jqui:resources/>
+  <g:javascript src="jquery-mousewheel/jquery.mousewheel.js"/>
   <g:javascript>
     function showNextKanji() {
       window.location = "${mastery.linkForNextKanji([navigation: navigation])}";
@@ -21,9 +16,8 @@
     function showPreviousKanji(){
       window.location = "${mastery.linkForPreviousKanji([navigation: navigation])}";
     }
-    function scrollByWheel(e) {
-      var scrollCount = Event.wheel(e);
-      var down = scrollCount < 0;
+    function scrollByWheel(e, delta) {
+      var down = delta < 0;
       if (down){
         showNextKanji();
       }
@@ -31,8 +25,12 @@
         showPreviousKanji();
       }
     }
-
-    Event.observe(document, "mousewheel", scrollByWheel, false);
+    jQuery(document).mousewheel(scrollByWheel);
+  </g:javascript>
+  <g:javascript>
+    function openStoryDialog(title, url) {
+      jQuery('#currentStory').load(url).dialog({ width: 240, height: 320, zIndex: 100,title: title});
+    }
   </g:javascript>
   <title><g:message code='mastery.current-chapter' args="${[navigation.chapterNumber]}"/></title>
 </head>
@@ -64,11 +62,12 @@
       <div>
         <g:each in="${navigation.getVisibleFrames()}" status="i" var="${masteredFrame}">
           <div class="kanjiselector selector">
+            <g:set var="uriToShowAfterSave" value="${request.forwardURI - request.contextPath + '?' + request.queryString}"/>
             <g:set var="storyLink"
-                   value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number)}"/>
+                   value="${createLink(controller: 'story', action: 'show', id:masteredFrame.frame.number, params:[uriToShowAfterSave:uriToShowAfterSave])}"/>
             <g:set var="storyTitle"
                    value="${message(code: 'chapterList.story.title', args: [masteredFrame.frame.keyword, masteredFrame.frame.kanji])}"/>
-            <div onclick='openStoryDialog(this, "${storyTitle}", "${storyLink}")'
+            <div onclick='openStoryDialog("${storyTitle}", "${storyLink}")'
                  id="${masteredFrame.frame.kanji}"
                  title="${masteredFrame.frame.keyword} (${masteredFrame.frame.number})"
                  class="${masteredFrame.cssClass} japanese selector">${masteredFrame.frame.kanji}</div>
@@ -96,6 +95,9 @@
                       value="${g.message(code:'mastery.activation.submit')}"/>
     </g:form>
   </div>
+</div>
+
+<div id="currentStory">
 </div>
 </body>
 </html>

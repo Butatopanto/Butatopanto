@@ -49,6 +49,14 @@ class StoryControllerTest extends GrailsJUnit4ControllerTestCase {
   }
 
   @Test
+  void forwardsUriToShowAfterSave() {
+    controller.params.id = "1"
+    controller.params.uriToShowAfterSave = "/newUri"
+    def values = controller.show()
+    assertEquals "/newUri", values.uriToShowAfterSave
+  }
+
+  @Test
   void redirectsToUnknownOnSaveWithNoId() {
     controller.save()
     assertEquals "unknown", controller.redirectArgs.action
@@ -86,13 +94,13 @@ class StoryControllerTest extends GrailsJUnit4ControllerTestCase {
     assertEquals([:], savedStoriesByFrameId)
   }
 
-
   @Test
-  void redirectsToShowStoryForFrameIdAfterSuccessful() {
+  void redirectsToGivenUrlAfterSuccessfulSave() {
     controller.params.id = "1"
     controller.params.storyText = "The new story"
+    controller.params.uriToShowAfterSave = "/newUri"
     controller.save()
-    assertEquals([action: "show", id: 1L], controller.redirectArgs)
+    assertEquals([uri: "/newUri"], controller.redirectArgs)
   }
 
   @Test

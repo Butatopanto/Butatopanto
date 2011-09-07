@@ -66,7 +66,6 @@ class ReviewControllerTest extends GrailsJUnit4ControllerTestCase {
     assertEquals('assembleReview', controller.redirectArgs.controller)
   }
 
-
   private def setFramesDue() {
     controller.session.chapters[0].dueFrameCount = 1
     masteryServiceObjectMother.setDueFrames()

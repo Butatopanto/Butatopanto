@@ -28,7 +28,8 @@ class StoryController {
       else {
         storyService.saveStory(frame.id, storyText)
       }
-      redirect(action: "show", id: frame.id)
+      def targetUri = params.uriToShowAfterSave
+      redirect(uri: targetUri)
     }
   }
 
@@ -40,7 +41,8 @@ class StoryController {
     }
     else {
       def storyText = storyService.findStoryTextByFrameId(frame.id)
-      [storyText: storyText, frame: frame]
+      def targetUri = params.uriToShowAfterSave
+      [storyText: storyText, frame: frame, uriToShowAfterSave: targetUri]
     }
   }
 
