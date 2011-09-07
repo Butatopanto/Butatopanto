@@ -16,13 +16,33 @@
   <jqui:resources/>
   <g:javascript src="livepipe/livepipe.js"/>
   <g:javascript src="livepipe/hotkey.js"/>
+  <g:javascript src="protolicious/event.simulate.js"/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
   </g:javascript>
-  <g:javascript src="hotkeys.js"/>
-  <g:javascript src="cardnavigation.js"/>
-  <g:javascript src="protolicious/event.simulate.js"/>
+  <g:javascript>
+    function click(id) {
+      var element = document.getElementById(id);
+      element.simulate('click');
+    }
+
+    function registerHotkey(key, element) {
+      var withoutControlKey = {
+        ctrlKey: false
+      };
+      new HotKey(key, function(event) {
+        click(element);
+      }, withoutControlKey);
+    }
+  </g:javascript>
+  <g:javascript>
+    document.observe('dom:loaded', function() {
+      registerHotkey(' ', 'card');
+      registerHotkey(confirmKey, 'confirmButton');
+      registerHotkey(declineKey, 'declineButton');
+    });
+  </g:javascript>
   <g:javascript>
     function openStoryDialog(title) {
       var offsetX = parseInt(jQuery('#showStory').css("margin-left").replace("px", ""));
