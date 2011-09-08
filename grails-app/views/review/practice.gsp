@@ -25,7 +25,7 @@
     }
 
     function registerHotkey(key, elementId) {
-      var withoutControlKey = {
+        var withoutControlKey = {
         ctrlKey: false
       };
       new HotKey(key, function(event) {
@@ -33,7 +33,7 @@
       }, withoutControlKey);
     }
 
-    document.observe('dom:loaded', function() {
+    jQuery(document).ready(function() {
       registerHotkey(' ', 'card');
       registerHotkey(confirmKey, 'confirmButton');
       registerHotkey(declineKey, 'declineButton');
