@@ -21,17 +21,17 @@
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
 
-    function click(id) {
-      var element = document.getElementById(id);
+    function click(elementId) {
+      var element = document.getElementById(elementId);
       element.simulate('click');
     }
 
-    function registerHotkey(key, element) {
+    function registerHotkey(key, elementId) {
       var withoutControlKey = {
         ctrlKey: false
       };
       new HotKey(key, function(event) {
-        click(element);
+        click(elementId);
       }, withoutControlKey);
     }
 
