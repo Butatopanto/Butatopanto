@@ -13,7 +13,6 @@
   </g:javascript>
   <g:javascript src="jquery-hotkeys/jquery.hotkeys.js"/>
   <g:javascript library="prototype"/>
-  <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
   <jqui:resources/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
