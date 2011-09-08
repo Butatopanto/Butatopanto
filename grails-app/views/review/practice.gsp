@@ -16,14 +16,12 @@
   <jqui:resources/>
   <g:javascript src="livepipe/livepipe.js"/>
   <g:javascript src="livepipe/hotkey.js"/>
-  <g:javascript src="protolicious/event.simulate.js"/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
 
     function click(elementId) {
-      var element = document.getElementById(elementId);
-      element.simulate('click');
+      jQuery("#"+elementId).click();
     }
 
     function registerHotkey(key, elementId) {
