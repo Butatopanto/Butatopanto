@@ -15,8 +15,6 @@
   <g:javascript library="prototype"/>
   <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
   <jqui:resources/>
-  <g:javascript src="livepipe/livepipe.js"/>
-  <g:javascript src="livepipe/hotkey.js"/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
