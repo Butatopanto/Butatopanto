@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
   <g:javascript library="jquery" plugin="jquery"/>
   <g:javascript src="jquery-hotkeys/jquery.hotkeys.js"/>
-  <g:javascript library="prototype"/>
   <jqui:resources/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
