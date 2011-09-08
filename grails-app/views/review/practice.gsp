@@ -11,6 +11,7 @@
   <g:javascript>
     jQuery.noConflict();
   </g:javascript>
+  <g:javascript src="jquery-hotkeys/jquery.hotkeys.js"/>
   <g:javascript library="prototype"/>
   <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
   <jqui:resources/>
@@ -25,16 +26,13 @@
     }
 
     function registerHotkey(key, elementId) {
-        var withoutControlKey = {
-        ctrlKey: false
-      };
-      new HotKey(key, function(event) {
-        click(elementId);
-      }, withoutControlKey);
+      jQuery(document).bind("keydown", key, function(){
+        click(elementId)
+      });
     }
 
     jQuery(document).ready(function() {
-      registerHotkey(' ', 'card');
+      registerHotkey('space', 'card');
       registerHotkey(confirmKey, 'confirmButton');
       registerHotkey(declineKey, 'declineButton');
     });
