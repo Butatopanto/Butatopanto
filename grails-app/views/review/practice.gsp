@@ -8,21 +8,28 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='story.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
   <g:javascript library="jquery" plugin="jquery"/>
-  <g:javascript>
-    jQuery.noConflict();
-  </g:javascript>
-  <g:javascript library="prototype"/>
-  <g:javascript src="prototype/scriptaculous.js?load=builder,effects"/>
+  <g:javascript src="jquery-hotkeys/jquery.hotkeys.js"/>
   <jqui:resources/>
-  <g:javascript src="livepipe/livepipe.js"/>
-  <g:javascript src="livepipe/hotkey.js"/>
   <g:javascript>
     var confirmKey= '${message(code: "frame.reviewResult.confirmKey")}';
     var declineKey= '${message(code: "frame.reviewResult.declineKey")}';
+
+    function click(elementId) {
+      jQuery("#"+elementId).click();
+    }
+
+    function registerHotkey(key, elementId) {
+      jQuery(document).bind("keydown", key, function(){
+        click(elementId)
+      });
+    }
+
+    jQuery(document).ready(function() {
+      registerHotkey('space', 'card');
+      registerHotkey(confirmKey, 'confirmButton');
+      registerHotkey(declineKey, 'declineButton');
+    });
   </g:javascript>
-  <g:javascript src="hotkeys.js"/>
-  <g:javascript src="cardnavigation.js"/>
-  <g:javascript src="protolicious/event.simulate.js"/>
   <g:javascript>
     function openStoryDialog(title) {
       var offsetX = parseInt(jQuery('#showStory').css("margin-left").replace("px", ""));
