@@ -8,9 +8,6 @@
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='story.css'/>"/>
   <link rel="stylesheet" href="<g:createLinkTo dir='css' file='button.css'/>"/>
   <g:javascript library="jquery" plugin="jquery"/>
-  <g:javascript>
-    jQuery.noConflict();
-  </g:javascript>
   <g:javascript src="jquery-hotkeys/jquery.hotkeys.js"/>
   <g:javascript library="prototype"/>
   <jqui:resources/>
