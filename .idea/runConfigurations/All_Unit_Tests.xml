@@ -2,7 +2,7 @@
   <configuration default="false" name="All Unit Tests" type="GrailsRunConfigurationType" factoryName="Grails">
     <module name="butatopanto" />
     <setting name="vmparams" value="" />
-    <setting name="cmdLine" value="test-app -unit" />
+    <setting name="cmdLine" value="test-app -unit -xml" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />

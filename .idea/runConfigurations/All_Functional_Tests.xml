@@ -2,7 +2,7 @@
   <configuration default="false" name="All Functional Tests" type="GrailsRunConfigurationType" factoryName="Grails">
     <module name="butatopanto" />
     <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=256M -Xmx1024M" />
-    <setting name="cmdLine" value="test-app -functional" />
+    <setting name="cmdLine" value="test-app -functional -xml" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
