@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1227c475-9c2d-43c3-b270-e38475ca7613" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/butatopanto-grailsPlugins.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/butatopanto.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/All_Functional_Tests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_Functional_Tests.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/All_Integration_Tests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_Integration_Tests.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/All_Unit_Tests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_Unit_Tests.xml" />
+      <change type="DELETED" beforePath="C:\Dev\repos\butatopanto\.classpath" afterPath="" />
+      <change type="DELETED" beforePath="C:\Dev\repos\butatopanto\.project" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="butatopanto.iws" />
@@ -210,6 +206,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="butatopanto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="butatopanto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -405,7 +415,7 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -457,7 +467,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-Set intellij modules." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed remnant of hg" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -470,9 +480,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="VCS is not git" />
-    <MESSAGE value="Transitioning to jQuery: Merge branch 'jquery'&#10;Story dialog transitioned&#10;Mousewheel controls transitioned&#10;&#10;Conflicts:&#10;&#9;.idea/vcs.xml&#10;&#9;ButatoPanto-grailsPlugins.iml&#10;&#9;grails-app/views/mastery/listByChapter.gsp&#10;&#9;grails-app/views/review/practice.gsp&#10;" />
-    <MESSAGE value="Merge branch 'jquery'&#10;&#10;Conflicts:&#10;&#9;.idea/vcs.xml&#10;&#9;ButatoPanto-grailsPlugins.iml&#10;&#9;grails-app/views/mastery/listByChapter.gsp&#10;&#9;grails-app/views/review/practice.gsp&#10;" />
     <MESSAGE value="Transitioning from Prototype to jQuery: Merge branch 'jquery'&#10;Mousewheel controls done&#10;Story window done&#10;&#10;Conflicts:&#10;&#9;.idea/vcs.xml&#10;&#9;ButatoPanto-grailsPlugins.iml&#10;&#9;grails-app/views/mastery/listByChapter.gsp&#10;&#9;grails-app/views/review/practice.gsp&#10;" />
     <MESSAGE value="Inlined cardnavigation and hotkeys so everything I need for the transition is in one place." />
     <MESSAGE value="Concentrated into a single script-block" />
@@ -495,6 +502,9 @@
     <MESSAGE value="Added .imls to repository for easier checkout-and-run." />
     <MESSAGE value="Module Butatopanto is back &#10;Where did it go in the first place?" />
     <MESSAGE value="Re-Set intellij modules." />
+    <MESSAGE value="All modules are back and properly named." />
+    <MESSAGE value="All test launchers only output xml, no html&#10;Saving time this way." />
+    <MESSAGE value="Removed remnant of hg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -585,6 +595,13 @@
     <entry file="file://$PROJECT_DIR$/test/functional/butatopanto/kanji/ReviewWithUserFunctionalTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="66" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/projectCodeStyle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
