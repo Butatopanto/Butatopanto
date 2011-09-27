@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1227c475-9c2d-43c3-b270-e38475ca7613" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Dev\repos\butatopanto\ButatoPanto-grailsPlugins.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/All_Functional_Tests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_Functional_Tests.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/All_Integration_Tests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_Integration_Tests.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/All_Unit_Tests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_Unit_Tests.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/butatopanto.iml" afterPath="$PROJECT_DIR$/butatopanto.iml" />
     </list>
     <ignored path="butatopanto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,16 +109,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserSensitiveFunctionalTestCase.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserSensitiveFunctionalTestCase.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/functional/butatopanto/sharedtest/UserSensitiveFunctionalTestCase.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="326" selection-end="326" vertical-scroll-proportion="0.24593128">
+            <state line="9" column="20" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="butatopanto.iml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="butatopanto.iml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/butatopanto.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -145,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/butatopanto/kanji/MasteryController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/flashcard/status.gsp" />
         <option value="$PROJECT_DIR$/test/unit/butatopanto/kanji/ChapterSelectionTagTest.groovy" />
@@ -161,6 +166,7 @@
         <option value="$PROJECT_DIR$/application.properties" />
         <option value="$PROJECT_DIR$/test/functional/butatopanto/kanji/ReviewWithUserFunctionalTest.groovy" />
         <option value="$PROJECT_DIR$/test/functional/butatopanto/sharedtest/UserSensitiveFunctionalTestCase.groovy" />
+        <option value="$PROJECT_DIR$/butatopanto.iml" />
       </list>
     </option>
   </component>
@@ -238,100 +244,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
-  <component name="RunManager" selected="Grails.All Tests">
-    <configuration default="false" name="GroupMasteryService.findsAllDueFramesForGroupWithSingleUser" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="ButatoPanto" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app unit: butatopanto.kanji.GroupMasteryService.findsAllDueFramesForGroupWithSingleUser -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" />
-      <setting name="launchBrowser" value="true" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="GroupMasteryService" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="ButatoPanto" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app unit: butatopanto.kanji.GroupMasteryService -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" />
-      <setting name="launchBrowser" value="true" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="53281" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="ProgressTagLib.hasInternationalizedTitle" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="ButatoPanto" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app unit: butatopanto.kanji.ProgressTagLib.hasInternationalizedTitle -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" />
-      <setting name="launchBrowser" value="true" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="53301" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="AssembleReviewForExperiencedUserIntegration" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="ButatoPanto" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app integration: butatopanto.kanji.AssembleReviewForExperiencedUserIntegration -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" />
-      <setting name="launchBrowser" value="true" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="ReviewWithUserFunctional" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="butatopanto" />
-      <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=256M -Xmx1024M" />
-      <setting name="cmdLine" value="test-app functional: butatopanto.kanji.ReviewWithUserFunctional" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="true" />
-      <MavenGeneralSettings>
-        <option name="checksumPolicy" value="FAIL" />
-        <option name="failureBehavior" value="FAST" />
-        <option name="localRepository" value="" />
-        <option name="mavenHome" value="" />
-        <option name="nonRecursive" value="false" />
-        <option name="pluginUpdatePolicy" value="DO_NOT_UPDATE" />
-        <option name="printErrorStackTraces" value="false" />
-        <option name="snapshotUpdatePolicy" value="ALWAYS_UPDATE" />
-        <option name="usePluginRegistry" value="false" />
-        <option name="userSettingsFile" value="" />
-        <option name="workOffline" value="false" />
-      </MavenGeneralSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Grails.Butatopanto">
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="" />
       <setting name="vmparams" value="" />
@@ -437,18 +350,13 @@
         <option name="PhingTarget" enabled="false" />
       </method>
     </configuration>
-    <list size="11">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Grails.All Functional Tests" />
       <item index="1" class="java.lang.String" itemvalue="Grails.All Integration Tests" />
       <item index="2" class="java.lang.String" itemvalue="Grails.All Unit Tests" />
       <item index="3" class="java.lang.String" itemvalue="Grails.Butatopanto" />
       <item index="4" class="java.lang.String" itemvalue="Grails.Butatopanto (Production)" />
-      <item index="5" class="java.lang.String" itemvalue="Grails.GroupMasteryService.findsAllDueFramesForGroupWithSingleUser" />
-      <item index="6" class="java.lang.String" itemvalue="Grails.GroupMasteryService" />
-      <item index="7" class="java.lang.String" itemvalue="Grails.ProgressTagLib.hasInternationalizedTitle" />
-      <item index="8" class="java.lang.String" itemvalue="Grails.AssembleReviewForExperiencedUserIntegration" />
-      <item index="9" class="java.lang.String" itemvalue="Grails.ReviewWithUserFunctional" />
-      <item index="10" class="java.lang.String" itemvalue="Grails.All Tests" />
+      <item index="5" class="java.lang.String" itemvalue="Grails.All Tests" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -503,7 +411,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -512,24 +420,24 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39976957" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20813008" sideWeight="0.6705069" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.0" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20813008" sideWeight="0.6705069" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.0" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="BuildWatcher" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6705069" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.6705069" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" x="25" y="349" width="1230" height="286" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.0" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2495935" sideWeight="0.6705069" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32949308" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -558,7 +466,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .imls to repository for easier checkout-and-run." />
+    <option name="LAST_COMMIT_MESSAGE" value="Module Butatopanto is back &#10;Where did it go in the first place?" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -571,7 +479,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Test for story being shown after kanji-click" />
     <MESSAGE value="ReviewController forwards to current page, so there's no difference." />
     <MESSAGE value="VCS is not git" />
     <MESSAGE value="Transitioning to jQuery: Merge branch 'jquery'&#10;Story dialog transitioned&#10;Mousewheel controls transitioned&#10;&#10;Conflicts:&#10;&#9;.idea/vcs.xml&#10;&#9;ButatoPanto-grailsPlugins.iml&#10;&#9;grails-app/views/mastery/listByChapter.gsp&#10;&#9;grails-app/views/review/practice.gsp&#10;" />
@@ -596,6 +503,7 @@
     <MESSAGE value="Turns off HTMLUnit logging.&#10;Sandra surmises it might save us memory - if she is right, this could solve the constant build failures." />
     <MESSAGE value="Increased memory on all launch configurations." />
     <MESSAGE value="Added .imls to repository for easier checkout-and-run." />
+    <MESSAGE value="Module Butatopanto is back &#10;Where did it go in the first place?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -683,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/butatopanto.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/functional/butatopanto/kanji/ReviewWithUserFunctionalTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="66" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0">
@@ -699,7 +600,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/functional/butatopanto/sharedtest/UserSensitiveFunctionalTestCase.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="326" selection-end="326" vertical-scroll-proportion="0.24593128">
+        <state line="9" column="20" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/butatopanto.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
