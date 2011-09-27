@@ -1,9 +1,0 @@
-glob:target
-glob:out
-glob:.idea/workspace.xml
-glob:stacktrace.log
-glob:.idea/workspace.xml.orig
-glob:cobertura.ser
-syntax: glob
-ButatoPanto-grailsPlugins.iml
-ButatoPanto.iml
