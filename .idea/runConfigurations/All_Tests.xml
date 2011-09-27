@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="All Functional Tests" type="GrailsRunConfigurationType" factoryName="Grails">
+  <configuration default="false" name="All Tests" type="GrailsRunConfigurationType" factoryName="Grails">
     <module name="butatopanto" />
     <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=256M -Xmx1024M" />
-    <setting name="cmdLine" value="test-app -functional" />
+    <setting name="cmdLine" value="test-app -xml" />
     <setting name="depsClasspath" value="true" />
     <setting name="passParentEnv" value="true" />
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -20,13 +20,7 @@
       <option name="userSettingsFile" value="" />
       <option name="workOffline" value="false" />
     </MavenGeneralSettings>
-    <RunnerSettings RunnerId="Debug">
-      <option name="DEBUG_PORT" value="56269" />
-      <option name="TRANSPORT" value="0" />
-      <option name="LOCAL" value="true" />
-    </RunnerSettings>
     <RunnerSettings RunnerId="Run" />
-    <ConfigurationWrapper RunnerId="Debug" />
     <ConfigurationWrapper RunnerId="Run" />
     <method>
       <option name="Make" enabled="false" />
