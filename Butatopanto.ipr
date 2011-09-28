@@ -197,6 +197,8 @@
         <option name="userSettingsFile" value="" />
         <option name="workOffline" value="false" />
       </MavenGeneralSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
@@ -222,6 +224,8 @@
         <option name="userSettingsFile" value="" />
         <option name="workOffline" value="false" />
       </MavenGeneralSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
@@ -247,6 +251,8 @@
         <option name="userSettingsFile" value="" />
         <option name="workOffline" value="false" />
       </MavenGeneralSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
@@ -272,6 +278,8 @@
         <option name="userSettingsFile" value="" />
         <option name="workOffline" value="false" />
       </MavenGeneralSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
@@ -297,6 +305,8 @@
         <option name="userSettingsFile" value="" />
         <option name="workOffline" value="false" />
       </MavenGeneralSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
@@ -322,6 +332,8 @@
         <option name="userSettingsFile" value="" />
         <option name="workOffline" value="false" />
       </MavenGeneralSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" enabled="false" />
       </method>
