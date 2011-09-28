@@ -169,6 +169,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Butatopanto.iml" filepath="$PROJECT_DIR$/Butatopanto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Butatopanto-grailsPlugins.iml" filepath="$PROJECT_DIR$/Butatopanto-grailsPlugins.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
