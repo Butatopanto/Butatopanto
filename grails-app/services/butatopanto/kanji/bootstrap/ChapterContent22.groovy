@@ -25,5 +25,14 @@ class ChapterContent22 extends ChapterContent{
     insertFrame(592, "床", "Bett")
     insertFrame(593, "麻", "Hanf")
     insertFrame(594, "磨", "polieren")
+    insertFrame(595, "心", "Herz")
+    insertFrame(596, "忘", "vergessen")
+    insertFrame(597, "忍", "erdulden")
+    insertFrame(598, "認", "anerkennen")
+    insertFrame(599, "忌", "Trauer")
+    insertFrame(600, "志", "Absicht")
+    insertFrame(601, "誌", "Zeitschrift")
+    insertFrame(602, "忠", "Treue")
+    insertFrame(603, "串", "Fleischspieß")
   }
 }
