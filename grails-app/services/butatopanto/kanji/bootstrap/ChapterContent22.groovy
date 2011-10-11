@@ -6,7 +6,7 @@ class ChapterContent22 extends ChapterContent {
   private int nextNumber = StartOfChapter;
 
   ChapterContent22() {
-    super(21)
+    super(22)
   }
 
   @Override
