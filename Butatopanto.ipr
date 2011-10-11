@@ -176,14 +176,14 @@
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="Butatopanto" type="GrailsRunConfigurationType" factoryName="Grails">
+    <configuration default="false" name="All Functional Tests" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="Butatopanto" />
-      <setting name="vmparams" value="-XX:MaxPermSize=128M" />
-      <setting name="cmdLine" value="run-app" />
+      <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=256M -Xmx1024M" />
+      <setting name="cmdLine" value="test-app -functional -xml" />
       <setting name="depsClasspath" value="true" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowser" value="false" />
       <MavenGeneralSettings>
         <option name="checksumPolicy" value="FAIL" />
         <option name="failureBehavior" value="FAST" />
@@ -203,14 +203,14 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
-    <configuration default="false" name="Butatopanto (Production)" type="GrailsRunConfigurationType" factoryName="Grails">
+    <configuration default="false" name="All Integration Tests" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="Butatopanto" />
-      <setting name="vmparams" value="-XX:MaxPermSize=256M" />
-      <setting name="cmdLine" value="prod run-app" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="test-app -integration -xml" />
       <setting name="depsClasspath" value="true" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowser" value="false" />
       <MavenGeneralSettings>
         <option name="checksumPolicy" value="FAIL" />
         <option name="failureBehavior" value="FAST" />
@@ -284,14 +284,14 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
-    <configuration default="false" name="All Integration Tests" type="GrailsRunConfigurationType" factoryName="Grails">
+    <configuration default="false" name="Butatopanto" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="Butatopanto" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app -integration -xml" />
+      <setting name="vmparams" value="-XX:MaxPermSize=128M" />
+      <setting name="cmdLine" value="run-app" />
       <setting name="depsClasspath" value="true" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
+      <setting name="launchBrowser" value="true" />
       <MavenGeneralSettings>
         <option name="checksumPolicy" value="FAIL" />
         <option name="failureBehavior" value="FAST" />
@@ -311,14 +311,14 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
-    <configuration default="false" name="All Functional Tests" type="GrailsRunConfigurationType" factoryName="Grails">
+    <configuration default="false" name="Butatopanto (Production)" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="Butatopanto" />
-      <setting name="vmparams" value="-Dserver.port=8081 -XX:MaxPermSize=256M -Xmx1024M" />
-      <setting name="cmdLine" value="test-app -functional -xml" />
+      <setting name="vmparams" value="-XX:MaxPermSize=256M" />
+      <setting name="cmdLine" value="prod run-app" />
       <setting name="depsClasspath" value="true" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
+      <setting name="launchBrowser" value="true" />
       <MavenGeneralSettings>
         <option name="checksumPolicy" value="FAIL" />
         <option name="failureBehavior" value="FAST" />
