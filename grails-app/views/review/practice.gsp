@@ -31,12 +31,12 @@
     });
   </g:javascript>
   <g:javascript>
-    function openStoryDialog(title) {
+    function openStoryDialog(title, url) {
       var offsetX = parseInt(jQuery('#showStory').css("margin-left").replace("px", ""));
       var dialogX = jQuery('#showStory').position().left + offsetX;
       var offsetY = parseInt(jQuery('#showStory').css("margin-top").replace("px", ""));
       var dialogY = jQuery('#showStory').position().top + offsetY;
-      jQuery('#currentStory').load('/ButatoPanto/review/currentStory').dialog({title: title, draggable:false,width: 240, height: 320, position: [dialogX, dialogY]});
+      jQuery('#currentStory').load(url).dialog({title: title, draggable:false,width: 240, height: 320, position: [dialogX, dialogY]});
     }
 
     function closeStoryDialog() {

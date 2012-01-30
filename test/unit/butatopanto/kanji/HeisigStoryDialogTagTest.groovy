@@ -31,7 +31,8 @@ class HeisigStoryDialogTagTest extends TagLibJUnit4TestCase {
   void hasOnClickAttributeToShowDialog() {
     tagLib.session.review = new Review()
     def wrappedDialog = renderAndWrapStoryDialog()
-    assertEquals "openStoryDialog('Story')", wrappedDialog.div[0].div[0].@onclick.text()
+      def onClickText = wrappedDialog.div[0].div[0].@onclick.text()
+      assertEquals "openStoryDialog('Story', '')", onClickText
   }
 
   private def renderAndWrapStoryDialog() {
