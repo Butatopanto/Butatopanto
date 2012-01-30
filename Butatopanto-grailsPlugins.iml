@@ -22,6 +22,7 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/code-coverage-1.1.8">
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/code-coverage-1.1.8/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/code-coverage-1.1.8/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/code-coverage-1.1.8/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/code-coverage-1.1.8/web-app/plugins" />
@@ -34,6 +35,7 @@
     </content>
     <content url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/functional-test-1.2.7">
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/functional-test-1.2.7/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/functional-test-1.2.7/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/functional-test-1.2.7/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/functional-test-1.2.7/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/functional-test-1.2.7/web-app/plugins" />
@@ -47,12 +49,14 @@
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-1.5.2/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-1.5.2/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-1.5.2/grails-app/taglib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-1.5.2/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/jquery-1.5.2/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/jquery-1.5.2/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/jquery-1.5.2/web-app/plugins" />
     </content>
     <content url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-ui-1.8.15">
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-ui-1.8.15/grails-app/taglib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/jquery-ui-1.8.15/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/jquery-ui-1.8.15/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/jquery-ui-1.8.15/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/jquery-ui-1.8.15/web-app/plugins" />
@@ -61,6 +65,7 @@
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/mail-1.0-SNAPSHOT/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/mail-1.0-SNAPSHOT/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/mail-1.0-SNAPSHOT/grails-app/taglib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/mail-1.0-SNAPSHOT/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/mail-1.0-SNAPSHOT/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/mail-1.0-SNAPSHOT/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/mail-1.0-SNAPSHOT/web-app/plugins" />
@@ -68,6 +73,7 @@
     <content url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/navigation-1.3">
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/navigation-1.3/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/navigation-1.3/grails-app/taglib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/navigation-1.3/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/navigation-1.3/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/navigation-1.3/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/navigation-1.3/web-app/plugins" />
@@ -77,6 +83,7 @@
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-core-1.2.1/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-core-1.2.1/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-core-1.2.1/grails-app/taglib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-core-1.2.1/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/spring-security-core-1.2.1/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/spring-security-core-1.2.1/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/spring-security-core-1.2.1/web-app/plugins" />
@@ -86,6 +93,7 @@
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-ui-0.1.2/grails-app/domain" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-ui-0.1.2/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-ui-0.1.2/grails-app/taglib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/ButatoPanto/plugins/spring-security-ui-0.1.2/grails-app/i18n" isTestSource="false" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/spring-security-ui-0.1.2/target/classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/spring-security-ui-0.1.2/target/test-classes" />
       <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/Butatopanto/plugins/spring-security-ui-0.1.2/web-app/plugins" />
