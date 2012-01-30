@@ -1,6 +1,11 @@
 <html>
 <head>
     <title>Butato Panto</title>
+    <meta name="robots" content="index, nofollow">
+    <meta name="keywords" lang="en" content="Japanese,Heisig,Kanji,Study,Learn,Practice,Story,Leitner,Cards"/>
+    <meta name="keywords" lang="de" content="Japanisch,Heisig,Kanji,Lernen,Üben,Geschichten,Lernkartei"/>
+    <meta name="description" lang="en" content="Butatopanto is a browser based trainer for japanese vocabulary."/>
+    <meta name="description" lang="de" content="Butatopanto ist ein Online-Vokabeltrainer für japanische Kanji."/>
     <meta name="google-site-verification" content="bT2c7HWLGGLeeOVxe1eN18ld0k_MVYR2gvmMCFo-XnE"/>
     <meta name="layout" content="main"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'index.css')}"/>
