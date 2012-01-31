@@ -44,10 +44,10 @@ class ChapterContent23 extends ChapterContent {
         addKanji("提", "vorlegen")
         def vorlegenFrame =  Frame.findByNumber(665);
         vorlegenFrame.setKeyword("vorlegen")
-        vorlegenFrame.save()
+        vorlegenFrame.save(flush: true)
         def vergnuegenFrame =  Frame.findByNumber(628);
         vergnuegenFrame.setKeyword("Vergnügen")
-        vergnuegenFrame.save()
+        vergnuegenFrame.save(flush: true)
         addKanji("損", "Schaden")
         addKanji("拾", "auflesen")
         addKanji("担", "schultern")
