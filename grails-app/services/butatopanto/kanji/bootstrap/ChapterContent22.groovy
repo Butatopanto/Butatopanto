@@ -61,7 +61,7 @@ class ChapterContent22 extends ChapterContent {
     addKanji("悔", "bereuen")
     addKanji("憎", "hassen")
     addKanji("慣", "Gewohnheit")
-    addKanji("愉", "Vergmügen")
+    addKanji("愉", "Vergnügen")
     addKanji("惰", "faul")
     addKanji("慎", "Mäßigung")
     addKanji("憾", "Bedauern")

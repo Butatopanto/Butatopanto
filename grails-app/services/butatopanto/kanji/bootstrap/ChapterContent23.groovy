@@ -1,5 +1,7 @@
 package butatopanto.kanji.bootstrap
 
+import butatopanto.kanji.Frame
+
 class ChapterContent23 extends ChapterContent {
 
     private static final int StartOfChapter = 637;
@@ -39,7 +41,13 @@ class ChapterContent23 extends ChapterContent {
         addKanji("揮", "schwingen")
         addKanji("推", "vermuten")
         addKanji("揚", "hissen")
-        addKanji("提", "vorschlagen")
+        addKanji("提", "vorlegen")
+        def vorlegenFrame =  Frame.findByNumber(number: 665);
+        vorlegenFrame.setKeyword("vorlegen")
+        vorlegenFrame.save()
+        def vergnuegenFrame =  Frame.findByNumber(number: 628);
+        vergnuegenFrame.setKeyword("Vergnügen")
+        vergnuegenFrame.save()
         addKanji("損", "Schaden")
         addKanji("拾", "auflesen")
         addKanji("担", "schultern")
