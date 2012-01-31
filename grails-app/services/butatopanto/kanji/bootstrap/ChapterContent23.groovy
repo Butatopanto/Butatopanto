@@ -7,9 +7,7 @@ class ChapterContent23 extends ChapterContent {
 
     ChapterContent23() {
         super(23)
-        updateKeyword(665, "vorlegen")
-        updateKeyword(628, "Vergnügen")
-    }
+     }
 
     @Override
     void addFramesToDatabase() {

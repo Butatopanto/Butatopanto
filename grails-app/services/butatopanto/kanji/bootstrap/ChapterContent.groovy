@@ -11,6 +11,8 @@ abstract class ChapterContent {
   }
 
   public void insertFrames() {
+      updateKeyword(665, "vorlegen")
+       updateKeyword(628, "Vergnügen")
     if (thereAreNoFramesFromChapter()) {
       addFramesToDatabase()
     }
