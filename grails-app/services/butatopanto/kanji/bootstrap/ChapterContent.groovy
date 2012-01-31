@@ -26,7 +26,7 @@ abstract class ChapterContent {
         new Frame(number: number, kanji: character, keyword: meaning, chapter: chapterNumber).save();
     }
 
-    def updateKeyword(number, keyword) {
+    def patchKeyword(number, keyword) {
         def frame = Frame.findByNumber(number)
         if (frame) {
             frame.setKeyword(keyword)
