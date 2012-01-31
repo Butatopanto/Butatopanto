@@ -1,7 +1,5 @@
 package butatopanto.kanji.bootstrap
 
-import butatopanto.kanji.Frame
-
 class ChapterContent23 extends ChapterContent {
 
     private static final int StartOfChapter = 637;

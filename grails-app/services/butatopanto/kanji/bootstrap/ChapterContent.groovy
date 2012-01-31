@@ -27,7 +27,7 @@ abstract class ChapterContent {
   }
 
   def updateKeyword(number, keyword) {
-      def frame = Frame.findByNumber number
+      def frame = Frame.findByNumber(number)
       frame.setKeyword(keyword)
       frame.save(flush: true)
   }
