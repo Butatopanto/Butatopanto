@@ -4,33 +4,33 @@ import butatopanto.kanji.Frame
 
 abstract class ChapterContent {
 
-  private def chapterNumber
+    private def chapterNumber
 
-  ChapterContent(def number) {
-    this.chapterNumber = number
-  }
-
-  public void insertFrames() {
-      updateKeyword(665, "vorlegen")
-       updateKeyword(628, "Vergnügen")
-    if (thereAreNoFramesFromChapter()) {
-      addFramesToDatabase()
+    ChapterContent(def number) {
+        this.chapterNumber = number
     }
-  }
 
-  boolean thereAreNoFramesFromChapter(){
-    !Frame.findByChapter(chapterNumber)
-  }
+    public void insertFrames() {
+        if (thereAreNoFramesFromChapter()) {
+            addFramesToDatabase()
+        }
+    }
 
-  abstract void addFramesToDatabase()
+    boolean thereAreNoFramesFromChapter() {
+        !Frame.findByChapter(chapterNumber)
+    }
 
-  def insertFrame(number, character, meaning) {
-    new Frame(number: number, kanji: character, keyword: meaning, chapter: chapterNumber).save();
-  }
+    abstract void addFramesToDatabase()
 
-  def updateKeyword(number, keyword) {
-      def frame = Frame.findByNumber(number)
-      frame.setKeyword(keyword)
-      frame.save(flush: true)
-  }
+    def insertFrame(number, character, meaning) {
+        new Frame(number: number, kanji: character, keyword: meaning, chapter: chapterNumber).save();
+    }
+
+    def updateKeyword(number, keyword) {
+        def frame = Frame.findByNumber(number)
+        if (frame) {
+            frame.setKeyword(keyword)
+            frame.save(flush: true)
+        }
+    }
 }
