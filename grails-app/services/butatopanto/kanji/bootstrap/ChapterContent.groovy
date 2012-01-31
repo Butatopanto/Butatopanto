@@ -25,4 +25,10 @@ abstract class ChapterContent {
   def insertFrame(number, character, meaning) {
     new Frame(number: number, kanji: character, keyword: meaning, chapter: chapterNumber).save();
   }
+
+  def updateKeyword(number, keyword) {
+      def frame = Frame.findByNumber number
+      frame.setKeyword(keyword)
+      frame.save(flush: true)
+  }
 }

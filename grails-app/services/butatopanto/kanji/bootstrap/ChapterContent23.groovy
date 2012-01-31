@@ -9,6 +9,8 @@ class ChapterContent23 extends ChapterContent {
 
     ChapterContent23() {
         super(23)
+        updateKeyword(665, "vorlegen")
+        updateKeyword(628, "Vergnügen")
     }
 
     @Override
@@ -42,12 +44,6 @@ class ChapterContent23 extends ChapterContent {
         addKanji("推", "vermuten")
         addKanji("揚", "hissen")
         addKanji("提", "vorlegen")
-        def vorlegenFrame =  Frame.findByNumber(665);
-        vorlegenFrame.setKeyword("vorlegen")
-        vorlegenFrame.save(flush: true)
-        def vergnuegenFrame =  Frame.findByNumber(628);
-        vergnuegenFrame.setKeyword("Vergnügen")
-        vergnuegenFrame.save(flush: true)
         addKanji("損", "Schaden")
         addKanji("拾", "auflesen")
         addKanji("担", "schultern")
