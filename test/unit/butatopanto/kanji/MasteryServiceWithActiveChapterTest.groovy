@@ -31,6 +31,11 @@ class MasteryServiceWithActiveChapterTest extends GrailsJUnit4TestCase {
     masteryQueryServiceObjectMother.queryFromHeisigUserData UserServiceObjectMother.defaultUserName
     service.masteryQueryService = masteryQueryServiceObjectMother.service
   }
+    
+  @Test
+  void activatedChapterIsHindmost() {
+    assertEquals 2, service.getHindmostMasteredChapter()
+  }
 
   @Test
   void hasTwoMasteryInList() {

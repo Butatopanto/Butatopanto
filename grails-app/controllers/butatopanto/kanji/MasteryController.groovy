@@ -13,7 +13,7 @@ class MasteryController {
     @Secured('ROLE_USER')
     def listByChapter = {
         int chapterNumber = params.int('id')
-        chapterNumber = chapterNumber ?: 1
+        chapterNumber = chapterNumber ?: masteryService.getHindmostMasteredChapter()
         int lastChapter = chapterService.getLastChapterNumber()
         ChapterNavigationBuilder builder = new ChapterNavigationBuilder(lastChapter)
         builder.setChapterNumber chapterNumber
