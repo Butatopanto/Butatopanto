@@ -97,7 +97,7 @@ class ChapterContent23 extends ChapterContent {
         addKanji("寂", "Einsamkeit")
         addKanji("淑", "anmutig")
         addKanji("反", "anti-")
-        addKanji("坂", "slope")
+        addKanji("坂", "Abhang")
         addKanji("板", "Brett")
         addKanji("返", "zurück")
         addKanji("販", "veräußern")
@@ -141,6 +141,7 @@ class ChapterContent23 extends ChapterContent {
         addKanji("流", "Strömung")
         addKanji("允", "gestatten")
         addKanji("唆", "verführen")
+        patchKeyword(723, "Abhang")
     }
 
     private addKanji(kanji, keyword) {

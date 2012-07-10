@@ -1,0 +1,96 @@
+package butatopanto.kanji.bootstrap
+
+class ChapterContent27 extends ChapterContent {
+
+    private static final int StartOfChapter = 951;
+    private int nextNumber = StartOfChapter;
+
+    ChapterContent27() {
+        super(27)
+     }
+
+    @Override
+    void addFramesToDatabase() {
+        addKanji("人","Mensch")
+        addKanji("佐","Assistant")
+        addKanji("但","jedoch")
+        addKanji("住","wohnen")
+        addKanji("位","Rang")
+        addKanji("仲","Verhältnis")
+        addKanji("体","Körper")
+        addKanji("悠","gelassen")
+        addKanji("件","Angelegenheit")
+        addKanji("仕","bedienen")
+        addKanji("他","anders")
+        addKanji("伏","sich niederwerfen")
+        addKanji("伝","übermitteln")
+        addKanji("仏","Buddha")
+        addKanji("休","ausruhen")
+        addKanji("仮","vorläufig")
+        addKanji("伯","Graf")
+        addKanji("俗","volkstümlich")
+        addKanji("信","Glaube")
+        addKanji("佳","exzellent")
+        addKanji("依","abhängig")
+        addKanji("例","Beispiel")
+        addKanji("個","Individuum")
+        addKanji("健","gesund")
+        addKanji("側","Seite")
+        addKanji("侍","aufwarten")
+        addKanji("停","anhalten")
+        addKanji("値","Preis")
+        addKanji("倣","nacheifern")
+        addKanji("倒","umstürzen")
+        addKanji("偵","auskundschaften")
+        addKanji("僧","buddhistischer Priester")
+        addKanji("億","hundert Millionen")
+        addKanji("儀","Zeremonie")
+        addKanji("償","Wiedergutmachung")
+        addKanji("仙","Einsiedler")
+        addKanji("催","veranstalten")
+        addKanji("仁","Menschlichkeit")
+        addKanji("侮","verachten")
+        addKanji("使","benutzen")
+        addKanji("便","Bequemlichkeit")
+        addKanji("倍","doppelt")
+        addKanji("優","liebenswürdig")
+        addKanji("伐","fällen")
+        addKanji("宿","Herberge")
+        addKanji("傷","Wunde")
+        addKanji("保","bewahren")
+        addKanji("褒","loben")
+        addKanji("傑","meisterhaft")
+        addKanji("付","anhaften")
+        addKanji("符","Zeichen")
+        addKanji("府","Stadtpräfektur")
+        addKanji("任","Verantwortung")
+        addKanji("賃","Fahrgeld")
+        addKanji("代","Ersatz")
+        addKanji("袋","Sack")
+        addKanji("貸","Verleih")
+        addKanji("化","verwandeln")
+        addKanji("花","Blume")
+        addKanji("貨","Fracht")
+        addKanji("傾","sich verneigen")
+        addKanji("何","was?")
+        addKanji("荷","Gepäck")
+        addKanji("俊","hochbegabt")
+        addKanji("傍","Außenstehender")
+        addKanji("久","lange Zeit")
+        addKanji("畝","Furche")
+        addKanji("囚","Häftling")
+        addKanji("内","innerhalb")
+        addKanji("丙","drittklassig")
+        addKanji("柄","Gestaltung")
+        addKanji("肉","Fleisch")
+        addKanji("腐","verfaulen")
+        addKanji("座","sitzen")
+        addKanji("卒","Abschluss")
+        addKanji("傘","Schirm")
+    }
+
+    private addKanji(kanji, keyword) {
+        insertFrame(nextNumber, kanji, keyword)
+        nextNumber++;
+    }
+}
