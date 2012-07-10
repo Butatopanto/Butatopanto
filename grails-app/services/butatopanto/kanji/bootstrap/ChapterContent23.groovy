@@ -141,7 +141,6 @@ class ChapterContent23 extends ChapterContent {
         addKanji("流", "Strömung")
         addKanji("允", "gestatten")
         addKanji("唆", "verführen")
-        patchKeyword(723, "Abhang")
     }
 
     private addKanji(kanji, keyword) {
