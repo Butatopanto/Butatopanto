@@ -9,11 +9,13 @@ class BootStrap {
   def heisigContentService
   def leitnerMigrationService
   def springSecurityService
+  def storySynchronizationService
 
   def init = { servletContext ->
     heisigContentService.initializeDatabase()
     createUsers()
     leitnerMigrationService.updateDueDates()
+    //storySynchronizationService.copyUnknownStories()
   }
 
   def createUsers() {
@@ -23,6 +25,7 @@ class BootStrap {
       def allRoles = [userRole, adminRole]
       createTestUser('Urs', allRoles)
       createTestUser('Sandra', allRoles)
+      createTestUser('Watashitachi', allRoles)
       createTestUser('Gast', [userRole])
       createAdmin(allRoles)
     }
