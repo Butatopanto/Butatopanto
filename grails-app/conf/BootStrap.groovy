@@ -15,7 +15,7 @@ class BootStrap {
     heisigContentService.initializeDatabase()
     createUsers()
     leitnerMigrationService.updateDueDates()
-    //storySynchronizationService.copyUnknownStories()
+    storySynchronizationService.copyUnknownStories()
   }
 
   def createUsers() {
