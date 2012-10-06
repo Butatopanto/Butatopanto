@@ -83,16 +83,16 @@ class AssembleReviewController {
             redirect(action: "startDue")
         }
         else {
-            redirect(controller: 'review', action: 'practice')
+            redirect(controller: 'review', action: 'practice', params: [nocache: new Date().time])
         }
     }
 
     private def continueAssembly() {
-        redirect(action: "continueToAssemble")
+        redirect(action: "continueToAssemble", params: [nocache: new Date().time])
     }
 
     private def startPractice() {
-        redirect(action: "practice")
+        redirect(action: "practice", params: [nocache: new Date().time])
     }
 
     private def getChapterSelection(int chapterNumber) {
