@@ -67,9 +67,9 @@ class HeisigTagLib {
     "<div class='frameMessage'>" +
             "<p>${g.message(code: 'frame.reviewResultQuestion')}</p>" +
             g.form(name: 'reviewKanji') {
-              g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'confirmButton', class: "medium green button", update: 'container', value: g.message(code: 'frame.reviewResult.confirm'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true]]) +
+              g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'confirmButton', class: "medium green button", update: 'container', value: g.message(code: 'frame.reviewResult.confirm'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: true, nocache: new Date().time]]) +
                       " " +
-                      g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'declineButton', class: "medium red button", update: 'container', value: g.message(code: 'frame.reviewResult.decline'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false]])
+                      g.submitToRemote(onComplete: 'closeStoryDialog()', id: 'declineButton', class: "medium red button", update: 'container', value: g.message(code: 'frame.reviewResult.decline'), url: [controller: 'review', action: 'ajaxResolve', params: [kanji: frame.kanji, reviewCorrect: false, nocache: new Date().time]])
             } +
             "</div>"
   }
