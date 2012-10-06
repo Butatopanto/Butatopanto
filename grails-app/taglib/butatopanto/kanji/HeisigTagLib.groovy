@@ -39,7 +39,7 @@ class HeisigTagLib {
     if (session.review) {
       def revealMessage = g.message(code: "story.dialog.clickToShow")
       def dialogTitle = g.message(code: 'story.dialog.title')
-      def storyUrl = g.createLink(controller: 'review', action: 'currentStory')
+      def storyUrl = g.createLink(controller: 'review', action: 'currentStory', params: [nocache: new Date().time])
       out << "<div class='yui3-u-1-3'>"
       out << "<div id='showStory' onclick=\"openStoryDialog('${dialogTitle}', '${storyUrl}')\">"
       out << "<b><br/>${revealMessage}</b></div>"
