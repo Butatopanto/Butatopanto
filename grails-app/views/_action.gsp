@@ -1,4 +1,4 @@
-<g:link controller="$controller">
+<g:link controller="$controller" params="${[nocache: new Date().time]}">
   <g:set var="color"><g:include controller="color" params="${[controller:controller]}"/></g:set>
   <div class="button huge ${color} mainpagebutton">
     <div class="japanese iconicletter">

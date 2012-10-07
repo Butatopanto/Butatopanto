@@ -30,22 +30,21 @@
 
 <div class="nav" style='width:775px'>
   <g:if test="${dueFrames}">
-    <span class="menuButton"><g:link class="practice" action="startDue"><g:message
+    <span class="menuButton"><g:link class="practice" action="startDue" params="${[nocache: new Date().time]}"><g:message
             code="review.assemble.due"/></g:link></span>
   </g:if>
   <g:if test="${dueSelected}">
-    <span class="menuButton"><g:link class="practice"
-                                     action="startDueFramesFromSelectedChapter"><g:message
+    <span class="menuButton"><g:link class="practice" action="startDueFramesFromSelectedChapter" params="${[nocache: new Date().time]}"><g:message
               code="review.assemble.startSelectedDue"/></g:link></span>
   </g:if>
   <g:if test="${chaptersSelected}">
-    <span class="menuButton"><g:link class="practice" action="startSelectedChapters"><g:message
+    <span class="menuButton"><g:link class="practice" action="startSelectedChapters" params="${[nocache: new Date().time]}"><g:message
             code="review.assemble.selected"/></g:link></span>
   </g:if>
 </div>
 
 <div>
-  <g:form action="startRange">
+  <g:form action="startRange" method="post">
     <g:textField name="from" value="${g.message(code:'review.practiceRange.from')}" onclick="this.select()"/>
     <g:textField name="to" value="${g.message(code:'review.practiceRange.to')}" onclick="this.select()"/>
     <g:submitButton name="practice" id='practice' class="medium gray button"

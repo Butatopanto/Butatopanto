@@ -17,7 +17,7 @@ class ReviewController {
     }
 
     def practice = {
-        [frame: reviewService.getCurrentFrame(session.review)]
+        [frame: reviewService.getCurrentFrame(session.review), params: [nocache: new Date().time]]
     }
 
     def ajaxReveal = {
@@ -40,21 +40,21 @@ class ReviewController {
     def repeat = {
         def kanji = params.kanji.minus('[').minus(']').split(',')
         flash.kanji = kanji.collect {it.toInteger()}
-        redirect(controller: 'assembleReview', action: 'startList')
+        redirect(controller: 'assembleReview', action: 'startList', params: [nocache: new Date().time])
     }
 
     def startNew = {
-        redirect(controller: 'assembleReview')
+        redirect(controller: 'assembleReview', params: [nocache: new Date().time])
     }
 
     private def ajaxRenderFrame(frame, boolean hidden) {
-        def practiceTablet = heisig.practiceTablet([frame: frame, hidden: hidden])
+        def practiceTablet = heisig.practiceTablet([frame: frame, hidden: hidden, nocache: new Date().time])
         render practiceTablet
     }
 
     private def endReview() {
         def finishedReview = session.review;
         session.review = null;
-        render(template: 'endReview', model: [review: finishedReview])
+        render(template: 'endReview', model: [review: finishedReview], params: [nocache: new Date().time])
     }
 }
