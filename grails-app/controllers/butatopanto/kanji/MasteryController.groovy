@@ -26,20 +26,19 @@ class MasteryController {
 
     @Secured('ROLE_USER')
     def activate = {
-        int from = params.int('from')
-        int to = params.int('to')
-        if (!from || !to) {
-            flash.message = "mastery.activation.error"
-            redirect(action: 'listByChapter', id: 1)
-            return
+        doForMasteryRangeFromParams("mastery.activation.error", params) { int from, int to ->
+            masteryService.activateRange(from, to)
         }
-        masteryService.activateRange(from, to)
-        def fromChapterNumber = Frame.findByNumber(from).chapter
-        redirect(action: 'listByChapter', id: fromChapterNumber)
     }
 
     @Secured('ROLE_USER')
     def deactivate = {
+        doForMasteryRangeFromParams("mastery.deactivation.error", params) { int from, int to ->
+            masteryService.deactivateRange(from, to)
+        }
+    }
+
+    private void doForMasteryRangeFromParams(def errorMessageKey, def params, Closure closure) {
         int from = params.int('from')
         int to = params.int('to')
         if (!from || !to) {
@@ -47,7 +46,7 @@ class MasteryController {
             redirect(action: 'listByChapter', id: 1)
             return
         }
-        masteryService.deactivateRange(from, to)
+        closure.call(from, to)
         def fromChapterNumber = Frame.findByNumber(from).chapter
         redirect(action: 'listByChapter', id: fromChapterNumber)
     }

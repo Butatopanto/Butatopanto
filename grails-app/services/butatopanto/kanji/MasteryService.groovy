@@ -44,7 +44,7 @@ class MasteryService {
     }
 
     private def deactivateFrames(List<Frame> frames) {
-        def heisigUser = findOrCreateHeisigUser()
+        findOrCreateHeisigUser()
         frames.each {
             def mastery = masteryQueryService.findMasteryByFrameId(it.id)
             if (mastery) {
