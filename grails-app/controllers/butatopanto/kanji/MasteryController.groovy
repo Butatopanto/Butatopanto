@@ -38,6 +38,20 @@ class MasteryController {
         redirect(action: 'listByChapter', id: fromChapterNumber)
     }
 
+    @Secured('ROLE_USER')
+    def deactivate = {
+        int from = params.int('from')
+        int to = params.int('to')
+        if (!from || !to) {
+            flash.message = "mastery.deactivation.error"
+            redirect(action: 'listByChapter', id: 1)
+            return
+        }
+        masteryService.deactivateRange(from, to)
+        def fromChapterNumber = Frame.findByNumber(from).chapter
+        redirect(action: 'listByChapter', id: fromChapterNumber)
+    }
+
     def list = {
         List shownMasteryList = listShownMastery()
         [masteryList: shownMasteryList, masteryCount: masteryService.getMasteryCount()]

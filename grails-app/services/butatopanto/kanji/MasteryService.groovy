@@ -21,6 +21,11 @@ class MasteryService {
         activateFrames frames
     }
 
+    def deactivateRange(int from, int to) {
+        List frames = getAllFramesInNumberRange(from, to)
+        deactivateFrames frames
+    }
+
     private static List getAllFramesInNumberRange(int from, int to) {
         def frames = []
         for (number in from..to) {
@@ -34,6 +39,16 @@ class MasteryService {
         frames.each {
             if (!masteryQueryService.findMasteryByFrameId(it.id)) {
                 heisigUser.addToMasteryList new MasteryOfFrame(frame: it, dueDate: calendar.today)
+            }
+        }
+    }
+
+    private def deactivateFrames(List<Frame> frames) {
+        def heisigUser = findOrCreateHeisigUser()
+        frames.each {
+            def mastery = masteryQueryService.findMasteryByFrameId(it.id)
+            if (mastery) {
+                mastery.delete()
             }
         }
     }
