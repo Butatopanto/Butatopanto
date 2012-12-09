@@ -97,6 +97,16 @@
   </div>
 </div>
 
+<div class="yui3-g">
+    <div class="yui-u-1">
+        <g:form action="deactivate">
+            <g:textField name="from" value="${g.message(code:'mastery.deactivation.from')}" onclick="this.select()"/>
+            <g:textField name="to" value="${g.message(code:'mastery.deactivation.to')}" onclick="this.select()"/>
+            <g:submitButton name="activate" id='activate' class="medium gray button" value="${g.message(code:'mastery.deactivation.submit')}"/>
+        </g:form>
+    </div>
+</div>
+
 <div id="currentStory">
 </div>
 </body>
